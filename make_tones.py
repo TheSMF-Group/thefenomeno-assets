@@ -5,11 +5,16 @@ Duas medidas por base, com janelas e estatisticas diferentes:
   k            media da pele na bochecha direita, em luz linear, dividida pela
                mesma media de tmp_1, canal a canal. E o que tone.ts aplica em
                runtime para transferir pele MEDIA entre bases.
-  measuredHex  media dos pixels do decil mais claro (luminancia >= p90) da
-               janela da testa. E a cor do seletor da loja: a pele plenamente
-               iluminada, como o jogador ve.
+  measuredHex  media dos pixels na FAIXA p70..p90 de luminancia da janela da
+               testa. E a cor do seletor da loja: a pele plenamente iluminada,
+               como o jogador ve.
 
-    python make_tones.py                 # usa raw/skin_01..skin_10.png
+               O teto em p90 nao e detalhe: acima dele entra reflexo especular,
+               que tem a cor da luz e nao do pigmento e lavava o croma dos tons
+               escuros. A definicao antiga — decil mais claro, luminancia >=
+               p90, sem teto — foi APOSENTADA. Ver skin_lit_linear() e NOTES.md.
+
+    python make_tones.py                 # usa raw/skin01..skin10.webp
     python make_tones.py --bases tmp     # smoke test com as 4 tmp_*
 """
 import argparse
@@ -274,6 +279,11 @@ def main():
         })
 
         toned_lin = lin * k
+        # TODO(10/09/2026): `clip` e calculada e nunca usada. E resto da analise
+        # de clipping de gamut que esta registrada no NOTES.md (familia PELE, o
+        # residuo aceito por decisao). Decidir entre voltar a reportar por tom
+        # ou remover — nao mexido aqui de proposito: era uma passada de
+        # documentacao, e apagar codigo morto no meio dela mistura duas coisas.
         clip = ((toned_lin < 0) | (toned_lin > 1)).any(axis=2)
         toned = np.clip(to_srgb(toned_lin), 0, 1)
 
@@ -334,7 +344,7 @@ def main():
             for problem in problems:
                 print("  - " + problem)
             print("")
-            print("Nada foi escrito. Confira a ordem de raw/skin_01..skin_10 "
+            print("Nada foi escrito. Confira a ordem de raw/skin01..skin10 "
                   "(mais claro para mais escuro) e se as 10 sao mesmo da escala.")
             print("Para escrever assim mesmo: --force")
             if not args.force:

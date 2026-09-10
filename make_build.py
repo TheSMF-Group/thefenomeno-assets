@@ -11,13 +11,20 @@ custou mais iteracao no projeto; alpha_quality=100 faz o canal alfa passar
 sem perda, e exact=True impede o encoder de zerar o RGB sob os pixels
 totalmente transparentes.
 
+Escreve tambem build/validacao_tons.png, a folha de contato composta A PARTIR
+DO BUILD: base e camada ja em 512, sem reamostrar nada, que e o que o runtime
+faz. Nao confundir com a folha que make_tones.py escreve na raiz, que compoe o
+material de trabalho (1092 e 1254) e serve para validar a medicao, nao a
+entrega.
+
 Nao toca em raw/ nem em layers/.
 """
+import json
 import os
 import shutil
 
 import numpy as np
-from PIL import Image
+from PIL import Image, ImageDraw, ImageFont
 from scipy import ndimage
 
 # De que opacidade para cima o RGB de um pixel e confiavel como fonte do flood.
@@ -30,8 +37,9 @@ FLOOD_SOURCE_ALPHA = 8
 # Ate onde o flood vai, em pixels do canvas de 512. Uma faixa de 16 px cobre os
 # primeiros niveis de mipmap (ate 32x32) e a escala de textura que da para
 # esperar. O flood completo nao acrescenta seguranca util e custa quase o triplo
-# em bytes: numa amostra de 6 camadas, +22% com raio 16 contra +59% sem limite,
-# porque area preta chapada comprime para quase nada e area com cor nao.
+# em bytes, porque area preta chapada comprime para quase nada e area com cor
+# nao. Medido sobre as 32 camadas: sem flood 347,6 KB, raio 16 433,3 KB (+25%),
+# flood total 590,1 KB (+70%).
 FLOOD_RADIUS = 16
 
 
@@ -66,9 +74,89 @@ BUILD = "build"
 BASE_OPTS = {"quality": 88, "method": 6}
 LAYER_OPTS = {"quality": 88, "alpha_quality": 100, "exact": True, "method": 6}
 
+# Camada usada na folha de contato. A mesma de make_tones.py, para que os
+# quadros das duas folhas sejam comparaveis um a um.
+PROBE = "nose_medium"
+
+SHEET_FRAME = 200   # lado do quadro na folha
+SHEET_GUTTER = 6    # espaco entre quadros
+SHEET_LABEL = 26    # altura da faixa do rotulo
+
 
 def kb(path):
     return os.path.getsize(path) / 1024
+
+
+def to_linear(c):
+    return np.where(c <= 0.04045, c / 12.92, ((c + 0.055) / 1.055) ** 2.4)
+
+
+def to_srgb(c):
+    return np.where(c <= 0.0031308, 12.92 * c, 1.055 * np.power(np.clip(c, 0, None), 1 / 2.4) - 0.055)
+
+
+def sheet_font():
+    for path in ("C:/Windows/Fonts/arialbd.ttf",
+                 "/System/Library/Fonts/Supplemental/Arial Bold.ttf",
+                 "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf"):
+        try:
+            return ImageFont.truetype(path, 18)
+        except OSError:
+            continue
+    return ImageFont.load_default()
+
+
+def contact_sheet():
+    """
+    Folha de validacao gerada DO BUILD.
+
+    Base e camada saem de build/, ja em 512, e sao compostas sem reamostrar
+    nada — que e exatamente o que o runtime faz. E o que separa esta folha da
+    que make_tones.py escreve na raiz: aquela valida o material de trabalho
+    (bases de 1092, camadas de 1254, e precisa reduzir a camada para compor);
+    esta valida o que vai para o jogo, depois do Lanczos e do WebP.
+
+    O k sai de build/tones.json e e aplicado em luz linear, com round e nao
+    trunc, para bater byte a byte com o que tone.ts desenha.
+    """
+    with open(os.path.join(BUILD, "tones.json"), encoding="utf8") as fh:
+        tones = json.load(fh)["tones"]
+
+    layer_path = os.path.join(BUILD, "layers", PROBE + ".webp")
+    layer = Image.open(layer_path).convert("RGBA")
+    alpha = layer.getchannel("A")
+    lin = to_linear(np.asarray(layer.convert("RGB")) / 255.0)
+
+    frames = []
+    for tone in tones:
+        base_name = os.path.splitext(tone["base"])[0] + ".webp"
+        base = Image.open(os.path.join(BUILD, "bases", base_name)).convert("RGBA")
+        # O runtime nunca interpola: se o build nao entregou base e camada no
+        # mesmo canvas, o build esta errado e a folha nao tem o que validar.
+        if base.size != layer.size:
+            raise SystemExit("build inconsistente: %s e %s.webp estao em canvas "
+                             "diferentes (%s x %s)"
+                             % (base_name, PROBE, base.size, layer.size))
+        k = np.array([tone["k"]["r"], tone["k"]["g"], tone["k"]["b"]])
+        toned = np.clip(to_srgb(lin * k), 0, 1)
+        toned_img = Image.fromarray(np.round(toned * 255).astype(np.uint8)).convert("RGBA")
+        toned_img.putalpha(alpha)
+        frame = base.copy()
+        frame.alpha_composite(toned_img)
+        frames.append((tone["id"], frame.convert("RGB")))
+
+    step = SHEET_FRAME + SHEET_GUTTER
+    width = len(frames) * SHEET_FRAME + (len(frames) - 1) * SHEET_GUTTER
+    sheet = Image.new("RGB", (width, SHEET_FRAME + SHEET_LABEL), "white")
+    draw = ImageDraw.Draw(sheet)
+    font = sheet_font()
+    for i, (tone_id, frame) in enumerate(frames):
+        sheet.paste(frame.resize((SHEET_FRAME, SHEET_FRAME), Image.LANCZOS), (i * step, SHEET_LABEL))
+        draw.text((i * step + 2, 4), tone_id, fill="black", font=font)
+    out = os.path.join(BUILD, "validacao_tons.png")
+    sheet.save(out)
+    print("escrito %s  %s  (%d quadros, composto em %dpx sem reamostrar)"
+          % (out, sheet.size, len(frames), layer.size[0]))
 
 
 def main():
@@ -124,6 +212,9 @@ def main():
 
     shutil.copy("tones.json", os.path.join(BUILD, "tones.json"))
     print("copiado tones.json (inalterado: k e razao de medias, invariante a escala)")
+
+    print()
+    contact_sheet()
 
 
 if __name__ == "__main__":

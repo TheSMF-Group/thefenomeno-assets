@@ -1,0 +1,6 @@
+# Dependencias de make_tones.py e make_build.py.
+# Versoes instaladas e verificadas em 10/09/2026, Python 3.14 (homebrew, macOS).
+numpy==2.5.3
+scipy==1.18.1
+scikit-image==0.26.0
+pillow==12.2.0

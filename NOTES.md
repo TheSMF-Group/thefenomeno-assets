@@ -4,20 +4,42 @@
 
 | pasta | conteúdo |
 |---|---|
-| `raw/` | **output de gerador.** Os 32 renders de feição + as 4 bases `tmp_*`. Um arquivo por camada, mesmo nome da camada. |
+| `raw/` | **output de gerador.** Os 32 renders de feição, as 4 bases `tmp_*` e as 10 bases MST `skin01..skin10.webp`. Um arquivo por camada, mesmo nome da camada. |
 | `raw/_rejected/` | renders substituídos, guardados para rastreio |
 | `layers/` | as 32 camadas extraídas, RGBA com a máscara no alpha |
 | `layers/_rejected/` | camadas substituídas, guardadas para rastreio |
 | `build/` | **o que vai para o jogo.** 512, WebP. Gerado por `make_build.py` |
-| raiz | `tones.json`, `tone.ts`, os geradores, `NOTES.md` e saídas de teste (`gate_*.png`) |
+| raiz | `tones.json`, `tone.ts`, os geradores, `requirements.txt`, `NOTES.md` e saídas de teste (`gate_*.png`) |
 
 `raw/` e `layers/` são o material de trabalho e não são consumidos pelo jogo.
 Só `build/` é.
+
+**`raw/` e `layers/` ficam no repositório, por decisão (10/09/2026.)** São 53,2
+e 54,2 MB, e o repositório não é servido ao cliente — quem é servido é `build/`,
+com 577,6 KB. Não há outra cópia dos renders nem das camadas: `layers/` é a
+única fonte do build e `raw/` é a única fonte de uma reextração. Guardar os dois
+aqui é o backup. **Não é omissão, é escolha:** se um dia sair, sai para um
+armazenamento com endereço registrado neste arquivo, nunca por limpeza.
 
 **Regra: output de gerador vai para `raw/`, nunca para `layers/`.**
 `layers/` só recebe arquivo produzido pela extração. Um render salvo dentro de
 `layers/` sobrescreve silenciosamente a camada de mesmo nome — foi o que
 aconteceu em 09/09/2026 com `beard_stubble`.
+
+## Ambiente
+
+`requirements.txt` fixa as versões com que o pipeline foi verificado
+(numpy 2.5.3, scipy 1.18.1, scikit-image 0.26.0, pillow 12.2.0; Python 3.14).
+
+```
+pip3 install -r requirements.txt
+```
+
+Reproduzido em macOS em 10/09/2026: `make_tones.py` devolve `tones.json` **byte
+a byte igual** ao commitado, e `make_build.py` devolve os 42 WebP **byte a byte
+iguais**. A única saída que não reproduz byte a byte entre plataformas é a faixa
+de **rótulos** das folhas de contato, que depende da fonte do sistema; os
+quadros em si são idênticos.
 
 ## Base do diff
 
@@ -88,7 +110,7 @@ O fator é **por canal, não global**: é o que carrega o croma junto. Contra
 
 **A transferência roda em runtime** (`tone.ts`), a partir das 32 camadas. As
 camadas pré-tingidas por tom **não são geradas**: seriam 32 × 10 = 320 arquivos
-e ~510 MB de PNG, contra 51 MB das 32 atuais.
+e ~542 MB de PNG, contra 54,2 MB das 32 atuais.
 
 ### Critério de aceitação: razão em luz linear, não delta em sRGB
 
@@ -221,8 +243,44 @@ foi corrigida.
 
 Vale notar que a própria escala Monk não tem croma monotônico: sobe de C\* 5,6
 no MST-01 até 27,9 no MST-06 e desce até 3,8 no MST-10. As quatro `tmp_*` são
-todas do lado escuro dessa curva, onde cair é o esperado. **Só dá para julgar
-isso de verdade com as dez bases reais.**
+todas do lado escuro dessa curva, onde cair é o esperado.
+
+#### Fechado com as dez bases reais (10/09/2026)
+
+A questão ficou em aberto enquanto só havia as quatro `tmp_*`. Com as dez bases
+medidas, **a curva tem a forma da escala**: sobe limpo até o pico e desce limpo
+depois, sem nenhuma inversão. O medo de que o croma caísse monotonicamente era
+artefato da amostra — as quatro `tmp_*` só cobriam o lado descendente.
+
+| id | nominal | L\* nom | C\* nom | measuredHex | L\* med | C\* med |
+|---|---|---|---|---|---|---|
+| MST-01 | `#f6ede4` | 94,2 | 5,6 | `#f0cbc1` | 84,5 | 15,1 |
+| MST-02 | `#f3e7db` | 92,3 | 7,6 | `#efc2b1` | 81,9 | 19,9 |
+| MST-03 | `#f7ead0` | 93,1 | 14,2 | `#f1cdae` | 84,7 | 21,7 |
+| MST-04 | `#eadaba` | 87,6 | 17,8 | `#efbc9a` | 80,0 | 27,9 |
+| MST-05 | `#d7bd96` | 77,9 | 23,4 | `#d9a984` | 72,8 | 28,8 |
+| MST-06 | `#a07e56` | 55,1 | **27,9** | `#cd9775` | 66,8 | 30,4 |
+| MST-07 | `#825c43` | 42,5 | 24,0 | `#b57a5d` | 56,6 | **32,0** |
+| MST-08 | `#604134` | 30,7 | 17,7 | `#9b6b57` | 49,7 | 25,2 |
+| MST-09 | `#3a312a` | 21,1 | 6,5 | `#805f51` | 43,3 | 17,5 |
+| MST-10 | `#292420` | 14,6 | 3,8 | `#715a54` | 40,4 | 11,0 |
+
+Três coisas que a tabela mostra, e que valem como registro:
+
+1. **O pico existe e está no meio.** Nominal em MST-06 (27,9), medido em MST-07
+   (32,0). O medido cai **um degrau depois** do nominal, por 1,6 ponto — menos
+   que a tolerância de 2,0. É exatamente o caso que `validate_scale()` já
+   absorve por empate, e a razão de ele existir: chip liso e pele renderizada
+   distribuem croma de jeitos diferentes.
+2. **O croma medido é sistematicamente maior que o nominal**, em todos os dez
+   degraus. É a mesma distância estrutural já registrada acima — chip liso
+   contra superfície iluminada — e não se fecha com janela nenhuma.
+3. **A faixa de L\* medida é comprimida**: 84,5 → 40,4, contra 94,2 → 14,6 do
+   nominal. `measuredHex` é pele **plenamente iluminada**, não a cor média do
+   degrau; o piso em p70 é justamente o que impede a ponta escura de descer.
+
+A pendência está encerrada. O que continua valendo é o ponto cego
+MST-01 ↔ MST-02 da checagem, que é de outra natureza e segue assumido.
 
 ### Checagem da forma da escala, antes de escrever
 
@@ -304,6 +362,34 @@ build/
 **Reescala uma vez, no build. O runtime nunca interpola.** Base e camada chegam
 no mesmo canvas de 512 e o runtime só compõe. Bases descem de 1092, camadas de
 1254, ambas por Lanczos.
+
+### As duas folhas de contato, e qual é qual
+
+Existem duas, com o mesmo nome de arquivo e propósitos diferentes. Confundir as
+duas é fácil e já custou uma investigação:
+
+| arquivo | quem gera | do que compõe | o que valida |
+|---|---|---|---|
+| `validacao_tons.png` na **raiz** | `make_tones.py` | base 1092 + camada 1254 **reduzida** para 1092 | a **medição**: que o `k` medido produz a pele certa no material de trabalho |
+| `build/validacao_tons.png` | `make_build.py` | base 512 + camada 512, **sem reamostrar nada** | a **entrega**: o que o jogo vai compor, depois do Lanczos e do WebP |
+
+A do build é a que importa para aceitar uma release: ela é a única que exercita
+o caminho real do runtime, em que base e camada já chegam no mesmo canvas.
+`contact_sheet()` aborta se o build entregar canvas diferentes entre base e
+camada.
+
+Diferença medida entre as duas, nos quadros: 0,49 nível em média, mediana 0,
+p99 3, máximo 13. É a reamostragem da camada que só existe na folha da raiz.
+
+**Cuidado:** `make_tones.py --out build` sobrescreve `build/validacao_tons.png`
+com a folha do material de trabalho. Use `--out` para um diretório temporário
+quando quiser só conferir a medição.
+
+Até 10/09/2026 a folha do build era produzida por um script que **não estava no
+repositório** — o mesmo que deixou `__pycache__/make_tones.cpython-314.pyc` para
+trás. `contact_sheet()` em `make_build.py` reimplementa esse passo, e reproduz a
+folha commitada **pixel a pixel** nos 10 quadros (só os rótulos mudam, por causa
+da fonte do sistema).
 
 `tones.json` não muda com a resolução: o `k` é razão de médias e é invariante a
 escala.
@@ -465,3 +551,30 @@ cobertura da região para 85,7%.
 Passam o critério: `nose`/`mouth` com 1 blob, `eye`/`brow`/`ear` com 2 blobs
 simétricos (desvio do eixo ≤ 12 px, diferença de altura ≤ 6 px, razão de área
 ≥ 0,88), `hair`/`beard` com 1 blob, todas com ≥ 95% dentro da região do slot.
+
+### Limpeza e saneamento do repositório (10/09/2026)
+
+- **`__pycache__/` saiu do índice** e entrou no `.gitignore` (`__pycache__/`,
+  `*.pyc`). O `.pyc` que estava commitado guardava o caminho de origem
+  `C:\Users\guilherme.santiago\Downloads\assets\make_tones.py` — ver a lacuna
+  registrada abaixo.
+- **`raw/preview.webp` apagado.** Era byte a byte idêntico a `raw/skin01.webp`,
+  não estava documentado e não era referenciado por nenhum script. Inerte,
+  porque os dois geradores exigem prefixo `skin`, mas era duplicata.
+- **`raw/tmp_1.png` convertido de RGBA para RGB.** Era o único dos 36 renders de
+  `raw/` em RGBA. O alpha era uniformemente 255 (valor único verificado), e o
+  RGB saiu **idêntico byte a byte** da conversão. `make_tones.py` já lia esse
+  arquivo com `.convert("RGB")` nos dois pontos de uso, então nenhuma medida
+  muda: `tones.json` foi regerado depois e saiu igual ao anterior.
+
+### Lacuna conhecida: a extração não está no repositório
+
+A receita da máscara está especificada neste arquivo, mas **nenhum `.py` do
+repositório a implementa.** `make_tones.py` e `make_build.py` consomem
+`layers/`; nada a produz. As 32 camadas em `layers/` não são reproduzíveis a
+partir do que está versionado.
+
+É a mesma lacuna que existia na folha de contato do build, e que
+`contact_sheet()` fechou. Enquanto o extrator não estiver aqui, `layers/` é
+**fonte primária, não derivada** — o que é mais uma razão para ela não sair do
+repositório.

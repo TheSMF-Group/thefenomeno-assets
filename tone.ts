@@ -34,7 +34,7 @@ export interface Tone {
    * **This is what a swatch or a store selector shows.**
    */
   measuredHex: string;
-  /** File the factor was measured against, e.g. "skin_01.png". */
+  /** File the factor was measured against, e.g. "skin01.webp". */
   base: string;
   k: ToneFactor;
 }
