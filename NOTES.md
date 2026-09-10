@@ -70,6 +70,184 @@ camada = feição em RGBA com m no alpha
 antes do blur. Contar no alpha já borrado e reaplicar o corte dá número
 diferente, porque o blur encolhe os componentes pequenos abaixo do limite.
 
+## Ordem de composição e posicionamento
+
+Fonte única: `COMPOSE_ORDER` e `LAYER_OFFSET` em `tone.ts`. `make_prototipo.py`
+lê os dois do módulo compilado, com `node`, em vez de manter uma segunda lista —
+uma cópia em Python divergiria em silêncio no dia em que a ordem mudasse.
+
+```
+base → ear → eye → brow → nose → beard → mouth → hair
+```
+
+### `beard` vem ANTES de `mouth` (10/09/2026)
+
+Pelo facial cresce **ao redor** do lábio, não sobre ele. Na ordem antiga
+(`mouth → beard`) a barba apagava a boca inteira:
+
+| barba | % do miolo da boca coberto |
+|---|---|
+| `beard_longfull`, `beard_shortfull`, `beard_stubble` | **100%** nas quatro bocas |
+| `beard_goatee` | 76–83% |
+| `beard_mustache` | 28–54% |
+| `beard_chinstrap` | 0% |
+
+Com três das seis barbas cobrindo 100%, o slot de boca era **inerte**: trocar de
+boca não mudava um pixel do composto. `chinstrap` em zero é o controle que valida
+a medição — ela contorna a mandíbula sem passar pela região labial.
+
+**A inversão troca um problema conhecido por um menor, não por nenhum.** Agora é
+a boca que desenha por cima, e a máscara da boca carrega pele do `tmp_1` em volta
+do lábio, o que abre uma orla clara dentro da barba.
+
+O tamanho dessa orla foi **medido errado na primeira passada** e está corrigido
+aqui. O limiar de então, `r > 0,5`, não separa pele de lábio — o `r` mediano do
+miolo de uma boca é 0,59 a 0,67, então `r > 0,5` captura o lábio inteiro. Pele
+carregada de verdade é `r > 0,85`:
+
+| barba | apaga da barba | **orla real (`r > 0,85`)** | % do total |
+|---|---|---|---|
+| `longfull` / `shortfull` / `stubble` | 3.896–4.889 | **123–568 px** | 2,5–14,6% |
+| `goatee` | 2.953–3.825 | **103–532 px** | 2,7–18,0% |
+| `mustache` | 1.096–2.549 | **11–277 px** | 0,4–25,3% |
+| `chinstrap` | 0 | 0 | — |
+
+**O grosso do que a boca apaga da barba é o próprio lábio, e apagar ali é
+correto** — o lábio fica na frente. Em `mouth_full` sobre `longfull`, dos 4.636
+px apagados só 237 (5,1%) são pele; 3.320 (72%) são lábio e 1.079 (23%) são a
+faixa de transição. A leitura anterior ("69–88% é pele") superestimava o defeito
+em uma ordem de grandeza.
+
+**Resíduo aceito por decisão (10/09/2026).** A orla de 123–568 px fica como está.
+Contra os ~27.000 px que a boca perdia inteiros na ordem antiga, é troca boa, e a
+tentativa de corrigi-la foi medida e descartada logo abaixo.
+
+### Terceira hipótese de correção de borda: `r · canvas` como regra geral — descartada
+
+Terceira contando as hipóteses de borda do projeto inteiro: corte em `r`, cor
+sólida + alpha, e esta. A cadeia de PELO numera as suas quatro à parte, e o
+`w = r` adotado lá continua valendo — o que morre aqui é **estendê-lo à família
+PELE**.
+
+A ideia: generalizar a correção de PELO para toda camada, usando como referência
+**o canvas já composto** em vez da base de tom. Onde a máscara de `mouth_*`
+carrega pele, o valor deveria ser `r ·` (o que já está embaixo), que ali é a
+barba — e não `r · tmp_1`.
+
+**A metade da borda funciona.** Erro nos pixels com `r > 0,85` sobre a barba,
+contra o que a barba já tinha posto:
+
+| boca | px | hoje | `w = r` | `w = 1` |
+|---|---|---|---|---|
+| full | 237 | 87,3 | 13,3 | **5,7** |
+| medium | 568 | 77,9 | 11,2 | **7,7** |
+| thin | 123 | 85,9 | 20,6 | **5,6** |
+| wide | 225 | 79,7 | 13,7 | **6,7** |
+
+De ~80 níveis para 6, e é dedutível: onde `r ≈ 1`, `r · canvas → canvas`.
+
+**A metade do miolo quebra.** Teste: a cor do lábio não pode depender de haver
+barba atrás. Diferença entre compor com e sem barba, no miolo `r < 0,7`:
+
+| boca | px | hoje | `w = r` | `w = 1` |
+|---|---|---|---|---|
+| full | 3.320 | **0,1** | 23,7 | 68,1 |
+| medium | 2.180 | **0,1** | 22,6 | 65,6 |
+| thin | 2.328 | **0,0** | 30,5 | 74,6 |
+| wide | 3.287 | **0,0** | 24,5 | 67,1 |
+
+Hoje o lábio é invariante à barba, como tem que ser. Visualmente, com `w = r` a
+barba atravessa o lábio como textura; com `w = 1` o lábio some dentro dela.
+
+Três razões, e a primeira explica as outras:
+
+1. **`r` não é a mesma grandeza nas duas famílias.** Em PELO é **cobertura** — o
+   fio é mais fino que o pixel, e `r` alto significa que quase toda a luz de trás
+   passa, então `r · canvas` é literalmente o que deveria estar ali. Em PELE é
+   **razão de cor** — o pixel é opaco, e `r = 0,59` não diz que 59% da luz passa,
+   diz que o lábio é 0,59× mais escuro que a pele que havia ali. Medianas do
+   miolo: 0,59 (`mouth_full`), 0,67 (`mouth_thin`), 0,72 (`nose_medium`); só 3 a
+   11% do miolo passa de `r > 0,85`.
+2. **`w = r` em PELE desliga a transferência de tom.** O termo `(1 − w) · camada`
+   devolve o pixel **nativo**, que carrega a pele do `tmp_1`. Em PELO isso é certo
+   (a cor do pelo é nativa); em PELE significa que o lábio não recebe tom nenhum,
+   e em MST-10 ficaria com a pele do `tmp_1`.
+3. **A generalização é válida por pixel, não por família.** `r · canvas` acerta em
+   cobertura parcial e erra em feição opaca. Não é a família que decide, é o
+   pixel — a família PELE apenas tem muito mais pixels opacos. Separar os dois
+   dentro de uma camada é o mesmo problema de classificação que a hipótese 1 de
+   PELO já reprovou.
+
+Observação de subproduto, não medida: sobre pele lisa, `r · base` é a
+transferência de tom **exata por pixel**, enquanto `k` é razão de médias numa
+janela. As duas concordam onde `k` foi calibrado e divergem fora.
+
+### Offset de `ear_*`
+
+`ear_normal` e `ear_protruding` sentavam ~8% da altura do rosto alto demais: topo
+74–78 px acima da linha dos olhos, base 72–75 px acima da base do nariz, no canvas
+de referência 1254. Os dois extremos erram quase o mesmo e a altura da orelha bate
+com o vão olho→nariz dentro de 5 px em 262 — **translação rígida, não erro de
+tamanho**, que é o que um offset conserta sem tocar no asset.
+
+`LAYER_OFFSET` guarda `dy = 75/1254` (fração da aresta, não pixels, para valer em
+qualquer resolução de build). `offsetFor()` multiplica pela aresta e **arredonda
+para pixel inteiro** — offset fracionário em `drawImage` reamostra, e o runtime
+não interpola. Em 512 dá 31 px.
+
+Verificado depois do offset, em 512:
+
+| orelha | topo vs linha dos olhos | base vs base do nariz |
+|---|---|---|
+| `ear_normal` | −0,1 px | +1,2 px |
+| `ear_protruding` | +1,9 px | +0,2 px |
+
+**Só camadas da família PELE podem receber offset.** `offsetFor()` lança se uma
+camada de PELO aparecer na tabela: `applyHairEdgeToRgba` lê `source` e `base` na
+posição do próprio pixel, então deslocar a camada exigiria deslocar as duas
+leituras junto.
+
+### `brow_thick` — asset a regerar, não corrigir por offset
+
+`brow_thick` desce demais: o miolo dele vai até `y = 490`, praticamente no centro
+do olho (493–499), e invade **14,1% a 20,4%** do miolo de cada `eye_*`. Como
+`brow` desenha por cima de `eye`, isso come a pálpebra visível.
+
+| | almond | downturned | hooded | narrow | round |
+|---|---|---|---|---|---|
+| `brow_medium` | 0,0% | 1,3% | 1,5% | 0,8% | 3,9% |
+| **`brow_thick`** | **14,1%** | **16,9%** | **17,5%** | **17,3%** | **20,4%** |
+| `brow_thin` | 0,0% | 0,7% | 1,0% | 0,4% | 3,1% |
+
+**Offset não resolve, piora.** Descer a sobrancelha aumenta a invasão; subir a
+afasta do olho, e a distância já está no piso (ver abaixo). O problema é a
+extensão vertical do próprio render, então **`brow_thick` fica na fila de
+regeração**. `brow_medium` e `brow_thin` funcionam e ficam como estão.
+
+### A métrica de altura de rosto neste asset
+
+A cabeça é **careca**: não existe linha do cabelo, então o *trichion* não é
+mensurável e a altura de rosto anatômica (trichion→mento) não pode ser medida
+aqui. Toda proporção neste arquivo usa **crânio→queixo**: `y = 36` (topo da
+silhueta de `tmp_1`) a `y = 980` (onde `beard_chinstrap`, `beard_shortfull` e
+`beard_stubble` terminam, o que marca a mandíbula), **944 px**.
+
+**Esse denominador é maior que o anatômico e subestima as proporções em ~15%.**
+Uma razão medida em 9% aqui corresponde a ~10,5% na régua anatômica. Ao comparar
+qualquer medida deste arquivo com literatura de proporção facial, corrija para
+cima antes de concluir que algo está fora de faixa.
+
+Exemplo do efeito, na distância sobrancelha→olho (esperado 10–15%):
+
+| sobrancelha | medido (crânio→queixo) | corrigido (~+15%) |
+|---|---|---|
+| `brow_medium` | 9,4–10,1% | 10,8–11,6% |
+| `brow_thin` | 9,0–9,7% | 10,4–11,2% |
+| `brow_thick` | 6,8–7,5% | 7,8–8,6% |
+
+`medium` e `thin` entram na faixa depois da correção; `thick` continua fora, o
+que é consistente com o diagnóstico de invasão acima.
+
 ## Regiões anatômicas por slot (x0, y0, x1, y1)
 
 | slot | caixa |

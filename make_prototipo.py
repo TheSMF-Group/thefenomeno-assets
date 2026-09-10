@@ -30,8 +30,8 @@ import tempfile
 BUILD = "build"
 OUT = "prototipo.html"
 
-# Ordem de composicao. Definida no NOTES: a base primeiro, o cabelo por ultimo.
-ORDER = ["ear", "eye", "brow", "nose", "mouth", "beard", "hair"]
+# A ordem de composicao NAO mora aqui — sai de COMPOSE_ORDER em tone.ts, lida
+# via node em compile_tone(). Ver "Ordem de composicao" no NOTES.
 
 # As duas familias. PELE segue o k do tom; PELO nao.
 PELE = {"nose", "mouth", "ear", "eye"}
@@ -52,18 +52,31 @@ def data_uri(path):
 
 
 def compile_tone():
-    """tone.ts -> JavaScript. O prototipo usa o compilado, nunca uma copia."""
+    """
+    tone.ts -> (JavaScript, metadados). O prototipo usa o compilado, nunca uma
+    copia — e a ORDEM DE COMPOSICAO sai do proprio modulo, avaliado com node, em
+    vez de ser redigitada aqui. Uma segunda lista em Python divergiria em
+    silencio no dia em que a ordem mudasse.
+    """
     tsc = TSC if os.path.exists(TSC) else shutil.which("tsc")
     if not tsc:
         raise SystemExit("tsc nao encontrado; instale typescript ou ajuste TSC")
     with tempfile.TemporaryDirectory() as tmp:
         subprocess.run([tsc, "tone.ts", "--outDir", tmp, "--target", "ES2020",
                         "--module", "commonjs", "--strict"], check=True)
-        with open(os.path.join(tmp, "tone.js"), encoding="utf8") as fh:
-            return fh.read()
+        out = os.path.join(tmp, "tone.js")
+        meta = json.loads(subprocess.run(
+            ["node", "-e",
+             f"const t=require({out!r});"
+             "process.stdout.write(JSON.stringify({order:t.COMPOSE_ORDER}))"],
+            capture_output=True, check=True, text=True).stdout)
+        with open(out, encoding="utf8") as fh:
+            return fh.read(), meta
 
 
 def main():
+    tone_js, meta = compile_tone()
+    ORDER = list(meta["order"])
     with open(os.path.join(BUILD, "tones.json"), encoding="utf8") as fh:
         table = json.load(fh)
 
@@ -98,13 +111,14 @@ def main():
         "label": LABEL,
     }
 
-    html = TEMPLATE.replace("__TONE_JS__", compile_tone())
+    html = TEMPLATE.replace("__TONE_JS__", tone_js)
     html = html.replace("__ASSETS__", json.dumps(assets, ensure_ascii=False))
     with open(OUT, "w", encoding="utf8") as fh:
         fh.write(html)
 
     kb = os.path.getsize(OUT) / 1024
     print(f"escrito {OUT}  ({kb:.0f} KB, {len(layers)} camadas + {len(bases)} bases embutidas)")
+    print("ordem de composicao (de tone.ts): base -> " + " -> ".join(ORDER))
     print(f"abra com: open {OUT}")
 
 
@@ -264,10 +278,15 @@ __TONE_JS__
         return;
       }
 
+      // Deslocamento de posicionamento, em pixels inteiros deste canvas. Sai de
+      // LAYER_OFFSET em tone.ts; fracionário resampling, e o runtime não interpola.
+      var off = exports.offsetFor(nome, canvas.width);
+      var marca = off.dy || off.dx ? "  (offset " + off.dx + "," + off.dy + ")" : "";
+
       if (A.pele.indexOf(slot) !== -1) {
         // FAMÍLIA PELE — recebe o k do tom, pela função compilada de tone.ts.
-        exports.drawTonedLayer(ctx, layer, lut, 0, 0);
-        linhas.push(pad(A.label[slot]) + nome + "   [PELE · k aplicado]");
+        exports.drawTonedLayer(ctx, layer, lut, off.dx, off.dy);
+        linhas.push(pad(A.label[slot]) + nome + "   [PELE · k aplicado]" + marca);
       } else {
         // FAMÍLIA PELO — NÃO recebe o k. Leva a correção de borda w = r, que
         // faz a pele carregada pela máscara acompanhar o tom da base. A cor do

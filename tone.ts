@@ -232,6 +232,59 @@ export function familyOf(layerName: string): Family {
   throw new Error(`unknown slot "${slot}" in layer "${layerName}"`);
 }
 
+// ---------------------------------------------------------------- composition
+
+/**
+ * Slot order, back to front. The base is drawn first, then these.
+ *
+ * `beard` sits BEFORE `mouth`: facial hair grows around the lip, not over it.
+ * With beard after mouth, `beard_longfull`, `beard_shortfull` and
+ * `beard_stubble` each covered 100% of every mouth core — the mouth slot was
+ * drawn and then completely painted over, so changing mouth changed nothing in
+ * the composite. Measured 10/09/2026; see NOTES.md.
+ *
+ * `hair` stays last: it overlaps the forehead and the ears on purpose.
+ */
+export const COMPOSE_ORDER = ["ear", "eye", "brow", "nose", "beard", "mouth", "hair"] as const;
+
+/**
+ * Per-layer placement offset, as a fraction of the canvas edge. Positive `dy`
+ * moves the layer DOWN.
+ *
+ * A fraction, not pixels, because the same table has to hold at any build
+ * resolution. The caller multiplies by the canvas edge and **rounds to whole
+ * pixels** — a fractional `drawImage` offset would resample, and the runtime
+ * never interpolates.
+ *
+ * `ear_*` sits about 8% of face height too high in the render: the ear top
+ * lands 74-78 px above the eye line and its base 72-75 px above the nose base,
+ * on the 1254 reference canvas. Both ends are off by nearly the same amount and
+ * the ear's own height matches the eye-to-nose span within 5 px, so this is a
+ * rigid translation, not a sizing error — which is exactly what an offset can
+ * fix without touching the asset. 75/1254 = 0.0598.
+ *
+ * Only SKIN-family layers may be offset today. Offsetting a HAIR layer would
+ * also have to shift the `source` and `base` reads inside `applyHairEdgeToRgba`,
+ * since `r` is defined per pixel against the source base.
+ */
+export const LAYER_OFFSET: Readonly<Record<string, { dx: number; dy: number }>> = {
+  ear_normal: { dx: 0, dy: 75 / 1254 },
+  ear_protruding: { dx: 0, dy: 75 / 1254 },
+};
+
+/** Placement of `layerName` on a square canvas of `edge` px, in whole pixels. */
+export function offsetFor(layerName: string, edge: number): { dx: number; dy: number } {
+  const o = LAYER_OFFSET[layerName];
+  if (!o) return { dx: 0, dy: 0 };
+  if (familyOf(layerName) === "hair") {
+    throw new Error(
+      `${layerName} is HAIR-family and cannot be offset: applyHairEdgeToRgba reads ` +
+      "source and base at the layer's own pixel positions.",
+    );
+  }
+  return { dx: Math.round(o.dx * edge), dy: Math.round(o.dy * edge) };
+}
+
 // ---------------------------------------------------------------- table helpers
 
 export function findTone(table: ToneTable, id: string): Tone {
