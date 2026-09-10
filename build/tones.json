@@ -1,0 +1,127 @@
+{
+  "source": "tmp_1.png",
+  "windowK": [
+    780,
+    520,
+    870,
+    660
+  ],
+  "windowDisplay": [
+    585,
+    290,
+    660,
+    360
+  ],
+  "tones": [
+    {
+      "id": "MST-01",
+      "hex": "#f6ede4",
+      "measuredHex": "#f0cbc1",
+      "base": "skin01.webp",
+      "k": {
+        "r": 1.074922,
+        "g": 1.368872,
+        "b": 1.742352
+      }
+    },
+    {
+      "id": "MST-02",
+      "hex": "#f3e7db",
+      "measuredHex": "#efc2b1",
+      "base": "skin02.webp",
+      "k": {
+        "r": 1.094262,
+        "g": 1.31594,
+        "b": 1.485112
+      }
+    },
+    {
+      "id": "MST-03",
+      "hex": "#f7ead0",
+      "measuredHex": "#f1cdae",
+      "base": "skin03.webp",
+      "k": {
+        "r": 1.054828,
+        "g": 1.457597,
+        "b": 1.321335
+      }
+    },
+    {
+      "id": "MST-04",
+      "hex": "#eadaba",
+      "measuredHex": "#efbc9a",
+      "base": "skin04.webp",
+      "k": {
+        "r": 0.998885,
+        "g": 1.141503,
+        "b": 0.941321
+      }
+    },
+    {
+      "id": "MST-05",
+      "hex": "#d7bd96",
+      "measuredHex": "#d9a984",
+      "base": "skin05.webp",
+      "k": {
+        "r": 0.771446,
+        "g": 0.852701,
+        "b": 0.630081
+      }
+    },
+    {
+      "id": "MST-06",
+      "hex": "#a07e56",
+      "measuredHex": "#cd9775",
+      "base": "skin06.webp",
+      "k": {
+        "r": 0.630041,
+        "g": 0.578657,
+        "b": 0.393288
+      }
+    },
+    {
+      "id": "MST-07",
+      "hex": "#825c43",
+      "measuredHex": "#b57a5d",
+      "base": "skin07.webp",
+      "k": {
+        "r": 0.480311,
+        "g": 0.375681,
+        "b": 0.26867
+      }
+    },
+    {
+      "id": "MST-08",
+      "hex": "#604134",
+      "measuredHex": "#9b6b57",
+      "base": "skin08.webp",
+      "k": {
+        "r": 0.357385,
+        "g": 0.297426,
+        "b": 0.252566
+      }
+    },
+    {
+      "id": "MST-09",
+      "hex": "#3a312a",
+      "measuredHex": "#805f51",
+      "base": "skin09.webp",
+      "k": {
+        "r": 0.205724,
+        "g": 0.208347,
+        "b": 0.206222
+      }
+    },
+    {
+      "id": "MST-10",
+      "hex": "#292420",
+      "measuredHex": "#715a54",
+      "base": "skin10.webp",
+      "k": {
+        "r": 0.12993,
+        "g": 0.150306,
+        "b": 0.173815
+      }
+    }
+  ]
+}
