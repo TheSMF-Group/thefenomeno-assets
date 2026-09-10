@@ -835,6 +835,125 @@ resolveriam é só o resíduo de transição acima.
   fundo, `r · base ≈ camada`, e a transformação é inócua: diferença média de
   0,003 nível contra a versão com guarda.
 
+### O tint de PELO: seis cores medidas, três reprovam (10/09/2026)
+
+Isto mede o **tint**, que é problema separado da correção de borda `w = r`. A
+borda faz a pele que a máscara carrega acompanhar o tom; o tint muda a cor do
+pelo. Um não substitui o outro.
+
+**As seis cores-alvo são ESCOLHA, não medida.** Foram definidas por decisão de
+produto, não derivadas de nenhum render, e por isso são contestáveis — se a
+paleta mudar, esta seção inteira precisa ser refeita. O que a medição decide é
+se cada cor é **alcançável** por multiplicação a partir do pelo nativo, não se
+ela é bonita.
+
+```
+k_tint = alvo_linear / nativa_linear          por canal
+nativa = média em luz linear dos pixels de pelo opaco de cada camada
+opaco  = alpha > 200 e r_R < 0,15
+```
+
+Mesma lógica multiplicativa do `k` de tom. Medido em `layers/*.png` a 1254,
+sem passar pelo WebP.
+
+#### Tabela 1 — a nativa de cada camada
+
+| camada | px | hex | R linear | G linear | B linear | luminância |
+|---|---|---|---|---|---|---|
+| `hair_midcurly` | 260.255 | `#39251b` | 0,04117 | 0,01851 | 0,01066 | 0,02276 |
+| `hair_braids` | 198.558 | `#2d211d` | 0,02641 | 0,01538 | 0,01244 | 0,01751 |
+| `beard_longfull` | 181.535 | `#38241a` | 0,03940 | 0,01775 | 0,01047 | 0,02183 |
+| `brow_thick` | **3.018** | `#4d2a1e` | 0,07415 | 0,02271 | 0,01274 | 0,03292 |
+
+O pelo nativo é **muito escuro**: luminância linear entre 0,018 e 0,033, ou seja
+2% a 3% do branco. É esse denominador que faz o `k_tint` explodir para as cores
+claras.
+
+`brow_thick` entra com 3.018 px contra 180–260 mil das outras. É a mesma coisa
+já registrada acima: sobrancelha quase não tem núcleo opaco. **Todo resultado
+dela abaixo é sobre uma amostra 60× menor e não deve ser lido como aprovação.**
+
+#### Tabela 2 — `k_tint` por canal
+
+| cor | alvo | `hair_midcurly` | `hair_braids` | `beard_longfull` | `brow_thick` |
+|---|---|---|---|---|---|
+| preto | `#1a1614` | 0,251 / 0,433 / 0,656 | 0,391 / 0,522 / 0,562 | 0,262 / 0,452 / 0,668 | 0,139 / 0,353 / 0,549 |
+| castanho escuro | *nativa* | 1 / 1 / 1 | 1 / 1 / 1 | 1 / 1 / 1 | 1 / 1 / 1 |
+| castanho claro | `#6b4a2f` | 3,571 / 3,699 / 2,667 | 5,567 / 4,454 / 2,285 | 3,731 / 3,859 / 2,714 | 1,983 / 3,016 / 2,231 |
+| loiro | `#c8a165` | 14,03 / 19,25 / 12,21 | 21,87 / 23,18 / 10,46 | 14,66 / 20,08 / 12,43 | 7,79 / 15,70 / 10,22 |
+| ruivo | `#b0522a` | 10,55 / 4,56 / 2,17 | 16,44 / 5,49 / 1,86 | 11,02 / 4,76 / 2,21 | 5,86 / 3,72 / 1,82 |
+| grisalho | `#b4afa8` | 11,09 / **23,16** / **36,74** | 17,28 / 27,88 / 31,48 | 11,58 / 24,16 / 37,39 | 6,16 / 18,88 / 30,74 |
+
+O grisalho é o caso extremo e explica a si mesmo: transformar marrom quente em
+cinza neutro exige **multiplicar o azul por 31 a 37**, porque a nativa quase não
+tem azul. Fator dessa ordem não sobrevive ao teto do gamut.
+
+#### Tabela 3 — clipping
+
+Percentual de pixels de pelo que estouram, com a perda em níveis de sRGB
+(medida sem clamp, para saber o quanto passou de 255).
+
+| cor | `hair_midcurly` | `hair_braids` | `beard_longfull` | `brow_thick` |
+|---|---|---|---|---|
+| preto | 0,0% | 0,0% | 0,0% | 0,0% |
+| castanho escuro | 0,0% | 0,0% | 0,0% | 0,0% |
+| castanho claro | 0,0% | 0,0% | 0,0% | 0,0% |
+| **loiro** | **15,6%** · méd 35 · máx 132 | **19,6%** · méd 56 · máx 179 | **14,3%** · méd 29 · máx 129 | 0,0% |
+| **ruivo** | **7,1%** · méd 22 · máx 57 | **12,5%** · méd 40 · máx 123 | **5,2%** · méd 18 · máx 63 | 0,0% |
+| **grisalho** | **10,6%** · méd 43 · máx 238 | **14,6%** · méd 52 · máx 232 | **7,9%** · méd 34 · máx 228 | <0,05% · máx 19 |
+
+**Preto e castanho claro passam limpos em todas as camadas. Loiro, ruivo e
+grisalho reprovam.** Entre 5% e 20% do pelo estoura, com perda média de 18 a 56
+níveis e picos acima de 200.
+
+É a mesma física que tirou PELO do `k` de tom no início: lá o clipping chegava a
+2,58% e já foi considerado inaceitável. Aqui é de 2 a 8 vezes pior.
+
+#### Tabela 4 — o sombreamento próprio do pelo, antes e depois
+
+Razão p95/p5 da luminância do pelo. Multiplicação por canal preserva razão, então
+qualquer queda aqui é **efeito do clipping** achatando o sombreamento.
+
+| cor | `hair_midcurly` | `hair_braids` | `beard_longfull` | `brow_thick` |
+|---|---|---|---|---|
+| preto | 14,8 → 15,3 | 70,8 → 74,3 | 9,6 → 9,7 | 2,7 → 2,9 |
+| castanho escuro | 14,8 → 14,8 | 70,8 → 70,8 | 9,6 → 9,6 | 2,7 → 2,7 |
+| castanho claro | 14,8 → 14,8 | 70,8 → 67,4 | 9,6 → 9,6 | 2,7 → 2,7 |
+| loiro | 14,8 → 13,7 | 70,8 → **51,3 (−28%)** | 9,6 → 9,0 | 2,7 → 2,8 |
+| ruivo | 14,8 → 13,6 | 70,8 → **49,5 (−30%)** | 9,6 → 9,2 | 2,7 → 2,6 |
+| grisalho | 14,8 → **13,1 (−12%)** | 70,8 → **51,3 (−28%)** | 9,6 → 9,4 | 2,7 → 2,9 |
+
+`hair_braids` é o mais frágil, perdendo até 30% da própria faixa de sombreamento.
+Coerente com ele ser o de maior amplitude nativa (70,8, contra 9,6 do
+`beard_longfull`): quem tem mais contraste tem mais a perder no teto.
+
+#### Veredito
+
+| cor | veredito |
+|---|---|
+| preto `#1a1614` | **passa** — `k` < 1 em todos os canais, não há teto a bater |
+| castanho escuro (nativa) | **passa** por construção, `k` = 1 |
+| castanho claro `#6b4a2f` | **passa** — `k` de 2 a 5,6, ainda dentro do gamut |
+| loiro `#c8a165` | **reprova** — 14–20% estoura |
+| ruivo `#b0522a` | **reprova** — 5–13% estoura |
+| grisalho `#b4afa8` | **reprova** — 8–15% estoura, picos de 238 níveis |
+
+Metade da paleta não é alcançável por multiplicação. O padrão é limpo: **escurecer
+funciona, clarear não**, porque a nativa está a 2–3% do branco e não há headroom.
+
+Isso não condena a ideia de tint — condena **tint multiplicativo para cores mais
+claras que a nativa**. As saídas possíveis, nenhuma medida ainda: paleta só com
+cores iguais ou mais escuras que a nativa; render por cor para as claras; ou uma
+transformação que não seja multiplicação pura. A escolha é de produto, e a
+medição só diz o que custa cada uma.
+
+**Discrepância registrada:** uma medição anterior desta mesma semana, feita em
+outra sessão e não registrada, deu "6–19% com perda até 214 níveis". Os números
+acima (5–20%, picos de 238) são da mesma ordem mas não idênticos. A diferença
+provavelmente está na definição de pelo opaco ou na resolução usada; como aquela
+medição não foi registrada, não há como reconciliar. Ver a nota de processo no
+fim deste arquivo.
+
 ### Clipping residual da família PELE, aceito por decisão
 
 Isolando PELE, das 150 combinações sobra **uma** acima de 0,1%:
@@ -935,3 +1054,29 @@ partir do que está versionado.
 `contact_sheet()` fechou. Enquanto o extrator não estiver aqui, `layers/` é
 **fonte primária, não derivada** — o que é mais uma razão para ela não sair do
 repositório.
+
+## Nota de processo: medição que decide entra aqui na mesma sessão
+
+**Três medições desta semana morreram sem registro.** Não foram perdidas por
+acidente de máquina — foram feitas, usaram-se para decidir, e não entraram neste
+arquivo:
+
+| medição | o que decidia | como acabou |
+|---|---|---|
+| flood de RGB, raios 2 / 4 / 8 / 16 | o `FLOOD_RADIUS` do build | perdida inteira; sobrou só a lembrança de "raio 4", sem número que a sustentasse. O código seguiu em 16 |
+| dano por tom das camadas de PELO | se valia gerar 85 arquivos por tom | refeita do zero em 10/09/2026 |
+| tint de PELO, seis cores | metade da paleta | refeita do zero em 10/09/2026; os números não reconciliam com os da original |
+
+O custo não é o retrabalho, é pior: **na terceira, os números não bateram.** A
+medição original dava "6–19%, perda até 214"; a refeita deu "5–20%, picos de
+238". Mesma ordem, valores diferentes, e sem registro não há como saber qual
+está certa nem por que divergem. Uma decisão tomada sobre a primeira não é
+auditável hoje.
+
+**Regra: medição que decide alguma coisa entra no NOTES na mesma sessão em que
+foi feita**, com os números, a definição de cada grandeza e o critério de
+aceitação. Não no fim do dia, não no commit seguinte, não "quando estabilizar" —
+uma medição que só existe na transcrição de uma sessão já está perdida.
+
+O sintoma de que isso está acontecendo de novo é fácil de reconhecer: alguém
+citando um resultado de memória, com o número redondo e sem a definição junto.
