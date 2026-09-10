@@ -1,5 +1,21 @@
 /**
- * Tone transfer for the mannequin feature layers. See NOTES.md.
+ * Tone handling for the mannequin feature layers. See NOTES.md.
+ *
+ * The 32 layers split into two families, and each gets a different treatment:
+ *
+ *   SKIN (nose, mouth, ear, eye)   `applyToneToRgba` — the per-channel `k`.
+ *   HAIR (hair, beard, brow)       `applyHairEdgeToRgba` — the `w = r` edge fix.
+ *
+ * A HAIR layer must NOT get `k`: hair colour is not a function of skin tone, and
+ * applying `k` to it was the source of the heavy gamut clipping (2.58% on
+ * `hair_midcurly` x MST-01). But it cannot be left alone either — the
+ * morphological mask carries `tmp_1`'s skin along with the hair, and on a darker
+ * base that skin stays light and draws a pale rim along the hairline.
+ *
+ * `applyHairEdgeToRgba` fixes the rim without touching the hair. See the
+ * function for the derivation; the short version is that shading is
+ * multiplicative, so `r = layer / source` is the shading factor already measured
+ * against the source base, and `r` doubles as the coverage weight.
  *
  * Every layer in `layers/` carries the skin of `raw/tmp_1.png`. To composite
  * one over a base of a different tone, its pixels are rescaled by a per-channel
@@ -115,6 +131,107 @@ export function toneRgba(data: Uint8ClampedArray, lut: ToneLut): Uint8ClampedArr
   return copy;
 }
 
+// ---------------------------------------------------------------- hair edge fix
+
+/**
+ * The HAIR-family transform: fixes the pale rim a hair layer draws along the
+ * hairline on any base other than its source, **without touching the hair**.
+ *
+ * Per pixel, in linear light:
+ *
+ *     r    = layer / source                   per channel
+ *     w    = clamp(r.red, 0, 1)               scalar — coverage is geometric
+ *     out  = w * (r * base) + (1 - w) * layer
+ *
+ * Why this shape, and why there is nothing to tune:
+ *
+ * `r` is the shading factor of this layer measured against the source base, the
+ * same multiplicative quantity behind the `k` transfer. Where the mask kept
+ * skin, `r` is high and `r * base` is what that skin should look like on THIS
+ * tone. Where there is opaque hair, `r` is near zero and the native pixel is
+ * already right.
+ *
+ * `r` also serves as the weight, because a high `r` means "most of the base's
+ * light comes through here", which is exactly when the base should decide. That
+ * pins the two ends: `w(0) = 0` leaves hair alone, `w(1) = 1` rebuilds pure skin
+ * from the base.
+ *
+ * Since `layer = r * source` by definition of `r`, the error against `r * base`
+ * has a closed form:
+ *
+ *     error = |w - 1| * r * |source - base|
+ *
+ * The two pinned ends mean any curve between them trades one regime's error for
+ * the other's — there is no `w` that zeroes both. `sqrt(r)` was measured and
+ * rejected: it cut the transition peak 27% but moved the hair 3.7x more
+ * (1.48 -> 5.44 levels), past the 2.89 that WebP q88 already costs. `w = r`
+ * keeps the hair at 0.86-1.48 and is smoother than doing nothing at all.
+ *
+ * The ~45-level residual left at r ~ 0.35 is accepted: there is no ground truth
+ * for the transition band (no render of this hair over MST-10 exists), so tuning
+ * further would be fitting an invented target. See NOTES.md.
+ *
+ * This is an EDGE FIX, not a tint — hair keeps its native colour.
+ *
+ * `layer` is modified in place. `source` is `build/source.webp` and `base` is
+ * the destination tone's base, both as RGBA bytes on the same canvas. No mask is
+ * needed: outside the head, source and base are both background, so `r * base`
+ * collapses to `layer` and the transform is inert.
+ */
+export function applyHairEdgeToRgba(
+  layer: Uint8ClampedArray | Uint8Array,
+  source: Uint8ClampedArray | Uint8Array,
+  base: Uint8ClampedArray | Uint8Array,
+): void {
+  if (layer.length % 4 !== 0) throw new Error(`RGBA buffer length ${layer.length} is not a multiple of 4`);
+  if (source.length !== layer.length || base.length !== layer.length) {
+    throw new Error(
+      `layer, source and base must share a canvas; got ${layer.length}, ${source.length}, ${base.length}. ` +
+      "The runtime never interpolates — the build has to deliver them at the same size.",
+    );
+  }
+  for (let i = 0; i < layer.length; i += 4) {
+    const sr = BYTE_TO_LINEAR[source[i]!]!;
+    // r.red doubles as the weight; a black source pixel carries no ratio.
+    let w = sr > 0 ? BYTE_TO_LINEAR[layer[i]!]! / sr : 0;
+    if (w > 1) w = 1;
+    else if (!(w > 0)) w = 0;
+    const rest = 1 - w;
+    for (let c = 0; c < 3; c += 1) {
+      const s = BYTE_TO_LINEAR[source[i + c]!]!;
+      const l = BYTE_TO_LINEAR[layer[i + c]!]!;
+      const r = s > 0 ? l / s : 0;
+      const out = linearToSrgb(w * (r * BYTE_TO_LINEAR[base[i + c]!]!) + rest * l) * 255;
+      layer[i + c] = out < 0 ? 0 : out > 255 ? 255 : Math.round(out);
+    }
+    // layer[i + 3] — alpha, untouched on purpose.
+  }
+}
+
+// ---------------------------------------------------------------- families
+
+/** Which treatment a slot gets. See NOTES.md, "Duas famílias de camada". */
+export type Family = "skin" | "hair";
+
+/** Slot prefixes that follow the tone's `k`. */
+export const SKIN_SLOTS = ["nose", "mouth", "ear", "eye"] as const;
+/** Slot prefixes that keep their native colour and get the edge fix instead. */
+export const HAIR_SLOTS = ["hair", "beard", "brow"] as const;
+
+/**
+ * Family of a layer name such as "hair_midcurly" or "nose_wide".
+ *
+ * Note that the HAIR family is not homogeneous: `brow_*` has almost no opaque
+ * core (9.6% of its middle below r = 0.15, against 41-71% for hair and beard),
+ * so anything calibrated on `hair_*` has to be checked on `brow_*` separately.
+ */
+export function familyOf(layerName: string): Family {
+  const slot = layerName.split("_")[0]!;
+  if ((SKIN_SLOTS as readonly string[]).includes(slot)) return "skin";
+  if ((HAIR_SLOTS as readonly string[]).includes(slot)) return "hair";
+  throw new Error(`unknown slot "${slot}" in layer "${layerName}"`);
+}
+
 // ---------------------------------------------------------------- table helpers
 
 export function findTone(table: ToneTable, id: string): Tone {
@@ -164,6 +281,45 @@ export function drawTonedLayer(
   scratchCtx.drawImage(layer, 0, 0);
   const image = scratchCtx.getImageData(0, 0, width, height);
   applyToneToRgba(image.data, lut);
+  scratchCtx.putImageData(image, 0, 0);
+  ctx.drawImage(scratch, dx, dy);
+}
+
+/** Rasterises an image source to RGBA bytes on its own canvas. */
+function rasterise(img: CanvasImageSource & { width: number; height: number }): ImageData {
+  const scratch = document.createElement("canvas");
+  scratch.width = img.width;
+  scratch.height = img.height;
+  const c = scratch.getContext("2d", { willReadFrequently: true });
+  if (!c) throw new Error("could not get a 2D context");
+  c.drawImage(img, 0, 0);
+  return c.getImageData(0, 0, img.width, img.height);
+}
+
+/**
+ * Draws a HAIR-family `layer` onto `ctx` with the edge fix applied.
+ *
+ * `source` is `build/source.webp` and `base` is the tone's base, both on the
+ * same canvas as the layer. No `k` is involved — hair keeps its native colour.
+ *
+ * Browser-only. `applyHairEdgeToRgba` above works anywhere.
+ */
+export function drawHairLayer(
+  ctx: CanvasRenderingContext2D,
+  layer: CanvasImageSource & { width: number; height: number },
+  source: CanvasImageSource & { width: number; height: number },
+  base: CanvasImageSource & { width: number; height: number },
+  dx = 0,
+  dy = 0,
+): void {
+  const { width, height } = layer;
+  const image = rasterise(layer);
+  applyHairEdgeToRgba(image.data, rasterise(source).data, rasterise(base).data);
+  const scratch = document.createElement("canvas");
+  scratch.width = width;
+  scratch.height = height;
+  const scratchCtx = scratch.getContext("2d");
+  if (!scratchCtx) throw new Error("could not get a 2D context");
   scratchCtx.putImageData(image, 0, 0);
   ctx.drawImage(scratch, dx, dy);
 }

@@ -478,6 +478,185 @@ níveis de sRGB e máxima de 70. Isso desaparece quando PELO sai do `k`.
 
 **O tint de PELO não está implementado.** Só a separação está decidida.
 
+### A família PELO não é homogênea (10/09/2026)
+
+`brow_*` não se comporta como `hair_*` e `beard_*`, e tratar os três com o mesmo
+modelo é errado independentemente de qual modelo for escolhido.
+
+Medindo `r = camada / tmp_1` em luz linear, no miolo (`alpha > 200`) e **dentro
+da silhueta da cabeça**:
+
+| camada | r < 0,15 (pelo opaco) | 0,15–0,85 | pico em zero ÷ ombro |
+|---|---|---|---|
+| `hair_midcurly` | 70,6% | 27,9% | 18,8 |
+| `hair_braids` | 41,4% | 56,3% | 7,0 |
+| `beard_longfull` | 68,6% | 31,0% | 28,6 |
+| **`brow_thick`** | **9,6%** | **87,5%** | **0,1** |
+
+(canal R; G e B na mesma ordem de grandeza)
+
+`hair` e `beard` têm um núcleo opaco de verdade — dois terços do miolo abaixo de
+r = 0,15. **A sobrancelha quase não tem:** 9,6%, e o modo em r≈0 é menor que o
+ombro, não 7 a 29 vezes maior. Nesses renders sobrancelha é quase toda
+semitransparente, mais parecida com sombra na pele do que com pelo opaco.
+
+Consequência prática: qualquer tratamento calibrado em `hair_*` vai errar em
+`brow_*` por construção. Se PELO ganhar um modelo, `brow` precisa ser verificado
+à parte antes de herdar os parâmetros.
+
+**O recorte pela silhueta não é detalhe.** Sem ele o número engana: 46% do miolo
+de `hair_midcurly` e 63% do de `hair_braids` caem **fora** da cabeça, sobre o
+fundo branco de `tmp_1`, onde `r` é a cor do cabelo dividida por 1,0 e não mede
+sombra nenhuma. Incluir esses pixels infla o modo em zero e faz a distribuição
+parecer mais separada do que é.
+
+### A cadeia de PELO: quatro hipóteses, uma adotada (10/09/2026)
+
+O problema: a máscara morfológica carrega pele do `tmp_1` junto com o pelo. Sobre
+uma base de outro tom essa pele não acompanha, e desenha um **filete claro na
+linha do cabelo** — largo e contínuo em MST-08 a 10, invisível em MST-04, que é
+o tom nativo do `tmp_1`.
+
+| # | hipótese | veredito |
+|---|---|---|
+| 1 | separar por um corte em `r` (bimodalidade) | **morta** |
+| 2 | cor sólida + alpha | **morta** |
+| 3 | corrigir só onde `r > 0,5` (limiar duro) | **morta** |
+| 4 | **`w = r` contínuo** | **ADOTADA** |
+
+`r = camada / tmp_1` em luz linear, por canal. É o fator de sombra medido contra
+a base de origem, a mesma grandeza que sustenta a hipótese C.
+
+#### 1. Corte em `r` — morta: `r` é contínuo
+
+Exigiria distribuição bimodal com vale limpo. **Não é.** No canal B não há mínimo
+local nenhum em `hair_midcurly`, `hair_braids` nem `beard_longfull` — a densidade
+só decresce. Onde há mínimo, a profundidade contra o ombro é 0,03 a 0,38, e a
+posição varia de 0,43 a 0,65 entre camadas e de 0,50 a 0,63 entre canais dentro
+do próprio `brow_thick`. A massa na faixa ambígua 0,15–0,85 é de 28% a 88%.
+
+O motivo é físico: **fio de cabelo é mais fino que pixel.** Quase todo pixel de
+borda de mecha é cobertura parcial, e cobertura varia continuamente de 0 a 1.
+
+#### 2. Cor sólida + alpha — morta: o pelo tem sombreamento próprio
+
+Modelo `obs = a·C + (1−a)·tmp_1`, com `C` constante por camada e `a` por pixel,
+resolvido por mínimos quadrados em luz linear.
+
+| camada | `C` ajustado | erro médio | p99 | acima de 2,89 |
+|---|---|---|---|---|
+| `hair_midcurly` | `#230000` | 6,99 | 18,54 | 80,6% |
+| `hair_braids` | `#1b0000` | 5,36 | 14,47 | 70,3% |
+| `beard_longfull` | `#1f0f01` | 3,72 | 11,15 | 56,4% |
+| `brow_thick` | `#490b00` | 3,75 | 17,57 | 50,3% |
+
+A falha é estrutural: o resíduo é **94% a 100% perpendicular** ao eixo pele→`C`.
+Os pixels não estão no segmento; não é alpha mal estimado. A causa é que **o pelo
+tem sombreamento próprio** — nos pixels de pelo puro a luminância varia de 7,7×
+(`beard_longfull`) a 45,7× (`hair_braids`) entre p5 e p95. Cabelo no render é um
+objeto 3D iluminado, e nenhuma constante representa isso.
+
+#### 3. Limiar duro em `r > 0,5` — morta: degrau de 67 níveis
+
+Substituir o RGB por `r · base` só acima do limiar funciona onde age: o dano cai
+de 42–79 níveis para **2,3 a 4,3**. Mas parte uma população contínua no meio.
+Maior salto entre bins adjacentes de `r`:
+
+| variante | maior salto |
+|---|---|
+| sem correção | 16,1 |
+| **limiar 0,5** | **68,6** |
+| `w = r` | 10,6 |
+
+O erro pula de ~0 para ~60 níveis atravessando um pixel. Isso desenha um fio fino
+no lugar do filete largo — trocou um artefato por outro.
+
+#### 4. `w = r` — ADOTADA
+
+Para todo pixel, em luz linear, sem limiar:
+
+```
+r     = camada / tmp_1                     por canal
+w     = clamp(r_R, 0, 1)                   escalar: cobertura é geométrica
+novo  = w · (r · base) + (1 − w) · camada
+```
+
+`w(0) = 0` deixa o pelo puro intocado; `w(1) = 1` refaz a pele pura a partir da
+base do tom.
+
+| | pelo (`r<0,15`) vs nativo | pele (`r>0,85`) vs `r·base` | maior salto | pico na transição |
+|---|---|---|---|---|
+| hoje | — | 40–79 | 16,1 | 73,3 |
+| limiar 0,5 | 0,00 | 5,3–10,0 | 68,6 | 68,3 |
+| **`w = r`** | **0,86–1,48** | **9,1–12,9** | **10,6** | **45,4** |
+| `sqrt(r)` | 3,54–5,44 | 7,7–11,1 | 8,2 | 33,1 |
+
+`w = r` é mais suave que **não corrigir nada** (10,6 contra 16,1) e mantém o pelo
+dentro da régua de 2,89 — o que o WebP q88 já custa no miolo.
+
+#### Por que o resultado é dedutível, e não empírico
+
+Como `camada = r · tmp_1` por definição de `r`, o erro contra o alvo `r · base`
+tem forma fechada:
+
+```
+erro = |w − 1| · r · |tmp_1 − base|
+```
+
+Verificado na medição: previsto 0,05160, observado 0,04963, razão **0,962** (os
+4% são WebP e o `w` escalar contra `r` por canal).
+
+Isso amarra o problema inteiro. Os dois extremos fixam `w(0) = 0` e `w(1) = 1`,
+então **qualquer curva entre eles troca erro de um regime pelo outro** — não
+existe `w` que zere os dois. Não é questão de procurar melhor.
+
+`sqrt(r)` é a prova, e foi medida justamente por ser o meio geométrico entre
+`w = r` e `w = 1`, o único ponto do intervalo que não exige escolher parâmetro:
+reduziu o pico da transição em **27%** (45,4 → 33,1) e piorou o pelo em **3,7×**
+(1,48 → 5,44), passando da régua nas nove combinações medidas. O desvio no pelo é
+`w·r·Δ`: vale `r²·Δ` com `w = r` e `r^1,5·Δ` com `w = √r`, e em `r = 0,1` isso é
+3,2× mais. A raiz é agressiva exatamente onde `r` é pequeno, que é o cabelo.
+
+**Descartada pela régua dos 2,89.**
+
+#### O resíduo aceito, e por que não se otimiza além daqui
+
+Sobra o pico da transição: **~45 níveis em `r ≈ 0,35`**, sobre cerca de **7.500
+px de borda por combinação** camada × tom.
+
+**Não há verdade de referência para a transição.** Não existe render deste cabelo
+sobre MST-10. O alvo `r · base` é uma extrapolação da hipótese C, boa nos
+extremos e não verificável no meio. Otimizar além daqui é ajustar contra critério
+inventado, e a forma fechada já mostra que o ganho viria do bolso do outro
+regime.
+
+#### O que isto NÃO resolve
+
+Isto é **correção de borda**, não tint. `w = r` faz a pele que a máscara carrega
+acompanhar o tom da base. **A cor do pelo continua sendo a nativa do render.**
+O tint de seis cores segue não implementado e é problema separado — e a hipótese
+2 mostra que ele não pode ser "trocar por uma cor sólida", porque o pelo tem
+sombreamento próprio que uma constante não representa.
+
+#### Consequência para gerar por tom
+
+O filete motivava gerar as 17 camadas de PELO por tom: +85 arquivos e +1,5 MB
+para MST-06 a 10. **`w = r` resolve em runtime, com a camada que já existe.**
+Esses arquivos deixam de ser necessários para este problema. O que eles
+resolveriam é só o resíduo de transição acima.
+
+#### O que o runtime passou a precisar
+
+`r` exige o `tmp_1`, que o jogo não tinha. `make_build.py` passou a emitir
+**`build/source.webp`** — `tmp_1` em 512, mesmo Lanczos e mesmo q88 das bases,
+**17,6 KiB**. Medido:
+
+- **o encode do source custa 0,02 nível** de erro médio no resultado final
+  (p99 0,4–0,7), muito abaixo da régua;
+- **não é preciso máscara de silhueta.** Fora da cabeça `tmp_1` e base são ambos
+  fundo, `r · base ≈ camada`, e a transformação é inócua: diferença média de
+  0,003 nível contra a versão com guarda.
+
 ### Clipping residual da família PELE, aceito por decisão
 
 Isolando PELE, das 150 combinações sobra **uma** acima de 0,1%:

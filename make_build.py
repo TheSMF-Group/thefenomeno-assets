@@ -11,6 +11,10 @@ custou mais iteracao no projeto; alpha_quality=100 faz o canal alfa passar
 sem perda, e exact=True impede o encoder de zerar o RGB sob os pixels
 totalmente transparentes.
 
+Escreve tambem build/source.webp: a base de origem (tmp_1) no mesmo canvas de
+512. O runtime precisa dela para a familia PELO, que calcula r = camada / source
+por pixel. Ver "A cadeia de PELO" no NOTES.
+
 Escreve tambem build/validacao_tons.png, a folha de contato composta A PARTIR
 DO BUILD: base e camada ja em 512, sem reamostrar nada, que e o que o runtime
 faz. Nao confundir com a folha que make_tones.py escreve na raiz, que compoe o
@@ -71,6 +75,9 @@ def flood_rgb(im):
 
 OUT = 512
 BUILD = "build"
+# A base de origem das camadas. O runtime precisa dela para calcular
+# r = camada / source, que e o que a correcao de borda de PELO consome.
+SOURCE = "raw/tmp_1.png"
 BASE_OPTS = {"quality": 88, "method": 6}
 LAYER_OPTS = {"quality": 88, "alpha_quality": 100, "exact": True, "method": 6}
 
@@ -209,6 +216,17 @@ def main():
     print("total do build: %.1f KB (%.2f MB)" % (total_b + total_l, (total_b + total_l) / 1024))
     print("erro medio de RGB no miolo, pela qualidade 88: %.2f niveis (max por camada %.2f)"
           % (float(np.mean(rgb_err)), float(np.max(rgb_err))))
+
+    # A base de origem, no mesmo canvas de 512 e no mesmo encode das bases.
+    # Sem ela o runtime nao consegue calcular r e a familia PELO fica sem
+    # correcao de borda. Medido: o encode custa 0,02 nivel de erro medio no
+    # resultado final (p99 0,4-0,7), bem abaixo dos 2,89 do WebP no miolo.
+    src_out = os.path.join(BUILD, "source.webp")
+    (Image.open(SOURCE).convert("RGB")
+     .resize((OUT, OUT), Image.LANCZOS).save(src_out, "WEBP", **BASE_OPTS))
+    print()
+    print("escrito %s (%s -> %dpx, %.1f KB) — origem de r para a familia PELO"
+          % (src_out, SOURCE, OUT, kb(src_out)))
 
     shutil.copy("tones.json", os.path.join(BUILD, "tones.json"))
     print("copiado tones.json (inalterado: k e razao de medias, invariante a escala)")
