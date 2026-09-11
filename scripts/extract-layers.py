@@ -47,20 +47,26 @@ CANVAS = 1254
 
 # --- regioes anatomicas por slot, em fracao do canvas ---
 # As caixas absolutas do NOTES estao em px de 1254; aqui ficam em fracao para
-# nao amarrar a resolucao. hair foi alargada de (.10, .00, .90, .75) para
-# (.05, .00, .95, .80) em 11/09/2026: os volumosos chegam a x = 140 no
-# midcurly_red e falhariam pela borda, nao pela extracao.
+# nao amarrar a resolucao.
+#
+# Tres caixas foram corrigidas em 11/09/2026, depois que o gate acusou camadas
+# JA APROVADAS caindo fora delas. Quem estava errado era a caixa:
+#   beard  y1 1140 -> 1165  (beard_longfull desce ate y 1161)
+#   mouth  y1  850 ->  865  (mouth_thin desce ate y 861)
+#   hair   y1 .75  -> .80   (as trancas descem ate y .781)
+# O eixo x de hair fica em .10/.90: medido nos 24 renders novos, o extremo e
+# x .121 no midcurly_red e x .869 no midcurly_red, ambos dentro.
 def frac(x0, y0, x1, y1):
     return (x0 / CANVAS, y0 / CANVAS, x1 / CANVAS, y1 / CANVAS)
 
 REGIONS = {
     "nose":  [frac(430, 340, 830, 780)],
-    "mouth": [frac(370, 600, 880, 850)],
+    "mouth": [frac(370, 600, 880, 865)],
     "eye":   [frac(270, 380, 615, 640), frac(639, 380, 985, 640)],
     "brow":  [frac(270, 280, 615, 500), frac(639, 280, 985, 500)],
     "ear":   [frac(140, 370, 380, 840), frac(874, 370, 1114, 840)],
-    "beard": [frac(270, 480, 985, 1140)],
-    "hair":  [(0.05, 0.00, 0.95, 0.80)],
+    "beard": [frac(270, 480, 985, 1165)],
+    "hair":  [(0.10, 0.00, 0.90, 0.80)],
 }
 
 # blobs esperados por slot: 1 contiguo, 2 para os pares laterais

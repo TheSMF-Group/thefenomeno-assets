@@ -1084,18 +1084,20 @@ por baixo e por pouco:
 | `mouth_thin` | 677 | y 850–861 | y1 = 850 |
 | `mouth_full` | 57 | y 850–851 | y1 = 850 |
 
-São camadas aprovadas, então quem está errado é a caixa, não o asset. `beard`
-precisa de y1 ≈ 1165 e `mouth` de y1 ≈ 865. Não corrigi as caixas: elas estão
-documentadas como aprovadas e mudá-las é decisão, não conserto.
+São camadas aprovadas, então quem está errado é a caixa, não o asset.
+**Corrigidas em 11/09/2026: `beard` de y1 1140 para 1165, `mouth` de y1 850 para
+865.** Os assets não foram tocados. Com as caixas novas as 32 aprovadas passam o
+gate de região.
 
 ### A caixa de `hair`, alargada
 
-De `(.10, .00, .90, .75)` para **`(.05, .00, .95, .80)`** em 11/09/2026. Medido
+De `(.10, .00, .90, .75)` para **`(.10, .00, .90, .80)`** em 11/09/2026. Medido
 sobre os 24 renders novos, o alargamento é necessário em **3 deles**, e **só no
 eixo y**: as três tranças passam de `y` 0,75, chegando a 0,781 no
-`hair_braids_red`. Nenhum dos 24 chega perto de `x` 0,05 — o mínimo é 0,121 no
-`hair_midcurly_red`, bem dentro do 0,10 antigo. O alargamento em `x` não foi
-exercido por nada desta batelada; fica como folga.
+`hair_braids_red`. O eixo `x` fica como estava: o mínimo dos 24 é 0,121 e o
+máximo 0,869, ambos no `hair_midcurly_red`, e os dois dentro de 0,10 e 0,90.
+Alargar `x` também chegou a ser feito e foi revertido, por não ter nada que o
+justificasse.
 
 `hair_braids_red` a 0,781 deixa pouca margem contra o novo teto de 0,80.
 
