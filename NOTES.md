@@ -16,7 +16,7 @@ Só `build/` é.
 
 **`raw/` e `layers/` ficam no repositório, por decisão (10/09/2026.)** São 53,2
 e 54,2 MB, e o repositório não é servido ao cliente — quem é servido é `build/`,
-com 577,6 KB. Não há outra cópia dos renders nem das camadas: `layers/` é a
+com 541,8 KiB. Não há outra cópia dos renders nem das camadas: `layers/` é a
 única fonte do build e `raw/` é a única fonte de uma reextração. Guardar os dois
 aqui é o backup. **Não é omissão, é escolha:** se um dia sair, sai para um
 armazenamento com endereço registrado neste arquivo, nunca por limpeza.
