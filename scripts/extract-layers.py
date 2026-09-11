@@ -26,7 +26,7 @@ import argparse, os, sys
 import numpy as np
 from PIL import Image, ImageFilter
 from scipy import ndimage
-from skimage.morphology import disk
+from skimage.morphology import disk, opening as sk_opening, closing as sk_closing
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 RAW = os.path.join(ROOT, "raw")
@@ -85,10 +85,17 @@ def build_mask(base_rgb, feat_rgb):
     g_base = np.asarray(Image.fromarray(base_rgb).convert("L")).astype(np.int16)
     g_feat = np.asarray(Image.fromarray(feat_rgb).convert("L")).astype(np.int16)
     d = np.abs(g_base - g_feat).astype(np.uint8)
-    d = ndimage.median_filter(d, footprint=disk(MEDIAN_DISK))
+    # Duas escolhas de borda que a receita em prosa nao fixava, e que a
+    # regressao contra layers/ fixou. Sem as duas, as camadas de cabelo que
+    # tocam o topo do canvas perdem uma faixa de ~10 linhas.
+    #   mode="nearest" na mediana: com o "reflect" padrao do scipy a borda
+    #   espelha conteudo e desloca o limiar nas primeiras linhas.
+    #   morfologia do skimage em vez da do scipy: a do scipy trata o fora do
+    #   quadro como fundo e erode a partir da borda; a do skimage nao.
+    d = ndimage.median_filter(d, footprint=disk(MEDIAN_DISK), mode="nearest")
     m = d > THRESHOLD
-    m = ndimage.binary_opening(m, disk(OPEN_DISK))
-    m = ndimage.binary_closing(m, disk(CLOSE_DISK))
+    m = sk_opening(m, disk(OPEN_DISK))
+    m = sk_closing(m, disk(CLOSE_DISK))
     lab, n = ndimage.label(m)
     if n:
         sizes = ndimage.sum_labels(np.ones_like(lab), lab, range(1, n + 1))

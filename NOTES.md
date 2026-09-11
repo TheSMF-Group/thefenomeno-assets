@@ -1050,28 +1050,30 @@ gate de blobs e o de região por slot. Sem argumentos ele valida e não escreve;
 com `--write` escreve em `layers/`; com `--regress` compara byte a byte contra o
 que já está commitado.
 
-**A receita documentada reproduz 26 das 32 camadas byte a byte.** Isso valida o
-texto: escrito do zero a partir da descrição, o código reproduz o artefato. Dois
-detalhes que a descrição não fixava e a regressão fixou:
+**A receita documentada reproduz as 32 camadas byte a byte, `beard_stubble`
+incluída.** Escrito do zero a partir da descrição, o código reproduz o artefato.
+Isso valida o texto da receita, não só o código, e mostra que `layers/` é de uma
+geração só.
+
+Quatro detalhes que a descrição em prosa não fixava, e que a regressão fixou:
 
 - **O blur é o do Pillow, não o do scipy.** `ImageFilter.GaussianBlur(1.5)` usa
   três passadas de box blur; o kernel exato do scipy difere em até 4 níveis de
   alpha, o bastante para nenhuma camada bater byte a byte.
 - **O diff é em escala de cinza, e o limiar é estrito.** Testadas as variantes
   `>= 16`, máximo por canal e média por canal: só `cinza > 16` reproduz.
+- **A mediana usa `mode="nearest"`.** Com o `reflect` padrão do scipy, a borda
+  espelha conteúdo e desloca o limiar nas primeiras linhas do quadro.
+- **A morfologia é a do skimage, não a do scipy.** A do scipy trata o fora do
+  quadro como fundo e erode a partir da borda.
 
-**Seis camadas de cabelo não reproduzem:** `braids`, `longtied`, `lowfade`,
-`midcurly`, `slickback` e `straightpart`. Em todas as seis a versão commitada é
-**maior** que a da receita, de 1.500 a 2.100 px, na borda e num único componente.
-Não é limiar de área, não é contagem de blobs, e não é borda do canvas: testado
-`border_value=1` no fechamento e piora. `hair_buzz` e `hair_shortcurly`
-reproduzem byte a byte, então não é uma propriedade do slot.
-
-A leitura provável é que essas seis vêm de uma execução anterior a algum ajuste
-da receita, e nunca foram reextraídas. É a consequência direta da lacuna que
-esta seção registrava: sem código versionado, não há como saber qual versão
-produziu qual arquivo. **Enquanto não forem reextraídas, `layers/` mistura duas
-gerações.**
+Os dois últimos só aparecem em cabelo que toca o topo do canvas. Sem eles,
+`midcurly`, `longtied`, `slickback` e `straightpart` perdiam uma faixa de cerca
+de 10 linhas no topo, e `braids` e `lowfade` erravam por 87 e 89 px. Levaram a
+uma conclusão errada antes de serem encontrados: a de que `layers/` misturava
+duas gerações e as seis precisavam ser reextraídas. **Não precisavam. O erro era
+da implementação, não do asset**, e a reextração teria sobrescrito seis camadas
+boas por seis piores.
 
 ### O gate de região não contém as camadas aprovadas
 
