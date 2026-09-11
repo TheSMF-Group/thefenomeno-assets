@@ -1087,6 +1087,66 @@ simétricos (desvio do eixo ≤ 12 px, diferença de altura ≤ 6 px, razão de 
   arquivo com `.convert("RGB")` nos dois pontos de uso, então nenhuma medida
   muda: `tones.json` foi regerado depois e saiu igual ao anterior.
 
+### A extração agora está no repositório (11/09/2026)
+
+`scripts/extract-layers.py` implementa a receita da máscara desta seção, mais o
+gate de blobs e o de região por slot. Sem argumentos ele valida e não escreve;
+com `--write` escreve em `layers/`; com `--regress` compara byte a byte contra o
+que já está commitado.
+
+**A receita documentada reproduz as 32 camadas byte a byte, `beard_stubble`
+incluída.** Escrito do zero a partir da descrição, o código reproduz o artefato.
+Isso valida o texto da receita, não só o código, e mostra que `layers/` é de uma
+geração só.
+
+Quatro detalhes que a descrição em prosa não fixava, e que a regressão fixou:
+
+- **O blur é o do Pillow, não o do scipy.** `ImageFilter.GaussianBlur(1.5)` usa
+  três passadas de box blur; o kernel exato do scipy difere em até 4 níveis de
+  alpha, o bastante para nenhuma camada bater byte a byte.
+- **O diff é em escala de cinza, e o limiar é estrito.** Testadas as variantes
+  `>= 16`, máximo por canal e média por canal: só `cinza > 16` reproduz.
+- **A mediana usa `mode="nearest"`.** Com o `reflect` padrão do scipy, a borda
+  espelha conteúdo e desloca o limiar nas primeiras linhas do quadro.
+- **A morfologia é a do skimage, não a do scipy.** A do scipy trata o fora do
+  quadro como fundo e erode a partir da borda.
+
+Os dois últimos só aparecem em cabelo que toca o topo do canvas. Sem eles,
+`midcurly`, `longtied`, `slickback` e `straightpart` perdiam uma faixa de cerca
+de 10 linhas no topo, e `braids` e `lowfade` erravam por 87 e 89 px. Levaram a
+uma conclusão errada antes de serem encontrados: a de que `layers/` misturava
+duas gerações e as seis precisavam ser reextraídas. **Não precisavam. O erro era
+da implementação, não do asset**, e a reextração teria sobrescrito seis camadas
+boas por seis piores.
+
+### O gate de região não contém as camadas aprovadas
+
+Rodando o gate contra as 32 já aprovadas, três estouram a caixa do NOTES, todas
+por baixo e por pouco:
+
+| camada | px fora | onde | caixa |
+|---|---|---|---|
+| `beard_longfull` | 2.433 | y 1140–1161 | y1 = 1140 |
+| `mouth_thin` | 677 | y 850–861 | y1 = 850 |
+| `mouth_full` | 57 | y 850–851 | y1 = 850 |
+
+São camadas aprovadas, então quem está errado é a caixa, não o asset.
+**Corrigidas em 11/09/2026: `beard` de y1 1140 para 1165, `mouth` de y1 850 para
+865.** Os assets não foram tocados. Com as caixas novas as 32 aprovadas passam o
+gate de região.
+
+### A caixa de `hair`, alargada
+
+De `(.10, .00, .90, .75)` para **`(.10, .00, .90, .80)`** em 11/09/2026. Medido
+sobre os 24 renders novos, o alargamento é necessário em **3 deles**, e **só no
+eixo y**: as três tranças passam de `y` 0,75, chegando a 0,781 no
+`hair_braids_red`. O eixo `x` fica como estava: o mínimo dos 24 é 0,121 e o
+máximo 0,869, ambos no `hair_midcurly_red`, e os dois dentro de 0,10 e 0,90.
+Alargar `x` também chegou a ser feito e foi revertido, por não ter nada que o
+justificasse.
+
+`hair_braids_red` a 0,781 deixa pouca margem contra o novo teto de 0,80.
+
 ### Lacuna conhecida: a extração não está no repositório
 
 A receita da máscara está especificada neste arquivo, mas **nenhum `.py` do
