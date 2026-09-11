@@ -41,6 +41,17 @@ iguais**. A única saída que não reproduz byte a byte entre plataformas é a f
 de **rótulos** das folhas de contato, que depende da fonte do sistema; os
 quadros em si são idênticos.
 
+**Reproduzido também em Windows em 11/09/2026**, com Python 3.14 de 64 bits e
+Pillow 12.2.0: os 43 arquivos do build saem byte a byte iguais, `source.webp`
+incluído. **O build é reprodutível entre as duas plataformas**, e a versão do
+Pillow é o que importa, não o sistema.
+
+Armadilha nessa máquina: o `python` do PATH é uma instalação **de 32 bits**, e
+scipy não publica mais wheel de 32 bits para Windows, então `pip install scipy`
+falha com "No matching distribution found". O interpretador que atende ao
+`requirements.txt` é o `pythoncore-3.14-64`. Antes de concluir que o build não
+reproduz, conferir com qual interpretador ele rodou.
+
 ## Base do diff
 
 `raw/tmp_1.png`. A pele dos 32 renders de feição bate com ela (distância de 5 a
