@@ -1062,57 +1062,62 @@ eixo de cor pelo mesmo motivo.
 
 #### A medição de cor das 24 (11/09/2026)
 
-Estatística do `measuredHex`: faixa p70–p90 de luminância, promediada em luz
-linear. Alvos: grisalho `#b4afa8`, loiro `#c8a165`, ruivo `#b0522a`.
+Estatística do `measuredHex`: faixa de luminância, promediada em luz linear.
+Alvos: grisalho `#b4afa8`, loiro `#c8a165`, ruivo `#b0522a`. **Limiar dE76 ≤ 12.**
 
-**Correção de método, e ela invalida dois números de uma versão anterior desta
+**Correção de método, e ela invalida números de uma versão anterior desta
 seção.** O NOTES define pelo opaco como `r < 0,15`, com `r = camada / tmp_1` em
 luz linear. Esse critério foi calibrado em cabelo castanho escuro, onde opaco e
 escuro coincidem, e **não transfere para cabelo claro**: pelo grisalho opaco tem
 `r` em torno de 0,7 contra a pele do `tmp_1`, então `r < 0,15` seleciona só as
 sombras mais fundas e puxa a medida para o escuro. Em `hair_buzz_blonde` sobravam
-82 pixels de 1254², e o dE saía em 43 em vez de 16.
+82 pixels de 1254².
 
 Opacidade é propriedade geométrica, não cromática. O pelo opaco passa a ser
 **a máscara de cabelo erodida por `disk(4)`**, que derruba a orla de cobertura
-parcial sem olhar para a cor. Medido também em `disk(2)` e `disk(6)`: o dE anda
-no máximo 2,4 entre os três raios, então o resultado não depende da escolha.
+parcial sem olhar para a cor.
 
-| cor | dE76 médio | melhor | pior | passam em dE ≤ 12 |
+#### A faixa de luminância decide o veredito, e só para o grisalho
+
+A faixa p70–p90 foi calibrada numa janela de testa, que é quase plana. Cabelo é
+massa 3D com sombreamento próprio, de 7,7× a 45,7× em luminância conforme medido
+na hipótese 2, e nela a mesma faixa cai na sombra em vez de na cor. Por isso as
+24 foram medidas nas duas faixas:
+
+| cor | p70–p90 médio | passam | p90–p98 médio | passam |
 |---|---|---|---|---|
-| grisalho | 14,3 | 11,7 | 19,4 | 2 de 8 |
-| ruivo | 14,9 | 11,9 | 19,7 | 1 de 8 |
-| loiro | 18,3 | 16,0 | 20,7 | 0 de 8 |
+| grisalho | 11,3 | 6 de 8 | **5,8** | **8 de 8** |
+| loiro | 14,2 | 2 de 8 | 14,2 | 1 de 8 |
+| ruivo | 15,6 | 1 de 8 | **25,1** | **0 de 8** |
 
-Passam os três: `hair_longtied_grey` 11,7, `hair_slickback_grey` 11,7,
-`hair_shortcurly_red` 11,9. Os outros 21 vão para regeração.
+**O grisalho é problema de métrica, não de asset.** O erro médio cai pela metade
+e os 8 passam. O loiro dá o mesmo erro médio nas duas faixas e reprova nas duas.
+O ruivo **piora** na faixa clara e reprova mais claramente.
 
-**Onde mora o erro, decomposto em L\*, croma e matiz:**
+A decomposição explica por quê:
 
-| cor | ΔL\* | ΔC\* | Δmatiz |
-|---|---|---|---|
-| grisalho | −10,3 | **+9,1** | −28,7° |
-| loiro | **−13,2** | −5,0 | −18,9° |
-| ruivo | −2,0 | **−14,4** | −0,2° |
+| cor | faixa | ΔL\* | ΔC\* | Δmatiz |
+|---|---|---|---|---|
+| grisalho | p70–p90 | −8,3 | +6,7 | −27,2° |
+| grisalho | p90–p98 | **+1,6** | +4,2 | −24,9° |
+| loiro | p70–p90 | −7,7 | −7,3 | −16,0° |
+| loiro | p90–p98 | +2,7 | **−11,7** | −13,3° |
+| ruivo | p70–p90 | −0,8 | −15,4 | −0,1° |
+| ruivo | p90–p98 | **+13,3** | **−21,1** | +0,7° |
 
-Cada cor falha por um motivo diferente. O grisalho erra por **excesso de croma**:
-o alvo tem C\* 4,2 e o render entrega 11,7 a 15,9. É o mesmo achado da primeira
-tentativa de regeração, quando `hair_midcurly_grey` veio com C\* 13,28 contra
-11,04 do castanho nativo. O que o gerador produz não é cabelo grisalho, é cabelo
-claro colorido. O loiro erra por **falta de luminância**, 13 pontos de L\* abaixo
-do alvo. O ruivo acerta o matiz com precisão notável, erro médio de 0,2°, e erra
-por **falta de saturação**, 14 pontos de C\* abaixo.
+No grisalho, trocar de faixa zera o erro de luminância e o croma já era pequeno,
+então sobra pouco. No loiro e no ruivo o que domina é **falta de croma**, e
+croma não se conserta escolhendo faixa: na faixa clara ele piora, porque o
+realce especular tem a cor da luz e lava o pigmento. É o mesmo motivo pelo qual
+o `measuredHex` da pele tem teto em p90.
 
-**Uma ressalva sobre o limiar.** A faixa p70–p90 foi calibrada numa janela de
-testa, que é quase plana. Cabelo é massa 3D com sombreamento próprio, de 7,7× a
-45,7× em luminância conforme medido na hipótese 2, e nela a mesma faixa lê
-sistematicamente abaixo da cor que o olho chama de "a cor do cabelo". Medindo na
-faixa p90–p98 o grisalho cai de 14,3 para **7,5** de dE médio e passaria quase
-todo; o loiro cai de 18,3 para 14,4 e continua reprovando; o ruivo **piora**, de
-14,9 para 19,6, porque o problema dele é falta de croma e a faixa mais clara é
-menos saturada. Ou seja, o veredito do grisalho depende da faixa escolhida, e o
-do loiro e do ruivo não. Fica registrado que a faixa p70–p90 é a usada, e que ela
-é conservadora para cabelo.
+O ruivo acerta o matiz com precisão notável, dentro de 1° nas duas faixas. Ele
+é do tom certo e fraco demais.
+
+**Consequência prática:** o veredito do grisalho depende de uma escolha de
+método que não estava fixada para cabelo, então reprovar os 8 grisalhos seria
+reprovar a régua. O do loiro e o do ruivo não depende, e é estável nas duas
+faixas.
 
 #### Modo de falha do gerador, para a próxima batelada
 
