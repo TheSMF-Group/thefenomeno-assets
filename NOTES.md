@@ -393,6 +393,10 @@ Estatística: **média dos pixels na faixa p70–p90 de luminância** da janela,
 promediados em luz linear. Selecionar por luminância e só então promediar
 preserva o croma; tirar percentil canal a canal não preservaria.
 
+**Esta faixa é de pele e não transfere para pelo.** A janela aqui é quase plana;
+cabelo é massa 3D e na mesma faixa a medida cai na sombra. Para cabelo a faixa é
+p90–p98 — ver "A faixa de cabelo é p90–p98", na seção de PELO.
+
 Por que uma faixa e não a média da janela inteira: mesmo na testa, a média fica
 ~18 pontos de L\* abaixo do nominal, porque a janela ainda carrega queda de
 iluminação nas bordas. O piso em p70 deixa isso de fora.
@@ -1077,12 +1081,31 @@ Opacidade é propriedade geométrica, não cromática. O pelo opaco passa a ser
 **a máscara de cabelo erodida por `disk(4)`**, que derruba a orla de cobertura
 parcial sem olhar para a cor.
 
-#### A faixa de luminância decide o veredito, e só para o grisalho
+#### A faixa de cabelo é p90–p98. A de pele é p70–p90 e não transfere
 
-A faixa p70–p90 foi calibrada numa janela de testa, que é quase plana. Cabelo é
-massa 3D com sombreamento próprio, de 7,7× a 45,7× em luminância conforme medido
-na hipótese 2, e nela a mesma faixa cai na sombra em vez de na cor. Por isso as
-24 foram medidas nas duas faixas:
+**Decidido em 11/09/2026.** Medir cor de cabelo usa a faixa **p90–p98** de
+luminância. A faixa p70–p90 continua valendo para pele e **não vale para pelo**.
+
+O motivo é geométrico. A janela de pele é a testa central, quase plana, com
+desvio de luminância de 0,043. Cabelo é massa 3D com sombreamento próprio, de
+7,7× a 45,7× entre p5 e p95 conforme medido na hipótese 2. Na mesma faixa
+percentual, a testa entrega a cor do pigmento e o cabelo entrega a sombra.
+
+**Este é o terceiro caso da mesma família neste arquivo, e vale nomeá-la:
+critério calibrado numa população não transfere para outra só porque a fórmula
+roda.** Os outros dois:
+
+- **O alvo de −37 em sRGB**, aposentado em favor da razão de luminância linear:
+  −37 sobre pele clara é −9 sobre pele escura, e a fórmula não avisa.
+- **O teto em p90 do `measuredHex`**, que existe porque acima dele entra reflexo
+  especular, que tem a cor da luz e não do pigmento.
+
+Junto com o `r < 0,15` para pelo opaco, que é critério de escuridão disfarçado
+de critério de opacidade, são quatro. O padrão a reconhecer é sempre o mesmo: a
+definição foi escrita olhando um caso, e o caso novo difere na variável que a
+definição não menciona.
+
+As 24 foram medidas nas duas faixas antes da decisão:
 
 | cor | p70–p90 médio | passam | p90–p98 médio | passam |
 |---|---|---|---|---|
@@ -1114,10 +1137,21 @@ o `measuredHex` da pele tem teto em p90.
 O ruivo acerta o matiz com precisão notável, dentro de 1° nas duas faixas. Ele
 é do tom certo e fraco demais.
 
-**Consequência prática:** o veredito do grisalho depende de uma escolha de
-método que não estava fixada para cabelo, então reprovar os 8 grisalhos seria
-reprovar a régua. O do loiro e o do ruivo não depende, e é estável nas duas
-faixas.
+#### Veredito das 24
+
+**Os 8 grisalhos estão aprovados**, 8 de 8 na faixa de cabelo, erro médio 5,8.
+Reprová-los na faixa de pele teria sido reprovar a régua, não o asset.
+
+**Os 8 loiros e os 8 ruivos vão para regeração, com mais saturação.** O erro
+deles é de croma e é estável nas duas faixas, então não é artefato de método. O
+matiz do ruivo está certo dentro de 1°, o que estreita o pedido: é para saturar,
+não para mudar de cor.
+
+| cor | destino |
+|---|---|
+| grisalho | aprovado, 8 de 8 |
+| loiro | regerar com mais croma |
+| ruivo | regerar com mais croma, matiz mantido |
 
 #### Modo de falha do gerador, para a próxima batelada
 
