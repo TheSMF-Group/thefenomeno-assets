@@ -1043,6 +1043,62 @@ simétricos (desvio do eixo ≤ 12 px, diferença de altura ≤ 6 px, razão de 
   arquivo com `.convert("RGB")` nos dois pontos de uso, então nenhuma medida
   muda: `tones.json` foi regerado depois e saiu igual ao anterior.
 
+### A extração agora está no repositório (11/09/2026)
+
+`scripts/extract-layers.py` implementa a receita da máscara desta seção, mais o
+gate de blobs e o de região por slot. Sem argumentos ele valida e não escreve;
+com `--write` escreve em `layers/`; com `--regress` compara byte a byte contra o
+que já está commitado.
+
+**A receita documentada reproduz 26 das 32 camadas byte a byte.** Isso valida o
+texto: escrito do zero a partir da descrição, o código reproduz o artefato. Dois
+detalhes que a descrição não fixava e a regressão fixou:
+
+- **O blur é o do Pillow, não o do scipy.** `ImageFilter.GaussianBlur(1.5)` usa
+  três passadas de box blur; o kernel exato do scipy difere em até 4 níveis de
+  alpha, o bastante para nenhuma camada bater byte a byte.
+- **O diff é em escala de cinza, e o limiar é estrito.** Testadas as variantes
+  `>= 16`, máximo por canal e média por canal: só `cinza > 16` reproduz.
+
+**Seis camadas de cabelo não reproduzem:** `braids`, `longtied`, `lowfade`,
+`midcurly`, `slickback` e `straightpart`. Em todas as seis a versão commitada é
+**maior** que a da receita, de 1.500 a 2.100 px, na borda e num único componente.
+Não é limiar de área, não é contagem de blobs, e não é borda do canvas: testado
+`border_value=1` no fechamento e piora. `hair_buzz` e `hair_shortcurly`
+reproduzem byte a byte, então não é uma propriedade do slot.
+
+A leitura provável é que essas seis vêm de uma execução anterior a algum ajuste
+da receita, e nunca foram reextraídas. É a consequência direta da lacuna que
+esta seção registrava: sem código versionado, não há como saber qual versão
+produziu qual arquivo. **Enquanto não forem reextraídas, `layers/` mistura duas
+gerações.**
+
+### O gate de região não contém as camadas aprovadas
+
+Rodando o gate contra as 32 já aprovadas, três estouram a caixa do NOTES, todas
+por baixo e por pouco:
+
+| camada | px fora | onde | caixa |
+|---|---|---|---|
+| `beard_longfull` | 2.433 | y 1140–1161 | y1 = 1140 |
+| `mouth_thin` | 677 | y 850–861 | y1 = 850 |
+| `mouth_full` | 57 | y 850–851 | y1 = 850 |
+
+São camadas aprovadas, então quem está errado é a caixa, não o asset. `beard`
+precisa de y1 ≈ 1165 e `mouth` de y1 ≈ 865. Não corrigi as caixas: elas estão
+documentadas como aprovadas e mudá-las é decisão, não conserto.
+
+### A caixa de `hair`, alargada
+
+De `(.10, .00, .90, .75)` para **`(.05, .00, .95, .80)`** em 11/09/2026. Medido
+sobre os 24 renders novos, o alargamento é necessário em **3 deles**, e **só no
+eixo y**: as três tranças passam de `y` 0,75, chegando a 0,781 no
+`hair_braids_red`. Nenhum dos 24 chega perto de `x` 0,05 — o mínimo é 0,121 no
+`hair_midcurly_red`, bem dentro do 0,10 antigo. O alargamento em `x` não foi
+exercido por nada desta batelada; fica como folga.
+
+`hair_braids_red` a 0,781 deixa pouca margem contra o novo teto de 0,80.
+
 ### Lacuna conhecida: a extração não está no repositório
 
 A receita da máscara está especificada neste arquivo, mas **nenhum `.py` do
