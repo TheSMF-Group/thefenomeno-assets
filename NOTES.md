@@ -576,12 +576,24 @@ escala.
 
 | | arquivos | total |
 |---|---|---|
-| bases | 10 | 144,2 KB |
-| camadas | 32 | 433,3 KB |
-| **build** | 42 | **577,6 KB** |
+| bases | 10 | 144,2 KiB |
+| camadas | 32 | 379,9 KiB |
+| source | 1 | 17,6 KiB |
+| **build** | 43 | **541,8 KiB** |
+
+Medido em 11/09/2026, com `FLOOD_RADIUS = 4`. Com o raio 16 anterior as camadas
+pesavam 433,3 KiB e o build 595,2 KiB, então a troca de raio devolveu **53,4 KiB,
+9,0% do bundle**. O valor das camadas bateu na casa decimal com o previsto pela
+varredura de raios, que estimava 379,9 KB.
 
 Maiores camadas: `hair_midcurly` e `hair_braids` em torno de 31 KB,
 `beard_longfull` 23 KB. Menores: `mouth_thin` 3,9 KB, `brow_thin` 4,3 KB.
+
+**A folha de contato oscila entre máquinas e isso não é regressão.** A faixa de
+rótulos é desenhada com a fonte do sistema, Arial Bold no macOS contra
+`arialbd.ttf` no Windows, então todo rebuild em máquina diferente reescreve as
+linhas 8 a 20 do PNG. Os dez quadros são reproduzíveis; só a legenda não é.
+Ignorar essa parte do diff.
 
 ### O alpha não é comprimido com perda
 
@@ -607,9 +619,9 @@ RGB de quem tem alpha > 0 também não.
 minúsculo e o RGB é ruído: na faixa 1–3 a média dá (176, 43, 35) com extremos em
 0 e 255, contra (218, 152, 127) estável de 8 para cima.
 
-**Raio em código hoje: 16 px.** Cobre 100% dos transparentes até 16 px da
-máscara. Preto chapado comprime para quase nada e área com cor não, então o raio
-custa caro em bytes, e o flood sem limite custa quase o triplo.
+**Raio: 4 px**, desde 11/09/2026. Antes eram 16. Preto chapado comprime para
+quase nada e área com cor não, então o raio custa caro em bytes, e o flood sem
+limite custa quase o triplo.
 
 #### A varredura de raios 2, 4, 8 e 16 (recuperada em 11/09/2026)
 
@@ -638,11 +650,11 @@ Medido sobre as 32 camadas, com o build inteiro em 491,8 KB sem flood:
 O flood total está descartado: 242 KB, metade do bundle, para proteger tamanhos
 de tela que não existem.
 
-**O que a tabela argumenta, e ainda não está aplicado.** Raio 4 protege até a
-cabeça desenhada a 64 px, que cobre o uso plausível, porque avatar de seletor
-fica entre 64 e 128. Custa +9% contra os +25% do raio 16. A escolha original de
-16 foi feita sem esta tabela. Abaixo de 64 px o raio 4 não protege, e se o jogo
-desenhar cabeça menor que isso o valor tem de subir para 8.
+**A decisão, aplicada em 11/09/2026.** Raio 4 protege até a cabeça desenhada a
+64 px, que cobre o uso plausível, porque avatar de seletor fica entre 64 e 128.
+Custa +9% contra os +25% do raio 16. A escolha original de 16 foi feita sem esta
+tabela. **Abaixo de 64 px o raio 4 não protege; se o jogo passar a desenhar
+cabeça menor que isso, subir para 8.**
 
 ### O flood muda o composto, e o motivo não é a composição
 

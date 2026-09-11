@@ -38,13 +38,27 @@ from scipy import ndimage
 # alpha 8 para cima.
 FLOOD_SOURCE_ALPHA = 8
 
-# Ate onde o flood vai, em pixels do canvas de 512. Uma faixa de 16 px cobre os
-# primeiros niveis de mipmap (ate 32x32) e a escala de textura que da para
-# esperar. O flood completo nao acrescenta seguranca util e custa quase o triplo
-# em bytes, porque area preta chapada comprime para quase nada e area com cor
-# nao. Medido sobre as 32 camadas: sem flood 347,6 KB, raio 16 433,3 KB (+25%),
-# flood total 590,1 KB (+70%).
-FLOOD_RADIUS = 16
+# Ate onde o flood vai, em pixels do canvas de 512.
+#
+# Cada nivel de mipmap e gerado do anterior, entao a exigencia de pixels validos
+# dobra a cada nivel: 1 px protege o mip 1 (256), 2 px o mip 2 (128), 4 px o mip
+# 3 (64), 8 px o mip 4 (32), 16 px o mip 5 (16).
+#
+# 4 px protege ate a cabeca desenhada a 64 px, que cobre o uso plausivel: avatar
+# de seletor fica entre 64 e 128. Abaixo de 64 px nao protege; se o jogo passar
+# a desenhar cabeca menor que isso, subir para 8.
+#
+# Custo medido sobre as 32 camadas, com o build inteiro em 491,8 KB sem flood:
+#
+#   raio  2    +1,8 KB   (+1%)    so mip 2
+#   raio  4   +32,3 KB   (+9%)    <- aqui
+#   raio  8   +60,8 KB  (+17%)    mip 4
+#   raio 16   +85,7 KB  (+25%)    mip 5
+#   sem limite +242,4 KB (+70%)
+#
+# O flood total esta descartado: metade do bundle para proteger tamanhos de tela
+# que nao existem. A escolha anterior de 16 foi feita antes desta tabela existir.
+FLOOD_RADIUS = 4
 
 
 def flood_rgb(im):
