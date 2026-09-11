@@ -816,6 +816,10 @@ O tint de seis cores segue não implementado e é problema separado — e a hip�
 2 mostra que ele não pode ser "trocar por uma cor sólida", porque o pelo tem
 sombreamento próprio que uma constante não representa.
 
+**Encerrado em 11/09/2026:** o tint não será implementado de forma nenhuma. Cor
+e forma passaram a ser um slot só, e `w = r` fica sendo a única transformação da
+família PELO. Ver "Saída adotada: cor e forma são um slot só".
+
 #### Consequência para gerar por tom
 
 O filete motivava gerar as 17 camadas de PELO por tom: +85 arquivos e +1,5 MB
@@ -947,12 +951,113 @@ cores iguais ou mais escuras que a nativa; render por cor para as claras; ou uma
 transformação que não seja multiplicação pura. A escolha é de produto, e a
 medição só diz o que custa cada uma.
 
+**Fechado em 11/09/2026.** A saída adotada não é nenhuma das três: cor e forma
+viraram um slot só. Ver "Saída adotada: cor e forma são um slot só", abaixo.
+
 **Discrepância registrada:** uma medição anterior desta mesma semana, feita em
 outra sessão e não registrada, deu "6–19% com perda até 214 níveis". Os números
 acima (5–20%, picos de 238) são da mesma ordem mas não idênticos. A diferença
 provavelmente está na definição de pelo opaco ou na resolução usada; como aquela
 medição não foi registrada, não há como reconciliar. Ver a nota de processo no
 fim deste arquivo.
+
+### Saída adotada: cor e forma são um slot só (11/09/2026)
+
+**Decisão: não existe eixo de cor de cabelo.** `midcurly grisalho` não é uma
+variação de `midcurly`; são dois itens de catálogo distintos, cada um com sua
+forma e sua cor já fixadas no render. Esta é a saída adotada da cadeia do tint de
+PELO, e ela fecha as três alternativas que a seção anterior deixou em aberto.
+
+Dois motivos independentes, cada um suficiente sozinho.
+
+**1. Tint multiplicativo não alcança as cores claras.** Medido e registrado na
+seção anterior: loiro, ruivo e grisalho estouram de 5% a 20% dos pixels de pelo,
+com picos de 238 níveis perdidos. A nativa está a 2–3% do branco em luz linear e
+não há headroom. Escurecer funciona, clarear não.
+
+**2. O gerador não controla forma e cor independentemente.** Foi a tentativa de
+contornar o item 1 por render por cor, e ela falhou na premissa. Dez renders de
+cor foram medidos contra o marrom da mesma forma, e **nenhum preservou a
+estrutura do cabelo**. Trocar a cor no gerador troca o penteado junto.
+
+A medida que sustenta isso é um controle de tingimento sintético: remapear a
+luminância do marrom para bater com a do render novo mantém a geometria idêntica
+por construção, porque nenhum pixel se move. A distância entre perfis radiais de
+autocorrelação, medida nos mesmos pixels e normalizada por contraste, separa o
+que é pigmento do que é estrutura.
+
+| render | artefato de cor | observado | estrutura | % da régua |
+|---|---|---|---|---|
+| `hair_longtied_grey` | 0,0009 | 0,1914 | 0,1905 | 339% |
+| `hair_buzz_grey` | 0,0059 | 0,1555 | 0,1496 | 267% |
+| `hair_braids_grey` | 0,0050 | 0,1488 | 0,1438 | 256% |
+| `hair_shortcurly_grey` | 0,0007 | 0,1259 | 0,1253 | 223% |
+| `hair_slickback_grey` | 0,0055 | 0,0598 | 0,0543 | 97% |
+| `hair_midcurly_blonde` | 0,0025 | 0,0564 | 0,0539 | 96% |
+| `hair_lowfade_grey` | 0,0008 | 0,0527 | 0,0519 | 92% |
+| `hair_straightpart_grey` | 0,0134 | 0,0477 | 0,0344 | 61% |
+| `hair_midcurly_grey` | 0,0021 | 0,0339 | 0,0318 | 57% |
+| `hair_buzz_blonde` | 0,0000 | 0,0154 | 0,0154 | 28% |
+
+A régua é `hair_midcurly` contra `hair_shortcurly`, que são formas diferentes de
+propósito: 0,0561.
+
+**O número que decide é a comparação entre as duas primeiras colunas.** Recolorir
+sem mexer na forma custa no máximo 0,0134, e a menor mudança estrutural observada
+é 0,0154. O piso do lote já é maior que o teto do que a cor sozinha explica.
+Quatro renders passam de duas a três vezes a régua de "forma diferente de
+propósito" e são penteados novos, não recolorizações: `longtied`, `buzz`,
+`braids` e `shortcurly` grisalhos.
+
+Confirmado por duas medidas independentes. A contagem de alternâncias claro e
+escuro por varredura horizontal, por 100 px de cabelo, vai de 1,97 para 6,73 no
+`shortcurly`, de 2,81 para 6,76 no `longtied` e de 4,95 para 8,41 no `buzz`. E o
+IoU das máscaras de cabelo contra a própria forma fica entre 0,7539 e 0,8484,
+enquanto o par de marrons de maior sobreposição, `buzz` contra `longtied`, dá
+0,7958. O `hair_lowfade_grey` sobrepõe o próprio original menos do que duas
+formas distintas se sobrepõem entre si. Não é artefato de limiar de máscara: o
+IoU tem máximo entre os limiares 16 e 24 e cai nas pontas.
+
+**Duas ressalvas de método, para o resultado não ser lido além do que mede.** O
+descritor de textura é um teste de mão única: valor alto prova que a estrutura
+mudou, valor baixo não prova que ela se manteve. Uma versão anterior do descritor
+deu 1,3% de distância entre `braids` e `shortcurly`, que são formas obviamente
+distintas. E a tentativa de medir o período dominante da trança e do cacho por
+varredura foi descartada: a transformada engancha no envelope do cabelo inteiro
+em vez do detalhe, e acusou 45% de variação até no par mais parecido do lote. Os
+cortes de veredito em 100% e 40% da régua são arbitrados, não medidos.
+
+#### A saída C é impublicável, não apenas degradada
+
+A coluna do tint sintético que serviu de controle numérico acima é também a
+evidência visual contra a terceira saída que a seção anterior listou, o tint com
+clipping. Ela é **visualmente inaceitável**: vazamento laranja sobre a pele e
+cabelo sem desenho, com as mechas achatadas numa massa. O clipping não degrada o
+resultado de forma tolerável, ele destrói o asset. Registrado aqui para que a
+saída C não volte com o argumento de que 5–20% de pixels estourados seria pouco.
+
+#### Consequência de catálogo
+
+Cabelo passa a ter **18 itens sem eixo de cor**: as 8 formas escuras nativas mais
+os 10 renders de cor como itens próprios.
+
+Os renders novos passam pelos **mesmos critérios de aceitação de qualquer asset**,
+sem tratamento especial por serem variação de cor. E os reprovados por cor **saem
+do catálogo em vez de serem corrigidos**, porque corrigir cor por
+pós-processamento é exatamente a multiplicação que o item 1 reprovou:
+
+| render | dE76 contra o alvo | destino |
+|---|---|---|
+| `hair_buzz_blonde` | 19,4 | fora do catálogo |
+| `hair_lowfade_grey` | 16,3 | fora do catálogo |
+
+Com isso o catálogo de cabelo fica em 16 itens até que novos renders entrem pelo
+mesmo critério.
+
+Consequências que caem junto: não há campo de cor de cabelo no modelo, `tone.ts`
+não ganha nenhuma transformação de tint, e a correção de borda `w = r` continua
+sendo a única transformação da família PELO. O `brow_*` e o `beard_*` seguem sem
+eixo de cor pelo mesmo motivo.
 
 ### Clipping residual da família PELE, aceito por decisão
 
