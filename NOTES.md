@@ -607,16 +607,42 @@ RGB de quem tem alpha > 0 também não.
 minúsculo e o RGB é ruído: na faixa 1–3 a média dá (176, 43, 35) com extremos em
 0 e 255, contra (218, 152, 127) estável de 8 para cima.
 
-**Raio: 16 px.** Cobre 100% dos transparentes até 16 px da máscara, o que atende
-os primeiros níveis de mipmap (até 32×32). Flood sem limite não acrescenta
-segurança útil e custa quase o triplo, porque preto chapado comprime para quase
-nada e área com cor não:
+**Raio em código hoje: 16 px.** Cobre 100% dos transparentes até 16 px da
+máscara. Preto chapado comprime para quase nada e área com cor não, então o raio
+custa caro em bytes, e o flood sem limite custa quase o triplo.
 
-| variante | camadas | acréscimo |
-|---|---|---|
-| sem flood | 347,6 KB | — |
-| **raio 16** | **433,3 KB** | +25% |
-| flood total | 590,1 KB | +70% |
+#### A varredura de raios 2, 4, 8 e 16 (recuperada em 11/09/2026)
+
+Esta medição foi dada como perdida: ela não estava em commit nenhum, e a sessão
+que procurou por ela concluiu que teria de ser refeita do zero. Estava inteira
+na árvore de trabalho não commitada da máquina Windows, junto com a mudança de
+código que ela motivava. **É o terceiro caso do mesmo padrão na mesma semana, e
+o único em que o dado voltou.** Ver a nota de processo no fim deste arquivo.
+
+O critério que ela introduz é de mipmap, e não estava registrado antes: **cada
+nível é gerado do anterior, então a exigência de pixels válidos dobra a cada
+nível.** 1 px protege o mip 1 a 256, 2 px o mip 2 a 128, 4 px o mip 3 a 64, 8 px
+o mip 4 a 32, 16 px o mip 5 a 16.
+
+Medido sobre as 32 camadas, com o build inteiro em 491,8 KB sem flood:
+
+| raio | camadas | build total | acréscimo | cobre até |
+|---|---|---|---|---|
+| sem flood | 347,6 KB | 491,8 KB | — | — |
+| 2 | 349,4 KB | 493,6 KB | +1% | mip 2, cabeça a 128 px |
+| **4** | **379,9 KB** | **524,1 KB** | **+9%** | **mip 3, cabeça a 64 px** |
+| 8 | 408,4 KB | 552,6 KB | +17% | mip 4, cabeça a 32 px |
+| 16 | 433,3 KB | 577,5 KB | +25% | mip 5, cabeça a 16 px |
+| sem limite | 590,1 KB | 734,3 KB | +70% | tudo |
+
+O flood total está descartado: 242 KB, metade do bundle, para proteger tamanhos
+de tela que não existem.
+
+**O que a tabela argumenta, e ainda não está aplicado.** Raio 4 protege até a
+cabeça desenhada a 64 px, que cobre o uso plausível, porque avatar de seletor
+fica entre 64 e 128. Custa +9% contra os +25% do raio 16. A escolha original de
+16 foi feita sem esta tabela. Abaixo de 64 px o raio 4 não protege, e se o jogo
+desenhar cabeça menor que isso o valor tem de subir para 8.
 
 ### O flood muda o composto, e o motivo não é a composição
 
@@ -628,13 +654,19 @@ mudar o RGB dos pixels transparentes muda o conteúdo do bloco e, com ele, a
 reconstrução dos pixels **opacos** do mesmo bloco. Peso zero na composição não
 é peso zero na compressão.
 
-A mudança é uma **melhora marginal**, medida contra a camada de 512 sem
-compressão nenhuma:
+A mudança é uma **melhora marginal, e em todos os 10 tons**, não um empate com
+algum tom pior. Medida contra a camada de 512 sem compressão nenhuma, no MST-01
+que é o pior caso e no MST-10:
 
-| versão | erro no miolo | erro na rampa da borda |
-|---|---|---|
-| sem flood | 2,758 | 1,731 |
-| com flood r16 | **2,691** | **1,653** |
+| versão | miolo MST-01 | rampa MST-01 | miolo MST-10 | rampa MST-10 |
+|---|---|---|---|---|
+| sem flood | 2,758 | 1,731 | 1,090 | 0,683 |
+| flood r4 | **2,690** | **1,710** | **1,064** | **0,673** |
+
+Vinte medições, vinte vezes o flood igual ou melhor. A melhora é maior nos tons
+claros, onde o `k` é maior e o contraste contra o preto era mais violento. Esta
+tabela também vem da árvore não commitada, e é a mesma varredura recuperada: ela
+substitui a medição anterior, que era de um tom só e do raio 16.
 
 Sem o flood existe uma parede de preto contra pele dentro do bloco; o codec
 gasta bits nessa aresta e produz ringing. Com o flood a aresta some.
