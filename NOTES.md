@@ -393,6 +393,10 @@ Estatística: **média dos pixels na faixa p70–p90 de luminância** da janela,
 promediados em luz linear. Selecionar por luminância e só então promediar
 preserva o croma; tirar percentil canal a canal não preservaria.
 
+**Esta faixa é de pele e não transfere para pelo.** A janela aqui é quase plana;
+cabelo é massa 3D e na mesma faixa a medida cai na sombra. Para cabelo a faixa é
+p90–p98 — ver "A faixa de cabelo é p90–p98", na seção de PELO.
+
 Por que uma faixa e não a média da janela inteira: mesmo na testa, a média fica
 ~18 pontos de L\* abaixo do nominal, porque a janela ainda carrega queda de
 iluminação nas bordas. O piso em p70 deixa isso de fora.
@@ -860,6 +864,10 @@ O tint de seis cores segue não implementado e é problema separado — e a hip�
 2 mostra que ele não pode ser "trocar por uma cor sólida", porque o pelo tem
 sombreamento próprio que uma constante não representa.
 
+**Encerrado em 11/09/2026:** o tint não será implementado de forma nenhuma. Cor
+e forma passaram a ser um slot só, e `w = r` fica sendo a única transformação da
+família PELO. Ver "Saída adotada: cor e forma são um slot só".
+
 #### Consequência para gerar por tom
 
 O filete motivava gerar as 17 camadas de PELO por tom: +85 arquivos e +1,5 MB
@@ -991,12 +999,214 @@ cores iguais ou mais escuras que a nativa; render por cor para as claras; ou uma
 transformação que não seja multiplicação pura. A escolha é de produto, e a
 medição só diz o que custa cada uma.
 
+**Fechado em 11/09/2026.** A saída adotada não é nenhuma das três: cor e forma
+viraram um slot só. Ver "Saída adotada: cor e forma são um slot só", abaixo.
+
 **Discrepância registrada:** uma medição anterior desta mesma semana, feita em
 outra sessão e não registrada, deu "6–19% com perda até 214 níveis". Os números
 acima (5–20%, picos de 238) são da mesma ordem mas não idênticos. A diferença
 provavelmente está na definição de pelo opaco ou na resolução usada; como aquela
 medição não foi registrada, não há como reconciliar. Ver a nota de processo no
 fim deste arquivo.
+
+### Saída adotada: cor e forma são um slot só (11/09/2026)
+
+**Decisão: não existe eixo de cor de cabelo.** `midcurly grisalho` não é uma
+variação de `midcurly`; são dois itens de catálogo distintos, cada um com sua
+forma e sua cor já fixadas no render. Esta é a saída adotada da cadeia do tint de
+PELO, e ela fecha as três alternativas que a seção anterior deixou em aberto.
+
+Dois motivos independentes, cada um suficiente sozinho.
+
+**1. Tint multiplicativo não alcança as cores claras.** Medido e registrado na
+seção anterior: loiro, ruivo e grisalho estouram de 5% a 20% dos pixels de pelo,
+com picos de 238 níveis perdidos. A nativa está a 2–3% do branco em luz linear e
+não há headroom. Escurecer funciona, clarear não.
+
+**2. O gerador não controla forma e cor independentemente.** Foi a tentativa de
+contornar o item 1 por render por cor, e ela falhou na premissa. A batelada tem
+**24 renders de cor**, 8 grisalhos, 8 loiros e 8 ruivos, um de cada forma. A
+estrutura foi medida numa amostra de 10, e **nenhum dos 10 preservou a estrutura
+do cabelo**. Trocar a cor no gerador troca o penteado junto.
+
+A medida que sustenta isso é um controle de tingimento sintético: remapear a
+luminância do marrom para bater com a do render novo mantém a geometria idêntica
+por construção, porque nenhum pixel se move. A distância entre perfis radiais de
+autocorrelação, medida nos mesmos pixels e normalizada por contraste, separa o
+que é pigmento do que é estrutura.
+
+| render | artefato de cor | observado | estrutura | % da régua |
+|---|---|---|---|---|
+| `hair_longtied_grey` | 0,0009 | 0,1914 | 0,1905 | 339% |
+| `hair_buzz_grey` | 0,0059 | 0,1555 | 0,1496 | 267% |
+| `hair_braids_grey` | 0,0050 | 0,1488 | 0,1438 | 256% |
+| `hair_shortcurly_grey` | 0,0007 | 0,1259 | 0,1253 | 223% |
+| `hair_slickback_grey` | 0,0055 | 0,0598 | 0,0543 | 97% |
+| `hair_midcurly_blonde` | 0,0025 | 0,0564 | 0,0539 | 96% |
+| `hair_lowfade_grey` | 0,0008 | 0,0527 | 0,0519 | 92% |
+| `hair_straightpart_grey` | 0,0134 | 0,0477 | 0,0344 | 61% |
+| `hair_midcurly_grey` | 0,0021 | 0,0339 | 0,0318 | 57% |
+| `hair_buzz_blonde` | 0,0000 | 0,0154 | 0,0154 | 28% |
+
+A régua é `hair_midcurly` contra `hair_shortcurly`, que são formas diferentes de
+propósito: 0,0561.
+
+**O número que decide é a comparação entre as duas primeiras colunas.** Recolorir
+sem mexer na forma custa no máximo 0,0134, e a menor mudança estrutural observada
+é 0,0154. O piso do lote já é maior que o teto do que a cor sozinha explica.
+Quatro renders passam de duas a três vezes a régua de "forma diferente de
+propósito" e são penteados novos, não recolorizações: `longtied`, `buzz`,
+`braids` e `shortcurly` grisalhos.
+
+Confirmado por duas medidas independentes. A contagem de alternâncias claro e
+escuro por varredura horizontal, por 100 px de cabelo, vai de 1,97 para 6,73 no
+`shortcurly`, de 2,81 para 6,76 no `longtied` e de 4,95 para 8,41 no `buzz`. E o
+IoU das máscaras de cabelo contra a própria forma fica entre 0,7539 e 0,8484,
+enquanto o par de marrons de maior sobreposição, `buzz` contra `longtied`, dá
+0,7958. O `hair_lowfade_grey` sobrepõe o próprio original menos do que duas
+formas distintas se sobrepõem entre si. Não é artefato de limiar de máscara: o
+IoU tem máximo entre os limiares 16 e 24 e cai nas pontas.
+
+**Duas ressalvas de método, para o resultado não ser lido além do que mede.** O
+descritor de textura é um teste de mão única: valor alto prova que a estrutura
+mudou, valor baixo não prova que ela se manteve. Uma versão anterior do descritor
+deu 1,3% de distância entre `braids` e `shortcurly`, que são formas obviamente
+distintas. E a tentativa de medir o período dominante da trança e do cacho por
+varredura foi descartada: a transformada engancha no envelope do cabelo inteiro
+em vez do detalhe, e acusou 45% de variação até no par mais parecido do lote. Os
+cortes de veredito em 100% e 40% da régua são arbitrados, não medidos.
+
+#### A saída C é impublicável, não apenas degradada
+
+A coluna do tint sintético que serviu de controle numérico acima é também a
+evidência visual contra a terceira saída que a seção anterior listou, o tint com
+clipping. Ela é **visualmente inaceitável**: vazamento laranja sobre a pele e
+cabelo sem desenho, com as mechas achatadas numa massa. O clipping não degrada o
+resultado de forma tolerável, ele destrói o asset. Registrado aqui para que a
+saída C não volte com o argumento de que 5–20% de pixels estourados seria pouco.
+
+#### Consequência de catálogo
+
+Cabelo passa a ter **32 itens sem eixo de cor**: as 8 formas escuras nativas mais
+os 24 renders de cor como itens próprios.
+
+Os renders novos passam pelos **mesmos critérios de aceitação de qualquer asset**,
+sem tratamento especial por serem variação de cor. O que muda em relação a um
+asset avulso é o destino de quem reprova: como a geração é automatizada, o
+reprovado **é regerado, não retirado do catálogo**. Corrigir a cor por
+pós-processamento está fora de questão, porque seria exatamente a multiplicação
+que o item 1 reprovou.
+
+**Limiar de cor: dE76 ≤ 12**, contra o hex de referência da cor. É mais folgado
+que os 10 usados em outras aceitações deste repositório, e o motivo está na
+decisão desta seção: com cor e forma no mesmo slot, **o hex alvo é referência de
+nome, não especificação**. O item precisa ser reconhecivelmente grisalho, loiro
+ou ruivo; não precisa bater o hex.
+
+Consequências que caem junto: não há campo de cor de cabelo no modelo, `tone.ts`
+não ganha nenhuma transformação de tint, e a correção de borda `w = r` continua
+sendo a única transformação da família PELO. O `brow_*` e o `beard_*` seguem sem
+eixo de cor pelo mesmo motivo.
+
+#### A medição de cor das 24 (11/09/2026)
+
+Estatística do `measuredHex`: faixa de luminância, promediada em luz linear.
+Alvos: grisalho `#b4afa8`, loiro `#c8a165`, ruivo `#b0522a`. **Limiar dE76 ≤ 12.**
+
+**Correção de método, e ela invalida números de uma versão anterior desta
+seção.** O NOTES define pelo opaco como `r < 0,15`, com `r = camada / tmp_1` em
+luz linear. Esse critério foi calibrado em cabelo castanho escuro, onde opaco e
+escuro coincidem, e **não transfere para cabelo claro**: pelo grisalho opaco tem
+`r` em torno de 0,7 contra a pele do `tmp_1`, então `r < 0,15` seleciona só as
+sombras mais fundas e puxa a medida para o escuro. Em `hair_buzz_blonde` sobravam
+82 pixels de 1254².
+
+Opacidade é propriedade geométrica, não cromática. O pelo opaco passa a ser
+**a máscara de cabelo erodida por `disk(4)`**, que derruba a orla de cobertura
+parcial sem olhar para a cor.
+
+#### A faixa de cabelo é p90–p98. A de pele é p70–p90 e não transfere
+
+**Decidido em 11/09/2026.** Medir cor de cabelo usa a faixa **p90–p98** de
+luminância. A faixa p70–p90 continua valendo para pele e **não vale para pelo**.
+
+O motivo é geométrico. A janela de pele é a testa central, quase plana, com
+desvio de luminância de 0,043. Cabelo é massa 3D com sombreamento próprio, de
+7,7× a 45,7× entre p5 e p95 conforme medido na hipótese 2. Na mesma faixa
+percentual, a testa entrega a cor do pigmento e o cabelo entrega a sombra.
+
+**Este é o terceiro caso da mesma família neste arquivo, e vale nomeá-la:
+critério calibrado numa população não transfere para outra só porque a fórmula
+roda.** Os outros dois:
+
+- **O alvo de −37 em sRGB**, aposentado em favor da razão de luminância linear:
+  −37 sobre pele clara é −9 sobre pele escura, e a fórmula não avisa.
+- **O teto em p90 do `measuredHex`**, que existe porque acima dele entra reflexo
+  especular, que tem a cor da luz e não do pigmento.
+
+Junto com o `r < 0,15` para pelo opaco, que é critério de escuridão disfarçado
+de critério de opacidade, são quatro. O padrão a reconhecer é sempre o mesmo: a
+definição foi escrita olhando um caso, e o caso novo difere na variável que a
+definição não menciona.
+
+As 24 foram medidas nas duas faixas antes da decisão:
+
+| cor | p70–p90 médio | passam | p90–p98 médio | passam |
+|---|---|---|---|---|
+| grisalho | 11,3 | 6 de 8 | **5,8** | **8 de 8** |
+| loiro | 14,2 | 2 de 8 | 14,2 | 1 de 8 |
+| ruivo | 15,6 | 1 de 8 | **25,1** | **0 de 8** |
+
+**O grisalho é problema de métrica, não de asset.** O erro médio cai pela metade
+e os 8 passam. O loiro dá o mesmo erro médio nas duas faixas e reprova nas duas.
+O ruivo **piora** na faixa clara e reprova mais claramente.
+
+A decomposição explica por quê:
+
+| cor | faixa | ΔL\* | ΔC\* | Δmatiz |
+|---|---|---|---|---|
+| grisalho | p70–p90 | −8,3 | +6,7 | −27,2° |
+| grisalho | p90–p98 | **+1,6** | +4,2 | −24,9° |
+| loiro | p70–p90 | −7,7 | −7,3 | −16,0° |
+| loiro | p90–p98 | +2,7 | **−11,7** | −13,3° |
+| ruivo | p70–p90 | −0,8 | −15,4 | −0,1° |
+| ruivo | p90–p98 | **+13,3** | **−21,1** | +0,7° |
+
+No grisalho, trocar de faixa zera o erro de luminância e o croma já era pequeno,
+então sobra pouco. No loiro e no ruivo o que domina é **falta de croma**, e
+croma não se conserta escolhendo faixa: na faixa clara ele piora, porque o
+realce especular tem a cor da luz e lava o pigmento. É o mesmo motivo pelo qual
+o `measuredHex` da pele tem teto em p90.
+
+O ruivo acerta o matiz com precisão notável, dentro de 1° nas duas faixas. Ele
+é do tom certo e fraco demais.
+
+#### Veredito das 24
+
+**Os 8 grisalhos estão aprovados**, 8 de 8 na faixa de cabelo, erro médio 5,8.
+Reprová-los na faixa de pele teria sido reprovar a régua, não o asset.
+
+**Os 8 loiros e os 8 ruivos vão para regeração, com mais saturação.** O erro
+deles é de croma e é estável nas duas faixas, então não é artefato de método. O
+matiz do ruivo está certo dentro de 1°, o que estreita o pedido: é para saturar,
+não para mudar de cor.
+
+| cor | destino |
+|---|---|
+| grisalho | aprovado, 8 de 8 |
+| loiro | regerar com mais croma |
+| ruivo | regerar com mais croma, matiz mantido |
+
+#### Modo de falha do gerador, para a próxima batelada
+
+**Resposta vazia em cerca de 14% dos envios, sem erro.** O gerador não sinaliza
+falha: devolve vazio e segue. Resolvido por reenvio simples, sem mudar o prompt
+nem os parâmetros.
+
+Consequência operacional: uma batelada de N itens exige aproximadamente 1,16 × N
+envios, e **a contagem de arquivos na pasta é o único sinal de que a batelada
+terminou**. Conferir a contagem esperada antes de considerar a batelada completa,
+em vez de assumir que ausência de erro significa sucesso.
 
 ### Clipping residual da família PELE, aceito por decisão
 
