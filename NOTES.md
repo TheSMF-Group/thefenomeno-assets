@@ -976,9 +976,10 @@ com picos de 238 níveis perdidos. A nativa está a 2–3% do branco em luz line
 não há headroom. Escurecer funciona, clarear não.
 
 **2. O gerador não controla forma e cor independentemente.** Foi a tentativa de
-contornar o item 1 por render por cor, e ela falhou na premissa. Dez renders de
-cor foram medidos contra o marrom da mesma forma, e **nenhum preservou a
-estrutura do cabelo**. Trocar a cor no gerador troca o penteado junto.
+contornar o item 1 por render por cor, e ela falhou na premissa. A batelada tem
+**24 renders de cor**, 8 grisalhos, 8 loiros e 8 ruivos, um de cada forma. A
+estrutura foi medida numa amostra de 10, e **nenhum dos 10 preservou a estrutura
+do cabelo**. Trocar a cor no gerador troca o penteado junto.
 
 A medida que sustenta isso é um controle de tingimento sintético: remapear a
 luminância do marrom para bater com a do render novo mantém a geometria idêntica
@@ -1038,26 +1039,91 @@ saída C não volte com o argumento de que 5–20% de pixels estourados seria po
 
 #### Consequência de catálogo
 
-Cabelo passa a ter **18 itens sem eixo de cor**: as 8 formas escuras nativas mais
-os 10 renders de cor como itens próprios.
+Cabelo passa a ter **32 itens sem eixo de cor**: as 8 formas escuras nativas mais
+os 24 renders de cor como itens próprios.
 
 Os renders novos passam pelos **mesmos critérios de aceitação de qualquer asset**,
-sem tratamento especial por serem variação de cor. E os reprovados por cor **saem
-do catálogo em vez de serem corrigidos**, porque corrigir cor por
-pós-processamento é exatamente a multiplicação que o item 1 reprovou:
+sem tratamento especial por serem variação de cor. O que muda em relação a um
+asset avulso é o destino de quem reprova: como a geração é automatizada, o
+reprovado **é regerado, não retirado do catálogo**. Corrigir a cor por
+pós-processamento está fora de questão, porque seria exatamente a multiplicação
+que o item 1 reprovou.
 
-| render | dE76 contra o alvo | destino |
-|---|---|---|
-| `hair_buzz_blonde` | 19,4 | fora do catálogo |
-| `hair_lowfade_grey` | 16,3 | fora do catálogo |
-
-Com isso o catálogo de cabelo fica em 16 itens até que novos renders entrem pelo
-mesmo critério.
+**Limiar de cor: dE76 ≤ 12**, contra o hex de referência da cor. É mais folgado
+que os 10 usados em outras aceitações deste repositório, e o motivo está na
+decisão desta seção: com cor e forma no mesmo slot, **o hex alvo é referência de
+nome, não especificação**. O item precisa ser reconhecivelmente grisalho, loiro
+ou ruivo; não precisa bater o hex.
 
 Consequências que caem junto: não há campo de cor de cabelo no modelo, `tone.ts`
 não ganha nenhuma transformação de tint, e a correção de borda `w = r` continua
 sendo a única transformação da família PELO. O `brow_*` e o `beard_*` seguem sem
 eixo de cor pelo mesmo motivo.
+
+#### A medição de cor das 24 (11/09/2026)
+
+Estatística do `measuredHex`: faixa p70–p90 de luminância, promediada em luz
+linear. Alvos: grisalho `#b4afa8`, loiro `#c8a165`, ruivo `#b0522a`.
+
+**Correção de método, e ela invalida dois números de uma versão anterior desta
+seção.** O NOTES define pelo opaco como `r < 0,15`, com `r = camada / tmp_1` em
+luz linear. Esse critério foi calibrado em cabelo castanho escuro, onde opaco e
+escuro coincidem, e **não transfere para cabelo claro**: pelo grisalho opaco tem
+`r` em torno de 0,7 contra a pele do `tmp_1`, então `r < 0,15` seleciona só as
+sombras mais fundas e puxa a medida para o escuro. Em `hair_buzz_blonde` sobravam
+82 pixels de 1254², e o dE saía em 43 em vez de 16.
+
+Opacidade é propriedade geométrica, não cromática. O pelo opaco passa a ser
+**a máscara de cabelo erodida por `disk(4)`**, que derruba a orla de cobertura
+parcial sem olhar para a cor. Medido também em `disk(2)` e `disk(6)`: o dE anda
+no máximo 2,4 entre os três raios, então o resultado não depende da escolha.
+
+| cor | dE76 médio | melhor | pior | passam em dE ≤ 12 |
+|---|---|---|---|---|
+| grisalho | 14,3 | 11,7 | 19,4 | 2 de 8 |
+| ruivo | 14,9 | 11,9 | 19,7 | 1 de 8 |
+| loiro | 18,3 | 16,0 | 20,7 | 0 de 8 |
+
+Passam os três: `hair_longtied_grey` 11,7, `hair_slickback_grey` 11,7,
+`hair_shortcurly_red` 11,9. Os outros 21 vão para regeração.
+
+**Onde mora o erro, decomposto em L\*, croma e matiz:**
+
+| cor | ΔL\* | ΔC\* | Δmatiz |
+|---|---|---|---|
+| grisalho | −10,3 | **+9,1** | −28,7° |
+| loiro | **−13,2** | −5,0 | −18,9° |
+| ruivo | −2,0 | **−14,4** | −0,2° |
+
+Cada cor falha por um motivo diferente. O grisalho erra por **excesso de croma**:
+o alvo tem C\* 4,2 e o render entrega 11,7 a 15,9. É o mesmo achado da primeira
+tentativa de regeração, quando `hair_midcurly_grey` veio com C\* 13,28 contra
+11,04 do castanho nativo. O que o gerador produz não é cabelo grisalho, é cabelo
+claro colorido. O loiro erra por **falta de luminância**, 13 pontos de L\* abaixo
+do alvo. O ruivo acerta o matiz com precisão notável, erro médio de 0,2°, e erra
+por **falta de saturação**, 14 pontos de C\* abaixo.
+
+**Uma ressalva sobre o limiar.** A faixa p70–p90 foi calibrada numa janela de
+testa, que é quase plana. Cabelo é massa 3D com sombreamento próprio, de 7,7× a
+45,7× em luminância conforme medido na hipótese 2, e nela a mesma faixa lê
+sistematicamente abaixo da cor que o olho chama de "a cor do cabelo". Medindo na
+faixa p90–p98 o grisalho cai de 14,3 para **7,5** de dE médio e passaria quase
+todo; o loiro cai de 18,3 para 14,4 e continua reprovando; o ruivo **piora**, de
+14,9 para 19,6, porque o problema dele é falta de croma e a faixa mais clara é
+menos saturada. Ou seja, o veredito do grisalho depende da faixa escolhida, e o
+do loiro e do ruivo não. Fica registrado que a faixa p70–p90 é a usada, e que ela
+é conservadora para cabelo.
+
+#### Modo de falha do gerador, para a próxima batelada
+
+**Resposta vazia em cerca de 14% dos envios, sem erro.** O gerador não sinaliza
+falha: devolve vazio e segue. Resolvido por reenvio simples, sem mudar o prompt
+nem os parâmetros.
+
+Consequência operacional: uma batelada de N itens exige aproximadamente 1,16 × N
+envios, e **a contagem de arquivos na pasta é o único sinal de que a batelada
+terminou**. Conferir a contagem esperada antes de considerar a batelada completa,
+em vez de assumir que ausência de erro significa sucesso.
 
 ### Clipping residual da família PELE, aceito por decisão
 
