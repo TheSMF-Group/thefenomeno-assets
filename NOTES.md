@@ -1256,6 +1256,18 @@ vai voltar:
 Na prática: quando uma medida em HSV e outra em Lab discordarem sobre saturação,
 olhar o brilho antes de concluir qualquer coisa sobre cor.
 
+**Vocabulário: o que é proibido é o adjetivo de cor, não a palavra.** `deep`
+como adjetivo de cor, em `deep red` ou `deep blonde`, empurra o valor para baixo
+e é **proibido nas linhas de cor**. `deep shadows between the strands` é
+**estrutura de sombreamento**, não cor, e tem 25 renders de evidência a favor: a
+geração de loiro que passou, V 155 → 191, usava essa linha. O mesmo vale para
+`rich`, `dark`, `muted` e `not pale`: banidos como adjetivo de cor, irrelevantes
+fora disso.
+
+A palavra chegou a ser banida por inteiro, e o banimento pegou uma linha que
+estava funcionando. A regra a aplicar é pela função da palavra na linha, não pela
+palavra.
+
 ### Clipping residual da família PELE, aceito por decisão
 
 Isolando PELE, das 150 combinações sobra **uma** acima de 0,1%:
