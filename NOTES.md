@@ -1469,9 +1469,9 @@ procedural em SVG, não é camada, e fica fora.
 
 ### Conflito aberto: composição por camadas contra catálogo de retratos (15/09/2026)
 
-**Aberto, sem decisão.** Nada foi escrito a respeito: nenhum `catalog.ts` novo,
-e `api/_lib/catalog.ts` e `src/game/skin.ts` do repositório do jogo estão
-intocados.
+**Resolvido em 15/09/2026 a favor da saída A: camadas vencem.** O registro do
+conflito fica abaixo como estava, porque é o contexto da decisão. Ver "Decisão:
+composição por camadas vence o catálogo de retratos", logo depois das saídas.
 
 Os fatos, em ordem:
 
@@ -1494,7 +1494,37 @@ As três saídas possíveis, **sem recomendação**:
 | **B** | retratos vencem | o pipeline vira gerador: compõe, achata em 512×640 sem alpha, e cada combinação vira SKU; as camadas viram ferramenta interna |
 | **C** | convivem | retratos como SKU pago, criador por camadas como grátis |
 
-`catalog.ts` com os 32 itens de cabelo está parado até esta decisão.
+`catalog.ts` com os 32 itens de cabelo estava parado até esta decisão.
+
+### Decisão: composição por camadas vence o catálogo de retratos (15/09/2026)
+
+**Saída A.** O catálogo de retratos é substituído, o gate de `faceId` cai, e a
+posse passa a ser validada contra a tupla de 8 slots.
+
+**Os dois motivos da decisão de 24/08 envelheceram:**
+
+- **Validar 8 itens não é materialmente mais difícil que validar 1.** É o mesmo
+  lookup repetido por slot, e o inventário já é log de eventos com posse
+  derivada. A dificuldade que justificava um item por avatar não existe no
+  código que está aí.
+- **"Mesmo rosto, outro cabelo" só era problema quando o produto era o rosto.**
+  Com retrato como SKU, dois itens de mesmo rosto eram o mesmo produto vendido
+  duas vezes, e o gate de `faceId` impedia isso. Com o item como produto, trocar
+  o cabelo é exatamente o que se vende, e o problema deixa de existir.
+
+**As razões a favor:**
+
+- **O criador é conteúdo compartilhável.** Um avatar montado pelo jogador é algo
+  que ele mostra; um retrato escolhido de uma lista, não.
+- **SKU por item vende melhor que SKU por rosto no grão de 500 moedas.** O preço
+  de entrada compra uma peça, e o avatar se completa em várias compras pequenas,
+  em vez de uma compra grande por um rosto inteiro.
+
+**Nada foi implementado nesta data.** Antes de qualquer código há um
+levantamento, só de leitura, sobre o que o gate de `faceId` protege, como a posse
+é verificada no replay, quantos avatares procedurais existem salvos e em que
+estado está o catálogo de retratos. A base de avatares salvos pode mudar o
+faseamento de A, com migração ou reset; não muda se A vale.
 
 ### Distribuição por jsDelivr: tag, não branch (15/09/2026)
 
