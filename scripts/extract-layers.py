@@ -73,7 +73,10 @@ REGIONS = {
 EXPECTED_BLOBS = {"eye": 2, "brow": 2, "ear": 2}
 
 # aprovados por decisao, nao por criterio (ver NOTES, secao Decisoes)
-BLOB_EXCEPTIONS = {"beard_stubble": 2}
+BLOB_EXCEPTIONS = {
+    "beard_stubble": 2,       # costeleta desconectada do render, 09/09/2026
+    "hair_lowfade_grey": 2,   # pedaco do degrade na tempora esquerda, 14/09/2026
+}
 
 
 def slot_of(name):
