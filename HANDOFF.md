@@ -47,8 +47,11 @@ Base: `skins-import` em `693d2728ed1b646d98ff1617e70e4034dd75c4d6`. Este arquivo
 ## Próxima sessão, na ordem
 
 1. Extrair as 24 camadas.
-2. Schema de nove slots.
-3. `catalog.ts`.
+2. Schema de oito slots: tom, nose, mouth, eye, brow, ear, hair, beard. Estava
+   "nove" por erro de contagem do Santiago; o nono era `hairColor`, eixo que
+   morreu quando cor e forma viraram um slot só.
+3. `catalog.ts`. **Parado em 15/09/2026**: conflito aberto com o catálogo de
+   retratos do jogo, registrado no `NOTES.md`, sem decisão.
 4. Servir `build/` por jsDelivr.
 
 ## Armadilhas conhecidas desta semana
