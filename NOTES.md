@@ -1146,7 +1146,7 @@ desvio de luminância de 0,043. Cabelo é massa 3D com sombreamento próprio, de
 7,7× a 45,7× entre p5 e p95 conforme medido na hipótese 2. Na mesma faixa
 percentual, a testa entrega a cor do pigmento e o cabelo entrega a sombra.
 
-**Esta é uma família de erro que já apareceu cinco vezes neste arquivo, e vale
+**Esta é uma família de erro que já apareceu seis vezes neste arquivo, e vale
 nomeá-la: métrica calibrada num contexto não transfere para outro só porque a
 fórmula roda.**
 
@@ -1162,6 +1162,10 @@ fórmula roda.**
 - **HSV `S` contra Lab `C*`**: `S` é normalizado pelo brilho e `C*` não, então
   uma imagem escura "passa" em saturação e reprova em croma. Ver "O que o prompt
   move e o que não move", na seção do gerador.
+- **A mediana de V como cor de cabelo**: numa massa 3D com sombreamento próprio a
+  mediana mede sombra e amostra, não pigmento. Nos loiros regerados ela variou
+  de 135 a 184 com a mesma linha de cor. O critério passou a V p90, que mede a
+  mecha iluminada. Ver "Loiro: o critério de cor passa a ser V p90".
 
 O padrão a reconhecer é sempre o mesmo: a definição foi escrita olhando um caso,
 e o caso novo difere na variável que a definição não menciona.
@@ -1213,6 +1217,104 @@ não para mudar de cor.
 | grisalho | aprovado, 8 de 8 |
 | loiro | regerar com mais croma |
 | ruivo | regerar com mais croma, matiz mantido |
+
+#### Loiro: o critério de cor passa a ser V p90 (14/09/2026)
+
+**Critério: V p90 > 200**, no lugar da mediana. Medido no Chrome sobre os 8
+loiros regerados, a mediana de V foi de 135 a 184 com a mesma linha de cor, em
+dois grupos que não são ruído:
+
+| grupo | estilos | V p50 no Chrome |
+|---|---|---|
+| volume alto | shortcurly, midcurly, braids, straightpart | 164–184 |
+| rente ao crânio | buzz, lowfade, slickback, longtied | 135–146 |
+
+Duas causas somadas, nenhuma é erro de geração. **Óptica real**: estilo rente
+mostra couro cabeludo entre os fios, e o pixel fica escuro com o pigmento certo.
+**Viés de amostra**: a máscara do Chrome pega a casca externa, que em estilo
+rente é borda sombreada; o `n` dela ia de 3.657 px no `longtied` a 10.476 no
+`braids`. Com p90 a faixa no Chrome fecha em 167–208.
+
+**Aceito por decisão, não corrigir:** matiz 26–33 contra alvo 36, porque texto
+não move matiz além de ~2°; e S 0,67 no `shortcurly` e 0,68 no `braids`, porque
+dourado mais forte em cabelo volumoso é plausível.
+
+**Medido com a ferramenta versionada**, `scripts/hair-color.py measure`, sobre o
+pelo opaco da extração:
+
+| arquivo | n | H | S | V p50 | V p90 | V p90 > 200 |
+|---|---|---|---|---|---|---|
+| braids | 243.865 | 29,1 | 0,616 | 166 | 234 | passa |
+| buzz | 97.615 | 26,4 | 0,495 | 174 | 209 | passa |
+| longtied | 140.268 | 26,7 | 0,478 | 157 | **201** | passa |
+| lowfade | 131.412 | 26,5 | 0,589 | 148 | **202** | passa |
+| midcurly | 308.929 | 28,6 | 0,541 | 178 | 219 | passa |
+| shortcurly | 169.461 | 31,0 | 0,623 | 175 | 216 | passa |
+| slickback | 137.870 | 27,5 | 0,541 | 167 | 215 | passa |
+| straightpart | 185.639 | 28,7 | 0,539 | 162 | 214 | passa |
+
+**Os 8 passam, mas a máscara muda o resultado, e isso fica em aberto.** A
+máscara versionada tem de 25 a 30 vezes mais pixels que a do Chrome e pega o
+cabelo inteiro, não a casca. Nela a mediana vai de 148 a 178 e os dois grupos
+não se separam: o `buzz`, que é o mais rente, tem a terceira maior mediana. O
+limiar de 200 foi calibrado na máscara do Chrome, onde o p90 desce a 167, e com
+ela alguns destes reprovariam. `longtied` e `lowfade` passam por 1 e 2 níveis.
+Falta decidir em qual máscara o critério é definido.
+
+#### Ruivo: correção de valor em pós, parada no composto (14/09/2026)
+
+**Decidido:** levar a mediana de V ao máximo que a razão p90/p50 permite, sem
+comprimir a razão para bater 176. O gate da faixa dinâmica não se negocia pelo
+número que ele protege, e 176 é derivado do hex, que é referência de nome.
+
+**Aplicado só no `midcurly_red`, e parado no composto.** O composto mostrou um
+defeito visível: **halo alaranjado na testa, seguindo a linha do cabelo, com
+borda dura.** A máscara S, cabelo da extração com HSV S ≥ 0,50, **pega pele
+sombreada da linha do cabelo**, e a curva clareia essa pele. A separação por
+saturação vale para testa iluminada, com S em torno de 0,42, e não para a pele
+que o cabelo sombreia. Pixels da máscara S em que o render é igual à cabeça
+careca:
+
+| diferença máxima contra `tmp_1` | px | % da máscara S | S mediana |
+|---|---|---|---|
+| < 24 | 1.354 | 0,4% | 0,545 |
+| < 40 | 8.140 | 2,4% | 0,557 |
+| < 60 | 21.478 | 6,4% | 0,588 |
+
+Além do halo, no `midcurly_red`:
+
+| métrica | antes | depois |
+|---|---|---|
+| V p50 / p90 | 122 / 181 | 172 / 255 |
+| razão p90/p50 | 1,4836 | 1,4826 |
+| p95/p5 de luminância, pelo opaco | 31,72 | **21,21, −33,1%** |
+| pixels em V = 255 na máscara | 0 | **34.625, 10,3%** |
+| degrau de V na borda da máscara | −23,2 | **+34,6** |
+| dE76 p90–p98 | 33,4 | 32,2 |
+| H / S | 17,68 / 0,850 | 17,70 / 0,850 |
+
+No teto da razão não sobra folga acima de p90, e **o decil mais claro inteiro vai
+a 255**. A faixa dinâmica perde um terço. H e S não mudaram.
+
+**Os outros 7 foram só medidos**, nada aplicado:
+
+| arquivo | V p50 | V p90 | mediana possível | faixa dinâmica | dE p90–p98 antes → depois |
+|---|---|---|---|---|---|
+| braids | 101 | 165 | 156,1, teto | −14,3% | 21,4 → 26,0 |
+| buzz | 140 | 176 | 176, alvo | −12,2% | 21,6 → 23,4 |
+| longtied | 120 | 162 | 176, alvo | −35,3% | 28,8 → 27,1 |
+| lowfade | 107 | 150 | 176, alvo | −18,7% | 21,8 → 24,9 |
+| shortcurly | 122 | 171 | 176, alvo | −21,2% | 21,9 → 25,6 |
+| slickback | 117 | 165 | 176, alvo | −34,2% | 29,3 → 27,9 |
+| straightpart | 113 | 171 | 168,5, teto | −27,2% | 24,2 → 27,0 |
+
+**A curva de V pode ser o eixo errado para o ruivo.** Em 5 dos 8 ela piora o dE na
+faixa de cabelo, e em nenhum chega perto de 12. O V p90 antes da correção vai de
+150 a 181 contra o alvo de 176: pela mesma lógica que acabou de trocar a mediana
+por p90 no loiro, **o valor do ruivo já está perto do alvo**, e o "escuro demais"
+veio da mediana. A decomposição registrada acima diz que o erro do ruivo na
+faixa de cabelo é falta de croma, e a curva de V não mexe em croma. Decisão
+pendente.
 
 #### Modo de falha do gerador, para a próxima batelada
 
