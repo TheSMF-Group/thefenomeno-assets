@@ -1218,6 +1218,11 @@ não para mudar de cor.
 | loiro | regerar com mais croma |
 | ruivo | regerar com mais croma, matiz mantido |
 
+**Atualizado em 14/09/2026:** os loiros foram regerados e os 8 aprovados pelo
+critério de V p90. Os ruivos não foram regerados; a correção de valor em pós foi
+a quarta hipótese de correção de cor, descartada. O valor deles passa por V p90
+e o croma segue em aberto. Ver as seções de loiro e de ruivo abaixo.
+
 #### Loiro: o critério de cor passa a ser V p90 (14/09/2026)
 
 **Critério: V p90 > 200**, no lugar da mediana. Medido no Chrome sobre os 8
@@ -1253,15 +1258,53 @@ pelo opaco da extração:
 | slickback | 137.870 | 27,5 | 0,541 | 167 | 215 | passa |
 | straightpart | 185.639 | 28,7 | 0,539 | 162 | 214 | passa |
 
-**Os 8 passam, mas a máscara muda o resultado, e isso fica em aberto.** A
+**Os 8 passam. O critério é definido na máscara versionada**, decidido em
+14/09/2026: ela pega o cabelo inteiro e é a que está em código. A
 máscara versionada tem de 25 a 30 vezes mais pixels que a do Chrome e pega o
 cabelo inteiro, não a casca. Nela a mediana vai de 148 a 178 e os dois grupos
 não se separam: o `buzz`, que é o mais rente, tem a terceira maior mediana. O
 limiar de 200 foi calibrado na máscara do Chrome, onde o p90 desce a 167, e com
-ela alguns destes reprovariam. `longtied` e `lowfade` passam por 1 e 2 níveis.
-Falta decidir em qual máscara o critério é definido.
+ela alguns destes reprovariam; a medição do Chrome fica como registro da
+calibração, não como critério. `longtied` e `lowfade` passam por 1 e 2 níveis.
 
-#### Ruivo: correção de valor em pós, parada no composto (14/09/2026)
+Os 8 aprovados estão versionados em `raw/hair_*_blonde.png`; os de 11/09 foram
+para `raw/_rejected/hair_*_blonde_v1.png`.
+
+#### Ruivo: curva de valor em pós — quarta hipótese de correção de cor, descartada (14/09/2026)
+
+**Descartada e revertida.** Nenhum arquivo corrigido entrou no repositório; o
+`raw/hair_midcurly_red.png` é o render original, byte a byte. Três motivos, e o
+terceiro bastaria sozinho:
+
+1. **O halo é impublicável.** A máscara S pega pele sombreada da linha do cabelo
+   e a curva clareia essa pele, deixando uma borda alaranjada dura na testa.
+2. **A faixa dinâmica cai 33%.** A razão p95/p5 de luminância do pelo opaco vai
+   de 31,72 a 21,21 no `midcurly_red`, com o decil mais claro inteiro em 255. É
+   o gate que protege o desenho da mecha, e ele não se negocia pelo número que
+   protege.
+3. **A curva corrige o eixo errado.** Pelo critério de V p90 adotado para o
+   loiro, o valor dos ruivos já passa: V p90 de 150 a 181 contra alvo 176. O
+   "escuro demais" veio da mediana, que é a estatística aposentada. O erro do
+   ruivo na faixa de cabelo é **croma**, e uma curva sobre V não mexe em croma.
+   Em 5 dos 8 ela piorou o dE p90–p98.
+
+**As quatro hipóteses de correção de cor de cabelo, todas descartadas:**
+
+| # | hipótese | motivo |
+|---|---|---|
+| 1 | tint multiplicativo sobre a camada nativa | estoura de 5% a 20% nas cores claras; não há headroom |
+| 2 | render por cor, com forma preservada | o gerador não controla forma e cor independentemente |
+| 3 | tint com clipping | impublicável: vazamento laranja na pele, cabelo sem desenho |
+| 4 | curva de valor em pós, só no ruivo | halo na pele, faixa dinâmica −33%, eixo errado |
+
+O que ficou adotado é cor e forma no mesmo slot, com a cor vinda do render.
+`fix-value` continua em `scripts/hair-color.py` só para reproduzir esta medição.
+
+**Estado do ruivo:** valor aceito pelo critério de V p90. O erro em aberto é
+croma, e nenhuma correção dele está em andamento.
+
+O registro abaixo é a medição que levou ao descarte.
+
 
 **Decidido:** levar a mediana de V ao máximo que a razão p90/p50 permite, sem
 comprimir a razão para bater 176. O gate da faixa dinâmica não se negocia pelo
@@ -1308,13 +1351,12 @@ a 255**. A faixa dinâmica perde um terço. H e S não mudaram.
 | slickback | 117 | 165 | 176, alvo | −34,2% | 29,3 → 27,9 |
 | straightpart | 113 | 171 | 168,5, teto | −27,2% | 24,2 → 27,0 |
 
-**A curva de V pode ser o eixo errado para o ruivo.** Em 5 dos 8 ela piora o dE na
-faixa de cabelo, e em nenhum chega perto de 12. O V p90 antes da correção vai de
-150 a 181 contra o alvo de 176: pela mesma lógica que acabou de trocar a mediana
-por p90 no loiro, **o valor do ruivo já está perto do alvo**, e o "escuro demais"
-veio da mediana. A decomposição registrada acima diz que o erro do ruivo na
-faixa de cabelo é falta de croma, e a curva de V não mexe em croma. Decisão
-pendente.
+**A curva de V corrigia o eixo errado.** Em 5 dos 8 ela piora o dE na faixa de
+cabelo, e em nenhum chega perto de 12. O V p90 antes da correção vai de 150 a 181
+contra o alvo de 176: pela mesma lógica que trocou a mediana por p90 no loiro,
+**o valor do ruivo já está no alvo**, e o "escuro demais" veio da mediana. O erro
+do ruivo na faixa de cabelo é falta de croma, e a curva de V não mexe em croma.
+**Decidido em 14/09/2026: hipótese descartada e revertida.**
 
 #### Modo de falha do gerador, para a próxima batelada
 

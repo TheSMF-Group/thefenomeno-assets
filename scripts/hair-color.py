@@ -23,6 +23,11 @@ para a medição de cor não divergir da geometria da camada:
 Faixa de cor para cabelo: p90–p98 de luminância, em luz linear. A p70–p90 é de
 pele e não transfere; ver NOTES.
 
+`fix-value` É HIPÓTESE DESCARTADA (14/09/2026): deixou halo na pele da linha do
+cabelo, derrubou a faixa dinâmica em 33% e corrigia V quando o erro do ruivo era
+croma. Fica aqui só para reproduzir a medição registrada no NOTES; não usar para
+produzir asset.
+
 Curva de `fix-value`: ganho linear g = alvo / p50 sobre V, que preserva a razão
 p90/p50 por construção. O alvo é o menor entre --target-median e o teto que a
 razão permite, 255 * p50 / p90. Acima de p90:
