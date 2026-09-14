@@ -1358,6 +1358,26 @@ cabeça inteira nem ruído espalhado". Nesta camada ele cumpre esse papel: os do
 blobs são cabelo, e nenhum é pele, fundo ou salpicado. Registrado como exceção em
 `BLOB_EXCEPTIONS` no `scripts/extract-layers.py`, ao lado do `beard_stubble`.
 
+### Renders de cor e bigodes versionados (14/09/2026)
+
+Os 24 renders de cor e três arquivos de bigode existiam só na cópia de trabalho de
+uma máquina, fora do git. Mesma classe de risco da medição de flood, que quase se
+perdeu. Entraram em `raw/`:
+
+| arquivo original | destino | status |
+|---|---|---|
+| 8 `hair_*_grey.png` | `raw/` | aprovados |
+| 8 `hair_*_blonde.png`, 8 `hair_*_red.png` | `raw/` | material de trabalho, reprovados por cor |
+| `beard_mustache (2).png`, 1.674.310 bytes | `raw/beard_mustache_v3.png` | o bom da última rodada |
+| `beard_mustache (1).png`, 1.545.810 bytes | `raw/_rejected/beard_mustache_v2.png` | descartado |
+| `mustache_vs_mouths.png` | `raw/_rejected/` | diagnóstico, **movido, não apagado** |
+
+`(1)` e `(2)` eram artefato do Windows, não versionamento. A ordem v2/v3 é a de
+gravação. O `beard_mustache.png` de 09/09, fonte da camada atual, não mudou.
+
+O ruivo do `midcurly` foi substituído pelo ruivo novo, 1.910.232 bytes, que é a
+base da correção em pós; o de 11/09 está em `raw/_rejected/hair_midcurly_red_v1.png`.
+
 ### As outras 31 camadas
 
 Passam o critério: `nose`/`mouth` com 1 blob, `eye`/`brow`/`ear` com 2 blobs
