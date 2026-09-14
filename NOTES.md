@@ -1940,3 +1940,32 @@ corte.
 
 **Aberto:** o halo a menos de 20 px do pelo, que aparece no buzz e nas camadas do
 meio.
+
+### O halo junto ao pelo não é o fechamento da extração (15/09/2026)
+
+Medido com `scripts/medicao/medir_morfologia.py`, sem implementar. A reextração
+passa pelo mesmo caminho do build (Lanczos, flood, WebP q88 alpha 100) e, com a
+receita, reproduz `build/layers/hair_buzz.webp` e `beard_goatee.webp` com
+diferença zero.
+
+**A espessura não é constante.** Distância de cada pixel de erro do `hair_buzz`
+(sozinho, MST-10, w = r) ao pelo opaco: platô de 0 a 20 px em 512, p25 7,2,
+p50 13,5, p75 19,9, IQR 12,7; a faixa mais cheia tem só 8,6% dos pixels. À borda
+externa da máscara: p25 6,0, p50 10,4, p75 16,0, IQR 10,0. É cauda, não pico. O
+fechamento `disk(6)` em 1254 vale 2,45 px em 512 e não gera uma faixa de 13 px.
+
+**Fechamento menor não muda o halo.** `hair_buzz`: erro 6.513 (disk 6) →
+6.479 (disk 2) → 6.473 (disk 0); rosto grátis com o grupo B em w = 1: 6.826 →
+6.792 → 6.786. Gate de blobs passa nos três; cobertura cai só 213 px.
+
+**Nas outras camadas, idem.** Queda de erro com disk(0), sozinha em MST-10:
+`beard_goatee` 0,5%, `hair_lowfade` 1,5%, `beard_mustache` −0,4%, `brow_thick`
+0,4%, `hair_midcurly` 1,3%, `beard_longfull` 0,6%. Todas passam o gate de blobs
+com disk(2) e disk(0). O fechamento de fato tapa buracos internos em
+`beard_goatee` (8.865 px) e `hair_midcurly` (921 px), e sem ele eles voltam como
+buracos.
+
+**Conclusão:** o halo é **cobertura** — o próprio limiar de diferença pega pele
+em que o render com pelo difere do `tmp_1` numa faixa larga junto ao pelo — e
+não morfologia. Grupo B (w = 1 em `beard_stubble`, `brow_thin`, `brow_medium`)
+continua valendo. O corte de distância está abandonado. **O halo segue aberto.**
