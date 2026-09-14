@@ -1146,19 +1146,25 @@ desvio de luminância de 0,043. Cabelo é massa 3D com sombreamento próprio, de
 7,7× a 45,7× entre p5 e p95 conforme medido na hipótese 2. Na mesma faixa
 percentual, a testa entrega a cor do pigmento e o cabelo entrega a sombra.
 
-**Este é o terceiro caso da mesma família neste arquivo, e vale nomeá-la:
-critério calibrado numa população não transfere para outra só porque a fórmula
-roda.** Os outros dois:
+**Esta é uma família de erro que já apareceu cinco vezes neste arquivo, e vale
+nomeá-la: métrica calibrada num contexto não transfere para outro só porque a
+fórmula roda.**
 
 - **O alvo de −37 em sRGB**, aposentado em favor da razão de luminância linear:
   −37 sobre pele clara é −9 sobre pele escura, e a fórmula não avisa.
 - **O teto em p90 do `measuredHex`**, que existe porque acima dele entra reflexo
   especular, que tem a cor da luz e não do pigmento.
+- **O `r < 0,15` para pelo opaco**, que é critério de escuridão disfarçado de
+  critério de opacidade: funciona em cabelo castanho e seleciona só sombra em
+  cabelo claro.
+- **A faixa p70–p90 aplicada a cabelo**, que é da testa quase plana e cai na
+  sombra numa massa 3D.
+- **HSV `S` contra Lab `C*`**: `S` é normalizado pelo brilho e `C*` não, então
+  uma imagem escura "passa" em saturação e reprova em croma. Ver "O que o prompt
+  move e o que não move", na seção do gerador.
 
-Junto com o `r < 0,15` para pelo opaco, que é critério de escuridão disfarçado
-de critério de opacidade, são quatro. O padrão a reconhecer é sempre o mesmo: a
-definição foi escrita olhando um caso, e o caso novo difere na variável que a
-definição não menciona.
+O padrão a reconhecer é sempre o mesmo: a definição foi escrita olhando um caso,
+e o caso novo difere na variável que a definição não menciona.
 
 As 24 foram medidas nas duas faixas antes da decisão:
 
@@ -1218,6 +1224,49 @@ Consequência operacional: uma batelada de N itens exige aproximadamente 1,16 ×
 envios, e **a contagem de arquivos na pasta é o único sinal de que a batelada
 terminou**. Conferir a contagem esperada antes de considerar a batelada completa,
 em vez de assumir que ausência de erro significa sucesso.
+
+#### O que o prompt move e o que não move (14/09/2026)
+
+Achado da regeração do `hair_midcurly_blonde`, e **generalizável para qualquer
+batelada futura de assets**. Alvo `#c8a165`, que em HSV é H 36, S 0,495, V 200:
+
+| eixo | move com prompt? | evidência |
+|---|---|---|
+| **V**, brilho | **sim** | 155 → 191 contra alvo 200, numa geração só, trocando `not pale` por `bright, luminous` e declarando o hex como mid-tone |
+| **S**, saturação | sim | 0,54 → 0,49 contra alvo 0,495 |
+| **H**, matiz | **não** | 24–31 → 30 contra alvo 36. `clearly yellow-gold` moveu cerca de 2°, e os seis graus restantes não cederam |
+
+**Consequência: matiz exato é pós-processamento, não geração.** Se H virar
+requisito duro algum dia, a saída é rotação de matiz em pós sobre a máscara de
+cabelo, e não mais uma rodada de prompts. Rodada de prompt para corrigir matiz é
+custo sem retorno.
+
+**Matiz do loiro em torno de 30 está aceito por decisão.** Não conta como
+reprovação na aceitação de cor dos loiros.
+
+**O mecanismo que reconciliou duas medições que pareciam contraditórias**, e que
+vai voltar:
+
+> HSV `S` é normalizado por `V` (`S = (max−min)/max`), logo invariante a brilho,
+> e por isso a saturação "passava". Lab `C*` não é normalizado: `a*` e `b*`
+> encolhem com `L*`, então escurecer derruba o croma mesmo com a proporção entre
+> canais intacta. As duas medições diziam a mesma coisa, que a imagem está
+> escura, por eixos diferentes. Não havia contradição.
+
+Na prática: quando uma medida em HSV e outra em Lab discordarem sobre saturação,
+olhar o brilho antes de concluir qualquer coisa sobre cor.
+
+**Vocabulário: o que é proibido é o adjetivo de cor, não a palavra.** `deep`
+como adjetivo de cor, em `deep red` ou `deep blonde`, empurra o valor para baixo
+e é **proibido nas linhas de cor**. `deep shadows between the strands` é
+**estrutura de sombreamento**, não cor, e tem 25 renders de evidência a favor: a
+geração de loiro que passou, V 155 → 191, usava essa linha. O mesmo vale para
+`rich`, `dark`, `muted` e `not pale`: banidos como adjetivo de cor, irrelevantes
+fora disso.
+
+A palavra chegou a ser banida por inteiro, e o banimento pegou uma linha que
+estava funcionando. A regra a aplicar é pela função da palavra na linha, não pela
+palavra.
 
 ### Clipping residual da família PELE, aceito por decisão
 
@@ -1286,6 +1335,28 @@ mandíbula e as duas costeletas. Fontes e camadas da v1 ficam em `_rejected/`.
 Tentativa descartada: limiar 10 com corte de 0,2% sobre a v1. Gerou blob
 espúrio na têmpora e subiu pela bochecha até a altura dos olhos, derrubando a
 cobertura da região para 85,7%.
+
+### hair_lowfade_grey — aprovado com 2 blobs, por decisão
+
+Aprovado em 14/09/2026 **por decisão, não por passar no critério**, mesmo
+tratamento do `beard_stubble`. O critério pede 1 blob contíguo para o slot
+`hair`; esta camada tem 2.
+
+| blob | área | onde |
+|---|---|---|
+| principal | 130.798 px, 18,88% da cabeça | topo, y 0–450, x 290–948 |
+| solto | 4.432 px, 0,64% da cabeça | têmpora esquerda, y 345–455, x 292–358 |
+
+Motivo: o blob solto é o pedaço do degradê na têmpora esquerda, separado da
+massa do topo pela zona que desbota. **É característica do render, não artefato
+de máscara.** Um low fade tem por definição uma faixa em que o cabelo some, e o
+que sobra abaixo dela fica desconectado. Só aparece do lado esquerdo, que é onde
+o render deixou mais pelo abaixo da faixa.
+
+O critério de 1 blob sempre foi um proxy para "a máscara é a feição, e não a
+cabeça inteira nem ruído espalhado". Nesta camada ele cumpre esse papel: os dois
+blobs são cabelo, e nenhum é pele, fundo ou salpicado. Registrado como exceção em
+`BLOB_EXCEPTIONS` no `scripts/extract-layers.py`, ao lado do `beard_stubble`.
 
 ### As outras 31 camadas
 
