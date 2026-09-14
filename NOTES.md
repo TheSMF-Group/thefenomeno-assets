@@ -1502,6 +1502,47 @@ cabeça inteira nem ruído espalhado". Nesta camada ele cumpre esse papel: os do
 blobs são cabelo, e nenhum é pele, fundo ou salpicado. Registrado como exceção em
 `BLOB_EXCEPTIONS` no `scripts/extract-layers.py`, ao lado do `beard_stubble`.
 
+### Extração das camadas de cor (15/09/2026)
+
+`scripts/extract-layers.py` rodado nos 24 renders de cor de `raw/`, com o
+Python 3.14 de 64 bits. Antes, a regressão contra `layers/` reproduziu **32 de
+32 byte a byte**.
+
+**23 de 24 passam o gate e estão em `layers/`.** Reprova um:
+
+| camada | blobs | esperado | onde está o blob solto |
+|---|---|---|---|
+| `hair_lowfade_blonde` | 2 | 1 | têmpora esquerda, 3.491 px, 0,50% da cabeça, y 359–453, x 291–339 |
+
+É o mesmo pedaço de degradê do `hair_lowfade_grey`, que foi aprovado com 2 blobs
+por decisão: lá o blob solto tem 4.432 px em y 345–455, x 292–358. O de 11/09
+deste loiro tinha 1 blob; o regerado ganhou a ilha. **A camada não foi escrita**
+até haver decisão, e ela não entra em `BLOB_EXCEPTIONS` sem ela. O blob solto
+tem 3.491 px contra o corte de área mínima de 3.464, então passa o corte por 27.
+
+| camada | blobs | cobertura |
+|---|---|---|
+| grisalhas, 8 | 1, e 2 no `lowfade` por decisão | 92.940 a 315.922 px |
+| loiras, 7 | 1 | 109.115 a 337.317 px |
+| ruivas, 8 | 1 | 122.377 a 377.992 px |
+
+Nenhuma camada tem pixel fora da caixa de região.
+
+**O build dobra.** `make_build.py` pega toda camada de `layers/`, então as 23
+entram sem mudança de código:
+
+| | arquivos | tamanho |
+|---|---|---|
+| bases | 10 | 144,2 KiB |
+| camadas nativas | 32 | 379,9 KiB |
+| camadas de cor | 23 | 557,2 KiB |
+| source | 1 | 17,6 KiB |
+| **build** | **66** | **1.099,0 KiB**, antes 541,8 |
+
+Os 43 arquivos que já existiam saíram byte a byte iguais. Camada de cor pesa em
+média 24,2 KiB contra 11,9 das nativas, porque cabelo claro tem mais variação de
+luminância dentro do alpha para o WebP codificar.
+
 ### Renders de cor e bigodes versionados (14/09/2026)
 
 Os 24 renders de cor e três arquivos de bigode existiam só na cópia de trabalho de
