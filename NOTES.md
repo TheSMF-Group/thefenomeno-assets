@@ -1858,3 +1858,45 @@ uma medição que só existe na transcrição de uma sessão já está perdida.
 
 O sintoma de que isso está acontecendo de novo é fácil de reconhecer: alguém
 citando um resultado de memória, com o número redondo e sem a definição junto.
+
+## A mancha em tom escuro é da máscara de PELO, não de `w` (15/09/2026)
+
+Achado no criador do jogo: em MST-10 o rosto grátis (`hair_buzz`, `brow_medium`,
+`beard_stubble`) mostra manchas claras de contorno geográfico na testa, nas
+bochechas e no queixo, em área sem pelo nenhum. A réplica em Python de `tone.ts`
+bate com o canvas do jogo pixel a pixel, então não é defeito de porta. **`w` não
+foi tocado em nenhuma medição abaixo.**
+
+**A fração de pelo opaco não separa dois grupos.** `r < 0,15` no miolo
+(`alpha > 200`, dentro da silhueta), resolução cheia: rampa contínua de 74% a 0%
+(cabelos 59–74%, `hair_braids` 42, `hair_buzz` 25, `beard_mustache` 25,
+`beard_goatee` 15, `beard_shortfull` 15, `brow_thick` 9,6, `beard_chinstrap` 4,7,
+`brow_medium` 2,7, `brow_thin` 0,4, `beard_stubble` 0,0). Fora da stubble, o maior
+salto entre vizinhos é de 6×. O eixo não é "quanto pelo tem", é "quanta pele a
+máscara pegou".
+
+**Pele a mais de 20 px do pelo opaco mais próximo** (build 512): `beard_stubble`
+100% do miolo (não tem pelo opaco), `brow_thin` 100%, `brow_medium` 65,6%,
+`beard_chinstrap` 46,6%, `hair_buzz` 12,6%, `beard_shortfull` 8,4%; os cabelos
+longos e cacheados ficam em 0–1,6%.
+
+**Coincide com as manchas.** No rosto grátis em MST-10, 75,6% do erro (composto
+clareando a base em mais de 10 níveis de L) cai no miolo distante, 19,1% no miolo
+perto do pelo e 5,3% fora do miolo de PELO. Por camada, o miolo distante está
+quase todo errado (66,7% no buzz, 99,5–99,7% em stubble e sobrancelhas).
+
+**Remover do alpha a pele quase pura (`r > 0,85`) não resolve: 1,3% a menos de
+erro.** Essa pele é só 0–1,9% do miolo. A pele distante não é pele do `tmp_1`
+copiada: tem `r` mediano de 0,55 (`hair_buzz`), 0,42 (`brow_medium`) e 0,66
+(`beard_stubble`), ou seja, é pele **mais escura** que a do `tmp_1` naquele pixel.
+Um corte por `r` não a separa do pelo semitransparente, que vive na mesma faixa;
+é a hipótese 1 da cadeia de PELO de novo. O que distingue essa pele é a
+**geometria** (distância ao pelo), não o valor.
+
+**Não resolvido nesta data.** O problema é a extração incluindo região que
+deveria ser transparente. Para a stubble e as sobrancelhas o critério de
+distância ao pelo opaco não se aplica, porque elas não têm núcleo opaco.
+
+**Tempo do criador, registrado e encerrado:** carga fria, primeiro rosto em
+1685 ms desde a navegação, ~790 ms da tela; anúncios terminam aos 3256 ms, depois
+do rosto.
