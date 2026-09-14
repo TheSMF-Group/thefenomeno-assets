@@ -1526,6 +1526,50 @@ levantamento, só de leitura, sobre o que o gate de `faceId` protege, como a pos
 estado está o catálogo de retratos. A base de avatares salvos pode mudar o
 faseamento de A, com migração ou reset; não muda se A vale.
 
+### O levantamento: A sai sem custo de migração (15/09/2026)
+
+Feito só com leitura do repositório do jogo, em `origin/main` 33bea4f. É o que
+torna A barata.
+
+**Não há o que migrar:**
+
+- o catálogo de retratos tem **0 SKUs de produção**: `CATALOG = []` desde 24/08,
+  com 3 fixtures de teste fora de `public/`;
+- a loja está fechada pela flag `tfwallet:v1:store_open`, então **ninguém comprou
+  nada**;
+- o editor do avatar procedural (`src/game/skin.ts`) viveu só na branch `reforma`,
+  de 16/06 a 09/07, e **nunca chegou à produção**. O primeiro deploy de produção da
+  `reforma`, `9478798`, já trazia a remoção; todo deploy de produção de 08/07 a
+  23/07 foi conferido sem ele. O avatar só era gravado em `localStorage`, que é
+  separado por domínio, então preview não vaza para produção.
+
+**Posse com 8 slots é o mesmo lookup.** O inventário é um `LRANGE` do log de
+eventos, e `ownedItems` deriva a posse dele. Validar a tupla são 8 checagens
+contra o mesmo conjunto, não 8 leituras.
+
+**O servidor não muda enquanto o visual não tiver efeito no jogo.**
+`replayJournal`, o replay do leaderboard, não olha cosmético. O equipado só
+entra no journal se um item passar a ter efeito, como já diz o "PASSO 4" em
+`src/game/wallet.ts`.
+
+**O equipado vira tupla de 8**, validada no cliente contra `ownedItems`, como o
+item único é validado hoje.
+
+**O gate de `faceId` cai junto com o contrato de retrato** (512×640 sem alpha,
+`public/skins/<tier>_<id>.webp`, sidecars em `art/skins/`). Os cinco lugares que
+mudam:
+
+| lugar | o que tem hoje |
+|---|---|
+| `api/_lib/catalog.ts` | campo `faceId`, `OPENING_MIN_FACES_PER_TIER` e `facesByTier` em `openingReadiness` |
+| `api/_lib/assetContract.test.ts` | gate de `faceId` único e declarado, e os gates de pasta e sidecar nos dois sentidos |
+| `scripts/open-store.ts` | portão de abertura que imprime e exige rostos distintos por tier |
+| `docs/lancamento-loja.md` | critério de "12 retratos, 3 `faceId` por tier" |
+| `scripts/build-skin-assets.py` | conversor para o contrato de retrato, que pede "`faceId` único" |
+
+O contrato em si mora em `api/_lib/assetContract.ts`, com as fixtures em
+`test/fixtures/skins/` e os sidecars em `art/skins/`; sai junto com o gate.
+
 ### Distribuição por jsDelivr: tag, não branch (15/09/2026)
 
 O `build/` é servido pelo jsDelivr a partir de **tag git**, nunca de branch.
