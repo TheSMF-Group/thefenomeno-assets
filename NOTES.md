@@ -1900,3 +1900,43 @@ distância ao pelo opaco não se aplica, porque elas não têm núcleo opaco.
 **Tempo do criador, registrado e encerrado:** carga fria, primeiro rosto em
 1685 ms desde a navegação, ~790 ms da tela; anúncios terminam aos 3256 ms, depois
 do rosto.
+
+### Grupo A (corte de distância) e grupo B (w = 1): o gate grátis não fecha (15/09/2026)
+
+Medido com `scripts/medicao/medir_grupos.py`, sem implementar. Erro = composto
+clareando a base em mais de 10 níveis de L, em MST-10.
+
+**Grupo B com w = 1 funciona.** `beard_stubble`, `brow_thin`, `brow_medium`: no
+rosto grátis o erro cai **76,3%** só com B, e a mancha da barba e das sobrancelhas
+some; em MST-01 a textura fica.
+
+**Grupo A com corte > 20 px quase não mexe no que se vê.** Camada sozinha:
+`hair_buzz` −24,6%, `beard_chinstrap` −44,6%, `beard_shortfull` −10,5%. A faixa de
+testa do buzz vai de 6.008 para 4.408 px: o que sobra é um halo **a menos de 20 px
+do pelo**, que o corte por definição não alcança.
+
+**Rosto grátis, MST-10:** hoje 28.773 px; só A 27.173 (−5,6%); só B 6.826
+(−76,3%); **A + B 5.226 (−81,8%)**. Do resto, 4.827 px estão no miolo do buzz, na
+linha do cabelo. **O gate não passa.**
+
+**O corte cria regressão em tom claro.** Em MST-01, A + B muda mais de 10 níveis
+em 4,75% da silhueta, e o contorno do corte aparece como degrau na testa: a pele
+da camada, que ali era a certa, dá lugar à base.
+
+**Camadas do meio:** o corte quase não muda o erro (`beard_goatee` 8.351 → 7.998,
+`hair_lowfade` 2.943 → 2.635, `beard_mustache` 2.892 → 2.892, `brow_thick`
+4.543 → 4.398). O que se vê é o mesmo halo alaranjado junto ao pelo do buzz.
+
+**w = 1 zera o erro em qualquer camada, e por isso "erro 0" não prova nada em
+camada com pelo opaco:** o pelo opaco escurece 23 a 42 níveis
+(`hair_lowfade` 23, `beard_chinstrap` 32, `beard_goatee` 37, `brow_thick` 39).
+O critério precisa de uma segunda régua, a cor do pelo, que esta medição não
+decide.
+
+**O limiar de "tem núcleo" não se confirma.** O salto 9,6% → 4,7% (`brow_thick`
+→ `beard_chinstrap`) é de 2×; no build de 512 a rampa é 10,1 / 4,3 / 1,3 / 0,24 /
+0,00, sem corte limpo, e as camadas dos dois lados se comportam igual diante do
+corte.
+
+**Aberto:** o halo a menos de 20 px do pelo, que aparece no buzz e nas camadas do
+meio.
