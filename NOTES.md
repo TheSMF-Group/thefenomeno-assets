@@ -1455,6 +1455,80 @@ fenômeno existe; medir no composto daria o mesmo número.
 
 ## Decisões
 
+### Os slots do avatar são oito (15/09/2026)
+
+**tom, nose, mouth, eye, brow, ear, hair, beard.**
+
+A fila de trabalho chegou a falar em "schema de nove slots". **Foi erro de
+contagem do Santiago**, registrado como tal: o nono era `hairColor`, e esse eixo
+deixou de existir quando cor e forma viraram um slot só, em 11/09/2026.
+
+`tom` é a base de `build/bases/`. Os outros sete são famílias de camada em
+`layers/`. O campo `scar` do avatar do jogo, em `src/game/skin.ts`, é do modelo
+procedural em SVG, não é camada, e fica fora.
+
+### Conflito aberto: composição por camadas contra catálogo de retratos (15/09/2026)
+
+**Aberto, sem decisão.** Nada foi escrito a respeito: nenhum `catalog.ts` novo,
+e `api/_lib/catalog.ts` e `src/game/skin.ts` do repositório do jogo estão
+intocados.
+
+Os fatos, em ordem:
+
+- **10/08** autorizou composição do avatar por camadas.
+- **24/08** decidiu retratos WebP com SKU discreto, `faceId` único por gate, e o
+  criador traço a traço **explicitamente fora de escopo**. A regra do catálogo diz
+  que o eixo é o rosto e que corte de cabelo nunca define item sozinho.
+- **As duas últimas semanas construíram o que 24/08 excluiu:** este pipeline de
+  camadas, com 32 itens de cabelo que são o mesmo rosto com outro cabelo.
+- **A decisão de 24/08 é a mais recente e é a que está em código**, em
+  `api/_lib/catalog.ts`. O contrato de asset dela é retrato 512×640, sem alpha,
+  até 80 KB, em `public/skins/<tier>_<id>.webp`. As camadas daqui são 512×512 com
+  alpha.
+
+As três saídas possíveis, **sem recomendação**:
+
+| | saída | o que muda |
+|---|---|---|
+| **A** | camadas vencem | o catálogo de retratos é substituído, o gate de `faceId` cai, e a posse é validada contra a tupla de 8 slots |
+| **B** | retratos vencem | o pipeline vira gerador: compõe, achata em 512×640 sem alpha, e cada combinação vira SKU; as camadas viram ferramenta interna |
+| **C** | convivem | retratos como SKU pago, criador por camadas como grátis |
+
+`catalog.ts` com os 32 itens de cabelo está parado até esta decisão.
+
+### Distribuição por jsDelivr: tag, não branch (15/09/2026)
+
+O `build/` é servido pelo jsDelivr a partir de **tag git**, nunca de branch.
+
+```
+https://cdn.jsdelivr.net/gh/TheSMF-Group/thefenomeno-assets@<tag>/build/<caminho>
+```
+
+Exemplo, na primeira tag: `https://cdn.jsdelivr.net/gh/TheSMF-Group/thefenomeno-assets@skins-v1/build/layers/hair_midcurly_red.webp`.
+
+**Por que tag:** o jsDelivr segura o conteúdo de branch em cache por horas. Um
+asset corrigido e pushado continua servido velho, e isso vira bug que parece do
+build. Tag é imutável, então a URL identifica exatamente um conteúdo.
+
+**Regras:**
+
+- tag nova a cada mudança publicada em `build/`; **nunca mover uma tag existente**,
+  porque o cache dela não expira pelo mesmo motivo;
+- nome no padrão `skins-vN`, sequencial;
+- a tag aponta para um commit de `skins-import` em que regressão e build passam.
+
+`@main` não serve `build/`: o pipeline vive em `skins-import`, que não tem
+histórico em comum com o `main`. O jogo hoje aponta seus outros assets para
+`@main`, e isso não muda nada aqui.
+
+| tag | conteúdo de `build/` |
+|---|---|
+| `skins-v1` | 10 bases de tom, 32 camadas nativas, 24 camadas de cabelo colorido, `source.webp` e `tones.json` |
+
+O commit de cada tag sai de `git rev-list -n1 <tag>`; ele não é copiado para cá
+para não existir em dois lugares.
+
+
 ### beard_stubble — aprovado com 2 blobs, por decisão
 
 Aprovado em 09/09/2026 **por decisão, não por passar no critério.** O critério
@@ -1501,6 +1575,76 @@ O critério de 1 blob sempre foi um proxy para "a máscara é a feição, e não
 cabeça inteira nem ruído espalhado". Nesta camada ele cumpre esse papel: os dois
 blobs são cabelo, e nenhum é pele, fundo ou salpicado. Registrado como exceção em
 `BLOB_EXCEPTIONS` no `scripts/extract-layers.py`, ao lado do `beard_stubble`.
+
+### hair_lowfade_blonde — aprovado com 2 blobs, por decisão
+
+Aprovado em 15/09/2026 **por decisão, não por passar no critério**, pelo mesmo
+precedente do `hair_lowfade_grey`.
+
+| blob | área | onde |
+|---|---|---|
+| principal | 136.040 px, 19,63% da cabeça | topo, y 5–338, x 294–947 |
+| solto | 3.491 px, 0,50% da cabeça | têmpora esquerda, y 359–453, x 291–339 |
+
+O blob solto é o mesmo degradê na têmpora esquerda que o grisalho tem, na mesma
+região: lá são 4.432 px em y 345–455, x 292–358. O loiro de 11/09 tinha 1 blob, e
+o regerado ganhou a ilha. O blob solto passa o corte de área mínima de 3.464 px
+por 27. Registrado em `BLOB_EXCEPTIONS` no `scripts/extract-layers.py`.
+
+### Extração das camadas de cor (15/09/2026)
+
+`scripts/extract-layers.py` rodado nos 24 renders de cor de `raw/`, com o
+Python 3.14 de 64 bits. Antes, a regressão contra `layers/` reproduziu **32 de
+32 byte a byte**. Depois de extrair, `--regress` sobre as 56 camadas de `layers/`
+reproduz **56 de 56**.
+
+**As 24 passam o gate.** Na primeira passada `hair_lowfade_blonde` reprovou com 2
+blobs e ficou fora; foi aprovado por decisão e está em `BLOB_EXCEPTIONS`. Ver
+"hair_lowfade_blonde — aprovado com 2 blobs, por decisão".
+
+| camada | blobs | cobertura |
+|---|---|---|
+| grisalhas, 8 | 1; 2 no `lowfade`, por decisão | 92.940 a 315.922 px |
+| loiras, 8 | 1; 2 no `lowfade`, por decisão | 109.115 a 337.317 px |
+| ruivas, 8 | 1 | 122.377 a 377.992 px |
+
+Nenhuma camada tem pixel fora da caixa de região.
+
+**O build dobra, e é esperado:** são 24 camadas novas. `make_build.py` pega toda
+camada de `layers/`, então elas entram sem mudança de código.
+
+| | arquivos | tamanho |
+|---|---|---|
+| bases | 10 | 144,2 KiB |
+| camadas nativas | 32 | 379,9 KiB |
+| **camadas de cabelo colorido** | **24** | **575,0 KiB, 51,5% do build** |
+| source | 1 | 17,6 KiB |
+| **build** | **67** | **1.116,8 KiB**, antes 541,8 |
+
+Os 43 arquivos que já existiam saíram byte a byte iguais. Camada de cabelo
+colorido pesa em média 24,0 KiB contra 11,9 KiB das nativas.
+
+**Por slot**, as camadas:
+
+| slot | arquivos | total | média | maior |
+|---|---|---|---|---|
+| `hair` | 32 | 741,4 KiB | 23,2 KiB | 41,6 KiB |
+| `beard` | 6 | 89,7 KiB | 15,0 KiB | 24,9 KiB |
+| `eye` | 5 | 41,8 KiB | 8,4 KiB | 8,9 KiB |
+| `nose` | 4 | 29,3 KiB | 7,3 KiB | 8,4 KiB |
+| `mouth` | 4 | 19,3 KiB | 4,8 KiB | 5,3 KiB |
+| `brow` | 3 | 18,8 KiB | 6,3 KiB | 8,2 KiB |
+| `ear` | 2 | 14,7 KiB | 7,3 KiB | 7,9 KiB |
+
+**Cabelo é 66,4% do build**: 741,4 KiB nos 32 itens, dos quais
+575,0 KiB são os 24 coloridos e 166,4 KiB os 8 nativos.
+
+**Consequência para o carregamento, registrada sem decisão.** Se o jogo baixar o
+`build/` inteiro antes do primeiro frame, são 1.116,8 KiB, e perto de 1 MB disso
+é cabelo que o jogador não está usando. Isso é problema de UX, não de disco. A
+saída é carregar sob demanda por slot: um avatar precisa de uma base, do
+`source.webp` e de uma camada por slot, o que dá **104,3 KiB no caso típico
+e 137,3 KiB no pior caso**, contra 1.116,8 KiB do `build/` inteiro.
 
 ### Renders de cor e bigodes versionados (14/09/2026)
 
