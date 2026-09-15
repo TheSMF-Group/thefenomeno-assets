@@ -1,0 +1,10 @@
+{
+  "origem": "ChatGPT web (conversa 'Editar cabelo cacheado'), 15/09/2026, segundo render, mesmo prompt; dirigido pelo Claude no Chrome do Santiago",
+  "modelo": "gpt-image via ChatGPT",
+  "entradas": [
+    "raw/tmp_4.png (imagem 1, a editar)",
+    "raw/hair_midcurly.png (imagem 2, o cabelo a copiar)"
+  ],
+  "prompt": "Two images are attached. Image 1 (imagem1_tmp_4.png) is a bald 3D mannequin head with dark brown skin, front view, white background. Image 2 (imagem2_hair_midcurly.png) is the same mannequin with lighter skin wearing medium-length dark curly hair. Edit image 1 only: add exactly the same curly hair from image 2 to the head in image 1 - same length, same volume and silhouette, same hairline shape, same dark hair colour, same deep shadows between the curls. Keep everything else in image 1 pixel-identical: same face, same dark skin tone, same lighting, same white background, same framing and size. Do not lighten the skin anywhere. Photorealistic render. Output one image only, the same size as image 1.",
+  "papel": "verdade de referencia (par 2 de 2) para E e T do hair_midcurly em tom escuro; NAO e asset"
+}

@@ -1455,6 +1455,31 @@ fenômeno existe; medir no composto daria o mesmo número.
 
 ## Decisões
 
+### Regra: render de referência é sempre em par, normalizado pela pele nua (15/09/2026)
+
+**Uma referência só não é confiável.** Duas gerações do mesmo pedido, mesmo
+prompt, mesmas entradas, saíram com ganho global de pele de 1,07 e 0,91: 16%
+de deriva de exposição entre elas. Sem normalizar, a segunda dava E < 0 em 16%
+dos pixels de pelo, e a tabela `w(r)` mudava de 0,63 para 0,78 no núcleo.
+
+Regra, para toda camada que ganhar referência:
+
+1. **duas referências por camada**, sempre, do mesmo pedido;
+2. **cada uma dividida pelo próprio ganho de pele nua** (mediana de
+   `L/base` por canal numa região sem pelo do mesmo render) antes de qualquer
+   conta;
+3. a tabela `w(r)` é calibrada numa e **testada na outra**; o erro fora da
+   amostra é a barra de erro da regra, e vai para o NOTES junto com a tabela;
+4. a referência vai para `raw/_referencia/<camada>_tmp4_<origem>_<n>.png` com
+   sidecar JSON (prompt, entradas, origem), versionada; **não é asset** e não
+   entra em `layers/` nem em `build/`.
+
+**Limite conhecido, não corrigir:** no buzz, as linhas y = 160–200 do perfil
+ficam 0,25 mais claras que as referências. O gerador desenhou a linha do
+cabelo mais baixa e mais densa na cabeça escura, então as referências não são
+exatamente o mesmo cabelo do asset. A validação cruzada mede esse erro e ele é
+pequeno; tentar corrigi-lo seria ajustar o asset a um cabelo que ele não tem.
+
 ### Os slots do avatar são oito (15/09/2026)
 
 **tom, nose, mouth, eye, brow, ear, hair, beard.**
@@ -1858,3 +1883,412 @@ uma medição que só existe na transcrição de uma sessão já está perdida.
 
 O sintoma de que isso está acontecendo de novo é fácil de reconhecer: alguém
 citando um resultado de memória, com o número redondo e sem a definição junto.
+
+## A mancha em tom escuro é da máscara de PELO, não de `w` (15/09/2026)
+
+Achado no criador do jogo: em MST-10 o rosto grátis (`hair_buzz`, `brow_medium`,
+`beard_stubble`) mostra manchas claras de contorno geográfico na testa, nas
+bochechas e no queixo, em área sem pelo nenhum. A réplica em Python de `tone.ts`
+bate com o canvas do jogo pixel a pixel, então não é defeito de porta. **`w` não
+foi tocado em nenhuma medição abaixo.**
+
+**A fração de pelo opaco não separa dois grupos.** `r < 0,15` no miolo
+(`alpha > 200`, dentro da silhueta), resolução cheia: rampa contínua de 74% a 0%
+(cabelos 59–74%, `hair_braids` 42, `hair_buzz` 25, `beard_mustache` 25,
+`beard_goatee` 15, `beard_shortfull` 15, `brow_thick` 9,6, `beard_chinstrap` 4,7,
+`brow_medium` 2,7, `brow_thin` 0,4, `beard_stubble` 0,0). Fora da stubble, o maior
+salto entre vizinhos é de 6×. O eixo não é "quanto pelo tem", é "quanta pele a
+máscara pegou".
+
+**Pele a mais de 20 px do pelo opaco mais próximo** (build 512): `beard_stubble`
+100% do miolo (não tem pelo opaco), `brow_thin` 100%, `brow_medium` 65,6%,
+`beard_chinstrap` 46,6%, `hair_buzz` 12,6%, `beard_shortfull` 8,4%; os cabelos
+longos e cacheados ficam em 0–1,6%.
+
+**Coincide com as manchas.** No rosto grátis em MST-10, 75,6% do erro (composto
+clareando a base em mais de 10 níveis de L) cai no miolo distante, 19,1% no miolo
+perto do pelo e 5,3% fora do miolo de PELO. Por camada, o miolo distante está
+quase todo errado (66,7% no buzz, 99,5–99,7% em stubble e sobrancelhas).
+
+**Remover do alpha a pele quase pura (`r > 0,85`) não resolve: 1,3% a menos de
+erro.** Essa pele é só 0–1,9% do miolo. A pele distante não é pele do `tmp_1`
+copiada: tem `r` mediano de 0,55 (`hair_buzz`), 0,42 (`brow_medium`) e 0,66
+(`beard_stubble`), ou seja, é pele **mais escura** que a do `tmp_1` naquele pixel.
+Um corte por `r` não a separa do pelo semitransparente, que vive na mesma faixa;
+é a hipótese 1 da cadeia de PELO de novo. O que distingue essa pele é a
+**geometria** (distância ao pelo), não o valor.
+
+**Não resolvido nesta data.** O problema é a extração incluindo região que
+deveria ser transparente. Para a stubble e as sobrancelhas o critério de
+distância ao pelo opaco não se aplica, porque elas não têm núcleo opaco.
+
+**Tempo do criador, registrado e encerrado:** carga fria, primeiro rosto em
+1685 ms desde a navegação, ~790 ms da tela; anúncios terminam aos 3256 ms, depois
+do rosto.
+
+### Grupo A (corte de distância) e grupo B (w = 1): o gate grátis não fecha (15/09/2026)
+
+Medido com `scripts/medicao/medir_grupos.py`, sem implementar. Erro = composto
+clareando a base em mais de 10 níveis de L, em MST-10.
+
+**Grupo B com w = 1 funciona.** `beard_stubble`, `brow_thin`, `brow_medium`: no
+rosto grátis o erro cai **76,3%** só com B, e a mancha da barba e das sobrancelhas
+some; em MST-01 a textura fica.
+
+**Grupo A com corte > 20 px quase não mexe no que se vê.** Camada sozinha:
+`hair_buzz` −24,6%, `beard_chinstrap` −44,6%, `beard_shortfull` −10,5%. A faixa de
+testa do buzz vai de 6.008 para 4.408 px: o que sobra é um halo **a menos de 20 px
+do pelo**, que o corte por definição não alcança.
+
+**Rosto grátis, MST-10:** hoje 28.773 px; só A 27.173 (−5,6%); só B 6.826
+(−76,3%); **A + B 5.226 (−81,8%)**. Do resto, 4.827 px estão no miolo do buzz, na
+linha do cabelo. **O gate não passa.**
+
+**O corte cria regressão em tom claro.** Em MST-01, A + B muda mais de 10 níveis
+em 4,75% da silhueta, e o contorno do corte aparece como degrau na testa: a pele
+da camada, que ali era a certa, dá lugar à base.
+
+**Camadas do meio:** o corte quase não muda o erro (`beard_goatee` 8.351 → 7.998,
+`hair_lowfade` 2.943 → 2.635, `beard_mustache` 2.892 → 2.892, `brow_thick`
+4.543 → 4.398). O que se vê é o mesmo halo alaranjado junto ao pelo do buzz.
+
+**w = 1 zera o erro em qualquer camada, e por isso "erro 0" não prova nada em
+camada com pelo opaco:** o pelo opaco escurece 23 a 42 níveis
+(`hair_lowfade` 23, `beard_chinstrap` 32, `beard_goatee` 37, `brow_thick` 39).
+O critério precisa de uma segunda régua, a cor do pelo, que esta medição não
+decide.
+
+**O limiar de "tem núcleo" não se confirma.** O salto 9,6% → 4,7% (`brow_thick`
+→ `beard_chinstrap`) é de 2×; no build de 512 a rampa é 10,1 / 4,3 / 1,3 / 0,24 /
+0,00, sem corte limpo, e as camadas dos dois lados se comportam igual diante do
+corte.
+
+**Aberto:** o halo a menos de 20 px do pelo, que aparece no buzz e nas camadas do
+meio.
+
+### O halo junto ao pelo não é o fechamento da extração (15/09/2026)
+
+Medido com `scripts/medicao/medir_morfologia.py`, sem implementar. A reextração
+passa pelo mesmo caminho do build (Lanczos, flood, WebP q88 alpha 100) e, com a
+receita, reproduz `build/layers/hair_buzz.webp` e `beard_goatee.webp` com
+diferença zero.
+
+**A espessura não é constante.** Distância de cada pixel de erro do `hair_buzz`
+(sozinho, MST-10, w = r) ao pelo opaco: platô de 0 a 20 px em 512, p25 7,2,
+p50 13,5, p75 19,9, IQR 12,7; a faixa mais cheia tem só 8,6% dos pixels. À borda
+externa da máscara: p25 6,0, p50 10,4, p75 16,0, IQR 10,0. É cauda, não pico. O
+fechamento `disk(6)` em 1254 vale 2,45 px em 512 e não gera uma faixa de 13 px.
+
+**Fechamento menor não muda o halo.** `hair_buzz`: erro 6.513 (disk 6) →
+6.479 (disk 2) → 6.473 (disk 0); rosto grátis com o grupo B em w = 1: 6.826 →
+6.792 → 6.786. Gate de blobs passa nos três; cobertura cai só 213 px.
+
+**Nas outras camadas, idem.** Queda de erro com disk(0), sozinha em MST-10:
+`beard_goatee` 0,5%, `hair_lowfade` 1,5%, `beard_mustache` −0,4%, `brow_thick`
+0,4%, `hair_midcurly` 1,3%, `beard_longfull` 0,6%. Todas passam o gate de blobs
+com disk(2) e disk(0). O fechamento de fato tapa buracos internos em
+`beard_goatee` (8.865 px) e `hair_midcurly` (921 px), e sem ele eles voltam como
+buracos.
+
+**Conclusão:** o halo é **cobertura** — o próprio limiar de diferença pega pele
+em que o render com pelo difere do `tmp_1` numa faixa larga junto ao pelo — e
+não morfologia. Grupo B (w = 1 em `beard_stubble`, `brow_thin`, `brow_medium`)
+continua valendo. O corte de distância está abandonado. **O halo segue aberto.**
+
+### Render de referência: o gerador sobre a base escura (15/09/2026)
+
+Restrição relaxada por decisão do Santiago: **um** render de verdade, não asset.
+`hair_buzz` sobre `raw/tmp_4.png`, que é MST-10 no canvas de 1254 (k tmp_4/tmp_1
+= 0,1299/0,1515/0,1771, igual ao `tones.json`; IoU de silhueta 0,9941 contra
+`tmp_1`). Feito no ChatGPT web (gpt-image, C2PA "OpenAI Media Service API"), com
+duas imagens de entrada: `tmp_4.png` a editar e `raw/hair_buzz.png` como o corte a
+copiar. Prompt, entradas e origem em `raw/_referencia/hair_buzz_tmp4_chatgpt_1.json`;
+o PNG (1254×1254, 1,8 MB) está em `raw/_referencia/`. Comparador:
+`scripts/medicao/comparar_referencia.py`; gerador por API, para repetir:
+`scripts/medicao/gerar_referencia.py`.
+
+**A geometria não é a mesma** (IoU de silhueta 0,9666 contra `tmp_4`; testa da
+referência 6% mais clara que `tmp_4` na mediana, com espalhamento 0,75–1,45 pixel
+a pixel). Por isso nada abaixo é pixel a pixel: são medianas por região anatômica,
+definidas UMA vez pela camada nativa, e perfis verticais pela testa.
+
+**Razão de luminância à base, `Y(img)/Y(tmp_4)`, p10/p50/p90:**
+
+| imagem | testa nua (controle) | banda (0,15 ≤ r < 0,85) | núcleo (r < 0,15) | L núcleo | L banda |
+|---|---|---|---|---|---|
+| **referência** | 0,75/**1,06**/1,45 | 0,25/**0,62**/1,23 | 0,14/**0,29**/0,55 | **37,3** | **57,5** |
+| nativo (w = 0) | 1,00 | 0,76/1,82/4,88 | 0,26/0,60/1,03 | 53,2 | 101,7 |
+| w = r (hoje) | 1,00 | 0,63/1,35/2,45 | 0,25/0,54/0,91 | 50,7 | 84,4 |
+| w = 1 | 1,00 | 0,17/0,29/0,61 | 0,05/0,09/0,13 | 17,3 | 42,6 |
+
+**Perfil vertical pelas colunas centrais** (razão à base, y em px de 1254):
+
+| y | 80 | 120 | 160 | 200 | 220 | 300 |
+|---|---|---|---|---|---|---|
+| referência | 0,40 | 0,46 | 0,36 | 0,52 | 1,05 | 1,09 |
+| w = r | 0,82 | 0,90 | 0,87 | 1,03 | 1,00 | 1,00 |
+| w = 1 | 0,14 | 0,22 | 0,27 | 0,61 | 1,00 | 1,00 |
+
+**O que a referência decide:**
+
+- **Não existe faixa clara.** Na referência a calota inteira fica **abaixo** da
+  base (0,36–0,52) e a testa volta a ~1,05 em 20 px. A faixa branca da linha do
+  cabelo em `w = r` (ratio 0,9–1,0 onde deveria ser 0,4–0,5) é erro do modelo,
+  não do gerador.
+- **Na banda, `w = 1` acerta:** 0,34/0,61 contra 0,36/0,52 da referência em
+  y = 180–200. Pele transmitida é o modelo certo perto da linha do cabelo,
+  como já era para stubble e sobrancelhas.
+- **No núcleo, `w = 1` erra por escuro e o nativo erra por claro.** Referência
+  L 37,3; `w = 1` 17,3; nativo 53,2. Em luz linear: referência 0,29 da base,
+  `w = 1` 0,09, nativo 0,60. Resolvendo `L = E + T·S` e `ref = E + T·B` com
+  `B/S = 0,15`: **T = 0,055 e E = 0,235·B, ou seja, 39% da luminância do pixel
+  nativo do núcleo é emissão própria do pelo (fica), e 61% é pele transmitida
+  (escala com a base).** `w = r` põe T = r² ≈ 0,008 (quase tudo fica, por isso
+  claro demais); `w = 1` põe E = 0 (escuro demais).
+- Em `hair_buzz` a "cor do cabelo" que se vê **depende do tom**, porque a
+  calota de máquina é pelo esparso sobre couro cabeludo. A regra "cor do pelo é
+  dado" vale para a emissão E, não para o pixel inteiro.
+
+Ressalvas: um render só, sem medida de variância do gerador; e a referência é o
+que o gerador faz, não física. Foi adotada como verdade por decisão.
+
+### Correção do briefing: "cor do pelo é dado" vale para E, não para o pixel (15/09/2026)
+
+A restrição "cor do pelo é dado, não derivado do tom; loiro sobre pele escura
+continua loiro" estava errada como escrita, e teria bloqueado a solução certa.
+Vale para a **emissão própria do pelo E**. O pixel de pelo esparso (máquina,
+barba por fazer, sobrancelha) é `E + T·base` e **depende do tom por
+construção**: a referência mostra o núcleo da máquina a 0,27 da base em MST-10,
+contra 0,60 se a cor nativa fosse mantida. Dito de outro modo: `w = r` estava
+protegendo a coisa errada.
+
+### {E, T} por pixel a partir de dois renders (15/09/2026)
+
+Modelo: `L1 = E + T·S` (render sobre `tmp_1`) e `L4 = E + T·B` (render sobre
+`tmp_4`), duas equações por pixel e por canal, `T = (L1 − L4)/(S − B)`,
+`E = L1 − T·S`. Sem limiar, sem classificar, sem parâmetro. Script:
+`scripts/medicao/medir_ET.py`. Duas referências do buzz, mesmo prompt
+(`raw/_referencia/hair_buzz_tmp4_chatgpt_{1,2}.png`).
+
+**Fecha onde tem que fechar.** Testa nua (controle): T 0,97–0,99, E ≈ 0,01·L1.
+T em [0,1] em 99% do pelo em qualquer granularidade. Núcleo (r < 0,15):
+T ≈ 0,09 e **E/L1 = 0,33 / 0,49 / 0,68 por canal R/G/B** (ref 1): a emissão do
+pelo é mais neutra que a pele. Banda: T ≈ 0,26, E/L1 0,14 / 0,20 / 0,28.
+
+**Não fecha em 8–10% do pelo (E < 0), e é geometria, não ruído.** 91% desses
+pixels estão na banda; a fração não cai com blocos maiores (b = 1 → 64:
+10,1 / 8,7 / 7,8 / 8,7 / 10,4 / 12,6 / 5,6%). Espacialmente é um blob
+compacto no centro da linha do cabelo, onde o render nativo tem uma ponta
+(pelo) e as referências têm a linha reta (pele). A máscara relativa
+(`Y/Y(base) < 0,7`) tem IoU 0,54 entre nativo e ref 1, com a linha do cabelo
+nas colunas centrais em y = 200 no nativo e 201–202 nas refs: a linha bate, a
+densidade ao longo dela não.
+
+**Granularidade.** As medianas regionais de T e E/L1 são estáveis de b = 2 a
+b = 16 (|ΔT| entre escalas 0,02–0,03); a textura de fio some acima de b = 2
+(reconstrução da referência: rms 1,9 níveis em b = 1, 10,5 em b = 2, 14 em
+b = 8). **Por pixel, {E, T} de dois renders desalinhados não serve de asset;
+por região, serve de calibração.**
+
+**Variância do gerador, com duas referências.** Ganho global de pele, medido
+na testa nua: ref 1 **1,07** (R 1,072 / G 1,055 / B 1,067), ref 2 **0,91**
+(0,937 / 0,888 / 0,880). É deriva de exposição, não pelo, e contamina T
+diretamente (ref 2 sem normalizar: E < 0 em 15–16%). **Cada referência é
+dividida pelo próprio ganho de controle** antes de qualquer conta (região
+sem pelo, mesmo render, por canal: contexto idêntico). Normalizadas, as duas
+concordam: banda 0,58 / 0,54, núcleo 0,27 / 0,25 da base. Entre si: IoU de
+silhueta 0,9964, IoU da máscara relativa 0,73, |Δrazão| em blocos de 8 px
+mediana 0,083 (sem normalizar).
+
+### Regra candidata: w(r) por tabela medida, aplicada por pixel (15/09/2026)
+
+`novo = L − w(r)·r·(S − B)`, com `w(r)` = mediana de `T/r` por faixa de `r`,
+por canal, resolvida em blocos de 8 px da referência normalizada. A aplicação
+é por pixel sobre o render nativo, alinhado por construção; interpolação
+linear entre centros de faixa. **Nenhuma constante escolhida**: a tabela é
+medição. Script: `scripts/medicao/medir_w_de_r.py`.
+
+| r | w(r) canal R, ref 1 | ref 2 |
+|---|---|---|
+| < 0,10 | 0,67 | 0,75 |
+| 0,10–0,15 | 0,76 | 0,78 |
+| 0,15–0,20 | 0,80 | 0,81 |
+| 0,20–0,30 | 0,84 | 0,86 |
+| 0,30–0,40 | 0,87 | 0,90 |
+| 0,40–0,50 | 0,90 | 0,91 |
+| 0,50–0,70 | 0,92–0,94 | 0,93–0,94 |
+| 0,70–0,90 | 0,95–0,96 | 0,95 |
+
+Monótona, com quartis a ±0,04, e menor nos canais G e B (núcleo: 0,67 / 0,57 /
+0,43 em R/G/B). `w = r` põe 0,10 no núcleo e 0,30 na banda; `w = 1` põe 1. A
+verdade está perto de 1 e desce devagar com a densidade do pelo.
+
+**Validação cruzada** (calibra numa referência, testa na outra, ambas
+normalizadas):
+
+| | banda p50 | núcleo p50 | L núcleo |
+|---|---|---|---|
+| ref 1* / ref 2* | 0,58 / 0,54 | 0,27 / 0,25 | 36,0 / 34,2 |
+| tabela da ref 1 | 0,60 | 0,26 | 33,7 |
+| tabela da ref 2 | 0,57 | 0,24 | 32,3 |
+| `w = r` (hoje) | 1,36 | 0,54 | 50,7 |
+| `w = 1` | 0,29 | 0,09 | 17,3 |
+
+O erro fora da amostra (0,03–0,06 na razão) é do tamanho da diferença entre as
+duas referências (0,02–0,04). Identidade sobre `tmp_1`: 0.
+
+**Gate em 512** (rosto grátis MST-10, `w = 1` em stubble e brow_medium, `w(r)`
+no buzz): mancha **6.826 → 313 px**. MST-05 e MST-01: 72 → 72 e 89 → 89,
+|ΔL| > 10 em 0,4–0,7% da silhueta contra hoje, ou seja, o tom claro não muda.
+
+**O que a regra não alcança:** as linhas y = 160–200 do perfil (0,44 / 0,75
+contra 0,33 / 0,49 das referências). Ali o render nativo tem r ≈ 0,8 (quase
+pele) e as referências têm linha do cabelo densa: o gerador desenhou o cabelo
+mais baixo e mais denso na cabeça escura. Regra nenhuma aplicada ao nativo
+alcança pelo que o nativo não tem.
+
+**Duas hipóteses de um render só, medidas e mortas.** `plano_croma`
+(L = α·Ĥ + β·S, NNLS) e `cobertura_sombra` (L = a·H + (1−a)·s·S): pelo e pele
+**têm a mesma cromaticidade** nesta batelada (pelo escuro fora da silhueta a
+4,6–8,3° da direção da pele; núcleo a 3,5–12,8°; loiro a 3,5–5,0°; pele contra
+branco 25,5°), então nenhuma decomposição por cor separa cobertura de sombra —
+o solver decide pelo ruído. Contra a referência, as duas caem entre `w = r` e
+`w = 1` (núcleo L 30,8 e 25,3 contra 37,3) e deixam a linha do cabelo clara. É
+o que fecha a porta do render único: **a segunda equação precisa vir de um
+segundo render.** `escala`, `piso_pelo` e `diagnostico` não rodaram (limite de
+gasto de agentes).
+
+**O que falta medir, e o custo:** stubble (E deve dar ≈ 0: aí `w = 1` deixa
+de ser lista e vira consequência) e um cabelo volumoso (T ≈ 0 no núcleo: aí o
+loiro sobrevive por construção). Cada camada custa um render no ChatGPT:
+medido hoje, 5–8 min por camada dirigindo o navegador (geração 60–90 s,
+download pelo visualizador, cópia) mais ~1 min de conta; 17 camadas ≈ 2 h,
+mais ~14% de reenvios. Se o modelo fechar nas três famílias, a correção é
+reextrair as 17 de PELO como {E, T} por região ou como tabela `w(r)` por
+camada, e o runtime vira uma multiplicação e uma soma.
+
+### Referências de stubble, midcurly e goatee: os dois checks (15/09/2026)
+
+Seis renders novos, dois por camada, mesmo pedido, em `raw/_referencia/`, com
+sidecar. Custo real: 4–8 min por render dirigindo o ChatGPT; o stubble levou
+duas recusas de política antes de sair, reenviado sem mudar nada. Tudo
+normalizado pelo ganho da pele nua (janela da testa de `tones.json`, fora da
+máscara; ganhos medidos: stubble 1,02 / 0,98, midcurly 1,05 / 0,94 com B em
+0,77, goatee 0,98 / 0,94). Scripts: `medir_ET.py` e `medir_w_de_r.py`, agora
+com `--layer`; a região de controle é a mesma para todas as camadas.
+
+**Geometria por camada** (o gerador não preserva igual):
+
+| camada | IoU silhueta | IoU máscara relativa nativo × ref | linha do pelo nativo / ref (y) | E < 0 (b = 8) |
+|---|---|---|---|---|
+| stubble | 0,993 / 0,992 | 0,007 (a ref quase não escurece: 499 px contra 41.599) | 975 / — | 0,4% / 0,5% |
+| midcurly | (cabelo sai da silhueta) | **0,88 / 0,86** | 282 / 282–280 | 12,9% / 14,0% |
+| goatee | 0,993 / 0,991 | 0,62 / 0,55 (ref 26–30 px mais curto) | 995 / 969–965 | 10,7% / 8,8% |
+
+**Correção de origem, registrada como tal.** A regra "`w = 1` nas três de
+sombra" (stubble, brow_thin, brow_medium) nasceu da leitura "sombra pura não
+tem cor própria", feita pelo Santiago em 15/09 sem medição de referência, e
+adotada aqui como fechada. A referência mostra que é falsa como escrita: o
+stubble tem E/L1 de 0,06 a 0,10, e é essa emissão que o deixa quase invisível
+em tom escuro. `w = 1` era uma aproximação **12–14 níveis escura demais** em
+MST-10. Fica registrado que a generalização veio sem medição, e que o que vale
+é a tabela medida por camada.
+
+**Check 1 — stubble: E ≈ 0? NÃO.** T na banda 0,62 / 0,62; **E/L1 = 0,06 / 0,08 /
+0,10 por canal R/G/B** nas duas referências. Relativo ao pixel nativo é pouco;
+relativo à base escura é 0,3–0,5·B, e é o que decide a cara: a referência
+mostra o stubble a **1,04–1,11 da base** (quase invisível em MST-10), `w = 1`
+o põe a **0,65** (barba-sombra visível, L 41,6 contra 53,5–55,5), e a tabela
+`w(r)` do stubble (0,93–0,96 no R, 0,86–0,93 no B; as duas referências
+concordam em ±0,015) reproduz 1,04 / 1,11. **`w = 1` no trio de sombra não
+vira consequência: era uma aproximação 12–14 níveis escura demais em MST-10.
+Toda camada de PELO usa a própria tabela medida; brow_thin e brow_medium ainda
+precisam dos seus pares.**
+
+**Check 2 — midcurly: T ≈ 0 no núcleo? SIM.** T = 0,033 / 0,023 / 0,012 e
+0,030 / 0,018 / 0,008 (R/G/B) nas duas referências. Em termos absolutos, quase
+nenhuma luz da pele atravessa o cabelo denso, e por isso um pelo claro
+sobrevive por construção: E = L1 − T·S ≈ 0,97·L1 quando L1 é claro. No cabelo
+escuro o mesmo T ainda é 2/3 do pixel (E/L1 = 0,33 / 0,49 / 0,71), porque L1 é
+minúsculo: o núcleo escuro fica a 0,12–0,15 da base na referência, contra
+0,24 se ficasse nativo e 0,03 com `w = 1`. **Consequência: a tabela é por
+camada e nunca se transfere de uma escura para uma colorida** — o mesmo T
+absoluto dá `w = T/r ≈ 0,03` num loiro com r ≈ 1,2 e `w ≈ 0,7` num escuro com
+r ≈ 0,05.
+
+**Tabelas `w(r)`, canal R, referência 1 / referência 2:**
+
+| r | buzz | stubble | midcurly | goatee |
+|---|---|---|---|---|
+| < 0,10 | 0,67 / 0,75 | — | 0,69 / 0,59 | — |
+| 0,10–0,15 | 0,76 / 0,78 | — | 0,81 / 0,75 | 0,95 / 0,91 |
+| 0,15–0,30 | 0,80–0,84 / 0,81–0,86 | — | 0,91–0,96 / 0,88–0,95 | 0,92–0,93 / 0,90 |
+| 0,30–0,50 | 0,87–0,90 / 0,90–0,91 | 0,95 / 0,93 | 0,97–0,98 / 0,95 | 0,94–0,96 / 0,92–0,95 |
+| 0,50–0,90 | 0,92–0,96 / 0,93–0,95 | 0,95–0,96 / 0,93–0,95 | 0,98–1,00 / 0,97–0,99 | 0,96–0,97 / 0,95–0,96 |
+
+G e B sempre abaixo de R (a emissão do pelo é mais neutra que a pele).
+
+**Validação cruzada** (razão à base, banda / núcleo; calibra numa referência,
+testa na outra, ambas normalizadas):
+
+| camada | ref 1* / ref 2* | tabela da 1 → 2 | tabela da 2 → 1 | erro |
+|---|---|---|---|---|
+| stubble (banda) | 1,04 / 1,11 | 1,04 | 1,11 | 0,07 |
+| midcurly | 0,51–0,12 / 0,57–0,15 | 0,48–0,12 | 0,58–0,16 | 0,04–0,09 |
+| goatee | 0,55–0,26 / 0,64–0,34 | 0,60–0,19 | 0,69–0,24 | 0,05–0,15 |
+
+O erro fora da amostra acompanha a diferença entre as duas referências
+(stubble 0,07, midcurly 0,06, goatee 0,09) e a geometria: o goatee é o pior
+porque o gerador o desenhou mais curto nos dois renders. Identidade sobre
+`tmp_1`: 0 nas três.
+
+**Gate em 512, MST-10, cada camada com a própria tabela** (rosto grátis com a
+camada no slot dela): midcurly 6.112 → 318 px, goatee 8.919 → 308 px, stubble
+307 → 345 px (o stubble já não manchava; o que muda nele é sair de `w = 1`
+para a tabela, 12 níveis mais claro). MST-05 e MST-01 inalterados nas três.
+
+**Estado da regra:** `novo = L − w(r)·r·(S − B)` com `w(r)` por camada e por
+canal, medida em par de referências normalizadas. Quatro camadas calibradas
+(buzz, stubble, midcurly, goatee). Faltam 13, a 2 renders cada; as coloridas
+precisam das próprias, sem transferência.
+
+### A tabela w(r) não transfere entre cores do mesmo formato (15/09/2026)
+
+Pergunta do Santiago: se `w(r)` é função de `r`, o `r` já absorve a cor, e a
+tabela do `hair_midcurly` deveria valer para o `hair_midcurly_blonde`. Teste
+direto, com par de referências loiras (`raw/_referencia/hair_midcurly_blonde_
+tmp4_chatgpt_{1,2}.png`, ganhos de controle 1,12 e 0,88, normalizados).
+
+**Onde cada camada vive em `r` (canal R, miolo):** nativo p5/p50/p95 =
+0,01 / 0,07 / 0,76, 70,7% abaixo de 0,15; loiro 0,26 / 0,64 / 1,23, 0,6% abaixo
+de 0,15 e 10,3% acima de 1. Os dois quase não se sobrepõem no eixo, e onde se
+sobrepõem (r 0,3–1,0) a tabela do nativo foi medida em **pelo esparso da
+borda** e o loiro tem ali **pelo denso claro**.
+
+**Resultado, razão à base em MST-10, em 1254 sobre `tmp_4`:**
+
+| | miolo p50 | banda p50 | r ≥ 0,85 p50 | L miolo |
+|---|---|---|---|---|
+| referência loira 1* / 2* | 1,82 / 2,10 | 1,48 / 1,70 | 6,0 / 6,9 | 99 / 106 |
+| **tabela do nativo aplicada ao loiro** | **0,66** | **0,60** | **1,18** | **57** |
+| `w = r` (hoje) | 1,61 | 1,70 | 1,40 | 85 |
+| `w = 1` | 0,56 | 0,50 | 1,12 | 53 |
+| tabela própria do loiro (1 → 2 / 2 → 1) | 2,26 / 2,67 | 1,98 / 2,31 | 6,7 / 7,6 | 105 / 112 |
+
+**Não transfere.** A tabela do nativo escurece o loiro a menos que a pele
+(0,66 da base), erro de ~3× na razão e de 45 níveis em L, contra os 0,04–0,09
+do erro cruzado das camadas escuras. O motivo é físico: `T` é função da
+**cobertura**, e `w = T/r`; num mesmo `r`, o pelo escuro esparso e o pelo
+claro denso têm coberturas diferentes, então `r` não indexa `T` entre cores.
+E/L1 na banda: nativo 0,03 / 0,06 / 0,09, loiro **0,55 / 0,64 / 0,79**.
+
+**A tabela própria do loiro é pior que as escuras.** Não é monótona
+(R: 0,64 → 0,47 → 0,51 → 0,84 → 0,24 → 0,13 ao subir `r`), tem valores
+negativos acima de r = 0,9, T < 0 em 8–15% e E > L1 em 15%; o erro cruzado é
+0,16–0,85 na razão. Em cabelo claro `r` não separa fio denso de pele nua, e o
+gerador ainda brilhou o loiro mais na cabeça escura (ganho 1,12). O `w = r`
+atual fica a 15 níveis das referências, mais perto que a tabela própria.
+
+**Consequência:** as 24 coloridas não saem de graça; são 37 pares, não 13. E
+para as coloridas o índice `r` provavelmente não é o certo — fica como
+pergunta aberta, não como regra.
