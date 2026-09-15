@@ -1969,3 +1969,60 @@ buracos.
 em que o render com pelo difere do `tmp_1` numa faixa larga junto ao pelo — e
 não morfologia. Grupo B (w = 1 em `beard_stubble`, `brow_thin`, `brow_medium`)
 continua valendo. O corte de distância está abandonado. **O halo segue aberto.**
+
+### Render de referência: o gerador sobre a base escura (15/09/2026)
+
+Restrição relaxada por decisão do Santiago: **um** render de verdade, não asset.
+`hair_buzz` sobre `raw/tmp_4.png`, que é MST-10 no canvas de 1254 (k tmp_4/tmp_1
+= 0,1299/0,1515/0,1771, igual ao `tones.json`; IoU de silhueta 0,9941 contra
+`tmp_1`). Feito no ChatGPT web (gpt-image, C2PA "OpenAI Media Service API"), com
+duas imagens de entrada: `tmp_4.png` a editar e `raw/hair_buzz.png` como o corte a
+copiar. Prompt, entradas e origem em `raw/_referencia/hair_buzz_tmp4_chatgpt_1.json`;
+o PNG (1254×1254, 1,8 MB) está em `raw/_referencia/`. Comparador:
+`scripts/medicao/comparar_referencia.py`; gerador por API, para repetir:
+`scripts/medicao/gerar_referencia.py`.
+
+**A geometria não é a mesma** (IoU de silhueta 0,9666 contra `tmp_4`; testa da
+referência 6% mais clara que `tmp_4` na mediana, com espalhamento 0,75–1,45 pixel
+a pixel). Por isso nada abaixo é pixel a pixel: são medianas por região anatômica,
+definidas UMA vez pela camada nativa, e perfis verticais pela testa.
+
+**Razão de luminância à base, `Y(img)/Y(tmp_4)`, p10/p50/p90:**
+
+| imagem | testa nua (controle) | banda (0,15 ≤ r < 0,85) | núcleo (r < 0,15) | L núcleo | L banda |
+|---|---|---|---|---|---|
+| **referência** | 0,75/**1,06**/1,45 | 0,25/**0,62**/1,23 | 0,14/**0,29**/0,55 | **37,3** | **57,5** |
+| nativo (w = 0) | 1,00 | 0,76/1,82/4,88 | 0,26/0,60/1,03 | 53,2 | 101,7 |
+| w = r (hoje) | 1,00 | 0,63/1,35/2,45 | 0,25/0,54/0,91 | 50,7 | 84,4 |
+| w = 1 | 1,00 | 0,17/0,29/0,61 | 0,05/0,09/0,13 | 17,3 | 42,6 |
+
+**Perfil vertical pelas colunas centrais** (razão à base, y em px de 1254):
+
+| y | 80 | 120 | 160 | 200 | 220 | 300 |
+|---|---|---|---|---|---|---|
+| referência | 0,40 | 0,46 | 0,36 | 0,52 | 1,05 | 1,09 |
+| w = r | 0,82 | 0,90 | 0,87 | 1,03 | 1,00 | 1,00 |
+| w = 1 | 0,14 | 0,22 | 0,27 | 0,61 | 1,00 | 1,00 |
+
+**O que a referência decide:**
+
+- **Não existe faixa clara.** Na referência a calota inteira fica **abaixo** da
+  base (0,36–0,52) e a testa volta a ~1,05 em 20 px. A faixa branca da linha do
+  cabelo em `w = r` (ratio 0,9–1,0 onde deveria ser 0,4–0,5) é erro do modelo,
+  não do gerador.
+- **Na banda, `w = 1` acerta:** 0,34/0,61 contra 0,36/0,52 da referência em
+  y = 180–200. Pele transmitida é o modelo certo perto da linha do cabelo,
+  como já era para stubble e sobrancelhas.
+- **No núcleo, `w = 1` erra por escuro e o nativo erra por claro.** Referência
+  L 37,3; `w = 1` 17,3; nativo 53,2. Em luz linear: referência 0,29 da base,
+  `w = 1` 0,09, nativo 0,60. Resolvendo `L = E + T·S` e `ref = E + T·B` com
+  `B/S = 0,15`: **T = 0,055 e E = 0,235·B, ou seja, 39% da luminância do pixel
+  nativo do núcleo é emissão própria do pelo (fica), e 61% é pele transmitida
+  (escala com a base).** `w = r` põe T = r² ≈ 0,008 (quase tudo fica, por isso
+  claro demais); `w = 1` põe E = 0 (escuro demais).
+- Em `hair_buzz` a "cor do cabelo" que se vê **depende do tom**, porque a
+  calota de máquina é pelo esparso sobre couro cabeludo. A regra "cor do pelo é
+  dado" vale para a emissão E, não para o pixel inteiro.
+
+Ressalvas: um render só, sem medida de variância do gerador; e a referência é o
+que o gerador faz, não física. Foi adotada como verdade por decisão.
