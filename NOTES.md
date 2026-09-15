@@ -2026,3 +2026,118 @@ definidas UMA vez pela camada nativa, e perfis verticais pela testa.
 
 Ressalvas: um render só, sem medida de variância do gerador; e a referência é o
 que o gerador faz, não física. Foi adotada como verdade por decisão.
+
+### Correção do briefing: "cor do pelo é dado" vale para E, não para o pixel (15/09/2026)
+
+A restrição "cor do pelo é dado, não derivado do tom; loiro sobre pele escura
+continua loiro" estava errada como escrita, e teria bloqueado a solução certa.
+Vale para a **emissão própria do pelo E**. O pixel de pelo esparso (máquina,
+barba por fazer, sobrancelha) é `E + T·base` e **depende do tom por
+construção**: a referência mostra o núcleo da máquina a 0,27 da base em MST-10,
+contra 0,60 se a cor nativa fosse mantida. Dito de outro modo: `w = r` estava
+protegendo a coisa errada.
+
+### {E, T} por pixel a partir de dois renders (15/09/2026)
+
+Modelo: `L1 = E + T·S` (render sobre `tmp_1`) e `L4 = E + T·B` (render sobre
+`tmp_4`), duas equações por pixel e por canal, `T = (L1 − L4)/(S − B)`,
+`E = L1 − T·S`. Sem limiar, sem classificar, sem parâmetro. Script:
+`scripts/medicao/medir_ET.py`. Duas referências do buzz, mesmo prompt
+(`raw/_referencia/hair_buzz_tmp4_chatgpt_{1,2}.png`).
+
+**Fecha onde tem que fechar.** Testa nua (controle): T 0,97–0,99, E ≈ 0,01·L1.
+T em [0,1] em 99% do pelo em qualquer granularidade. Núcleo (r < 0,15):
+T ≈ 0,09 e **E/L1 = 0,33 / 0,49 / 0,68 por canal R/G/B** (ref 1): a emissão do
+pelo é mais neutra que a pele. Banda: T ≈ 0,26, E/L1 0,14 / 0,20 / 0,28.
+
+**Não fecha em 8–10% do pelo (E < 0), e é geometria, não ruído.** 91% desses
+pixels estão na banda; a fração não cai com blocos maiores (b = 1 → 64:
+10,1 / 8,7 / 7,8 / 8,7 / 10,4 / 12,6 / 5,6%). Espacialmente é um blob
+compacto no centro da linha do cabelo, onde o render nativo tem uma ponta
+(pelo) e as referências têm a linha reta (pele). A máscara relativa
+(`Y/Y(base) < 0,7`) tem IoU 0,54 entre nativo e ref 1, com a linha do cabelo
+nas colunas centrais em y = 200 no nativo e 201–202 nas refs: a linha bate, a
+densidade ao longo dela não.
+
+**Granularidade.** As medianas regionais de T e E/L1 são estáveis de b = 2 a
+b = 16 (|ΔT| entre escalas 0,02–0,03); a textura de fio some acima de b = 2
+(reconstrução da referência: rms 1,9 níveis em b = 1, 10,5 em b = 2, 14 em
+b = 8). **Por pixel, {E, T} de dois renders desalinhados não serve de asset;
+por região, serve de calibração.**
+
+**Variância do gerador, com duas referências.** Ganho global de pele, medido
+na testa nua: ref 1 **1,07** (R 1,072 / G 1,055 / B 1,067), ref 2 **0,91**
+(0,937 / 0,888 / 0,880). É deriva de exposição, não pelo, e contamina T
+diretamente (ref 2 sem normalizar: E < 0 em 15–16%). **Cada referência é
+dividida pelo próprio ganho de controle** antes de qualquer conta (região
+sem pelo, mesmo render, por canal: contexto idêntico). Normalizadas, as duas
+concordam: banda 0,58 / 0,54, núcleo 0,27 / 0,25 da base. Entre si: IoU de
+silhueta 0,9964, IoU da máscara relativa 0,73, |Δrazão| em blocos de 8 px
+mediana 0,083 (sem normalizar).
+
+### Regra candidata: w(r) por tabela medida, aplicada por pixel (15/09/2026)
+
+`novo = L − w(r)·r·(S − B)`, com `w(r)` = mediana de `T/r` por faixa de `r`,
+por canal, resolvida em blocos de 8 px da referência normalizada. A aplicação
+é por pixel sobre o render nativo, alinhado por construção; interpolação
+linear entre centros de faixa. **Nenhuma constante escolhida**: a tabela é
+medição. Script: `scripts/medicao/medir_w_de_r.py`.
+
+| r | w(r) canal R, ref 1 | ref 2 |
+|---|---|---|
+| < 0,10 | 0,67 | 0,75 |
+| 0,10–0,15 | 0,76 | 0,78 |
+| 0,15–0,20 | 0,80 | 0,81 |
+| 0,20–0,30 | 0,84 | 0,86 |
+| 0,30–0,40 | 0,87 | 0,90 |
+| 0,40–0,50 | 0,90 | 0,91 |
+| 0,50–0,70 | 0,92–0,94 | 0,93–0,94 |
+| 0,70–0,90 | 0,95–0,96 | 0,95 |
+
+Monótona, com quartis a ±0,04, e menor nos canais G e B (núcleo: 0,67 / 0,57 /
+0,43 em R/G/B). `w = r` põe 0,10 no núcleo e 0,30 na banda; `w = 1` põe 1. A
+verdade está perto de 1 e desce devagar com a densidade do pelo.
+
+**Validação cruzada** (calibra numa referência, testa na outra, ambas
+normalizadas):
+
+| | banda p50 | núcleo p50 | L núcleo |
+|---|---|---|---|
+| ref 1* / ref 2* | 0,58 / 0,54 | 0,27 / 0,25 | 36,0 / 34,2 |
+| tabela da ref 1 | 0,60 | 0,26 | 33,7 |
+| tabela da ref 2 | 0,57 | 0,24 | 32,3 |
+| `w = r` (hoje) | 1,36 | 0,54 | 50,7 |
+| `w = 1` | 0,29 | 0,09 | 17,3 |
+
+O erro fora da amostra (0,03–0,06 na razão) é do tamanho da diferença entre as
+duas referências (0,02–0,04). Identidade sobre `tmp_1`: 0.
+
+**Gate em 512** (rosto grátis MST-10, `w = 1` em stubble e brow_medium, `w(r)`
+no buzz): mancha **6.826 → 313 px**. MST-05 e MST-01: 72 → 72 e 89 → 89,
+|ΔL| > 10 em 0,4–0,7% da silhueta contra hoje, ou seja, o tom claro não muda.
+
+**O que a regra não alcança:** as linhas y = 160–200 do perfil (0,44 / 0,75
+contra 0,33 / 0,49 das referências). Ali o render nativo tem r ≈ 0,8 (quase
+pele) e as referências têm linha do cabelo densa: o gerador desenhou o cabelo
+mais baixo e mais denso na cabeça escura. Regra nenhuma aplicada ao nativo
+alcança pelo que o nativo não tem.
+
+**Duas hipóteses de um render só, medidas e mortas.** `plano_croma`
+(L = α·Ĥ + β·S, NNLS) e `cobertura_sombra` (L = a·H + (1−a)·s·S): pelo e pele
+**têm a mesma cromaticidade** nesta batelada (pelo escuro fora da silhueta a
+4,6–8,3° da direção da pele; núcleo a 3,5–12,8°; loiro a 3,5–5,0°; pele contra
+branco 25,5°), então nenhuma decomposição por cor separa cobertura de sombra —
+o solver decide pelo ruído. Contra a referência, as duas caem entre `w = r` e
+`w = 1` (núcleo L 30,8 e 25,3 contra 37,3) e deixam a linha do cabelo clara. É
+o que fecha a porta do render único: **a segunda equação precisa vir de um
+segundo render.** `escala`, `piso_pelo` e `diagnostico` não rodaram (limite de
+gasto de agentes).
+
+**O que falta medir, e o custo:** stubble (E deve dar ≈ 0: aí `w = 1` deixa
+de ser lista e vira consequência) e um cabelo volumoso (T ≈ 0 no núcleo: aí o
+loiro sobrevive por construção). Cada camada custa um render no ChatGPT:
+medido hoje, 5–8 min por camada dirigindo o navegador (geração 60–90 s,
+download pelo visualizador, cópia) mais ~1 min de conta; 17 camadas ≈ 2 h,
+mais ~14% de reenvios. Se o modelo fechar nas três famílias, a correção é
+reextrair as 17 de PELO como {E, T} por região ou como tabela `w(r)` por
+camada, e o runtime vira uma multiplicação e uma soma.
