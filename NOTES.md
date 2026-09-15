@@ -2185,6 +2185,15 @@ com `--layer`; a região de controle é a mesma para todas as camadas.
 | midcurly | (cabelo sai da silhueta) | **0,88 / 0,86** | 282 / 282–280 | 12,9% / 14,0% |
 | goatee | 0,993 / 0,991 | 0,62 / 0,55 (ref 26–30 px mais curto) | 995 / 969–965 | 10,7% / 8,8% |
 
+**Correção de origem, registrada como tal.** A regra "`w = 1` nas três de
+sombra" (stubble, brow_thin, brow_medium) nasceu da leitura "sombra pura não
+tem cor própria", feita pelo Santiago em 15/09 sem medição de referência, e
+adotada aqui como fechada. A referência mostra que é falsa como escrita: o
+stubble tem E/L1 de 0,06 a 0,10, e é essa emissão que o deixa quase invisível
+em tom escuro. `w = 1` era uma aproximação **12–14 níveis escura demais** em
+MST-10. Fica registrado que a generalização veio sem medição, e que o que vale
+é a tabela medida por camada.
+
 **Check 1 — stubble: E ≈ 0? NÃO.** T na banda 0,62 / 0,62; **E/L1 = 0,06 / 0,08 /
 0,10 por canal R/G/B** nas duas referências. Relativo ao pixel nativo é pouco;
 relativo à base escura é 0,3–0,5·B, e é o que decide a cara: a referência
