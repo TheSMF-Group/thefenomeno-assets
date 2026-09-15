@@ -2289,6 +2289,24 @@ negativos acima de r = 0,9, T < 0 em 8–15% e E > L1 em 15%; o erro cruzado é
 gerador ainda brilhou o loiro mais na cabeça escura (ganho 1,12). O `w = r`
 atual fica a 15 níveis das referências, mais perto que a tabela própria.
 
-**Consequência:** as 24 coloridas não saem de graça; são 37 pares, não 13. E
-para as coloridas o índice `r` provavelmente não é o certo — fica como
-pergunta aberta, não como regra.
+**Achado, não pendência de execução: `r` não serve de índice para cabelo
+claro.** Não são "24 pares faltando"; é um método que não cobre metade do
+catálogo. `r` mistura fio denso claro com pele nua porque os dois são claros,
+e a tabela indexada por `r` não tem como separá-los.
+
+**A tabela própria do loiro produz artefato visível, não só erro numérico:**
+manchas castanho-escuras dentro dos cachos, franjas verdes ao longo dos fios
+(clip de canal onde `w` fica negativo acima de r = 0,9) e um véu castanho-claro
+sobre a testa entre os cachos. **`w = r` continua sendo o melhor disponível
+para as coloridas até haver método**: fica a 15 níveis das referências e não
+tem artefato.
+
+**Direção a medir quando chegar lá, e não antes:** um índice que não dependa
+de luminância relativa — cobertura estimada por gradiente local, ou o próprio
+alpha da extração — pode separar onde `r` não separa. Registrado como ideia;
+não foi testado.
+
+**Ordem de execução decidida em 15/09:** fechar primeiro as 13 escuras que
+faltam (26 renders), que a tabela `w(r)` sabe tratar; isso fecha as 17 nativas
+e destrava o gate grátis, que é o que bloqueia o lançamento. As coloridas
+esperam o método.
