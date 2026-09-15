@@ -39,6 +39,8 @@ def boundary_displacement(m_from, m_to):
     """Para cada pixel de borda de m_from, distância à borda de m_to (px). Mediana e p90."""
     b_from = m_from & ~ndimage.binary_erosion(m_from)
     b_to = m_to & ~ndimage.binary_erosion(m_to)
+    if not b_from.any() or not b_to.any():
+        return float("nan"), float("nan")  # máscara vazia: o limiar absoluto da receita não enxerga pelo escuro sobre base escura
     d = ndimage.distance_transform_edt(~b_to)[b_from]
     return float(np.median(d)), float(np.percentile(d, 90))
 
@@ -56,6 +58,28 @@ def upsample(a, b, H, W):
     out = np.zeros((H, W) + a.shape[2:], a.dtype)
     out[:r.shape[0], :r.shape[1]] = r
     return out
+
+def control_region(lay, sil):
+    """Pele nua do mesmo render, para medir o ganho do gerador: a janela da testa de tones.json
+    (windowDisplay, onde o measuredHex é medido), na silhueta e fora da máscara da camada. Se a camada
+    cobrir a testa (cabelo volumoso), recua para a faixa 40-140 px abaixo do ponto mais baixo da máscara
+    nas colunas centrais (pescoço/queixo), igualmente sem pelo."""
+    import json
+    H, W = sil.shape
+    x0, y0, x1, y1 = json.load(open(os.path.join(ROOT, "build", "tones.json"), encoding="utf8"))["windowDisplay"]
+    # a janela é em coordenadas de 1254; se o canvas for outro, escala
+    s = H / 1254
+    ctrl = np.zeros_like(sil)
+    ctrl[int(y0 * s):int(y1 * s), int(x0 * s):int(x1 * s)] = True
+    ctrl &= sil & ~(lay[..., 3] > 0)
+    if ctrl.sum() >= 1000:
+        return ctrl
+    ys, xs = np.nonzero(lay[..., 3] > 0)
+    cols = (xs > W * 0.42) & (xs < W * 0.58)
+    hb = int(np.percentile(ys[cols], 99))
+    ctrl = np.zeros_like(sil)
+    ctrl[hb + 40:hb + 140, int(W * 0.42):int(W * 0.58)] = True
+    return ctrl & sil & ~(lay[..., 3] > 0)
 
 def solve(L1, L4, S, B):
     den = S - B
@@ -85,11 +109,7 @@ def main():
     MIOLO = (lay[..., 3] > 200) & SIL
     CORE = MIOLO & (r < 0.15)
     BAND = MIOLO & (r >= 0.15) & (r < 0.85)
-    ys, xs = np.nonzero(lay[..., 3] > 0)
-    cols = (xs > W * 0.42) & (xs < W * 0.58)
-    hb = int(np.percentile(ys[cols], 99))
-    CONTROL = np.zeros_like(SIL); CONTROL[hb + 40:hb + 140, int(W * 0.42):int(W * 0.58)] = True
-    CONTROL &= SIL & ~(lay[..., 3] > 0)
+    CONTROL = control_region(lay, SIL)
 
     # ---------------------------------------------------------------- 1. desalinhamento
     print(f"== {a.layer}: {os.path.relpath(ref_path, ROOT)} ==")
@@ -97,7 +117,7 @@ def main():
     m_ref, _ = XL.build_mask(B8, L4_8)
     print("\n== 1. desalinhamento entre os dois renders ==")
     print(f"silhueta: IoU {((sil1 & silr).sum() / (sil1 | silr).sum()):.4f}; deslocamento de borda tmp_1->ref mediana/p90 {boundary_displacement(sil1, silr)[0]:.1f}/{boundary_displacement(sil1, silr)[1]:.1f} px")
-    print(f"máscara de pelo (receita da extração em cada par): IoU {((m_nat & m_ref).sum() / (m_nat | m_ref).sum()):.4f}; "
+    print(f"máscara de pelo (receita da extração em cada par): IoU {((m_nat & m_ref).sum() / max((m_nat | m_ref).sum(), 1)):.4f}; "
           f"área nativa {m_nat.sum():,} px, ref {m_ref.sum():,} px; deslocamento de borda nat->ref mediana/p90 "
           f"{boundary_displacement(m_nat, m_ref)[0]:.1f}/{boundary_displacement(m_nat, m_ref)[1]:.1f} px, ref->nat {boundary_displacement(m_ref, m_nat)[0]:.1f}/{boundary_displacement(m_ref, m_nat)[1]:.1f} px")
 
@@ -107,7 +127,7 @@ def main():
     rel_ref = SIL & (Y(L4) / np.maximum(Y(B), 1e-6) < 0.7)
     for m_ in (rel_nat, rel_ref):
         m_[:] = ndimage.binary_opening(m_, iterations=2)
-    print(f"máscara por critério relativo (Y/Y(base) < 0,7, mesmo nos dois): IoU {((rel_nat & rel_ref).sum() / (rel_nat | rel_ref).sum()):.4f}; "
+    print(f"máscara por critério relativo (Y/Y(base) < 0,7, mesmo nos dois): IoU {((rel_nat & rel_ref).sum() / max((rel_nat | rel_ref).sum(), 1)):.4f}; "
           f"área nativa {rel_nat.sum():,} px, ref {rel_ref.sum():,} px; deslocamento de borda nat->ref mediana/p90 "
           f"{boundary_displacement(rel_nat, rel_ref)[0]:.1f}/{boundary_displacement(rel_nat, rel_ref)[1]:.1f} px")
     # linha do cabelo nas colunas centrais: primeira linha (de baixo para cima) em que a razão cai abaixo de 0,7

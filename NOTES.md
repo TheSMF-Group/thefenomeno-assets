@@ -2166,3 +2166,79 @@ download pelo visualizador, cópia) mais ~1 min de conta; 17 camadas ≈ 2 h,
 mais ~14% de reenvios. Se o modelo fechar nas três famílias, a correção é
 reextrair as 17 de PELO como {E, T} por região ou como tabela `w(r)` por
 camada, e o runtime vira uma multiplicação e uma soma.
+
+### Referências de stubble, midcurly e goatee: os dois checks (15/09/2026)
+
+Seis renders novos, dois por camada, mesmo pedido, em `raw/_referencia/`, com
+sidecar. Custo real: 4–8 min por render dirigindo o ChatGPT; o stubble levou
+duas recusas de política antes de sair, reenviado sem mudar nada. Tudo
+normalizado pelo ganho da pele nua (janela da testa de `tones.json`, fora da
+máscara; ganhos medidos: stubble 1,02 / 0,98, midcurly 1,05 / 0,94 com B em
+0,77, goatee 0,98 / 0,94). Scripts: `medir_ET.py` e `medir_w_de_r.py`, agora
+com `--layer`; a região de controle é a mesma para todas as camadas.
+
+**Geometria por camada** (o gerador não preserva igual):
+
+| camada | IoU silhueta | IoU máscara relativa nativo × ref | linha do pelo nativo / ref (y) | E < 0 (b = 8) |
+|---|---|---|---|---|
+| stubble | 0,993 / 0,992 | 0,007 (a ref quase não escurece: 499 px contra 41.599) | 975 / — | 0,4% / 0,5% |
+| midcurly | (cabelo sai da silhueta) | **0,88 / 0,86** | 282 / 282–280 | 12,9% / 14,0% |
+| goatee | 0,993 / 0,991 | 0,62 / 0,55 (ref 26–30 px mais curto) | 995 / 969–965 | 10,7% / 8,8% |
+
+**Check 1 — stubble: E ≈ 0? NÃO.** T na banda 0,62 / 0,62; **E/L1 = 0,06 / 0,08 /
+0,10 por canal R/G/B** nas duas referências. Relativo ao pixel nativo é pouco;
+relativo à base escura é 0,3–0,5·B, e é o que decide a cara: a referência
+mostra o stubble a **1,04–1,11 da base** (quase invisível em MST-10), `w = 1`
+o põe a **0,65** (barba-sombra visível, L 41,6 contra 53,5–55,5), e a tabela
+`w(r)` do stubble (0,93–0,96 no R, 0,86–0,93 no B; as duas referências
+concordam em ±0,015) reproduz 1,04 / 1,11. **`w = 1` no trio de sombra não
+vira consequência: era uma aproximação 12–14 níveis escura demais em MST-10.
+Toda camada de PELO usa a própria tabela medida; brow_thin e brow_medium ainda
+precisam dos seus pares.**
+
+**Check 2 — midcurly: T ≈ 0 no núcleo? SIM.** T = 0,033 / 0,023 / 0,012 e
+0,030 / 0,018 / 0,008 (R/G/B) nas duas referências. Em termos absolutos, quase
+nenhuma luz da pele atravessa o cabelo denso, e por isso um pelo claro
+sobrevive por construção: E = L1 − T·S ≈ 0,97·L1 quando L1 é claro. No cabelo
+escuro o mesmo T ainda é 2/3 do pixel (E/L1 = 0,33 / 0,49 / 0,71), porque L1 é
+minúsculo: o núcleo escuro fica a 0,12–0,15 da base na referência, contra
+0,24 se ficasse nativo e 0,03 com `w = 1`. **Consequência: a tabela é por
+camada e nunca se transfere de uma escura para uma colorida** — o mesmo T
+absoluto dá `w = T/r ≈ 0,03` num loiro com r ≈ 1,2 e `w ≈ 0,7` num escuro com
+r ≈ 0,05.
+
+**Tabelas `w(r)`, canal R, referência 1 / referência 2:**
+
+| r | buzz | stubble | midcurly | goatee |
+|---|---|---|---|---|
+| < 0,10 | 0,67 / 0,75 | — | 0,69 / 0,59 | — |
+| 0,10–0,15 | 0,76 / 0,78 | — | 0,81 / 0,75 | 0,95 / 0,91 |
+| 0,15–0,30 | 0,80–0,84 / 0,81–0,86 | — | 0,91–0,96 / 0,88–0,95 | 0,92–0,93 / 0,90 |
+| 0,30–0,50 | 0,87–0,90 / 0,90–0,91 | 0,95 / 0,93 | 0,97–0,98 / 0,95 | 0,94–0,96 / 0,92–0,95 |
+| 0,50–0,90 | 0,92–0,96 / 0,93–0,95 | 0,95–0,96 / 0,93–0,95 | 0,98–1,00 / 0,97–0,99 | 0,96–0,97 / 0,95–0,96 |
+
+G e B sempre abaixo de R (a emissão do pelo é mais neutra que a pele).
+
+**Validação cruzada** (razão à base, banda / núcleo; calibra numa referência,
+testa na outra, ambas normalizadas):
+
+| camada | ref 1* / ref 2* | tabela da 1 → 2 | tabela da 2 → 1 | erro |
+|---|---|---|---|---|
+| stubble (banda) | 1,04 / 1,11 | 1,04 | 1,11 | 0,07 |
+| midcurly | 0,51–0,12 / 0,57–0,15 | 0,48–0,12 | 0,58–0,16 | 0,04–0,09 |
+| goatee | 0,55–0,26 / 0,64–0,34 | 0,60–0,19 | 0,69–0,24 | 0,05–0,15 |
+
+O erro fora da amostra acompanha a diferença entre as duas referências
+(stubble 0,07, midcurly 0,06, goatee 0,09) e a geometria: o goatee é o pior
+porque o gerador o desenhou mais curto nos dois renders. Identidade sobre
+`tmp_1`: 0 nas três.
+
+**Gate em 512, MST-10, cada camada com a própria tabela** (rosto grátis com a
+camada no slot dela): midcurly 6.112 → 318 px, goatee 8.919 → 308 px, stubble
+307 → 345 px (o stubble já não manchava; o que muda nele é sair de `w = 1`
+para a tabela, 12 níveis mais claro). MST-05 e MST-01 inalterados nas três.
+
+**Estado da regra:** `novo = L − w(r)·r·(S − B)` com `w(r)` por camada e por
+canal, medida em par de referências normalizadas. Quatro camadas calibradas
+(buzz, stubble, midcurly, goatee). Faltam 13, a 2 renders cada; as coloridas
+precisam das próprias, sem transferência.

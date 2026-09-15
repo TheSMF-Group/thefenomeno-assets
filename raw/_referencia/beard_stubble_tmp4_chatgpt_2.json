@@ -1,0 +1,10 @@
+{
+  "origem": "ChatGPT web (conversa 'Pedido de acao'), 15/09/2026, dirigido pelo Claude no Chrome do Santiago; segundo render: duas recusas de politica antes, reenviado igual",
+  "modelo": "gpt-image via ChatGPT",
+  "entradas": [
+    "raw/tmp_4.png (imagem 1, a editar)",
+    "raw/beard_stubble.png (imagem 2, a barba a copiar)"
+  ],
+  "prompt": "Image 1 (imagem1_tmp_4.png) is a bald 3D mannequin head with dark brown skin, front view, white background. Image 2 (imagem2_beard_stubble.png) is the same mannequin with lighter skin wearing light stubble (very short facial hair, a few days' growth) on the cheeks, jaw, chin and upper lip. Edit image 1 only: add exactly the same stubble from image 2 to the face in image 1 - same coverage area, same density, same dark hair colour, same deep shadows between the hairs. Keep everything else in image 1 pixel-identical: same face, same dark skin tone, same lighting, same white background, same framing and size. Do not lighten the skin anywhere. Photorealistic render. Output one image only, the same size as image 1.",
+  "papel": "verdade de referencia (par 2 de 2) para E e T do beard_stubble em tom escuro; NAO e asset"
+}

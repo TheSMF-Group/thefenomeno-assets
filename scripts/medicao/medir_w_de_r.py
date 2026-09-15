@@ -39,14 +39,27 @@ def blk(a, b):
 def control_gain(L4, B, lay, sil):
     """Ganho global do gerador, por canal: mediana de L4/B na testa nua (sem pelo), que por construção
     deveria ser idêntica a tmp_4. Medido no próprio render; remove deriva de exposição, não pelo."""
-    H, W = B.shape[:2]
+    ctrl = control_region(lay, sil)
+    return np.array([np.median((L4[..., c] / np.maximum(B[..., c], 1e-6))[ctrl]) for c in range(3)])
+
+def control_region(lay, sil):
+    """Mesma definição de medir_ET.control_region: janela da testa de tones.json, na silhueta, fora da
+    máscara; recuo para 40-140 px abaixo da máscara nas colunas centrais se a testa estiver coberta."""
+    import json
+    H, W = sil.shape
+    x0, y0, x1, y1 = json.load(open(os.path.join(ROOT, "build", "tones.json"), encoding="utf8"))["windowDisplay"]
+    s = H / 1254
+    ctrl = np.zeros_like(sil)
+    ctrl[int(y0 * s):int(y1 * s), int(x0 * s):int(x1 * s)] = True
+    ctrl &= sil & ~(lay[..., 3] > 0)
+    if ctrl.sum() >= 1000:
+        return ctrl
     ys, xs = np.nonzero(lay[..., 3] > 0)
     cols = (xs > W * 0.42) & (xs < W * 0.58)
     hb = int(np.percentile(ys[cols], 99))
-    ctrl = np.zeros(B.shape[:2], bool)
+    ctrl = np.zeros_like(sil)
     ctrl[hb + 40:hb + 140, int(W * 0.42):int(W * 0.58)] = True
-    ctrl &= sil & ~(lay[..., 3] > 0)
-    return np.array([np.median((L4[..., c] / np.maximum(B[..., c], 1e-6))[ctrl]) for c in range(3)])
+    return ctrl & sil & ~(lay[..., 3] > 0)
 
 def calibrate(layer, ref_path, b=8, normalize=True):
     """Tabela w(r) por canal: mediana de T/r por faixa de r, em blocos b, dentro do pelo e da silhueta."""
@@ -157,10 +170,10 @@ def main():
             l = layer512(n)
             if slot in SKIN:
                 cv = over(cv, tone_layer(l, Lt), OFFSET.get(n, 0))
+            elif rule == "tabela" and n == a.layer:
+                cv = over(cv, apply_rule(l, src512, base, table))   # a camada calibrada usa a própria tabela
             elif n in W1:
                 cv = over(cv, hair_edge(l, src512, base, "1"))
-            elif rule == "tabela":
-                cv = over(cv, apply_rule(l, src512, base, table))
             else:
                 cv = over(cv, hair_edge(l, src512, base, rule))
         return cv

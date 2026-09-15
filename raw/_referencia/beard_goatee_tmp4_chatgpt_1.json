@@ -1,0 +1,10 @@
+{
+  "origem": "ChatGPT web (conversa 'Esclarecer pedido', goatee), 15/09/2026, dirigido pelo Claude no Chrome do Santiago",
+  "modelo": "gpt-image via ChatGPT",
+  "entradas": [
+    "raw/tmp_4.png (imagem 1, a editar)",
+    "raw/beard_goatee.png (imagem 2, a barba a copiar)"
+  ],
+  "prompt": "Image 1 (imagem1_tmp_4.png) is a bald 3D mannequin head with dark brown skin, front view, white background. Image 2 (imagem2_beard_goatee.png) is the same mannequin with lighter skin wearing a dark goatee (moustache plus chin beard, cheeks shaved). Edit image 1 only: add exactly the same goatee from image 2 to the face in image 1 - same shape and coverage area, same density, same dark hair colour, same deep shadows between the hairs. Keep everything else in image 1 pixel-identical: same face, same dark skin tone, same lighting, same white background, same framing and size. Do not lighten the skin anywhere. Photorealistic render. Output one image only, the same size as image 1.",
+  "papel": "verdade de referencia (par 1 de 2) para E e T do beard_goatee em tom escuro; NAO e asset"
+}
