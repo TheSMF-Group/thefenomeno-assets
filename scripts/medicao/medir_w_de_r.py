@@ -108,12 +108,14 @@ def region_stats(comp, base, lay, S8, sil, label):
     MIOLO = (lay[..., 3] > 200) & sil
     CORE = MIOLO & (r < 0.15)
     BAND = MIOLO & (r >= 0.15) & (r < 0.85)
+    CLARO = MIOLO & (r >= 0.85)          # pelo tão claro quanto a pele ou mais: é onde o loiro vive
     ratio = Y(lin(comp)) / np.maximum(Y(lin(base)), 1e-6)
     Lc = srgb8(Y(lin(comp))).astype(float)
     c0, c1 = int(comp.shape[1] * 0.42), int(comp.shape[1] * 0.58)
     prof = np.median(ratio[:, c0:c1], axis=1)
-    print(f"{label:34} banda p50 {np.median(ratio[BAND]):.2f}  núcleo p50 {np.median(ratio[CORE]):.2f}  "
-          f"L núcleo {Lc[CORE].mean():5.1f}  L banda {Lc[BAND].mean():5.1f}  perfil y80/120/160/200: "
+    med = lambda m: np.median(ratio[m]) if m.sum() else float("nan")
+    print(f"{label:34} miolo p50 {med(MIOLO):.2f}  banda p50 {med(BAND):.2f}  núcleo p50 {med(CORE):.2f}  claro p50 {med(CLARO):.2f} "
+          f"(n {CORE.sum():,}/{BAND.sum():,}/{CLARO.sum():,})  L miolo {Lc[MIOLO].mean():5.1f}  perfil y80/120/160/200: "
           f"{prof[80]:.2f}/{prof[120]:.2f}/{prof[160]:.2f}/{prof[200]:.2f}")
 
 def main():
@@ -122,9 +124,11 @@ def main():
     ap.add_argument("--calib", required=True)
     ap.add_argument("--test", default=None)
     ap.add_argument("--sem-normalizar", action="store_true", help="não divide a referência pelo ganho de controle")
+    ap.add_argument("--calib-layer", default=None, help="calibra a tabela nesta camada (com --calib sendo a referência DELA) e aplica em --layer: teste de transferência")
     a = ap.parse_args()
-    table = calibrate(a.layer, a.calib, normalize=not a.sem_normalizar)
-    print(f"== tabela w(r) calibrada em {os.path.basename(a.calib)} (mediana de T/r por faixa de r; R/G/B) ==")
+    calib_layer = a.calib_layer or a.layer
+    table = calibrate(calib_layer, a.calib, normalize=not a.sem_normalizar)
+    print(f"== tabela w(r) calibrada em {calib_layer} / {os.path.basename(a.calib)}, aplicada em {a.layer} (mediana de T/r por faixa de r; R/G/B) ==")
     for i, (lo, hi) in enumerate(zip(EDGES[:-1], EDGES[1:])):
         if np.isfinite(table[:, i]).any():
             print(f"  r {lo:4.2f}-{hi:4.2f}: " + "/".join("  nan" if not np.isfinite(v) else f"{v:.3f}" for v in table[:, i]))

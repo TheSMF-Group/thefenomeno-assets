@@ -2251,3 +2251,44 @@ para a tabela, 12 níveis mais claro). MST-05 e MST-01 inalterados nas três.
 canal, medida em par de referências normalizadas. Quatro camadas calibradas
 (buzz, stubble, midcurly, goatee). Faltam 13, a 2 renders cada; as coloridas
 precisam das próprias, sem transferência.
+
+### A tabela w(r) não transfere entre cores do mesmo formato (15/09/2026)
+
+Pergunta do Santiago: se `w(r)` é função de `r`, o `r` já absorve a cor, e a
+tabela do `hair_midcurly` deveria valer para o `hair_midcurly_blonde`. Teste
+direto, com par de referências loiras (`raw/_referencia/hair_midcurly_blonde_
+tmp4_chatgpt_{1,2}.png`, ganhos de controle 1,12 e 0,88, normalizados).
+
+**Onde cada camada vive em `r` (canal R, miolo):** nativo p5/p50/p95 =
+0,01 / 0,07 / 0,76, 70,7% abaixo de 0,15; loiro 0,26 / 0,64 / 1,23, 0,6% abaixo
+de 0,15 e 10,3% acima de 1. Os dois quase não se sobrepõem no eixo, e onde se
+sobrepõem (r 0,3–1,0) a tabela do nativo foi medida em **pelo esparso da
+borda** e o loiro tem ali **pelo denso claro**.
+
+**Resultado, razão à base em MST-10, em 1254 sobre `tmp_4`:**
+
+| | miolo p50 | banda p50 | r ≥ 0,85 p50 | L miolo |
+|---|---|---|---|---|
+| referência loira 1* / 2* | 1,82 / 2,10 | 1,48 / 1,70 | 6,0 / 6,9 | 99 / 106 |
+| **tabela do nativo aplicada ao loiro** | **0,66** | **0,60** | **1,18** | **57** |
+| `w = r` (hoje) | 1,61 | 1,70 | 1,40 | 85 |
+| `w = 1` | 0,56 | 0,50 | 1,12 | 53 |
+| tabela própria do loiro (1 → 2 / 2 → 1) | 2,26 / 2,67 | 1,98 / 2,31 | 6,7 / 7,6 | 105 / 112 |
+
+**Não transfere.** A tabela do nativo escurece o loiro a menos que a pele
+(0,66 da base), erro de ~3× na razão e de 45 níveis em L, contra os 0,04–0,09
+do erro cruzado das camadas escuras. O motivo é físico: `T` é função da
+**cobertura**, e `w = T/r`; num mesmo `r`, o pelo escuro esparso e o pelo
+claro denso têm coberturas diferentes, então `r` não indexa `T` entre cores.
+E/L1 na banda: nativo 0,03 / 0,06 / 0,09, loiro **0,55 / 0,64 / 0,79**.
+
+**A tabela própria do loiro é pior que as escuras.** Não é monótona
+(R: 0,64 → 0,47 → 0,51 → 0,84 → 0,24 → 0,13 ao subir `r`), tem valores
+negativos acima de r = 0,9, T < 0 em 8–15% e E > L1 em 15%; o erro cruzado é
+0,16–0,85 na razão. Em cabelo claro `r` não separa fio denso de pele nua, e o
+gerador ainda brilhou o loiro mais na cabeça escura (ganho 1,12). O `w = r`
+atual fica a 15 níveis das referências, mais perto que a tabela própria.
+
+**Consequência:** as 24 coloridas não saem de graça; são 37 pares, não 13. E
+para as coloridas o índice `r` provavelmente não é o certo — fica como
+pergunta aberta, não como regra.
