@@ -1455,6 +1455,31 @@ fenômeno existe; medir no composto daria o mesmo número.
 
 ## Decisões
 
+### Regra: render de referência é sempre em par, normalizado pela pele nua (15/09/2026)
+
+**Uma referência só não é confiável.** Duas gerações do mesmo pedido, mesmo
+prompt, mesmas entradas, saíram com ganho global de pele de 1,07 e 0,91: 16%
+de deriva de exposição entre elas. Sem normalizar, a segunda dava E < 0 em 16%
+dos pixels de pelo, e a tabela `w(r)` mudava de 0,63 para 0,78 no núcleo.
+
+Regra, para toda camada que ganhar referência:
+
+1. **duas referências por camada**, sempre, do mesmo pedido;
+2. **cada uma dividida pelo próprio ganho de pele nua** (mediana de
+   `L/base` por canal numa região sem pelo do mesmo render) antes de qualquer
+   conta;
+3. a tabela `w(r)` é calibrada numa e **testada na outra**; o erro fora da
+   amostra é a barra de erro da regra, e vai para o NOTES junto com a tabela;
+4. a referência vai para `raw/_referencia/<camada>_tmp4_<origem>_<n>.png` com
+   sidecar JSON (prompt, entradas, origem), versionada; **não é asset** e não
+   entra em `layers/` nem em `build/`.
+
+**Limite conhecido, não corrigir:** no buzz, as linhas y = 160–200 do perfil
+ficam 0,25 mais claras que as referências. O gerador desenhou a linha do
+cabelo mais baixa e mais densa na cabeça escura, então as referências não são
+exatamente o mesmo cabelo do asset. A validação cruzada mede esse erro e ele é
+pequeno; tentar corrigi-lo seria ajustar o asset a um cabelo que ele não tem.
+
 ### Os slots do avatar são oito (15/09/2026)
 
 **tom, nose, mouth, eye, brow, ear, hair, beard.**
