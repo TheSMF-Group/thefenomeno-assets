@@ -1,0 +1,11 @@
+{
+  "origem": "ChatGPT web, 16/09/2026, dirigido pelo Claude no Chrome do Santiago; par 1 de 2, mesmo prompt",
+  "modelo": "gpt-image via ChatGPT",
+  "entradas": [
+    "raw/tmp_4.png (imagem 1, a editar)",
+    "raw/hair_slickback.png (imagem 2, o pelo a copiar)"
+  ],
+  "prompt": "Image 1 (imagem1_tmp_4.png) is a bald 3D mannequin head with dark brown skin, front view, white background. Image 2 (imagem2_hair_slickback.png) is the same mannequin with lighter skin wearing dark hair slicked straight back. Edit image 1 only: add exactly the same hairstyle from image 2 to the head in image 1 - same length, same hairline shape, same slicked-back strands, same dark hair colour, same deep shadows between the strands. Keep everything else in image 1 pixel-identical: same face, same dark skin tone, same lighting, same white background, same framing and size. Do not lighten the skin anywhere. Photorealistic render. Output one image only, the same size as image 1.",
+  "papel": "verdade de referencia (par 1 de 2) para E e T do hair_slickback em tom escuro; NAO e asset",
+  "nota": "renders 1254x1254; ganho global de pele varia entre renders, normalizar pela testa nua antes de medir"
+}

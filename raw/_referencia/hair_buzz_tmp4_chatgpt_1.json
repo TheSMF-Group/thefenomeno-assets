@@ -1,0 +1,10 @@
+{
+  "origem": "ChatGPT web (conversa 'Editar cabelo curto'), 15/09/2026, dirigido pelo Claude no Chrome do Santiago",
+  "modelo": "gpt-image via ChatGPT (C2PA acima)",
+  "entradas": [
+    "raw/tmp_4.png (imagem 1, a editar)",
+    "raw/hair_buzz.png (imagem 2, o corte a copiar)"
+  ],
+  "prompt": "Two images are attached. Image 1 (imagem1_tmp_4.png) is a bald 3D mannequin head with dark brown skin, front view, white background. Image 2 (imagem2_hair_buzz.png) is the same mannequin with lighter skin wearing a very short buzz cut. Edit image 1 only: add exactly the same buzz cut from image 2 to the head in image 1 - same hair length, same hairline shape, same dark hair colour, same deep shadows between the strands. Keep everything else in image 1 pixel-identical: same face, same dark skin tone, same lighting, same white background, same framing and size. Do not lighten the skin anywhere. Photorealistic render. Output one image only, the same size as image 1.",
+  "papel": "verdade de referencia para o halo de PELO em tom escuro; NAO e asset e nao entra em layers/ nem build/"
+}

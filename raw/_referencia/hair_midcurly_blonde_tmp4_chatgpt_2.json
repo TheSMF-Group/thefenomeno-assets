@@ -1,0 +1,10 @@
+{
+  "origem": "ChatGPT web (conversa 'Alterar imagens'), 15/09/2026, segundo render, mesmo prompt; dirigido pelo Claude no Chrome do Santiago",
+  "modelo": "gpt-image via ChatGPT",
+  "entradas": [
+    "raw/tmp_4.png (imagem 1, a editar)",
+    "raw/hair_midcurly_blonde.png (imagem 2, o cabelo a copiar)"
+  ],
+  "prompt": "Image 1 (imagem1_tmp_4.png) is a bald 3D mannequin head with dark brown skin, front view, white background. Image 2 (imagem2_hair_midcurly_blonde.png) is the same mannequin with lighter skin wearing medium-length blonde curly hair. Edit image 1 only: add exactly the same blonde curly hair from image 2 to the head in image 1 - same length, same volume and silhouette, same hairline shape, same blonde hair colour and brightness, same deep shadows between the curls. Keep everything else in image 1 pixel-identical: same face, same dark skin tone, same lighting, same white background, same framing and size. Do not lighten or darken the skin anywhere. Photorealistic render. Output one image only, the same size as image 1.",
+  "papel": "verdade de referencia (par 2 de 2) para E e T do hair_midcurly_blonde em tom escuro, e teste de transferencia da tabela w(r) do midcurly nativo; NAO e asset"
+}

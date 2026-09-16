@@ -4,7 +4,9 @@
  * The 32 layers split into two families, and each gets a different treatment:
  *
  *   SKIN (nose, mouth, ear, eye)   `applyToneToRgba` — the per-channel `k`.
- *   HAIR (hair, beard, brow)       `applyHairEdgeToRgba` — the `w = r` edge fix.
+ *   HAIR (hair, beard, brow)       `applyHairEdgeToRgba` — the `w(r)` edge fix,
+ *                                  from the measured table in `wr.json` when the
+ *                                  layer has one, `w = r` otherwise.
  *
  * A HAIR layer must NOT get `k`: hair colour is not a function of skin tone, and
  * applying `k` to it was the source of the heavy gamut clipping (2.58% on
@@ -29,7 +31,8 @@
  * nose/skin luminance ratio and can never produce a negative value the way an
  * additive shift in Lab does. Alpha is never touched.
  *
- * The factors live in `tones.json`, one entry per Monk Skin Tone base.
+ * The factors live in `tones.json`, one entry per Monk Skin Tone base. The
+ * hair tables live in `wr.json`, one entry per native HAIR layer.
  * No external dependencies.
  */
 
@@ -63,6 +66,79 @@ export interface ToneTable {
   /** Forehead window behind `measuredHex`. */
   windowDisplay: [number, number, number, number];
   tones: Tone[];
+}
+
+/**
+ * `wr.json`: the measured `w(r)` of each native HAIR layer, per channel, per
+ * band of `r`. `edges` has N + 1 numbers and each channel N values; a `null`
+ * is a band the reference had fewer than 20 blocks in. See NOTES.md, "{E, T}"
+ * and the sections that follow it.
+ */
+export interface WrTable {
+  source: string;
+  reference: string;
+  rule: string;
+  edges: number[];
+  layers: Record<string, { r: (number | null)[]; g: (number | null)[]; b: (number | null)[] }>;
+}
+
+/**
+ * One layer's `w(r)`, compiled for the hot loop: per channel, the centres of
+ * the bands that have a value, and the values, both ascending.
+ */
+export interface WrCurve {
+  centers: [Float64Array, Float64Array, Float64Array];
+  values: [Float64Array, Float64Array, Float64Array];
+}
+
+/**
+ * Compiles the table of `layerName`, or returns `null` when the layer has none
+ * — the caller then falls back to `w = r`, which is the best available for the
+ * coloured layers until there is a method for them (NOTES.md).
+ */
+export function wrCurveFor(table: WrTable, layerName: string): WrCurve | null {
+  const entry = table.layers[layerName];
+  if (!entry) return null;
+  const n = table.edges.length - 1;
+  const compile = (vals: (number | null)[]): [Float64Array, Float64Array] => {
+    if (vals.length !== n) throw new Error(`wr.json: ${layerName} has ${vals.length} bands, edges imply ${n}`);
+    const cs: number[] = [];
+    const vs: number[] = [];
+    for (let i = 0; i < n; i += 1) {
+      const v = vals[i];
+      if (v === null || v === undefined) continue;
+      cs.push((table.edges[i]! + table.edges[i + 1]!) / 2);
+      vs.push(v);
+    }
+    if (cs.length === 0) throw new Error(`wr.json: ${layerName} has no band with a value`);
+    return [Float64Array.from(cs), Float64Array.from(vs)];
+  };
+  const [cr, vr] = compile(entry.r);
+  const [cg, vg] = compile(entry.g);
+  const [cb, vb] = compile(entry.b);
+  return { centers: [cr, cg, cb], values: [vr, vg, vb] };
+}
+
+/**
+ * `w(r)` for one channel: linear interpolation between band centres, the end
+ * value repeated outside them, clamped to [0, 1]. Same as `numpy.interp`
+ * followed by `clip`, which is what the table was validated with.
+ */
+export function wOfR(r: number, centers: Float64Array, values: Float64Array): number {
+  const n = centers.length;
+  let w: number;
+  if (!(r > centers[0]!)) w = values[0]!;
+  else if (r >= centers[n - 1]!) w = values[n - 1]!;
+  else {
+    let i = 1;
+    while (centers[i]! < r) i += 1;
+    const c0 = centers[i - 1]!;
+    const c1 = centers[i]!;
+    const v0 = values[i - 1]!;
+    const v1 = values[i]!;
+    w = v0 + ((r - c0) / (c1 - c0)) * (v1 - v0);
+  }
+  return w > 1 ? 1 : w > 0 ? w : 0;
 }
 
 // ---------------------------------------------------------------- transfer functions
@@ -167,9 +243,26 @@ export function toneRgba(data: Uint8ClampedArray, lut: ToneLut): Uint8ClampedArr
  * (1.48 -> 5.44 levels), past the 2.89 that WebP q88 already costs. `w = r`
  * keeps the hair at 0.86-1.48 and is smoother than doing nothing at all.
  *
- * The ~45-level residual left at r ~ 0.35 is accepted: there is no ground truth
- * for the transition band (no render of this hair over MST-10 exists), so tuning
- * further would be fitting an invented target. See NOTES.md.
+ * That was the state of things while there was no ground truth for the
+ * transition band. There is one now: two renders of each native layer over
+ * the MST-10 base, made by the same generator (NOTES.md, "Render de
+ * referência"). Decomposing the native pixel against them gives, per pixel,
+ * `L = E + T * S` — an emission `E` that stays and a transmitted skin `T * S`
+ * that has to follow the base — and the measured `T / r` per band of `r` is
+ * the `w(r)` table in `wr.json`. Same formula, `w` read from the table per
+ * channel instead of being `r` itself:
+ *
+ *     w_c  = table_c(r_c)                     per channel, clamped to [0, 1]
+ *     out  = w * (r * base) + (1 - w) * layer  (= L - w * r * (S - B))
+ *
+ * `w = r` overshoots (the pale halo, 3-17k px on MST-10) and `w = 1` undershoots
+ * (12-14 levels too dark on stubble); the table sits between, cross-validated
+ * between the two renders to 0.02-0.16 of the base ratio. Identity on the
+ * source base is by construction: `S = B` makes the correction vanish.
+ *
+ * A layer without a table — the 24 coloured ones — still gets `w = r`: the
+ * table does not transfer between colours (`r` does not index coverage in
+ * light hair), and `w = r` is the closest thing measured for them so far.
  *
  * This is an EDGE FIX, not a tint — hair keeps its native colour.
  *
@@ -182,6 +275,7 @@ export function applyHairEdgeToRgba(
   layer: Uint8ClampedArray | Uint8Array,
   source: Uint8ClampedArray | Uint8Array,
   base: Uint8ClampedArray | Uint8Array,
+  curve: WrCurve | null = null,
 ): void {
   if (layer.length % 4 !== 0) throw new Error(`RGBA buffer length ${layer.length} is not a multiple of 4`);
   if (source.length !== layer.length || base.length !== layer.length) {
@@ -189,6 +283,20 @@ export function applyHairEdgeToRgba(
       `layer, source and base must share a canvas; got ${layer.length}, ${source.length}, ${base.length}. ` +
       "The runtime never interpolates — the build has to deliver them at the same size.",
     );
+  }
+  if (curve) {
+    for (let i = 0; i < layer.length; i += 4) {
+      for (let c = 0; c < 3; c += 1) {
+        const s = BYTE_TO_LINEAR[source[i + c]!]!;
+        const l = BYTE_TO_LINEAR[layer[i + c]!]!;
+        const r = s > 0 ? l / s : 0;
+        const w = wOfR(r, curve.centers[c]!, curve.values[c]!);
+        const out = linearToSrgb(w * (r * BYTE_TO_LINEAR[base[i + c]!]!) + (1 - w) * l) * 255;
+        layer[i + c] = out < 0 ? 0 : out > 255 ? 255 : Math.round(out);
+      }
+      // layer[i + 3] — alpha, untouched on purpose.
+    }
+    return;
   }
   for (let i = 0; i < layer.length; i += 4) {
     const sr = BYTE_TO_LINEAR[source[i]!]!;
@@ -353,7 +461,9 @@ function rasterise(img: CanvasImageSource & { width: number; height: number }): 
  * Draws a HAIR-family `layer` onto `ctx` with the edge fix applied.
  *
  * `source` is `build/source.webp` and `base` is the tone's base, both on the
- * same canvas as the layer. No `k` is involved — hair keeps its native colour.
+ * same canvas as the layer. `curve` is the layer's compiled `w(r)` from
+ * `wr.json` (see `wrCurveFor`), or `null` for `w = r`. No `k` is involved —
+ * hair keeps its native colour.
  *
  * Browser-only. `applyHairEdgeToRgba` above works anywhere.
  */
@@ -362,12 +472,13 @@ export function drawHairLayer(
   layer: CanvasImageSource & { width: number; height: number },
   source: CanvasImageSource & { width: number; height: number },
   base: CanvasImageSource & { width: number; height: number },
+  curve: WrCurve | null = null,
   dx = 0,
   dy = 0,
 ): void {
   const { width, height } = layer;
   const image = rasterise(layer);
-  applyHairEdgeToRgba(image.data, rasterise(source).data, rasterise(base).data);
+  applyHairEdgeToRgba(image.data, rasterise(source).data, rasterise(base).data, curve);
   const scratch = document.createElement("canvas");
   scratch.width = width;
   scratch.height = height;
