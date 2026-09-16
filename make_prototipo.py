@@ -97,8 +97,13 @@ def main():
         slots[slot].append(name)
         layers[name] = data_uri(os.path.join(BUILD, "layers", f))
 
+    with open(os.path.join(BUILD, "wr.json"), encoding="utf8") as fh:
+        wr = json.load(fh)
+
     assets = {
         "tones": table["tones"],
+        # tabela w(r) das camadas nativas de PELO; camada ausente cai para w = r
+        "wr": wr,
         # base de origem: o runtime calcula r = camada / source para a familia PELO
         "source": data_uri(os.path.join(BUILD, "source.webp")),
         "bases": bases,
@@ -288,11 +293,13 @@ __TONE_JS__
         exports.drawTonedLayer(ctx, layer, lut, off.dx, off.dy);
         linhas.push(pad(A.label[slot]) + nome + "   [PELE · k aplicado]" + marca);
       } else {
-        // FAMÍLIA PELO — NÃO recebe o k. Leva a correção de borda w = r, que
+        // FAMÍLIA PELO — NÃO recebe o k. Leva a correção de borda w(r), que
         // faz a pele carregada pela máscara acompanhar o tom da base. A cor do
-        // pelo continua nativa: isto é correção de borda, não tint.
-        exports.drawHairLayer(ctx, layer, imgs.source, base, 0, 0);
-        linhas.push(pad(A.label[slot]) + nome + "   [PELO · borda w = r]");
+        // pelo continua nativa: isto é correção de borda, não tint. A curva
+        // sai de wr.json; camada sem tabela (as coloridas) fica em w = r.
+        var curva = exports.wrCurveFor(A.wr, nome);
+        exports.drawHairLayer(ctx, layer, imgs.source, base, curva, 0, 0);
+        linhas.push(pad(A.label[slot]) + nome + (curva ? "   [PELO · borda w(r) da tabela]" : "   [PELO · borda w = r, sem tabela]"));
       }
     });
 

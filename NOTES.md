@@ -2417,3 +2417,70 @@ em par normalizado. **As 17 nativas estão calibradas.** O que não está
 resolvido é método para as 24 coloridas (seção anterior); `w = r` fica nelas.
 Implementação em `tone.ts` não foi feita: a tabela ainda é saída de script,
 não formato de asset — próximo passo é do Santiago decidir onde ela vive.
+
+### wr.json: a tabela vira asset e entra no runtime (16/09/2026)
+
+**Formato.** `wr.json` separado de `tones.json` (a tabela é por camada e não
+depende do tom): `edges` com 13 bordas de r (0 a 1,2) e, por camada nativa,
+três vetores R/G/B de 12 valores, mediana de T/r por faixa ou `null` onde a
+referência tinha menos de 20 blocos. A tabela de cada camada é a das **duas
+referências juntas**, cada uma normalizada pelo próprio ganho, a mesma conta de
+`calibrate` com o dobro de amostra (`scripts/medicao/gerar_wr.py`). Compacto,
+sem indentação: **4.430 bytes** (com a quebra de linha final), 17 camadas (indentado dava 8.127; decisão do
+Santiago: indentação em asset de produção é 3,7 KB de nada). `tones.json` tem
+2.375. Carrega uma vez junto com `tones.json`; o sob demanda das camadas não
+muda. `make_build.py` copia para `build/`, `make_prototipo.py` embute.
+
+**Runtime.** `tone.ts`: `WrTable`, `wrCurveFor(table, camada)` compila as faixas
+com valor em centros e valores por canal; `wOfR` interpola linear, repete a
+ponta fora, prende em [0, 1] — o mesmo `numpy.interp` + `clip` com que a tabela
+foi validada. `applyHairEdgeToRgba(layer, source, base, curve)` usa a curva por
+canal quando há, e `w = r` quando `curve` é `null`; `drawHairLayer` ganhou o
+parâmetro `curve` antes de `dx, dy`. Camada sem entrada em `wr.json` (as 24
+coloridas) cai para `w = r`, que continua sendo o melhor disponível para elas.
+Compila com `tsc --strict`; interpolação conferida no node contra a tabela.
+
+**Gate em 512 a partir do build** (`scripts/medicao/gate_wr.py`; hoje = `w = r`
+em tudo, novo = tabela onde há):
+
+| combo | mancha MST-10 hoje → novo | MST-05 px dif / \|dif\| máx / \|dL\| média | MST-01 idem |
+|---|---|---|---|
+| A buzz + stubble + brow_medium | 28.773 → 376 | 42.409 / 21 / 1,06 | 42.710 / 26 / 2,04 |
+| B midcurly + longfull + brow_thick | 17.831 → 299 | 75.244 / 21 / 1,24 | 75.316 / 34 / 2,61 |
+| C lowfade + goatee + brow_thin | 11.406 → 325 | 30.898 / 21 / 0,67 | 31.069 / 30 / 1,36 |
+| D slickback + chinstrap + brow_medium | 11.177 → 396 | 29.081 / 24 / 0,72 | 29.360 / 35 / 1,40 |
+
+O MST-10 fecha. **MST-01 e MST-05 mudam, e não podiam não mudar:** a regra é
+`novo = L − w·r·(S − B)`, inerte só onde `S = B`, isto é, só sobre `tmp_1`. Em
+MST-01 o k do canal B é 1,74; qualquer `w ≠ r` move o pixel, e a diferença fica
+inteira dentro da máscara de pelo. A instrução original ("MST-01/05 idênticos")
+pedia uma regra que não faz nada; retirada pelo Santiago em 16/09.
+
+**Correção de registro: `w = r` nunca foi medido em tom claro.** O resíduo de
+~45 níveis em r ≈ 0,35 anotado no `tone.ts` valia para todos os tons, e a
+ausência de referência em MST-01 era lacuna, não aprovação. Na foto do combo A
+em MST-01, a barba-sombra aparece como mancha escura nas duas regras — é a pele
+do `tmp_1` carregada pela máscara sobre uma base mais clara, o inverso do halo.
+
+**Par de referências do buzz sobre MST-01** (`raw/_referencia/hair_buzz_skin01_
+chatgpt_{1,2}.png`, sidecar; imagem 1 = `skin01.webp` em PNG, 1092 px; o
+gerador devolveu 1254). Medido em 512 a partir do build (`scripts/medicao/
+medir_claro.py`), referência reamostrada só para medir, ganhos 1,00 / 0,98 (R):
+
+| | miolo | núcleo | banda | L miolo |
+|---|---|---|---|---|
+| REF* 1 / 2 | 0,20 / 0,18 | 0,07 / 0,07 | 0,25 / 0,24 | 96,0 / 94,0 |
+| `w = r` (hoje) | 0,19 | 0,07 | 0,24 | 94,2 |
+| tabela `w(r)` | 0,22 | 0,09 | 0,27 | 100,0 |
+
+Erro |L − L_ref*|, mediana / média, miolo: `w = r` 8,0 / 9,3–9,6; tabela 9,0 /
+10,6–11,4. Banda: 8,0 / 9,9–10,1 contra 9,0–10,0 / 11,2–12,2. **Empate:** a
+diferença entre as regras (1–2 níveis) é da ordem da diferença entre as duas
+referências (2 níveis em L) e menor que os 2,89 do WebP q88. Nenhuma das duas
+tem artefato visível em MST-01. Critério combinado: tabela ganhando ou
+empatando, segue; `w = r` ganhando por margem clara, parar. Seguiu.
+
+**O que fica registrado como não resolvido:** a tabela foi calibrada em MST-10 e
+é 4–6 níveis mais clara que a referência em MST-01 no miolo (100 contra 94–96);
+`w = r` é 0–2 mais escuro. Se um dia houver referência em mais tons, a tabela
+pode virar função do tom; hoje isso seria parâmetro no olho.

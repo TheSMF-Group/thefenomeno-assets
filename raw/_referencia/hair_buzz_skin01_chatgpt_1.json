@@ -1,0 +1,11 @@
+{
+  "origem": "ChatGPT web, 16/09/2026, dirigido pelo Claude no Chrome do Santiago; par 1 de 2, mesmo prompt",
+  "modelo": "gpt-image via ChatGPT",
+  "entradas": [
+    "raw/skin01.webp convertido a PNG (imagem 1, a editar; base do MST-01, 1092 px)",
+    "raw/hair_buzz.png (imagem 2, o pelo a copiar)"
+  ],
+  "prompt": "Image 1 (imagem1_skin01.png) is a bald 3D mannequin head with very light skin, front view, white background. Image 2 (imagem2_hair_buzz.png) is the same mannequin with a slightly darker skin wearing a short dark buzz cut. Edit image 1 only: add exactly the same buzz cut from image 2 to the head in image 1 - same length, same hairline shape, same dark hair colour, same deep shadows between the hairs. Keep everything else in image 1 pixel-identical: same face, same very light skin tone, same lighting, same white background, same framing and size. Do not darken or tan the skin anywhere. Photorealistic render. Output one image only, the same size as image 1.",
+  "papel": "verdade de referencia (par 1 de 2) do hair_buzz em TOM CLARO (MST-01): decide se w = r ou a tabela w(r) fica mais perto em tom claro; NAO e asset",
+  "nota": "render 1254x1254; medido em 512 (medir_claro.py), reamostrado so para medir"
+}

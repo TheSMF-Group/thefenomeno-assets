@@ -244,6 +244,12 @@ def main():
 
     shutil.copy("tones.json", os.path.join(BUILD, "tones.json"))
     print("copiado tones.json (inalterado: k e razao de medias, invariante a escala)")
+    # A tabela w(r) das camadas nativas de PELO. Razao T/r por faixa de r, tambem
+    # invariante a escala. Gerada por scripts/medicao/gerar_wr.py a partir dos
+    # pares de referencia; camada ausente cai para w = r no runtime.
+    shutil.copy("wr.json", os.path.join(BUILD, "wr.json"))
+    print("copiado wr.json (%.1f KB, %d camadas com tabela)"
+          % (kb("wr.json"), len(json.load(open("wr.json", encoding="utf8"))["layers"])))
 
     print()
     contact_sheet()
