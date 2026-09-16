@@ -1,0 +1,11 @@
+{
+  "origem": "ChatGPT web, 16/09/2026, dirigido pelo Claude no Chrome do Santiago; par 2 de 2, mesmo prompt",
+  "modelo": "gpt-image via ChatGPT",
+  "entradas": [
+    "raw/tmp_4.png (imagem 1, a editar)",
+    "raw/hair_braids.png (imagem 2, o pelo a copiar)"
+  ],
+  "prompt": "(mesma conversa do par 1) Please do the exact same edit again, from scratch: image 1 (the bald dark-skinned mannequin) with exactly the same dark braided hairstyle from image 2 - same length, same hairline shape, same braid pattern, same dark hair colour, same deep shadows between the braids. Keep everything else in image 1 pixel-identical: same face, same dark skin tone, same lighting, same white background, same framing and size. Do not lighten the skin anywhere. Photorealistic render. Output one image only, the same size as image 1.",
+  "papel": "verdade de referencia (par 2 de 2) para E e T do hair_braids em tom escuro; NAO e asset",
+  "nota": "renders 1254x1254; ganho global de pele varia entre renders, normalizar pela testa nua antes de medir"
+}

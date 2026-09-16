@@ -2310,3 +2310,110 @@ não foi testado.
 faltam (26 renders), que a tabela `w(r)` sabe tratar; isso fecha as 17 nativas
 e destrava o gate grátis, que é o que bloqueia o lançamento. As coloridas
 esperam o método.
+
+### As 13 escuras restantes: 17 nativas fechadas (16/09/2026)
+
+26 renders novos, dois por camada, mesmo pedido, em `raw/_referencia/`, com
+sidecar (data corrigida à mão: só `brow_medium` par 1 é de 15/09; o resto é
+de 16/09). Fechamento por `scripts/medicao/fechar_camada.sh <camada> "<desc>"
+<pasta> <arq1> <arq2>`: copia o par, escreve o sidecar, roda `medir_ET.py` e
+`medir_w_de_r.py` nos dois sentidos, normalizado. Os args de arquivo são
+obrigatórios na prática: sem eles o script pegou o download errado duas vezes
+(brow_thick e beard_shortfull) por correr em paralelo com o navegador; os
+pares foram refeitos com md5 e horário conferidos. Contagem corrigida: eram
+**13** escuras faltando (6 hair, 4 beard, 3 brow), não 9 — o 9 foi erro meu
+que o Santiago repetiu.
+
+Custo: 4–8 min por render. Falhas: shortfull precisou de 2 envios, stubble já
+tinha precisado de 3; nenhuma recusa nas 12 de hoje. Ganhos de controle entre
+0,92 e 1,12 (R), sempre dividido antes de medir.
+
+**Tabelas `w(r)`, canal R, referência 1 / referência 2** (bins sem pixel = —;
+sobrancelha não tem núcleo, a tabela começa em r = 0,2–0,3):
+
+| r | lowfade | shortcurly | slickback | straightpart | longtied | braids |
+|---|---|---|---|---|---|---|
+| < 0,10 | 0,60 / 0,61 | 0,74 / 0,72 | 0,67 / 0,66 | 0,77 / 0,76 | 0,59 / 0,57 | 0,88 / 0,85 |
+| 0,10–0,15 | 0,87 / 0,85 | 0,89 / 0,91 | 0,78 / 0,86 | 0,80 / 0,79 | 0,86 / 0,84 | 0,96 / 0,91 |
+| 0,15–0,30 | 0,90–0,93 / 0,89–0,92 | 0,94–0,95 / 0,96–0,97 | 0,85–0,88 / 0,92–0,94 | 0,86–0,93 / 0,88–0,96 | 0,89–0,90 / 0,86–0,88 | 0,97–0,98 / 0,92–0,93 |
+| 0,30–0,50 | 0,93–0,94 / 0,92–0,94 | 0,96 / 0,99 | 0,92–0,93 / 0,96 | 0,95 / 0,96–0,97 | 0,95–0,96 / 0,93 | 0,98–0,99 / 0,95 |
+| 0,50–0,90 | 0,94–0,98 / 0,94–0,98 | 0,96–0,98 / 0,98–0,99 | 0,94–0,96 / 0,96–0,97 | 0,95–0,98 / 0,96–0,97 | 0,97–0,98 / 0,94–0,97 | 0,99–1,01 / 0,96–0,99 |
+
+| r | shortfull | chinstrap | mustache | longfull | brow_thick | brow_medium | brow_thin |
+|---|---|---|---|---|---|---|---|
+| < 0,15 | 0,85 / 0,88 | — | 0,89 / 0,90 | 0,58–0,60 / 0,62–0,63 | — | — | — |
+| 0,15–0,30 | 0,86–0,88 / 0,88–0,89 | 0,90–0,91 / 0,90–0,93 | 0,90–0,93 / 0,91–0,93 | 0,67–0,78 / 0,68–0,80 | 0,97–0,98 / 0,97–0,98 | 0,96 / 0,95 | — |
+| 0,30–0,50 | 0,90–0,91 / 0,92 | 0,93–0,94 / 0,95 | 0,96–0,97 / 0,96–0,97 | 0,89–0,93 / 0,91–0,94 | 0,99–1,01 / 0,99–1,00 | 0,98 / 0,97–0,98 | 0,99 / 0,99 |
+| 0,50–0,90 | 0,92–0,97 / 0,91–0,96 | 0,95–0,97 / 0,97–0,98 | 0,98 / 0,98 | 0,94–0,97 / 0,96–0,98 | 1,00 / 0,99–1,00 | 0,98 / 0,98–0,99 | 0,98–0,99 / 0,97–0,99 |
+
+G e B sempre abaixo de R, como nas quatro primeiras. O longfull é o que mais
+cai no núcleo (B chega a 0,15–0,23): barba longa densa em MST-10 fica quase
+toda emissão, como o midcurly. E/L1 no núcleo (R/G/B): lowfade 0,38/0,51/0,69,
+shortcurly 0,27/0,47/0,64, slickback 0,27/0,43/0,65, straightpart
+0,25/0,38/0,53, longtied 0,34/0,51/0,78, braids 0,15/0,28/0,37 (as tranças
+deixam passar mais pele: T = 0,04 no núcleo, o maior das 17).
+
+**Validação cruzada** (razão à base, miolo / banda; calibra numa, testa na
+outra; erro = tabela contra a referência de teste):
+
+| camada | ref 1* / ref 2* | tabela 1 → 2 | tabela 2 → 1 | erro |
+|---|---|---|---|---|
+| hair_lowfade | 0,16–0,57 / 0,17–0,58 | 0,17–0,56 | 0,18–0,58 | ≤ 0,02 |
+| hair_shortcurly | 0,16–0,48 / 0,15–0,39 | 0,16–0,49 | 0,16–0,40 | 0,10 / 0,08 (banda) |
+| hair_slickback | 0,26–0,55 / 0,23–0,46 | 0,26–0,53 | 0,25–0,44 | 0,07 / 0,11 (banda) |
+| hair_straightpart | 0,18–0,59 / 0,18–0,55 | 0,19–0,54 | 0,20–0,49 | ≤ 0,10 |
+| hair_longtied | 0,25–0,55 / 0,27–0,60 | 0,28–0,57 | 0,30–0,61 | ≤ 0,05 |
+| hair_braids | 0,28–0,50 / 0,34–0,61 | 0,27–0,53 | 0,34–0,64 | 0,07–0,08 / ≤ 0,03 |
+| beard_shortfull | 0,64–0,71 / 0,63–0,69 | 0,70–0,76 | 0,68–0,75 | 0,07 |
+| beard_chinstrap | 0,67 / 0,62 | 0,68–0,69 | 0,64–0,65 | 0,05–0,07 |
+| beard_mustache | 0,45–0,53 / 0,45–0,52 | 0,47–0,54 | 0,46–0,54 | ≤ 0,02 |
+| beard_longfull | 0,45–0,82 / 0,42–0,76 | 0,52–0,92 | 0,49–0,86 | 0,07–0,16 (banda) |
+| brow_thick | 0,44–0,46 / 0,44–0,46 | 0,42–0,44 | 0,43–0,45 | ≤ 0,02 |
+| brow_medium | 0,52–0,53 / 0,53–0,54 | 0,53–0,54 | 0,56 | ≤ 0,03 |
+| brow_thin | 0,58 / 0,60–0,59 | 0,59 | 0,61–0,60 | ≤ 0,02 |
+
+O erro segue a diferença entre as duas referências (shortcurly 0,09 na banda,
+slickback 0,09, braids 0,06–0,11, longfull 0,06), como antes: o gerador não
+repete a densidade da borda entre renders. O longfull tem a banda mais
+larga (73 mil px) e o pior erro; é onde a tabela mais precisaria de uma
+terceira referência se um dia for preciso apertar. Identidade sobre `tmp_1`:
+0 nas treze.
+
+**Resíduos conhecidos, não corrigidos:** (a) região "claro" (r ≥ 0,85, 1–2 mil
+px) do longtied e do braids: a tabela dá 0,86–0,95 da base onde a referência
+dá 0,64–0,86; o gerador escurece a pele junto ao fio claro mais que o modelo
+prevê. (b) Núcleo e "claro" das sobrancelhas: 37–342 px, bins vazios abaixo de
+r = 0,2 e a interpolação satura; a referência tem núcleo 0,25–0,35 e a tabela
+dá 0,13–0,20. Pequeno demais para decidir; fica registrado.
+
+**`w = 1` e `w = r` nas treze, MST-10, miolo:** `w = 1` escurece demais em
+todas (lowfade 0,05 contra 0,16; shortfull 0,28 contra 0,64; brow_thin 0,50
+contra 0,58) e `w = r` clareia demais em todas (lowfade 0,31; shortfull 1,87;
+brow_medium 2,41 — a mancha). Confirma o que buzz/stubble/midcurly/goatee já
+tinham mostrado: nenhum `w` constante serve, e o trio de sombra não é exceção.
+
+**Gate em 512, MST-10, cada camada com a própria tabela:**
+
+| camada | hoje | w(r) |
+|---|---|---|
+| hair_lowfade | 3.403 | 313 |
+| hair_shortcurly | 3.181 | 326 |
+| hair_slickback | 3.457 | 313 |
+| hair_straightpart | 4.832 | 313 |
+| hair_longtied | 4.730 | 313 |
+| hair_braids | 7.272 | 315 |
+| beard_shortfull | 16.876 | 335 |
+| beard_chinstrap | 5.587 | 379 |
+| beard_mustache | 3.326 | 307 |
+| beard_longfull | 10.151 | 310 |
+| brow_thick | 5.076 | 238 |
+| brow_medium / brow_thin | 313 (já em w = 1) | 313 |
+
+MST-05 e MST-01 inalterados em todas (±3 px). Os ~310 px que sobram são o
+piso do gate sem pelo nenhum (o rosto grátis com brow em w = 1 já dava 313).
+
+**Estado:** `novo = L − w(r)·r·(S − B)`, tabela por camada e por canal, medida
+em par normalizado. **As 17 nativas estão calibradas.** O que não está
+resolvido é método para as 24 coloridas (seção anterior); `w = r` fica nelas.
+Implementação em `tone.ts` não foi feita: a tabela ainda é saída de script,
+não formato de asset — próximo passo é do Santiago decidir onde ela vive.
