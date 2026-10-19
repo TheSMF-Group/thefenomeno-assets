@@ -1,0 +1,3332 @@
+[
+  {
+    "id": "salzburg",
+    "name": "RB Salzburg",
+    "cc": "AUT",
+    "reason": "No transparent shirt in matched records"
+  },
+  {
+    "id": "talleres",
+    "name": "Talleres",
+    "cc": "ARG",
+    "reason": "No transparent shirt in matched records"
+  },
+  {
+    "id": "cadiz",
+    "name": "Cádiz",
+    "cc": "ESP",
+    "reason": "No transparent shirt in matched records"
+  },
+  {
+    "id": "union-sg",
+    "name": "Union SG",
+    "cc": "BEL",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "montevideo-ct",
+    "name": "Montevideo City",
+    "cc": "URU",
+    "reason": "No transparent shirt in matched records"
+  },
+  {
+    "id": "tigres",
+    "name": "Tigres UANL",
+    "cc": "MEX",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "pumas",
+    "name": "Pumas UNAM",
+    "cc": "MEX",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "inter-miami",
+    "name": "Inter Miami",
+    "cc": "USA",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "seattle",
+    "name": "Seattle Sounders",
+    "cc": "USA",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "al-hilal",
+    "name": "Al-Hilal",
+    "cc": "KSA",
+    "reason": "No transparent shirt in matched records"
+  },
+  {
+    "id": "al-nassr",
+    "name": "Al-Nassr",
+    "cc": "KSA",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "al-ittihad",
+    "name": "Al-Ittihad",
+    "cc": "KSA",
+    "reason": "No transparent shirt in matched records"
+  },
+  {
+    "id": "al-ahli-sa",
+    "name": "Al-Ahli",
+    "cc": "KSA",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "norwich",
+    "name": "Norwich City",
+    "cc": "ENG",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "hull",
+    "name": "Hull City",
+    "cc": "ENG",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "swansea",
+    "name": "Swansea City",
+    "cc": "ENG",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "oxford",
+    "name": "Oxford United",
+    "cc": "ENG",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "sport-recife",
+    "name": "Sport Recife",
+    "cc": "BRA",
+    "reason": "No transparent shirt in matched records"
+  },
+  {
+    "id": "ceara",
+    "name": "Ceará",
+    "cc": "BRA",
+    "reason": "No transparent shirt in matched records"
+  },
+  {
+    "id": "avai",
+    "name": "Avaí",
+    "cc": "BRA",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "guarani",
+    "name": "Guarani",
+    "cc": "BRA",
+    "reason": "No transparent shirt in matched records"
+  },
+  {
+    "id": "novorizontino",
+    "name": "Novorizontino",
+    "cc": "BRA",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "mirassol",
+    "name": "Mirassol",
+    "cc": "BRA",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "operario-pr",
+    "name": "Operário-PR",
+    "cc": "BRA",
+    "reason": "No transparent shirt in matched records"
+  },
+  {
+    "id": "crb",
+    "name": "CRB",
+    "cc": "BRA",
+    "reason": "No transparent shirt in matched records"
+  },
+  {
+    "id": "vila-nova",
+    "name": "Vila Nova",
+    "cc": "BRA",
+    "reason": "No transparent shirt in matched records"
+  },
+  {
+    "id": "paysandu",
+    "name": "Paysandu",
+    "cc": "BRA",
+    "reason": "No transparent shirt in matched records"
+  },
+  {
+    "id": "amazonas",
+    "name": "Amazonas",
+    "cc": "BRA",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "botafogo-sp",
+    "name": "Botafogo-SP",
+    "cc": "BRA",
+    "reason": "No transparent shirt in matched records"
+  },
+  {
+    "id": "ituano",
+    "name": "Ituano",
+    "cc": "BRA",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "brusque",
+    "name": "Brusque",
+    "cc": "BRA",
+    "reason": "No transparent shirt in matched records"
+  },
+  {
+    "id": "nautico",
+    "name": "Náutico",
+    "cc": "BRA",
+    "reason": "No transparent shirt in matched records"
+  },
+  {
+    "id": "remo",
+    "name": "Remo",
+    "cc": "BRA",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "confianca",
+    "name": "Confiança",
+    "cc": "BRA",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "botafogo-pb",
+    "name": "Botafogo-PB",
+    "cc": "BRA",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "sao-bernardo",
+    "name": "São Bernardo",
+    "cc": "BRA",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "volta-redonda",
+    "name": "Volta Redonda",
+    "cc": "BRA",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "ferroviaria",
+    "name": "Ferroviária",
+    "cc": "BRA",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "ypiranga",
+    "name": "Ypiranga",
+    "cc": "BRA",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "londrina",
+    "name": "Londrina",
+    "cc": "BRA",
+    "reason": "No transparent shirt in matched records"
+  },
+  {
+    "id": "rio-branco-es",
+    "name": "Rio Branco-ES",
+    "cc": "BRA",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "manaus-fc",
+    "name": "Manaus FC",
+    "cc": "BRA",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "sao-raimundo-rr",
+    "name": "São Raimundo-RR",
+    "cc": "BRA",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "aguia-de-maraba",
+    "name": "Águia de Marabá",
+    "cc": "BRA",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "humaita-ac",
+    "name": "Humaitá-AC",
+    "cc": "BRA",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "aparecidense",
+    "name": "Aparecidense",
+    "cc": "BRA",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "brasiliense",
+    "name": "Brasiliense",
+    "cc": "BRA",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "costa-rica-ms",
+    "name": "Costa Rica-MS",
+    "cc": "BRA",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "atl-nacional",
+    "name": "Atlético Nacional",
+    "cc": "COL",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "millonarios",
+    "name": "Millonarios",
+    "cc": "COL",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "america-cali",
+    "name": "América de Cali",
+    "cc": "COL",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "junior-barranquilla",
+    "name": "Junior",
+    "cc": "COL",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "deportivo-cali",
+    "name": "Deportivo Cali",
+    "cc": "COL",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "santa-fe",
+    "name": "Independiente Santa Fe",
+    "cc": "COL",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "tolima",
+    "name": "Deportes Tolima",
+    "cc": "COL",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "bucaramanga",
+    "name": "Atlético Bucaramanga",
+    "cc": "COL",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "once-caldas",
+    "name": "Once Caldas",
+    "cc": "COL",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "medellin",
+    "name": "Independiente Medellín",
+    "cc": "COL",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "envigado",
+    "name": "Envigado",
+    "cc": "COL",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "aguilas-doradas",
+    "name": "Águilas Doradas",
+    "cc": "COL",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "la-equidad",
+    "name": "La Equidad",
+    "cc": "COL",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "alianza-fc",
+    "name": "Alianza FC",
+    "cc": "COL",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "fortaleza-ceif",
+    "name": "Fortaleza CEIF",
+    "cc": "COL",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "chico",
+    "name": "Boyacá Chicó",
+    "cc": "COL",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "pasto",
+    "name": "Deportivo Pasto",
+    "cc": "COL",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "colo-colo",
+    "name": "Colo-Colo",
+    "cc": "CHI",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "u-de-chile",
+    "name": "Universidad de Chile",
+    "cc": "CHI",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "u-catolica",
+    "name": "Universidad Católica",
+    "cc": "CHI",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "cobreloa",
+    "name": "Cobreloa",
+    "cc": "CHI",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "union-espanola",
+    "name": "Unión Española",
+    "cc": "CHI",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "palestino",
+    "name": "Palestino",
+    "cc": "CHI",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "huachipato",
+    "name": "Huachipato",
+    "cc": "CHI",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "cobresal",
+    "name": "Cobresal",
+    "cc": "CHI",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "coquimbo",
+    "name": "Coquimbo Unido",
+    "cc": "CHI",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "audax-italiano",
+    "name": "Audax Italiano",
+    "cc": "CHI",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "nublense",
+    "name": "Ñublense",
+    "cc": "CHI",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "everton-vina",
+    "name": "Everton de Viña del Mar",
+    "cc": "CHI",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "union-la-calera",
+    "name": "Unión La Calera",
+    "cc": "CHI",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "deportes-iquique",
+    "name": "Deportes Iquique",
+    "cc": "CHI",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "deportes-limache",
+    "name": "Deportes Limache",
+    "cc": "CHI",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "alianza-lima",
+    "name": "Alianza Lima",
+    "cc": "PER",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "universitario",
+    "name": "Universitario",
+    "cc": "PER",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "sporting-cristal",
+    "name": "Sporting Cristal",
+    "cc": "PER",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "melgar",
+    "name": "FBC Melgar",
+    "cc": "PER",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "cienciano",
+    "name": "Cienciano",
+    "cc": "PER",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "cesar-vallejo",
+    "name": "César Vallejo",
+    "cc": "PER",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "cusco-fc",
+    "name": "Cusco FC",
+    "cc": "PER",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "sport-huancayo",
+    "name": "Sport Huancayo",
+    "cc": "PER",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "atletico-grau",
+    "name": "Atlético Grau",
+    "cc": "PER",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "sport-boys",
+    "name": "Sport Boys",
+    "cc": "PER",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "alianza-atletico",
+    "name": "Alianza Atlético",
+    "cc": "PER",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "comerciantes-unidos",
+    "name": "Comerciantes Unidos",
+    "cc": "PER",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "los-chankas",
+    "name": "Los Chankas",
+    "cc": "PER",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "juan-pablo-ii",
+    "name": "Juan Pablo II College",
+    "cc": "PER",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "deportivo-garcilaso",
+    "name": "Deportivo Garcilaso",
+    "cc": "PER",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "utc",
+    "name": "UTC Cajamarca",
+    "cc": "PER",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "barcelona-sc",
+    "name": "Barcelona SC",
+    "cc": "ECU",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "ldu-quito",
+    "name": "LDU Quito",
+    "cc": "ECU",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "emelec",
+    "name": "Emelec",
+    "cc": "ECU",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "independiente-valle",
+    "name": "Independiente del Valle",
+    "cc": "ECU",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "aucas",
+    "name": "Aucas",
+    "cc": "ECU",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "orense",
+    "name": "Orense",
+    "cc": "ECU",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "delfin",
+    "name": "Delfín",
+    "cc": "ECU",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "u-catolica-ec",
+    "name": "Universidad Católica del Ecuador",
+    "cc": "ECU",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "macara",
+    "name": "Macará",
+    "cc": "ECU",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "tecnico-universitario",
+    "name": "Técnico Universitario",
+    "cc": "ECU",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "libertad-fc",
+    "name": "Libertad FC",
+    "cc": "ECU",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "el-nacional",
+    "name": "El Nacional",
+    "cc": "ECU",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "mushuc-runa",
+    "name": "Mushuc Runa",
+    "cc": "ECU",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "deportivo-cuenca",
+    "name": "Deportivo Cuenca",
+    "cc": "ECU",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "vinotinto-ec",
+    "name": "Vinotinto FC",
+    "cc": "ECU",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "manta-fc",
+    "name": "Manta FC",
+    "cc": "ECU",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "olimpia",
+    "name": "Olimpia",
+    "cc": "PAR",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "cerro-porteno",
+    "name": "Cerro Porteño",
+    "cc": "PAR",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "libertad-py",
+    "name": "Libertad",
+    "cc": "PAR",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "guarani-py",
+    "name": "Guaraní",
+    "cc": "PAR",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "nacional-py",
+    "name": "Nacional Asunción",
+    "cc": "PAR",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "sportivo-luqueno",
+    "name": "Sportivo Luqueño",
+    "cc": "PAR",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "sportivo-trinidense",
+    "name": "Sportivo Trinidense",
+    "cc": "PAR",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "tacuary",
+    "name": "Tacuary",
+    "cc": "PAR",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "general-caballero",
+    "name": "General Caballero",
+    "cc": "PAR",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "sportivo-ameliano",
+    "name": "Sportivo Ameliano",
+    "cc": "PAR",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "2-de-mayo",
+    "name": "2 de Mayo",
+    "cc": "PAR",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "atletico-tembetary",
+    "name": "Atlético Tembetary",
+    "cc": "PAR",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "caracas-fc",
+    "name": "Caracas FC",
+    "cc": "VEN",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "deportivo-tachira",
+    "name": "Deportivo Táchira",
+    "cc": "VEN",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "deportivo-la-guaira",
+    "name": "Deportivo La Guaira",
+    "cc": "VEN",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "carabobo",
+    "name": "Carabobo FC",
+    "cc": "VEN",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "estudiantes-merida",
+    "name": "Estudiantes de Mérida",
+    "cc": "VEN",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "metropolitanos",
+    "name": "Metropolitanos FC",
+    "cc": "VEN",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "monagas",
+    "name": "Monagas SC",
+    "cc": "VEN",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "zamora-ve",
+    "name": "Zamora FC",
+    "cc": "VEN",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "academia-puerto-cabello",
+    "name": "Academia Puerto Cabello",
+    "cc": "VEN",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "mineros-guayana",
+    "name": "Mineros de Guayana",
+    "cc": "VEN",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "rayo-zuliano",
+    "name": "Rayo Zuliano",
+    "cc": "VEN",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "portuguesa-ve",
+    "name": "Portuguesa FC",
+    "cc": "VEN",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "anzoategui",
+    "name": "Deportivo Anzoátegui",
+    "cc": "VEN",
+    "reason": "No transparent shirt in matched records"
+  },
+  {
+    "id": "angostura",
+    "name": "Angostura FC",
+    "cc": "VEN",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "hajduk-split",
+    "name": "Hajduk Split",
+    "cc": "CRO",
+    "reason": "No transparent shirt in matched records"
+  },
+  {
+    "id": "rijeka",
+    "name": "HNK Rijeka",
+    "cc": "CRO",
+    "reason": "No transparent shirt in matched records"
+  },
+  {
+    "id": "osijek",
+    "name": "NK Osijek",
+    "cc": "CRO",
+    "reason": "No transparent shirt in matched records"
+  },
+  {
+    "id": "lokomotiva-zagreb",
+    "name": "Lokomotiva Zagreb",
+    "cc": "CRO",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "gorica-hr",
+    "name": "HNK Gorica",
+    "cc": "CRO",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "varazdin",
+    "name": "NK Varaždin",
+    "cc": "CRO",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "slaven-belupo",
+    "name": "Slaven Belupo",
+    "cc": "CRO",
+    "reason": "No transparent shirt in matched records"
+  },
+  {
+    "id": "istra-1961",
+    "name": "Istra 1961",
+    "cc": "CRO",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "sibenik",
+    "name": "HNK Šibenik",
+    "cc": "CRO",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "young-boys",
+    "name": "Young Boys",
+    "cc": "SUI",
+    "reason": "No transparent shirt in matched records"
+  },
+  {
+    "id": "servette",
+    "name": "Servette",
+    "cc": "SUI",
+    "reason": "No transparent shirt in matched records"
+  },
+  {
+    "id": "lugano",
+    "name": "FC Lugano",
+    "cc": "SUI",
+    "reason": "No transparent shirt in matched records"
+  },
+  {
+    "id": "zurich",
+    "name": "FC Zürich",
+    "cc": "SUI",
+    "reason": "No transparent shirt in matched records"
+  },
+  {
+    "id": "st-gallen",
+    "name": "FC St. Gallen",
+    "cc": "SUI",
+    "reason": "No transparent shirt in matched records"
+  },
+  {
+    "id": "luzern",
+    "name": "FC Luzern",
+    "cc": "SUI",
+    "reason": "No transparent shirt in matched records"
+  },
+  {
+    "id": "lausanne-sport",
+    "name": "Lausanne-Sport",
+    "cc": "SUI",
+    "reason": "No transparent shirt in matched records"
+  },
+  {
+    "id": "yverdon",
+    "name": "Yverdon Sport",
+    "cc": "SUI",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "grasshopper",
+    "name": "Grasshopper",
+    "cc": "SUI",
+    "reason": "No transparent shirt in matched records"
+  },
+  {
+    "id": "winterthur",
+    "name": "FC Winterthur",
+    "cc": "SUI",
+    "reason": "No transparent shirt in matched records"
+  },
+  {
+    "id": "sion",
+    "name": "FC Sion",
+    "cc": "SUI",
+    "reason": "No transparent shirt in matched records"
+  },
+  {
+    "id": "sturm-graz",
+    "name": "Sturm Graz",
+    "cc": "AUT",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "rapid-wien",
+    "name": "Rapid Wien",
+    "cc": "AUT",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "austria-wien",
+    "name": "Austria Wien",
+    "cc": "AUT",
+    "reason": "No transparent shirt in matched records"
+  },
+  {
+    "id": "lask",
+    "name": "LASK",
+    "cc": "AUT",
+    "reason": "No transparent shirt in matched records"
+  },
+  {
+    "id": "wolfsberger",
+    "name": "Wolfsberger AC",
+    "cc": "AUT",
+    "reason": "No transparent shirt in matched records"
+  },
+  {
+    "id": "hartberg",
+    "name": "TSV Hartberg",
+    "cc": "AUT",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "blau-weiss-linz",
+    "name": "Blau-Weiß Linz",
+    "cc": "AUT",
+    "reason": "No transparent shirt in matched records"
+  },
+  {
+    "id": "grazer-ak",
+    "name": "Grazer AK",
+    "cc": "AUT",
+    "reason": "No transparent shirt in matched records"
+  },
+  {
+    "id": "rheindorf-altach",
+    "name": "SCR Altach",
+    "cc": "AUT",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "wsg-tirol",
+    "name": "WSG Tirol",
+    "cc": "AUT",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "celtic",
+    "name": "Celtic",
+    "cc": "SCO",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "rangers",
+    "name": "Rangers",
+    "cc": "SCO",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "aberdeen",
+    "name": "Aberdeen",
+    "cc": "SCO",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "hearts",
+    "name": "Heart of Midlothian",
+    "cc": "SCO",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "hibernian",
+    "name": "Hibernian",
+    "cc": "SCO",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "dundee-utd",
+    "name": "Dundee United",
+    "cc": "SCO",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "kilmarnock",
+    "name": "Kilmarnock",
+    "cc": "SCO",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "motherwell",
+    "name": "Motherwell",
+    "cc": "SCO",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "st-mirren",
+    "name": "St Mirren",
+    "cc": "SCO",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "dundee-fc",
+    "name": "Dundee",
+    "cc": "SCO",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "ross-county",
+    "name": "Ross County",
+    "cc": "SCO",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "st-johnstone",
+    "name": "St Johnstone",
+    "cc": "SCO",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "olympiacos",
+    "name": "Olympiacos",
+    "cc": "GRE",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "aek-athens",
+    "name": "AEK Athens",
+    "cc": "GRE",
+    "reason": "No transparent shirt in matched records"
+  },
+  {
+    "id": "aris",
+    "name": "Aris",
+    "cc": "GRE",
+    "reason": "No transparent shirt in matched records"
+  },
+  {
+    "id": "panserraikos",
+    "name": "Panserraikos",
+    "cc": "GRE",
+    "reason": "No transparent shirt in matched records"
+  },
+  {
+    "id": "volos",
+    "name": "Volos NPS",
+    "cc": "GRE",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "lamia",
+    "name": "PAS Lamia",
+    "cc": "GRE",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "kallithea",
+    "name": "Kallithea",
+    "cc": "GRE",
+    "reason": "No transparent shirt in matched records"
+  },
+  {
+    "id": "levadiakos",
+    "name": "Levadiakos",
+    "cc": "GRE",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "red-star-belgrade",
+    "name": "Red Star Belgrade",
+    "cc": "SRB",
+    "reason": "No transparent shirt in matched records"
+  },
+  {
+    "id": "partizan",
+    "name": "Partizan",
+    "cc": "SRB",
+    "reason": "No transparent shirt in matched records"
+  },
+  {
+    "id": "vojvodina",
+    "name": "Vojvodina",
+    "cc": "SRB",
+    "reason": "No transparent shirt in matched records"
+  },
+  {
+    "id": "cukaricki",
+    "name": "Čukarički",
+    "cc": "SRB",
+    "reason": "No transparent shirt in matched records"
+  },
+  {
+    "id": "tsc-backa-topola",
+    "name": "TSC Bačka Topola",
+    "cc": "SRB",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "radnicki-1923",
+    "name": "Radnički 1923",
+    "cc": "SRB",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "napredak",
+    "name": "Napredak Kruševac",
+    "cc": "SRB",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "spartak-subotica",
+    "name": "Spartak Subotica",
+    "cc": "SRB",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "javor",
+    "name": "Javor Ivanjica",
+    "cc": "SRB",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "mladost-lucani",
+    "name": "Mladost Lučani",
+    "cc": "SRB",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "radnik-surdulica",
+    "name": "Radnik Surdulica",
+    "cc": "SRB",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "ofk-beograd",
+    "name": "OFK Beograd",
+    "cc": "SRB",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "sparta-prague",
+    "name": "Sparta Prague",
+    "cc": "CZE",
+    "reason": "No transparent shirt in matched records"
+  },
+  {
+    "id": "slavia-prague",
+    "name": "Slavia Prague",
+    "cc": "CZE",
+    "reason": "No transparent shirt in matched records"
+  },
+  {
+    "id": "banik-ostrava",
+    "name": "Baník Ostrava",
+    "cc": "CZE",
+    "reason": "No transparent shirt in matched records"
+  },
+  {
+    "id": "sigma-olomouc",
+    "name": "Sigma Olomouc",
+    "cc": "CZE",
+    "reason": "No transparent shirt in matched records"
+  },
+  {
+    "id": "slovan-liberec",
+    "name": "Slovan Liberec",
+    "cc": "CZE",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "mlada-boleslav",
+    "name": "Mladá Boleslav",
+    "cc": "CZE",
+    "reason": "No transparent shirt in matched records"
+  },
+  {
+    "id": "jablonec",
+    "name": "Jablonec",
+    "cc": "CZE",
+    "reason": "No transparent shirt in matched records"
+  },
+  {
+    "id": "bohemians-1905",
+    "name": "Bohemians 1905",
+    "cc": "CZE",
+    "reason": "No transparent shirt in matched records"
+  },
+  {
+    "id": "hradec-kralove",
+    "name": "Hradec Králové",
+    "cc": "CZE",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "teplice",
+    "name": "Teplice",
+    "cc": "CZE",
+    "reason": "No transparent shirt in matched records"
+  },
+  {
+    "id": "dukla-praha",
+    "name": "Dukla Prague",
+    "cc": "CZE",
+    "reason": "No transparent shirt in matched records"
+  },
+  {
+    "id": "rakow",
+    "name": "Raków Częstochowa",
+    "cc": "POL",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "jagiellonia",
+    "name": "Jagiellonia Białystok",
+    "cc": "POL",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "cracovia",
+    "name": "Cracovia",
+    "cc": "POL",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "wisla-krakow",
+    "name": "Wisła Kraków",
+    "cc": "POL",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "zaglebie-lubin",
+    "name": "Zagłębie Lubin",
+    "cc": "POL",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "widzew-lodz",
+    "name": "Widzew Łódź",
+    "cc": "POL",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "motor-lublin",
+    "name": "Motor Lublin",
+    "cc": "POL",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "radomiak",
+    "name": "Radomiak Radom",
+    "cc": "POL",
+    "reason": "No transparent shirt in matched records"
+  },
+  {
+    "id": "gks-katowice",
+    "name": "GKS Katowice",
+    "cc": "POL",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "dynamo-kyiv",
+    "name": "Dynamo Kyiv",
+    "cc": "UKR",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "dnipro-1",
+    "name": "SC Dnipro-1",
+    "cc": "UKR",
+    "reason": "No transparent shirt in matched records"
+  },
+  {
+    "id": "kryvbas",
+    "name": "Kryvbas Kryvyi Rih",
+    "cc": "UKR",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "oleksandriya",
+    "name": "Oleksandriya",
+    "cc": "UKR",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "kolos-kovalivka",
+    "name": "Kolos Kovalivka",
+    "cc": "UKR",
+    "reason": "No transparent shirt in matched records"
+  },
+  {
+    "id": "rukh-lviv",
+    "name": "Rukh Lviv",
+    "cc": "UKR",
+    "reason": "No transparent shirt in matched records"
+  },
+  {
+    "id": "obolon-kyiv",
+    "name": "Obolon Kyiv",
+    "cc": "UKR",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "lnz-cherkasy",
+    "name": "LNZ Cherkasy",
+    "cc": "UKR",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "polissya",
+    "name": "Polissya Zhytomyr",
+    "cc": "UKR",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "bodo-glimt",
+    "name": "Bodø/Glimt",
+    "cc": "NOR",
+    "reason": "No transparent shirt in matched records"
+  },
+  {
+    "id": "brann",
+    "name": "Brann",
+    "cc": "NOR",
+    "reason": "No transparent shirt in matched records"
+  },
+  {
+    "id": "valerenga",
+    "name": "Vålerenga",
+    "cc": "NOR",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "tromso",
+    "name": "Tromsø",
+    "cc": "NOR",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "haugesund",
+    "name": "Haugesund",
+    "cc": "NOR",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "kristiansund",
+    "name": "Kristiansund",
+    "cc": "NOR",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "stromsgodset",
+    "name": "Strømsgodset",
+    "cc": "NOR",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "fredrikstad",
+    "name": "Fredrikstad",
+    "cc": "NOR",
+    "reason": "No transparent shirt in matched records"
+  },
+  {
+    "id": "sandefjord",
+    "name": "Sandefjord",
+    "cc": "NOR",
+    "reason": "No transparent shirt in matched records"
+  },
+  {
+    "id": "hamkam",
+    "name": "HamKam",
+    "cc": "NOR",
+    "reason": "No transparent shirt in matched records"
+  },
+  {
+    "id": "kfum-oslo",
+    "name": "KFUM Oslo",
+    "cc": "NOR",
+    "reason": "No transparent shirt in matched records"
+  },
+  {
+    "id": "agf",
+    "name": "AGF Aarhus",
+    "cc": "DEN",
+    "reason": "No transparent shirt in matched records"
+  },
+  {
+    "id": "viborg",
+    "name": "Viborg",
+    "cc": "DEN",
+    "reason": "No transparent shirt in matched records"
+  },
+  {
+    "id": "lyngby",
+    "name": "Lyngby",
+    "cc": "DEN",
+    "reason": "No transparent shirt in matched records"
+  },
+  {
+    "id": "vejle",
+    "name": "Vejle",
+    "cc": "DEN",
+    "reason": "No transparent shirt in matched records"
+  },
+  {
+    "id": "kashima-antlers",
+    "name": "Kashima Antlers",
+    "cc": "JPN",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "urawa-red-diamonds",
+    "name": "Urawa Red Diamonds",
+    "cc": "JPN",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "yokohama-f-marinos",
+    "name": "Yokohama F. Marinos",
+    "cc": "JPN",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "kawasaki-frontale",
+    "name": "Kawasaki Frontale",
+    "cc": "JPN",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "vissel-kobe",
+    "name": "Vissel Kobe",
+    "cc": "JPN",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "gamba-osaka",
+    "name": "Gamba Osaka",
+    "cc": "JPN",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "cerezo-osaka",
+    "name": "Cerezo Osaka",
+    "cc": "JPN",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "nagoya-grampus",
+    "name": "Nagoya Grampus",
+    "cc": "JPN",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "fc-tokyo",
+    "name": "FC Tokyo",
+    "cc": "JPN",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "sanfrecce-hiroshima",
+    "name": "Sanfrecce Hiroshima",
+    "cc": "JPN",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "avispa-fukuoka",
+    "name": "Avispa Fukuoka",
+    "cc": "JPN",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "kashiwa-reysol",
+    "name": "Kashiwa Reysol",
+    "cc": "JPN",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "shimizu-s-pulse",
+    "name": "Shimizu S-Pulse",
+    "cc": "JPN",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "machida-zelvia",
+    "name": "FC Machida Zelvia",
+    "cc": "JPN",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "albirex-niigata",
+    "name": "Albirex Niigata",
+    "cc": "JPN",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "kyoto-sanga",
+    "name": "Kyoto Sanga",
+    "cc": "JPN",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "ulsan-hd",
+    "name": "Ulsan HD",
+    "cc": "KOR",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "gimcheon-sangmu",
+    "name": "Gimcheon Sangmu",
+    "cc": "KOR",
+    "reason": "No transparent shirt in matched records"
+  },
+  {
+    "id": "daejeon-hana-citizen",
+    "name": "Daejeon Hana Citizen",
+    "cc": "KOR",
+    "reason": "No transparent shirt in matched records"
+  },
+  {
+    "id": "suwon-fc",
+    "name": "Suwon FC",
+    "cc": "KOR",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "incheon-united",
+    "name": "Incheon United",
+    "cc": "KOR",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "macarthur-fc",
+    "name": "Macarthur FC",
+    "cc": "AUS",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "western-united",
+    "name": "Western United",
+    "cc": "AUS",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "al-shabab",
+    "name": "Al-Shabab",
+    "cc": "KSA",
+    "reason": "No transparent shirt in matched records"
+  },
+  {
+    "id": "al-ettifaq",
+    "name": "Al-Ettifaq",
+    "cc": "KSA",
+    "reason": "No transparent shirt in matched records"
+  },
+  {
+    "id": "al-taawoun",
+    "name": "Al-Taawoun",
+    "cc": "KSA",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "al-fateh",
+    "name": "Al-Fateh",
+    "cc": "KSA",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "al-fayha",
+    "name": "Al-Fayha",
+    "cc": "KSA",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "al-riyadh",
+    "name": "Al-Riyadh",
+    "cc": "KSA",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "al-khaleej",
+    "name": "Al-Khaleej",
+    "cc": "KSA",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "al-wehda",
+    "name": "Al-Wehda",
+    "cc": "KSA",
+    "reason": "No transparent shirt in matched records"
+  },
+  {
+    "id": "al-qadsiah",
+    "name": "Al-Qadsiah",
+    "cc": "KSA",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "damac",
+    "name": "Damac",
+    "cc": "KSA",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "al-okhdood",
+    "name": "Al-Okhdood",
+    "cc": "KSA",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "al-orobah",
+    "name": "Al-Orobah",
+    "cc": "KSA",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "al-sadd",
+    "name": "Al-Sadd",
+    "cc": "QAT",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "al-duhail",
+    "name": "Al-Duhail",
+    "cc": "QAT",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "al-rayyan",
+    "name": "Al-Rayyan",
+    "cc": "QAT",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "al-gharafa",
+    "name": "Al-Gharafa",
+    "cc": "QAT",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "al-arabi-qatar",
+    "name": "Al-Arabi",
+    "cc": "QAT",
+    "reason": "No transparent shirt in matched records"
+  },
+  {
+    "id": "al-wakrah",
+    "name": "Al-Wakrah",
+    "cc": "QAT",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "umm-salal",
+    "name": "Umm Salal",
+    "cc": "QAT",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "qatar-sc",
+    "name": "Qatar SC",
+    "cc": "QAT",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "al-ahli-qatar",
+    "name": "Al-Ahli Doha",
+    "cc": "QAT",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "al-shamal",
+    "name": "Al-Shamal",
+    "cc": "QAT",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "al-markhiya",
+    "name": "Al-Markhiya",
+    "cc": "QAT",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "al-shahania",
+    "name": "Al-Shahania",
+    "cc": "QAT",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "muaither",
+    "name": "Muaither SC",
+    "cc": "QAT",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "al-khor",
+    "name": "Al-Khor",
+    "cc": "QAT",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "persepolis",
+    "name": "Persepolis",
+    "cc": "IRN",
+    "reason": "No transparent shirt in matched records"
+  },
+  {
+    "id": "esteghlal",
+    "name": "Esteghlal",
+    "cc": "IRN",
+    "reason": "No transparent shirt in matched records"
+  },
+  {
+    "id": "sepahan",
+    "name": "Sepahan",
+    "cc": "IRN",
+    "reason": "No transparent shirt in matched records"
+  },
+  {
+    "id": "tractor",
+    "name": "Tractor",
+    "cc": "IRN",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "foolad",
+    "name": "Foolad",
+    "cc": "IRN",
+    "reason": "No transparent shirt in matched records"
+  },
+  {
+    "id": "gol-gohar",
+    "name": "Gol Gohar",
+    "cc": "IRN",
+    "reason": "No transparent shirt in matched records"
+  },
+  {
+    "id": "mes-rafsanjan",
+    "name": "Mes Rafsanjan",
+    "cc": "IRN",
+    "reason": "No transparent shirt in matched records"
+  },
+  {
+    "id": "zob-ahan",
+    "name": "Zob Ahan",
+    "cc": "IRN",
+    "reason": "No transparent shirt in matched records"
+  },
+  {
+    "id": "shams-azar",
+    "name": "Shams Azar",
+    "cc": "IRN",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "paykan",
+    "name": "Paykan",
+    "cc": "IRN",
+    "reason": "No transparent shirt in matched records"
+  },
+  {
+    "id": "malavan",
+    "name": "Malavan",
+    "cc": "IRN",
+    "reason": "No transparent shirt in matched records"
+  },
+  {
+    "id": "aluminium-arak",
+    "name": "Aluminium Arak",
+    "cc": "IRN",
+    "reason": "No transparent shirt in matched records"
+  },
+  {
+    "id": "havadar",
+    "name": "Havadar",
+    "cc": "IRN",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "nassaji",
+    "name": "Nassaji Mazandaran",
+    "cc": "IRN",
+    "reason": "No transparent shirt in matched records"
+  },
+  {
+    "id": "raja-ca",
+    "name": "Raja Casablanca",
+    "cc": "MAR",
+    "reason": "No transparent shirt in matched records"
+  },
+  {
+    "id": "wydad-ac",
+    "name": "Wydad AC",
+    "cc": "MAR",
+    "reason": "No transparent shirt in matched records"
+  },
+  {
+    "id": "rs-berkane",
+    "name": "RS Berkane",
+    "cc": "MAR",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "far-rabat",
+    "name": "AS FAR Rabat",
+    "cc": "MAR",
+    "reason": "No transparent shirt in matched records"
+  },
+  {
+    "id": "fus-rabat",
+    "name": "FUS Rabat",
+    "cc": "MAR",
+    "reason": "No transparent shirt in matched records"
+  },
+  {
+    "id": "maghreb-fes",
+    "name": "Maghreb de Fès",
+    "cc": "MAR",
+    "reason": "No transparent shirt in matched records"
+  },
+  {
+    "id": "hassania-agadir",
+    "name": "Hassania Agadir",
+    "cc": "MAR",
+    "reason": "No transparent shirt in matched records"
+  },
+  {
+    "id": "moghreb-tetouan",
+    "name": "Moghreb Tétouan",
+    "cc": "MAR",
+    "reason": "No transparent shirt in matched records"
+  },
+  {
+    "id": "olympic-safi",
+    "name": "Olympic Safi",
+    "cc": "MAR",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "rca-zemamra",
+    "name": "RCA Zemamra",
+    "cc": "MAR",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "youssoufia-berrechid",
+    "name": "Youssoufia Berrechid",
+    "cc": "MAR",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "jeunesse-soualem",
+    "name": "Jeunesse Soualem",
+    "cc": "MAR",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "union-touarga",
+    "name": "Union Touarga",
+    "cc": "MAR",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "mouloudia-oujda",
+    "name": "Mouloudia Oujda",
+    "cc": "MAR",
+    "reason": "No transparent shirt in matched records"
+  },
+  {
+    "id": "al-ahly",
+    "name": "Al Ahly",
+    "cc": "EGY",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "zamalek",
+    "name": "Zamalek",
+    "cc": "EGY",
+    "reason": "No transparent shirt in matched records"
+  },
+  {
+    "id": "pyramids-fc",
+    "name": "Pyramids FC",
+    "cc": "EGY",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "al-masry",
+    "name": "Al Masry",
+    "cc": "EGY",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "ismaily",
+    "name": "Ismaily",
+    "cc": "EGY",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "future-fc",
+    "name": "Future FC",
+    "cc": "EGY",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "ceramica-cleopatra",
+    "name": "Ceramica Cleopatra",
+    "cc": "EGY",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "national-bank-egypt",
+    "name": "National Bank of Egypt",
+    "cc": "EGY",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "smouha",
+    "name": "Smouha",
+    "cc": "EGY",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "enppi",
+    "name": "ENPPI",
+    "cc": "EGY",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "el-gouna",
+    "name": "El Gouna",
+    "cc": "EGY",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "pharco",
+    "name": "Pharco",
+    "cc": "EGY",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "zed-fc",
+    "name": "ZED FC",
+    "cc": "EGY",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "ghazl-el-mahalla",
+    "name": "Ghazl El Mahalla",
+    "cc": "EGY",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "teungueth-fc",
+    "name": "Teungueth FC",
+    "cc": "SEN",
+    "reason": "No transparent shirt in matched records"
+  },
+  {
+    "id": "casa-sports",
+    "name": "Casa Sports",
+    "cc": "SEN",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "jaraaf",
+    "name": "ASC Jaraaf",
+    "cc": "SEN",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "generation-foot",
+    "name": "Génération Foot",
+    "cc": "SEN",
+    "reason": "No transparent shirt in matched records"
+  },
+  {
+    "id": "diambars",
+    "name": "Diambars FC",
+    "cc": "SEN",
+    "reason": "No transparent shirt in matched records"
+  },
+  {
+    "id": "us-goree",
+    "name": "US Gorée",
+    "cc": "SEN",
+    "reason": "No transparent shirt in matched records"
+  },
+  {
+    "id": "jamono-fatick",
+    "name": "Jamono Fatick",
+    "cc": "SEN",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "guediawaye-fc",
+    "name": "Guédiawaye FC",
+    "cc": "SEN",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "sonacos",
+    "name": "Sonacos",
+    "cc": "SEN",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "dakar-sacre-coeur",
+    "name": "Dakar Sacré-Cœur",
+    "cc": "SEN",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "linguere",
+    "name": "ASC Linguère",
+    "cc": "SEN",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "wally-daan",
+    "name": "Wally Daan",
+    "cc": "SEN",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "oslo-fa",
+    "name": "Oslo FA",
+    "cc": "SEN",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "hlm-dakar",
+    "name": "AS HLM Dakar",
+    "cc": "SEN",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "enyimba",
+    "name": "Enyimba",
+    "cc": "NGA",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "rivers-united",
+    "name": "Rivers United",
+    "cc": "NGA",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "rangers-intl",
+    "name": "Rangers International",
+    "cc": "NGA",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "remo-stars",
+    "name": "Remo Stars",
+    "cc": "NGA",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "plateau-united",
+    "name": "Plateau United",
+    "cc": "NGA",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "kano-pillars",
+    "name": "Kano Pillars",
+    "cc": "NGA",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "shooting-stars",
+    "name": "Shooting Stars",
+    "cc": "NGA",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "lobi-stars",
+    "name": "Lobi Stars",
+    "cc": "NGA",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "akwa-united",
+    "name": "Akwa United",
+    "cc": "NGA",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "bendel-insurance",
+    "name": "Bendel Insurance",
+    "cc": "NGA",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "nasarawa-united",
+    "name": "Nasarawa United",
+    "cc": "NGA",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "sunshine-stars",
+    "name": "Sunshine Stars",
+    "cc": "NGA",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "abia-warriors",
+    "name": "Abia Warriors",
+    "cc": "NGA",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "katsina-united",
+    "name": "Katsina United",
+    "cc": "NGA",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "es-setif",
+    "name": "ES Sétif",
+    "cc": "ALG",
+    "reason": "No transparent shirt in matched records"
+  },
+  {
+    "id": "mc-alger",
+    "name": "MC Alger",
+    "cc": "ALG",
+    "reason": "No transparent shirt in matched records"
+  },
+  {
+    "id": "js-kabylie",
+    "name": "JS Kabylie",
+    "cc": "ALG",
+    "reason": "No transparent shirt in matched records"
+  },
+  {
+    "id": "usm-alger",
+    "name": "USM Alger",
+    "cc": "ALG",
+    "reason": "No transparent shirt in matched records"
+  },
+  {
+    "id": "js-saoura",
+    "name": "JS Saoura",
+    "cc": "ALG",
+    "reason": "No transparent shirt in matched records"
+  },
+  {
+    "id": "mc-oran",
+    "name": "MC Oran",
+    "cc": "ALG",
+    "reason": "No transparent shirt in matched records"
+  },
+  {
+    "id": "paradou-ac",
+    "name": "Paradou AC",
+    "cc": "ALG",
+    "reason": "No transparent shirt in matched records"
+  },
+  {
+    "id": "usm-khenchela",
+    "name": "USM Khenchela",
+    "cc": "ALG",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "mc-el-bayadh",
+    "name": "MC El Bayadh",
+    "cc": "ALG",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "usm-bel-abbes",
+    "name": "USM Bel Abbès",
+    "cc": "ALG",
+    "reason": "No transparent shirt in matched records"
+  },
+  {
+    "id": "ol-akbou",
+    "name": "Olympique Akbou",
+    "cc": "ALG",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "asante-kotoko",
+    "name": "Asante Kotoko",
+    "cc": "GHA",
+    "reason": "No transparent shirt in matched records"
+  },
+  {
+    "id": "hearts-of-oak",
+    "name": "Hearts of Oak",
+    "cc": "GHA",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "aduana-stars",
+    "name": "Aduana Stars",
+    "cc": "GHA",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "medeama-sc",
+    "name": "Medeama SC",
+    "cc": "GHA",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "bechem-united",
+    "name": "Bechem United",
+    "cc": "GHA",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "nations-fc",
+    "name": "Nations FC",
+    "cc": "GHA",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "samartex",
+    "name": "Samartex",
+    "cc": "GHA",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "dreams-fc",
+    "name": "Dreams FC",
+    "cc": "GHA",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "berekum-chelsea",
+    "name": "Berekum Chelsea",
+    "cc": "GHA",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "legon-cities",
+    "name": "Legon Cities",
+    "cc": "GHA",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "karela-united",
+    "name": "Karela United",
+    "cc": "GHA",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "accra-lions",
+    "name": "Accra Lions",
+    "cc": "GHA",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "nsoatreman",
+    "name": "Nsoatreman FC",
+    "cc": "GHA",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "heart-of-lions",
+    "name": "Heart of Lions",
+    "cc": "GHA",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "asec-mimosas",
+    "name": "ASEC Mimosas",
+    "cc": "CIV",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "africa-sports",
+    "name": "Africa Sports",
+    "cc": "CIV",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "stade-abidjan",
+    "name": "Stade d’Abidjan",
+    "cc": "CIV",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "san-pedro",
+    "name": "FC San Pédro",
+    "cc": "CIV",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "sol-fc",
+    "name": "SOL FC",
+    "cc": "CIV",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "racing-abidjan",
+    "name": "Racing Club Abidjan",
+    "cc": "CIV",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "sewe-san-pedro",
+    "name": "Séwé Sport",
+    "cc": "CIV",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "bouake-fc",
+    "name": "FC Bouaké",
+    "cc": "CIV",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "lys-sassandra",
+    "name": "LYS Sassandra",
+    "cc": "CIV",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "gagnoa",
+    "name": "SC Gagnoa",
+    "cc": "CIV",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "moossou",
+    "name": "FC Moossou",
+    "cc": "CIV",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "denguele",
+    "name": "Denguélé Sport",
+    "cc": "CIV",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "zoukougbeu",
+    "name": "AFAD Djékanou",
+    "cc": "CIV",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "issia-wazi",
+    "name": "Issia Wazi",
+    "cc": "CIV",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "coton-sport",
+    "name": "Coton Sport",
+    "cc": "CMR",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "union-douala",
+    "name": "Union Douala",
+    "cc": "CMR",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "canon-yaounde",
+    "name": "Canon Yaoundé",
+    "cc": "CMR",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "pwd-bamenda",
+    "name": "PWD Bamenda",
+    "cc": "CMR",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "victoria-united",
+    "name": "Victoria United",
+    "cc": "CMR",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "colombe-sportive",
+    "name": "Colombe Sportive",
+    "cc": "CMR",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "fovu-baham",
+    "name": "Fovu Baham",
+    "cc": "CMR",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "dragon-yaounde",
+    "name": "Dragon Yaoundé",
+    "cc": "CMR",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "apejes-mfou",
+    "name": "APEJES Mfou",
+    "cc": "CMR",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "stade-renard",
+    "name": "Stade Renard",
+    "cc": "CMR",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "ums-loum",
+    "name": "UMS de Loum",
+    "cc": "CMR",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "bamboutos",
+    "name": "Bamboutos",
+    "cc": "CMR",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "avion-academy",
+    "name": "Avion Academy",
+    "cc": "CMR",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "young-sports-academy",
+    "name": "Young Sports Academy",
+    "cc": "CMR",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "mamelodi-sundowns",
+    "name": "Mamelodi Sundowns",
+    "cc": "RSA",
+    "reason": "No transparent shirt in matched records"
+  },
+  {
+    "id": "orlando-pirates",
+    "name": "Orlando Pirates",
+    "cc": "RSA",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "kaizer-chiefs",
+    "name": "Kaizer Chiefs",
+    "cc": "RSA",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "stellenbosch-fc",
+    "name": "Stellenbosch FC",
+    "cc": "RSA",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "supersport-united",
+    "name": "SuperSport United",
+    "cc": "RSA",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "sekhukhune-united",
+    "name": "Sekhukhune United",
+    "cc": "RSA",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "cape-town-city",
+    "name": "Cape Town City",
+    "cc": "RSA",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "amazulu",
+    "name": "AmaZulu",
+    "cc": "RSA",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "golden-arrows",
+    "name": "Golden Arrows",
+    "cc": "RSA",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "polokwane-city",
+    "name": "Polokwane City",
+    "cc": "RSA",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "chippa-united",
+    "name": "Chippa United",
+    "cc": "RSA",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "richards-bay",
+    "name": "Richards Bay",
+    "cc": "RSA",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "marumo-gallants",
+    "name": "Marumo Gallants",
+    "cc": "RSA",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "magesi-fc",
+    "name": "Magesi FC",
+    "cc": "RSA",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "esperance-tunis",
+    "name": "Espérance de Tunis",
+    "cc": "TUN",
+    "reason": "No transparent shirt in matched records"
+  },
+  {
+    "id": "etoile-sahel",
+    "name": "Étoile du Sahel",
+    "cc": "TUN",
+    "reason": "No transparent shirt in matched records"
+  },
+  {
+    "id": "club-africain",
+    "name": "Club Africain",
+    "cc": "TUN",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "cs-sfaxien",
+    "name": "CS Sfaxien",
+    "cc": "TUN",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "us-monastir",
+    "name": "US Monastir",
+    "cc": "TUN",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "cab-bizerte",
+    "name": "CA Bizertin",
+    "cc": "TUN",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "stade-tunisien",
+    "name": "Stade Tunisien",
+    "cc": "TUN",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "os-beja",
+    "name": "OS Béja",
+    "cc": "TUN",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "js-kairouan",
+    "name": "JS Kairouan",
+    "cc": "TUN",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "us-ben-guerdane",
+    "name": "US Ben Guerdane",
+    "cc": "TUN",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "etoile-metlaoui",
+    "name": "ES Métlaoui",
+    "cc": "TUN",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "as-marsa",
+    "name": "AS Marsa",
+    "cc": "TUN",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "as-soliman",
+    "name": "AS Soliman",
+    "cc": "TUN",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "js-omrane",
+    "name": "JS El Omrane",
+    "cc": "TUN",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "wolves",
+    "name": "Wolverhampton",
+    "cc": "ENG",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "holstein-kiel",
+    "name": "Holstein Kiel",
+    "cc": "GER",
+    "reason": "No transparent shirt in matched records"
+  },
+  {
+    "id": "parma",
+    "name": "Parma",
+    "cc": "ITA",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "saint-etienne",
+    "name": "Saint-Étienne",
+    "cc": "FRA",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "famalicao",
+    "name": "Famalicão",
+    "cc": "POR",
+    "reason": "No transparent shirt in matched records"
+  },
+  {
+    "id": "casa-pia",
+    "name": "Casa Pia",
+    "cc": "POR",
+    "reason": "No transparent shirt in matched records"
+  },
+  {
+    "id": "estrela-amadora",
+    "name": "Estrela da Amadora",
+    "cc": "POR",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "aves",
+    "name": "Desportivo de Chaves",
+    "cc": "POR",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "vizela",
+    "name": "Vizela",
+    "cc": "POR",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "ave-pt",
+    "name": "AVS",
+    "cc": "POR",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "nec",
+    "name": "NEC Nijmegen",
+    "cc": "NED",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "go-ahead-eagles",
+    "name": "Go Ahead Eagles",
+    "cc": "NED",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "sparta-rotterdam",
+    "name": "Sparta Rotterdam",
+    "cc": "NED",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "fortuna-sittard",
+    "name": "Fortuna Sittard",
+    "cc": "NED",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "waalwijk",
+    "name": "RKC Waalwijk",
+    "cc": "NED",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "almere-city",
+    "name": "Almere City",
+    "cc": "NED",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "charleroi",
+    "name": "Charleroi",
+    "cc": "BEL",
+    "reason": "The operation was aborted due to timeout"
+  },
+  {
+    "id": "oh-leuven",
+    "name": "OH Leuven",
+    "cc": "BEL",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "stvv",
+    "name": "STVV",
+    "cc": "BEL",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "dender",
+    "name": "Dender",
+    "cc": "BEL",
+    "reason": "No transparent shirt in matched records"
+  },
+  {
+    "id": "cuiaba",
+    "name": "Cuiabá",
+    "cc": "BRA",
+    "reason": "No transparent shirt in matched records"
+  },
+  {
+    "id": "juventude",
+    "name": "Juventude",
+    "cc": "BRA",
+    "reason": "No transparent shirt in matched records"
+  },
+  {
+    "id": "union-sf",
+    "name": "Unión de Santa Fe",
+    "cc": "ARG",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "central-cordoba",
+    "name": "Central Córdoba",
+    "cc": "ARG",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "gimnasia-lp",
+    "name": "Gimnasia La Plata",
+    "cc": "ARG",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "platense",
+    "name": "Platense",
+    "cc": "ARG",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "barracas",
+    "name": "Barracas Central",
+    "cc": "ARG",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "patronato",
+    "name": "Patronato",
+    "cc": "ARG",
+    "reason": "No transparent shirt in matched records"
+  },
+  {
+    "id": "instituto",
+    "name": "Instituto",
+    "cc": "ARG",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "adana-demirspor",
+    "name": "Adana Demirspor",
+    "cc": "TUR",
+    "reason": "No transparent shirt in matched records"
+  },
+  {
+    "id": "antalyaspor",
+    "name": "Antalyaspor",
+    "cc": "TUR",
+    "reason": "No transparent shirt in matched records"
+  },
+  {
+    "id": "rizespor",
+    "name": "Çaykur Rizespor",
+    "cc": "TUR",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "alanyaspor",
+    "name": "Alanyaspor",
+    "cc": "TUR",
+    "reason": "No transparent shirt in matched records"
+  },
+  {
+    "id": "hatayspor",
+    "name": "Hatayspor",
+    "cc": "TUR",
+    "reason": "No transparent shirt in matched records"
+  },
+  {
+    "id": "kayserispor",
+    "name": "Kayserispor",
+    "cc": "TUR",
+    "reason": "No transparent shirt in matched records"
+  },
+  {
+    "id": "gaziantep",
+    "name": "Gaziantep FK",
+    "cc": "TUR",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "samsunspor",
+    "name": "Samsunspor",
+    "cc": "TUR",
+    "reason": "No transparent shirt in matched records"
+  },
+  {
+    "id": "pendikspor",
+    "name": "Pendikspor",
+    "cc": "TUR",
+    "reason": "No transparent shirt in matched records"
+  },
+  {
+    "id": "istanbulspor",
+    "name": "İstanbulspor",
+    "cc": "TUR",
+    "reason": "No transparent shirt in matched records"
+  },
+  {
+    "id": "bodrum-fk",
+    "name": "Bodrum FK",
+    "cc": "TUR",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "santos-laguna",
+    "name": "Santos Laguna",
+    "cc": "MEX",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "necaxa",
+    "name": "Necaxa",
+    "cc": "MEX",
+    "reason": "No transparent shirt in matched records"
+  },
+  {
+    "id": "mazatlan",
+    "name": "Mazatlán",
+    "cc": "MEX",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "juarez",
+    "name": "FC Juárez",
+    "cc": "MEX",
+    "reason": "No transparent shirt in matched records"
+  },
+  {
+    "id": "san-luis",
+    "name": "Atlético San Luis",
+    "cc": "MEX",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "nashville-sc",
+    "name": "Nashville SC",
+    "cc": "USA",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "austin-fc",
+    "name": "Austin FC",
+    "cc": "USA",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "charlotte-fc",
+    "name": "Charlotte FC",
+    "cc": "USA",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "cf-montreal",
+    "name": "CF Montréal",
+    "cc": "USA",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "st-louis-city",
+    "name": "St. Louis City SC",
+    "cc": "USA",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "san-diego-fc",
+    "name": "San Diego FC",
+    "cc": "USA",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "liverpool-uru",
+    "name": "Liverpool Montevideo",
+    "cc": "URU",
+    "reason": "No transparent shirt in matched records"
+  },
+  {
+    "id": "wanderers-uru",
+    "name": "Montevideo Wanderers",
+    "cc": "URU",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "plaza-colonia",
+    "name": "Plaza Colonia",
+    "cc": "URU",
+    "reason": "No transparent shirt in matched records"
+  },
+  {
+    "id": "boston-river",
+    "name": "Boston River",
+    "cc": "URU",
+    "reason": "No transparent shirt in matched records"
+  },
+  {
+    "id": "cerro-largo",
+    "name": "Cerro Largo",
+    "cc": "URU",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "progreso",
+    "name": "Progreso",
+    "cc": "URU",
+    "reason": "No transparent shirt in matched records"
+  },
+  {
+    "id": "cerro-uru",
+    "name": "Cerro",
+    "cc": "URU",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "deportivo-maldonado",
+    "name": "Deportivo Maldonado",
+    "cc": "URU",
+    "reason": "No transparent shirt in matched records"
+  },
+  {
+    "id": "al-raed",
+    "name": "Al-Raed",
+    "cc": "KSA",
+    "reason": "No transparent shirt in matched records"
+  },
+  {
+    "id": "al-akhdoud",
+    "name": "Al-Akhdoud",
+    "cc": "KSA",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "al-ittihad-eg",
+    "name": "Al-Ittihad Alexandria",
+    "cc": "EGY",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "baladeyet-mahalla",
+    "name": "Baladiyyat al-Mahalla",
+    "cc": "EGY",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "haras-el-hodoud",
+    "name": "Haras El Hodoud",
+    "cc": "EGY",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "ts-galaxy",
+    "name": "TS Galaxy",
+    "cc": "RSA",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "royal-am",
+    "name": "Royal AM",
+    "cc": "RSA",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "kwara-united",
+    "name": "Kwara United",
+    "cc": "NGA",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "heartland-fc",
+    "name": "Heartland FC",
+    "cc": "NGA",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "doma-united",
+    "name": "Doma United",
+    "cc": "NGA",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "gombe-united",
+    "name": "Gombe United",
+    "cc": "NGA",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "bayelsa-united",
+    "name": "Bayelsa United",
+    "cc": "NGA",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "wikki-tourists",
+    "name": "Wikki Tourists",
+    "cc": "NGA",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "sagan-tosu",
+    "name": "Sagan Tosu",
+    "cc": "JPN",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "jubilo-iwata",
+    "name": "Júbilo Iwata",
+    "cc": "JPN",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "tokyo-verdy",
+    "name": "Tokyo Verdy",
+    "cc": "JPN",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "consadole-sapporo",
+    "name": "Consadole Sapporo",
+    "cc": "JPN",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "fastav-zlin",
+    "name": "Fastav Zlín",
+    "cc": "CZE",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "usti-nad-labem",
+    "name": "FK Ústí nad Labem",
+    "cc": "CZE",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "karvina",
+    "name": "Karviná",
+    "cc": "CZE",
+    "reason": "No transparent shirt in matched records"
+  },
+  {
+    "id": "pardubice",
+    "name": "Pardubice",
+    "cc": "CZE",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "imt-belgrade",
+    "name": "IMT Belgrade",
+    "cc": "SRB",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "novi-pazar",
+    "name": "FK Novi Pazar",
+    "cc": "SRB",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "zeleznicar-pancevo",
+    "name": "Železničar Pančevo",
+    "cc": "SRB",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "tekstilac",
+    "name": "Tekstilac Odžaci",
+    "cc": "SRB",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "metalist-1925",
+    "name": "Metalist 1925",
+    "cc": "UKR",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "mynai",
+    "name": "Mynai",
+    "cc": "UKR",
+    "reason": "No transparent shirt in matched records"
+  },
+  {
+    "id": "veres-rivne",
+    "name": "Veres Rivne",
+    "cc": "UKR",
+    "reason": "No transparent shirt in matched records"
+  },
+  {
+    "id": "tonnerre",
+    "name": "Tonnerre Yaoundé",
+    "cc": "CMR",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "new-star",
+    "name": "New Star de Douala",
+    "cc": "CMR",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "renaissance-ngoumou",
+    "name": "Renaissance de Ngoumou",
+    "cc": "CMR",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "astres-de-douala",
+    "name": "Astres de Douala",
+    "cc": "CMR",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "accra-great-olympics",
+    "name": "Accra Great Olympics",
+    "cc": "GHA",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "bibiani-gold-stars",
+    "name": "Bibiani Gold Stars",
+    "cc": "GHA",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "tamale-city",
+    "name": "Tamale City",
+    "cc": "GHA",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "real-tamale-utd",
+    "name": "Real Tamale United",
+    "cc": "GHA",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "stal-mielec",
+    "name": "Stal Mielec",
+    "cc": "POL",
+    "reason": "No transparent shirt in matched records"
+  },
+  {
+    "id": "puszcza-niepolomice",
+    "name": "Puszcza Niepołomice",
+    "cc": "POL",
+    "reason": "No transparent shirt in matched records"
+  },
+  {
+    "id": "ittihad-tanger",
+    "name": "Ittihad Tanger",
+    "cc": "MAR",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "chabab-mohammedia",
+    "name": "Chabab Mohammedia",
+    "cc": "MAR",
+    "reason": "No transparent shirt in matched records"
+  },
+  {
+    "id": "mes-kerman",
+    "name": "Mes Kerman",
+    "cc": "IRN",
+    "reason": "No transparent shirt in matched records"
+  },
+  {
+    "id": "sanat-naft",
+    "name": "Sanat Naft",
+    "cc": "IRN",
+    "reason": "No transparent shirt in matched records"
+  },
+  {
+    "id": "na-hussein-dey",
+    "name": "NA Hussein Dey",
+    "cc": "ALG",
+    "reason": "No transparent shirt in matched records"
+  },
+  {
+    "id": "rc-relizane",
+    "name": "RC Relizane",
+    "cc": "ALG",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "cs-hammam-lif",
+    "name": "CS Hammam-Lif",
+    "cc": "TUN",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "ca-bizertin",
+    "name": "CA Bizertin",
+    "cc": "TUN",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "jaguares",
+    "name": "Jaguares de Córdoba",
+    "cc": "COL",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "patriotas",
+    "name": "Patriotas Boyacá",
+    "cc": "COL",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "carlos-mannucci",
+    "name": "Carlos A. Mannucci",
+    "cc": "PER",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "deportivo-binacional",
+    "name": "Deportivo Binacional",
+    "cc": "PER",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "trujillanos",
+    "name": "Trujillanos FC",
+    "cc": "VEN",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "yaracuyanos",
+    "name": "Yaracuyanos FC",
+    "cc": "VEN",
+    "reason": "No transparent shirt in matched records"
+  }
+]
