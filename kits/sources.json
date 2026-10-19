@@ -875,6 +875,18 @@
     "sha256": "f481b23c8e4dbb003e854638d97e520fa1abd92c094acc0f41b6c4b244edc38b",
     "encoding": "png8-512"
   },
+  "newells": {
+    "file": "newells.png",
+    "club": "Newell's Old Boys",
+    "country": "ARG",
+    "source": "https://r2.thesportsdb.com/images/media/team/equipment/upvtvv1423783844.png",
+    "teamId": "135166",
+    "catalogSource": "https://raw.githubusercontent.com/broscr/teams-database/55d7c8402dc3c80bacefc476330ddc6687cb7d5f/futbol/argentina.json",
+    "width": 500,
+    "height": 500,
+    "encoding": "png8-512",
+    "sha256": "fd6ffb8574f83f2bfccf15bab7c1848bc0e01deadd0956ea7968a3be59ac423d"
+  },
   "braga": {
     "file": "braga.png",
     "club": "Braga",
@@ -3094,6 +3106,18 @@
     "height": 500,
     "sha256": "6d5473199008f7ca6436cf0d7c675b576a3dea04fb7f577f0bc79a4ea929e287",
     "encoding": "png8-512"
+  },
+  "charleroi": {
+    "file": "charleroi.png",
+    "club": "Charleroi",
+    "country": "BEL",
+    "source": "https://r2.thesportsdb.com/images/media/team/equipment/utqtux1454114917.png",
+    "teamId": "133826",
+    "catalogSource": "https://raw.githubusercontent.com/broscr/teams-database/55d7c8402dc3c80bacefc476330ddc6687cb7d5f/futbol/belgium.json",
+    "width": 500,
+    "height": 500,
+    "encoding": "png8-512",
+    "sha256": "8aba4781ca127b1b1108d9b9ece80fa972f5cba856fb30cec42d10578a1fa1fe"
   },
   "sint-truiden": {
     "file": "sint-truiden.png",

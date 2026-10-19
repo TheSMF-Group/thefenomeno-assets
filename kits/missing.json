@@ -468,6 +468,12 @@
     "reason": "No verified team match in available catalogs"
   },
   {
+    "id": "o-higgins",
+    "name": "O'Higgins",
+    "cc": "CHI",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
     "id": "deportes-iquique",
     "name": "Deportes Iquique",
     "cc": "CHI",
@@ -2760,12 +2766,6 @@
     "reason": "No verified team match in available catalogs"
   },
   {
-    "id": "charleroi",
-    "name": "Charleroi",
-    "cc": "BEL",
-    "reason": "The operation was aborted due to timeout"
-  },
-  {
     "id": "oh-leuven",
     "name": "OH Leuven",
     "cc": "BEL",
@@ -3032,6 +3032,12 @@
   {
     "id": "al-ittihad-eg",
     "name": "Al-Ittihad Alexandria",
+    "cc": "EGY",
+    "reason": "No verified team match in available catalogs"
+  },
+  {
+    "id": "tala-el-gaish",
+    "name": "Tala'a El-Gaish",
     "cc": "EGY",
     "reason": "No verified team match in available catalogs"
   },
