@@ -1,0 +1,4724 @@
+{
+  "source": "https://www.2kratings.com",
+  "generated_at": "2026-11-11T22:49:17.004503+00:00",
+  "total": 524,
+  "images_available": 524,
+  "players": [
+    {
+      "id": "aaron-wiggins",
+      "name": "Aaron Wiggins",
+      "team": "Atlanta Hawks",
+      "profile": "https://www.2kratings.com/aaron-wiggins",
+      "image": "players/aaron-wiggins.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Aaron-Wiggins-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "asa-newell",
+      "name": "Asa Newell",
+      "team": "Atlanta Hawks",
+      "profile": "https://www.2kratings.com/asa-newell",
+      "image": "players/asa-newell.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Asa-Newell-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "cj-mccollum",
+      "name": "C.J. McCollum",
+      "team": "Atlanta Hawks",
+      "profile": "https://www.2kratings.com/cj-mccollum",
+      "image": "players/cj-mccollum.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/CJ-McCollum-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "corey-kispert",
+      "name": "Corey Kispert",
+      "team": "Atlanta Hawks",
+      "profile": "https://www.2kratings.com/corey-kispert",
+      "image": "players/corey-kispert.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Corey-Kispert-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "dorian-finney-smith",
+      "name": "Dorian Finney-Smith",
+      "team": "Atlanta Hawks",
+      "profile": "https://www.2kratings.com/dorian-finney-smith",
+      "image": "players/dorian-finney-smith.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Dorian-Finney-Smith-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "dyson-daniels",
+      "name": "Dyson Daniels",
+      "team": "Atlanta Hawks",
+      "profile": "https://www.2kratings.com/dyson-daniels",
+      "image": "players/dyson-daniels.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Dyson-Daniels-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "henri-veesaar",
+      "name": "Henri Veesaar",
+      "team": "Atlanta Hawks",
+      "profile": "https://www.2kratings.com/henri-veesaar",
+      "image": "players/henri-veesaar.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Henri-Veesaar-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "jalen-johnson",
+      "name": "Jalen Johnson",
+      "team": "Atlanta Hawks",
+      "profile": "https://www.2kratings.com/jalen-johnson",
+      "image": "players/jalen-johnson.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Jalen-Johnson-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "jalen-wilson",
+      "name": "Jalen Wilson",
+      "team": "Atlanta Hawks",
+      "profile": "https://www.2kratings.com/jalen-wilson",
+      "image": "players/jalen-wilson.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Jalen-Wilson-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "jock-landale",
+      "name": "Jock Landale",
+      "team": "Atlanta Hawks",
+      "profile": "https://www.2kratings.com/jock-landale",
+      "image": "players/jock-landale.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Jock-Landale-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "keshon-gilbert",
+      "name": "Keshon Gilbert",
+      "team": "Atlanta Hawks",
+      "profile": "https://www.2kratings.com/keshon-gilbert",
+      "image": "players/keshon-gilbert.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Keshon-Gilbert-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "kingston-flemings",
+      "name": "Kingston Flemings",
+      "team": "Atlanta Hawks",
+      "profile": "https://www.2kratings.com/kingston-flemings",
+      "image": "players/kingston-flemings.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Kingston-Flemings-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "luguentz-dort",
+      "name": "Luguentz Dort",
+      "team": "Atlanta Hawks",
+      "profile": "https://www.2kratings.com/luguentz-dort",
+      "image": "players/luguentz-dort.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Luguentz-Dort-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "mouhamed-gueye",
+      "name": "Mouhamed Gueye",
+      "team": "Atlanta Hawks",
+      "profile": "https://www.2kratings.com/mouhamed-gueye",
+      "image": "players/mouhamed-gueye.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Mouhamed-Gueye-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "nickeil-alexander-walker",
+      "name": "Nickeil Alexander-Walker",
+      "team": "Atlanta Hawks",
+      "profile": "https://www.2kratings.com/nickeil-alexander-walker",
+      "image": "players/nickeil-alexander-walker.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Nickeil-Alexander-Walker-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "onyeka-okongwu",
+      "name": "Onyeka Okongwu",
+      "team": "Atlanta Hawks",
+      "profile": "https://www.2kratings.com/onyeka-okongwu",
+      "image": "players/onyeka-okongwu.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Onyeka-Okongwu-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "rayj-dennis",
+      "name": "RayJ Dennis",
+      "team": "Atlanta Hawks",
+      "profile": "https://www.2kratings.com/rayj-dennis",
+      "image": "players/rayj-dennis.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/RayJ-Dennis-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "zuby-ejiofor",
+      "name": "Zuby Ejiofor",
+      "team": "Atlanta Hawks",
+      "profile": "https://www.2kratings.com/zuby-ejiofor",
+      "image": "players/zuby-ejiofor.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Zuby-Ejiofor-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "amari-williams",
+      "name": "Amari Williams",
+      "team": "Boston Celtics",
+      "profile": "https://www.2kratings.com/amari-williams",
+      "image": "players/amari-williams.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Amari-Williams-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "baylor-scheierman",
+      "name": "Baylor Scheierman",
+      "team": "Boston Celtics",
+      "profile": "https://www.2kratings.com/baylor-scheierman",
+      "image": "players/baylor-scheierman.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Baylor-Scheierman-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "chris-cenac-jr",
+      "name": "Chris Cenac Jr.",
+      "team": "Boston Celtics",
+      "profile": "https://www.2kratings.com/chris-cenac-jr",
+      "image": "players/chris-cenac-jr.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Chris-Cenac-Jr-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "derrick-white",
+      "name": "Derrick White",
+      "team": "Boston Celtics",
+      "profile": "https://www.2kratings.com/derrick-white",
+      "image": "players/derrick-white.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Derrick-White-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "devin-carter",
+      "name": "Devin Carter",
+      "team": "Boston Celtics",
+      "profile": "https://www.2kratings.com/devin-carter",
+      "image": "players/devin-carter.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Devin-Carter-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "dillon-mitchell",
+      "name": "Dillon Mitchell",
+      "team": "Boston Celtics",
+      "profile": "https://www.2kratings.com/dillon-mitchell",
+      "image": "players/dillon-mitchell.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Dillon-Mitchell-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "hugo-gonzalez",
+      "name": "Hugo Gonzalez",
+      "team": "Boston Celtics",
+      "profile": "https://www.2kratings.com/hugo-gonzalez",
+      "image": "players/hugo-gonzalez.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Hugo-Gonzalez-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "jayson-tatum",
+      "name": "Jayson Tatum",
+      "team": "Boston Celtics",
+      "profile": "https://www.2kratings.com/jayson-tatum",
+      "image": "players/jayson-tatum.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Jayson-Tatum-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "jordan-walsh",
+      "name": "Jordan Walsh",
+      "team": "Boston Celtics",
+      "profile": "https://www.2kratings.com/jordan-walsh",
+      "image": "players/jordan-walsh.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Jordan-Walsh-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "luka-garza",
+      "name": "Luka Garza",
+      "team": "Boston Celtics",
+      "profile": "https://www.2kratings.com/luka-garza",
+      "image": "players/luka-garza.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Luka-Garza-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "mike-conley",
+      "name": "Mike Conley",
+      "team": "Boston Celtics",
+      "profile": "https://www.2kratings.com/mike-conley",
+      "image": "players/mike-conley.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Mike-Conley-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "mitchell-robinson",
+      "name": "Mitchell Robinson",
+      "team": "Boston Celtics",
+      "profile": "https://www.2kratings.com/mitchell-robinson",
+      "image": "players/mitchell-robinson.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Mitchell-Robinson-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "neemias-queta",
+      "name": "Neemias Queta",
+      "team": "Boston Celtics",
+      "profile": "https://www.2kratings.com/neemias-queta",
+      "image": "players/neemias-queta.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Neemias-Queta-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "paul-george",
+      "name": "Paul George",
+      "team": "Boston Celtics",
+      "profile": "https://www.2kratings.com/paul-george",
+      "image": "players/paul-george.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Paul-George-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "payton-pritchard",
+      "name": "Payton Pritchard",
+      "team": "Boston Celtics",
+      "profile": "https://www.2kratings.com/payton-pritchard",
+      "image": "players/payton-pritchard.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Payton-Pritchard-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "ron-harper-jr",
+      "name": "Ron Harper Jr.",
+      "team": "Boston Celtics",
+      "profile": "https://www.2kratings.com/ron-harper-jr",
+      "image": "players/ron-harper-jr.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Ron-Harper-Jr-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "sam-hauser",
+      "name": "Sam Hauser",
+      "team": "Boston Celtics",
+      "profile": "https://www.2kratings.com/sam-hauser",
+      "image": "players/sam-hauser.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Sam-Hauser-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "ben-saraf",
+      "name": "Ben Saraf",
+      "team": "Brooklyn Nets",
+      "profile": "https://www.2kratings.com/ben-saraf",
+      "image": "players/ben-saraf.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Ben-Saraf-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "chaney-johnson",
+      "name": "Chaney Johnson",
+      "team": "Brooklyn Nets",
+      "profile": "https://www.2kratings.com/chaney-johnson",
+      "image": "players/chaney-johnson.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Chaney-Johnson-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "danny-wolf",
+      "name": "Danny Wolf",
+      "team": "Brooklyn Nets",
+      "profile": "https://www.2kratings.com/danny-wolf",
+      "image": "players/danny-wolf.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Danny-Wolf-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "dayron-sharpe",
+      "name": "Day’Ron Sharpe",
+      "team": "Brooklyn Nets",
+      "profile": "https://www.2kratings.com/dayron-sharpe",
+      "image": "players/dayron-sharpe.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/DayRon-Sharpe-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "drake-powell",
+      "name": "Drake Powell",
+      "team": "Brooklyn Nets",
+      "profile": "https://www.2kratings.com/drake-powell",
+      "image": "players/drake-powell.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Drake-Powell-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "egor-demin",
+      "name": "Egor Demin",
+      "team": "Brooklyn Nets",
+      "profile": "https://www.2kratings.com/egor-demin",
+      "image": "players/egor-demin.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Egor-Demin-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "grant-nelson",
+      "name": "Grant Nelson",
+      "team": "Brooklyn Nets",
+      "profile": "https://www.2kratings.com/grant-nelson",
+      "image": "players/grant-nelson.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Grant-Nelson-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "josh-minott",
+      "name": "Josh Minott",
+      "team": "Brooklyn Nets",
+      "profile": "https://www.2kratings.com/josh-minott",
+      "image": "players/josh-minott.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Josh-Minott-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "joshua-jefferson",
+      "name": "Joshua Jefferson",
+      "team": "Brooklyn Nets",
+      "profile": "https://www.2kratings.com/joshua-jefferson",
+      "image": "players/joshua-jefferson.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Joshua-Jefferson-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "julius-randle",
+      "name": "Julius Randle",
+      "team": "Brooklyn Nets",
+      "profile": "https://www.2kratings.com/julius-randle",
+      "image": "players/julius-randle.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Julius-Randle-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "keon-ellis",
+      "name": "Keon Ellis",
+      "team": "Brooklyn Nets",
+      "profile": "https://www.2kratings.com/keon-ellis",
+      "image": "players/keon-ellis.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Keon-Ellis-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "michael-porter-jr",
+      "name": "Michael Porter Jr.",
+      "team": "Brooklyn Nets",
+      "profile": "https://www.2kratings.com/michael-porter-jr",
+      "image": "players/michael-porter-jr.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Michael-Porter-Jr-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "mikel-brown-jr",
+      "name": "Mikel Brown Jr.",
+      "team": "Brooklyn Nets",
+      "profile": "https://www.2kratings.com/mikel-brown-jr",
+      "image": "players/mikel-brown-jr.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Mikel-Brown-Jr-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "moritz-wagner",
+      "name": "Moritz Wagner",
+      "team": "Brooklyn Nets",
+      "profile": "https://www.2kratings.com/moritz-wagner",
+      "image": "players/moritz-wagner.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Moritz-Wagner-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "noah-clowney",
+      "name": "Noah Clowney",
+      "team": "Brooklyn Nets",
+      "profile": "https://www.2kratings.com/noah-clowney",
+      "image": "players/noah-clowney.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Noah-Clowney-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "nolan-traore",
+      "name": "Nolan Traore",
+      "team": "Brooklyn Nets",
+      "profile": "https://www.2kratings.com/nolan-traore",
+      "image": "players/nolan-traore.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Nolan-Traore-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "terance-mann",
+      "name": "Terance Mann",
+      "team": "Brooklyn Nets",
+      "profile": "https://www.2kratings.com/terance-mann",
+      "image": "players/terance-mann.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Terance-Mann-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "tyler-bilodeau",
+      "name": "Tyler Bilodeau",
+      "team": "Brooklyn Nets",
+      "profile": "https://www.2kratings.com/tyler-bilodeau",
+      "image": "players/tyler-bilodeau.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Tyler-Bilodeau-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "brandon-miller",
+      "name": "Brandon Miller",
+      "team": "Charlotte Hornets",
+      "profile": "https://www.2kratings.com/brandon-miller",
+      "image": "players/brandon-miller.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Brandon-Miller-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "christian-anderson",
+      "name": "Christian Anderson",
+      "team": "Charlotte Hornets",
+      "profile": "https://www.2kratings.com/christian-anderson",
+      "image": "players/christian-anderson.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Christian-Anderson-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "coby-white",
+      "name": "Coby White",
+      "team": "Charlotte Hornets",
+      "profile": "https://www.2kratings.com/coby-white",
+      "image": "players/coby-white.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Coby-White-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "dennis-schroder",
+      "name": "Dennis Schroder",
+      "team": "Charlotte Hornets",
+      "profile": "https://www.2kratings.com/dennis-schroder",
+      "image": "players/dennis-schroder.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Dennis-Schroder-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "grant-williams",
+      "name": "Grant Williams",
+      "team": "Charlotte Hornets",
+      "profile": "https://www.2kratings.com/grant-williams",
+      "image": "players/grant-williams.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Grant-Williams-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "grayson-allen",
+      "name": "Grayson Allen",
+      "team": "Charlotte Hornets",
+      "profile": "https://www.2kratings.com/grayson-allen",
+      "image": "players/grayson-allen.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Grayson-Allen-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "hannes-steinbach",
+      "name": "Hannes Steinbach",
+      "team": "Charlotte Hornets",
+      "profile": "https://www.2kratings.com/hannes-steinbach",
+      "image": "players/hannes-steinbach.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Hannes-Steinbach-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "kon-knueppel",
+      "name": "Kon Knueppel",
+      "team": "Charlotte Hornets",
+      "profile": "https://www.2kratings.com/kon-knueppel",
+      "image": "players/kon-knueppel.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Kon-Knueppel-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "kylan-boswell",
+      "name": "Kylan Boswell",
+      "team": "Charlotte Hornets",
+      "profile": "https://www.2kratings.com/kylan-boswell",
+      "image": "players/kylan-boswell.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Kylan-Boswell-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "liam-mcneeley",
+      "name": "Liam McNeeley",
+      "team": "Charlotte Hornets",
+      "profile": "https://www.2kratings.com/liam-mcneeley",
+      "image": "players/liam-mcneeley.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Liam-McNeeley-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "michael-ajayi",
+      "name": "Michael Ajayi",
+      "team": "Charlotte Hornets",
+      "profile": "https://www.2kratings.com/michael-ajayi",
+      "image": "players/michael-ajayi.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Michael-Ajayi-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "moussa-diabate",
+      "name": "Moussa Diabate",
+      "team": "Charlotte Hornets",
+      "profile": "https://www.2kratings.com/moussa-diabate",
+      "image": "players/moussa-diabate.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Moussa-Diabate-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "naz-reid",
+      "name": "Naz Reid",
+      "team": "Charlotte Hornets",
+      "profile": "https://www.2kratings.com/naz-reid",
+      "image": "players/naz-reid.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Naz-Reid-2K-Rating-1.png",
+      "status": "ok"
+    },
+    {
+      "id": "pj-hall",
+      "name": "P.J. Hall",
+      "team": "Charlotte Hornets",
+      "profile": "https://www.2kratings.com/pj-hall",
+      "image": "players/pj-hall.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/PJ-Hall-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "royce-oneale",
+      "name": "Royce O’Neale",
+      "team": "Charlotte Hornets",
+      "profile": "https://www.2kratings.com/royce-oneale",
+      "image": "players/royce-oneale.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Royce-ONeale-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "ryan-kalkbrenner",
+      "name": "Ryan Kalkbrenner",
+      "team": "Charlotte Hornets",
+      "profile": "https://www.2kratings.com/ryan-kalkbrenner",
+      "image": "players/ryan-kalkbrenner.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Ryan-Kalkbrenner-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "sion-james",
+      "name": "Sion James",
+      "team": "Charlotte Hornets",
+      "profile": "https://www.2kratings.com/sion-james",
+      "image": "players/sion-james.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Sion-James-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "tidjane-salaun",
+      "name": "Tidjane Salaun",
+      "team": "Charlotte Hornets",
+      "profile": "https://www.2kratings.com/tidjane-salaun",
+      "image": "players/tidjane-salaun.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Tidjane-Salaun-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "buddy-hield",
+      "name": "Buddy Hield",
+      "team": "Chicago Bulls",
+      "profile": "https://www.2kratings.com/buddy-hield",
+      "image": "players/buddy-hield.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Buddy-Hield-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "caleb-wilson",
+      "name": "Caleb Wilson",
+      "team": "Chicago Bulls",
+      "profile": "https://www.2kratings.com/caleb-wilson",
+      "image": "players/caleb-wilson.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Caleb-Wilson-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "dailyn-swain",
+      "name": "Dailyn Swain",
+      "team": "Chicago Bulls",
+      "profile": "https://www.2kratings.com/dailyn-swain",
+      "image": "players/dailyn-swain.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Dailyn-Swain-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "isaac-okoro",
+      "name": "Isaac Okoro",
+      "team": "Chicago Bulls",
+      "profile": "https://www.2kratings.com/isaac-okoro",
+      "image": "players/isaac-okoro.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Isaac-Okoro-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "jalen-smith",
+      "name": "Jalen Smith",
+      "team": "Chicago Bulls",
+      "profile": "https://www.2kratings.com/jalen-smith",
+      "image": "players/jalen-smith.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Jalen-Smith-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "jaylin-sellers",
+      "name": "Jaylin Sellers",
+      "team": "Chicago Bulls",
+      "profile": "https://www.2kratings.com/jaylin-sellers",
+      "image": "players/jaylin-sellers.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Jaylin-Sellers-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "jordan-hawkins",
+      "name": "Jordan Hawkins",
+      "team": "Chicago Bulls",
+      "profile": "https://www.2kratings.com/jordan-hawkins",
+      "image": "players/jordan-hawkins.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Jordan-Hawkins-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "josh-giddey",
+      "name": "Josh Giddey",
+      "team": "Chicago Bulls",
+      "profile": "https://www.2kratings.com/josh-giddey",
+      "image": "players/josh-giddey.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Josh-Giddey-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "leonard-miller",
+      "name": "Leonard Miller",
+      "team": "Chicago Bulls",
+      "profile": "https://www.2kratings.com/leonard-miller",
+      "image": "players/leonard-miller.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Leonard-Miller-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "matas-buzelis",
+      "name": "Matas Buzelis",
+      "team": "Chicago Bulls",
+      "profile": "https://www.2kratings.com/matas-buzelis",
+      "image": "players/matas-buzelis.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Matas-Buzelis-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "nicolas-claxton",
+      "name": "Nicolas Claxton",
+      "team": "Chicago Bulls",
+      "profile": "https://www.2kratings.com/nicolas-claxton",
+      "image": "players/nicolas-claxton.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Nicolas-Claxton-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "noa-essengue",
+      "name": "Noa Essengue",
+      "team": "Chicago Bulls",
+      "profile": "https://www.2kratings.com/noa-essengue",
+      "image": "players/noa-essengue.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Noa-Essengue-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "norman-powell",
+      "name": "Norman Powell",
+      "team": "Chicago Bulls",
+      "profile": "https://www.2kratings.com/norman-powell",
+      "image": "players/norman-powell.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Norman-Powell-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "patrick-williams",
+      "name": "Patrick Williams",
+      "team": "Chicago Bulls",
+      "profile": "https://www.2kratings.com/patrick-williams",
+      "image": "players/patrick-williams.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Patrick-Williams-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "tobe-awaka",
+      "name": "Tobe Awaka",
+      "team": "Chicago Bulls",
+      "profile": "https://www.2kratings.com/tobe-awaka",
+      "image": "players/tobe-awaka.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Tobe-Awaka-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "tre-jones",
+      "name": "Tre Jones",
+      "team": "Chicago Bulls",
+      "profile": "https://www.2kratings.com/tre-jones",
+      "image": "players/tre-jones.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Tre-Jones-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "zach-collins",
+      "name": "Zach Collins",
+      "team": "Chicago Bulls",
+      "profile": "https://www.2kratings.com/zach-collins",
+      "image": "players/zach-collins.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Zach-Collins-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "craig-porter",
+      "name": "Craig Porter Jr.",
+      "team": "Cleveland Cavaliers",
+      "profile": "https://www.2kratings.com/craig-porter",
+      "image": "players/craig-porter.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Craig-Porter-Jr-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "donovan-mitchell",
+      "name": "Donovan Mitchell",
+      "team": "Cleveland Cavaliers",
+      "profile": "https://www.2kratings.com/donovan-mitchell",
+      "image": "players/donovan-mitchell.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Donovan-Mitchell-2K-Rating-1.png",
+      "status": "ok"
+    },
+    {
+      "id": "ernest-udeh-jr",
+      "name": "Ernest Udeh Jr.",
+      "team": "Cleveland Cavaliers",
+      "profile": "https://www.2kratings.com/ernest-udeh-jr",
+      "image": "players/ernest-udeh-jr.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Ernest-Udeh-Jr-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "evan-mobley",
+      "name": "Evan Mobley",
+      "team": "Cleveland Cavaliers",
+      "profile": "https://www.2kratings.com/evan-mobley",
+      "image": "players/evan-mobley.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Evan-Mobley-2K-Rating-1.png",
+      "status": "ok"
+    },
+    {
+      "id": "james-harden",
+      "name": "James Harden",
+      "team": "Cleveland Cavaliers",
+      "profile": "https://www.2kratings.com/james-harden",
+      "image": "players/james-harden.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/James-Harden-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "jarrett-allen",
+      "name": "Jarrett Allen",
+      "team": "Cleveland Cavaliers",
+      "profile": "https://www.2kratings.com/jarrett-allen",
+      "image": "players/jarrett-allen.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Jarrett-Allen-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "jaylon-tyson",
+      "name": "Jaylon Tyson",
+      "team": "Cleveland Cavaliers",
+      "profile": "https://www.2kratings.com/jaylon-tyson",
+      "image": "players/jaylon-tyson.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Jaylon-Tyson-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "khalifa-diop",
+      "name": "Khalifa Diop",
+      "team": "Cleveland Cavaliers",
+      "profile": "https://www.2kratings.com/khalifa-diop",
+      "image": "players/khalifa-diop.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Khalifa-Diop-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "mario-hezonja",
+      "name": "Mario Hezonja",
+      "team": "Cleveland Cavaliers",
+      "profile": "https://www.2kratings.com/mario-hezonja",
+      "image": "players/mario-hezonja.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Mario-Hezonja-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "meleek-thomas",
+      "name": "Meleek Thomas",
+      "team": "Cleveland Cavaliers",
+      "profile": "https://www.2kratings.com/meleek-thomas",
+      "image": "players/meleek-thomas.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Meleek-Thomas-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "naeqwan-tomlin",
+      "name": "Nae’Qwan Tomlin",
+      "team": "Cleveland Cavaliers",
+      "profile": "https://www.2kratings.com/naeqwan-tomlin",
+      "image": "players/naeqwan-tomlin.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/NaeQwan-Tomlin-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "norchad-omier",
+      "name": "Norchad Omier",
+      "team": "Cleveland Cavaliers",
+      "profile": "https://www.2kratings.com/norchad-omier",
+      "image": "players/norchad-omier.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Norchad-Omier-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "peyton-watson",
+      "name": "Peyton Watson",
+      "team": "Cleveland Cavaliers",
+      "profile": "https://www.2kratings.com/peyton-watson",
+      "image": "players/peyton-watson.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Peyton-Watson-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "sam-merrill",
+      "name": "Sam Merrill",
+      "team": "Cleveland Cavaliers",
+      "profile": "https://www.2kratings.com/sam-merrill",
+      "image": "players/sam-merrill.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Sam-Merrill-2K-Rating-1.png",
+      "status": "ok"
+    },
+    {
+      "id": "thomas-bryant",
+      "name": "Thomas Bryant",
+      "team": "Cleveland Cavaliers",
+      "profile": "https://www.2kratings.com/thomas-bryant",
+      "image": "players/thomas-bryant.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Thomas-Bryant-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "tristan-enaruna",
+      "name": "Tristan Enaruna",
+      "team": "Cleveland Cavaliers",
+      "profile": "https://www.2kratings.com/tristan-enaruna",
+      "image": "players/tristan-enaruna.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Tristan-Enaruna-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "tyrese-proctor",
+      "name": "Tyrese Proctor",
+      "team": "Cleveland Cavaliers",
+      "profile": "https://www.2kratings.com/tyrese-proctor",
+      "image": "players/tyrese-proctor.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Tyrese-Proctor-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "caleb-martin",
+      "name": "Caleb Martin",
+      "team": "Dallas Mavericks",
+      "profile": "https://www.2kratings.com/caleb-martin",
+      "image": "players/caleb-martin.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Caleb-Martin-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "cooper-flagg",
+      "name": "Cooper Flagg",
+      "team": "Dallas Mavericks",
+      "profile": "https://www.2kratings.com/cooper-flagg",
+      "image": "players/cooper-flagg.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Cooper-Flagg-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "daniel-gafford",
+      "name": "Daniel Gafford",
+      "team": "Dallas Mavericks",
+      "profile": "https://www.2kratings.com/daniel-gafford",
+      "image": "players/daniel-gafford.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Daniel-Gafford-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "dereck-lively-ii",
+      "name": "Dereck Lively II",
+      "team": "Dallas Mavericks",
+      "profile": "https://www.2kratings.com/dereck-lively-ii",
+      "image": "players/dereck-lively-ii.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Dereck-Lively-II-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "jett-howard",
+      "name": "Jett Howard",
+      "team": "Dallas Mavericks",
+      "profile": "https://www.2kratings.com/jett-howard",
+      "image": "players/jett-howard.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Jett-Howard-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "kyrie-irving",
+      "name": "Kyrie Irving",
+      "team": "Dallas Mavericks",
+      "profile": "https://www.2kratings.com/kyrie-irving",
+      "image": "players/kyrie-irving.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Kyrie-Irving-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "marcus-sasser",
+      "name": "Marcus Sasser",
+      "team": "Dallas Mavericks",
+      "profile": "https://www.2kratings.com/marcus-sasser",
+      "image": "players/marcus-sasser.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Marcus-Sasser-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "max-christie",
+      "name": "Max Christie",
+      "team": "Dallas Mavericks",
+      "profile": "https://www.2kratings.com/max-christie",
+      "image": "players/max-christie.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Max-Christie-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "morez-johnson-jr",
+      "name": "Morez Johnson Jr.",
+      "team": "Dallas Mavericks",
+      "profile": "https://www.2kratings.com/morez-johnson-jr",
+      "image": "players/morez-johnson-jr.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Morez-Johnson-Jr-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "moussa-cisse",
+      "name": "Moussa Cisse",
+      "team": "Dallas Mavericks",
+      "profile": "https://www.2kratings.com/moussa-cisse",
+      "image": "players/moussa-cisse.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Moussa-Cisse-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "naji-marshall",
+      "name": "Naji Marshall",
+      "team": "Dallas Mavericks",
+      "profile": "https://www.2kratings.com/naji-marshall",
+      "image": "players/naji-marshall.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Naji-Marshall-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "pj-washington",
+      "name": "P.J. Washington",
+      "team": "Dallas Mavericks",
+      "profile": "https://www.2kratings.com/pj-washington",
+      "image": "players/pj-washington.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/PJ-Washington-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "santi-aldama",
+      "name": "Santi Aldama",
+      "team": "Dallas Mavericks",
+      "profile": "https://www.2kratings.com/santi-aldama",
+      "image": "players/santi-aldama.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Santi-Aldama-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "sergio-de-larrea",
+      "name": "Sergio De Larrea",
+      "team": "Dallas Mavericks",
+      "profile": "https://www.2kratings.com/sergio-de-larrea",
+      "image": "players/sergio-de-larrea.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Sergio-De-Larrea-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "tarik-biberovic",
+      "name": "Tarik Biberovic",
+      "team": "Dallas Mavericks",
+      "profile": "https://www.2kratings.com/tarik-biberovic",
+      "image": "players/tarik-biberovic.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Tarik-Biberovic-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "tobi-lawal",
+      "name": "Tobi Lawal",
+      "team": "Dallas Mavericks",
+      "profile": "https://www.2kratings.com/tobi-lawal",
+      "image": "players/tobi-lawal.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Tobi-Lawal-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "walter-clayton-jr",
+      "name": "Walter Clayton Jr.",
+      "team": "Dallas Mavericks",
+      "profile": "https://www.2kratings.com/walter-clayton-jr",
+      "image": "players/walter-clayton-jr.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Walter-Clayton-Jr-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "zaccharie-risacher",
+      "name": "Zaccharie Risacher",
+      "team": "Dallas Mavericks",
+      "profile": "https://www.2kratings.com/zaccharie-risacher",
+      "image": "players/zaccharie-risacher.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Zaccharie-Risacher-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "aaron-gordon",
+      "name": "Aaron Gordon",
+      "team": "Denver Nuggets",
+      "profile": "https://www.2kratings.com/aaron-gordon",
+      "image": "players/aaron-gordon.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Aaron-Gordon-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "alpha-diallo",
+      "name": "Alpha Diallo",
+      "team": "Denver Nuggets",
+      "profile": "https://www.2kratings.com/alpha-diallo",
+      "image": "players/alpha-diallo.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Alpha-Diallo-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "bryce-hopkins",
+      "name": "Bryce Hopkins",
+      "team": "Denver Nuggets",
+      "profile": "https://www.2kratings.com/bryce-hopkins",
+      "image": "players/bryce-hopkins.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Bryce-Hopkins-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "cameron-whitmore",
+      "name": "Cam Whitmore",
+      "team": "Denver Nuggets",
+      "profile": "https://www.2kratings.com/cameron-whitmore",
+      "image": "players/cameron-whitmore.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Cam-Whitmore-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "cameron-johnson",
+      "name": "Cameron Johnson",
+      "team": "Denver Nuggets",
+      "profile": "https://www.2kratings.com/cameron-johnson",
+      "image": "players/cameron-johnson.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Cameron-Johnson-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "christian-braun",
+      "name": "Christian Braun",
+      "team": "Denver Nuggets",
+      "profile": "https://www.2kratings.com/christian-braun",
+      "image": "players/christian-braun.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Christian-Braun-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "daron-holmes",
+      "name": "DaRon Holmes II",
+      "team": "Denver Nuggets",
+      "profile": "https://www.2kratings.com/daron-holmes",
+      "image": "players/daron-holmes.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/DaRon-Holmes-II-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "demar-derozan",
+      "name": "DeMar DeRozan",
+      "team": "Denver Nuggets",
+      "profile": "https://www.2kratings.com/demar-derozan",
+      "image": "players/demar-derozan.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/DeMar-DeRozan-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "jamal-murray",
+      "name": "Jamal Murray",
+      "team": "Denver Nuggets",
+      "profile": "https://www.2kratings.com/jamal-murray",
+      "image": "players/jamal-murray.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Jamal-Murray-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "julian-strawther",
+      "name": "Julian Strawther",
+      "team": "Denver Nuggets",
+      "profile": "https://www.2kratings.com/julian-strawther",
+      "image": "players/julian-strawther.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Julian-Strawther-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "marvin-bagley-iii",
+      "name": "Marvin Bagley III",
+      "team": "Denver Nuggets",
+      "profile": "https://www.2kratings.com/marvin-bagley-iii",
+      "image": "players/marvin-bagley-iii.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Marvin-Bagley-III-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "nikola-jokic",
+      "name": "Nikola Jokic",
+      "team": "Denver Nuggets",
+      "profile": "https://www.2kratings.com/nikola-jokic",
+      "image": "players/nikola-jokic.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Nikola-Jokic-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "ryan-nembhard",
+      "name": "Ryan Nembhard",
+      "team": "Denver Nuggets",
+      "profile": "https://www.2kratings.com/ryan-nembhard",
+      "image": "players/ryan-nembhard.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Ryan-Nembhard-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "spencer-jones",
+      "name": "Spencer Jones",
+      "team": "Denver Nuggets",
+      "profile": "https://www.2kratings.com/spencer-jones",
+      "image": "players/spencer-jones.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Spencer-Jones-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "trevon-brazile",
+      "name": "Trevon Brazile",
+      "team": "Denver Nuggets",
+      "profile": "https://www.2kratings.com/trevon-brazile",
+      "image": "players/trevon-brazile.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Trevon-Brazile-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "tyus-jones",
+      "name": "Tyus Jones",
+      "team": "Denver Nuggets",
+      "profile": "https://www.2kratings.com/tyus-jones",
+      "image": "players/tyus-jones.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Tyus-Jones-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "zeke-nnaji",
+      "name": "Zeke Nnaji",
+      "team": "Denver Nuggets",
+      "profile": "https://www.2kratings.com/zeke-nnaji",
+      "image": "players/zeke-nnaji.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Zeke-Nnaji-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "ausar-thompson",
+      "name": "Ausar Thompson",
+      "team": "Detroit Pistons",
+      "profile": "https://www.2kratings.com/ausar-thompson",
+      "image": "players/ausar-thompson.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Ausar-Thompson-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "cade-cunningham",
+      "name": "Cade Cunningham",
+      "team": "Detroit Pistons",
+      "profile": "https://www.2kratings.com/cade-cunningham",
+      "image": "players/cade-cunningham.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Cade-Cunningham-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "chaz-lanier",
+      "name": "Chaz Lanier",
+      "team": "Detroit Pistons",
+      "profile": "https://www.2kratings.com/chaz-lanier",
+      "image": "players/chaz-lanier.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Chaz-Lanier-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "daniss-jenkins",
+      "name": "Daniss Jenkins",
+      "team": "Detroit Pistons",
+      "profile": "https://www.2kratings.com/daniss-jenkins",
+      "image": "players/daniss-jenkins.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Daniss-Jenkins-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "duncan-robinson",
+      "name": "Duncan Robinson",
+      "team": "Detroit Pistons",
+      "profile": "https://www.2kratings.com/duncan-robinson",
+      "image": "players/duncan-robinson.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Duncan-Robinson-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "ebuka-okorie",
+      "name": "Ebuka Okorie",
+      "team": "Detroit Pistons",
+      "profile": "https://www.2kratings.com/ebuka-okorie",
+      "image": "players/ebuka-okorie.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Ebuka-Okorie-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "elijah-harkless",
+      "name": "Elijah Harkless",
+      "team": "Detroit Pistons",
+      "profile": "https://www.2kratings.com/elijah-harkless",
+      "image": "players/elijah-harkless.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Elijah-Harkless-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "isaac-jones",
+      "name": "Isaac Jones",
+      "team": "Detroit Pistons",
+      "profile": "https://www.2kratings.com/isaac-jones",
+      "image": "players/isaac-jones.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Isaac-Jones-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "isaiah-joe",
+      "name": "Isaiah Joe",
+      "team": "Detroit Pistons",
+      "profile": "https://www.2kratings.com/isaiah-joe",
+      "image": "players/isaiah-joe.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Isaiah-Joe-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "jalen-duren",
+      "name": "Jalen Duren",
+      "team": "Detroit Pistons",
+      "profile": "https://www.2kratings.com/jalen-duren",
+      "image": "players/jalen-duren.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Jalen-Duren-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "javonte-green",
+      "name": "Javonte Green",
+      "team": "Detroit Pistons",
+      "profile": "https://www.2kratings.com/javonte-green",
+      "image": "players/javonte-green.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Javonte-Green-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "john-collins",
+      "name": "John Collins",
+      "team": "Detroit Pistons",
+      "profile": "https://www.2kratings.com/john-collins",
+      "image": "players/john-collins.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/John-Collins-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "kevin-huerter",
+      "name": "Kevin Huerter",
+      "team": "Detroit Pistons",
+      "profile": "https://www.2kratings.com/kevin-huerter",
+      "image": "players/kevin-huerter.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Kevin-Huerter-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "paul-reed",
+      "name": "Paul Reed",
+      "team": "Detroit Pistons",
+      "profile": "https://www.2kratings.com/paul-reed",
+      "image": "players/paul-reed.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Paul-Reed-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "ronald-holland",
+      "name": "Ron Holland",
+      "team": "Detroit Pistons",
+      "profile": "https://www.2kratings.com/ronald-holland",
+      "image": "players/ronald-holland.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Ron-Holland-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "taurean-prince",
+      "name": "Taurean Prince",
+      "team": "Detroit Pistons",
+      "profile": "https://www.2kratings.com/taurean-prince",
+      "image": "players/taurean-prince.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Taurean-Prince-2K-Rating-1.png",
+      "status": "ok"
+    },
+    {
+      "id": "tolu-smith",
+      "name": "Tolu Smith",
+      "team": "Detroit Pistons",
+      "profile": "https://www.2kratings.com/tolu-smith",
+      "image": "players/tolu-smith.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Tolu-Smith-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "ugonna-onyenso",
+      "name": "Ugonna Onyenso",
+      "team": "Detroit Pistons",
+      "profile": "https://www.2kratings.com/ugonna-onyenso",
+      "image": "players/ugonna-onyenso.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Ugonna-Onyenso-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "al-horford",
+      "name": "Al Horford",
+      "team": "Golden State Warriors",
+      "profile": "https://www.2kratings.com/al-horford",
+      "image": "players/al-horford.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Al-Horford-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "brandin-podziemski",
+      "name": "Brandin Podziemski",
+      "team": "Golden State Warriors",
+      "profile": "https://www.2kratings.com/brandin-podziemski",
+      "image": "players/brandin-podziemski.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Brandin-Podziemski-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "brandon-williams",
+      "name": "Brandon Williams",
+      "team": "Golden State Warriors",
+      "profile": "https://www.2kratings.com/brandon-williams",
+      "image": "players/brandon-williams.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Brandon-Williams-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "charles-bassey",
+      "name": "Charles Bassey",
+      "team": "Golden State Warriors",
+      "profile": "https://www.2kratings.com/charles-bassey",
+      "image": "players/charles-bassey.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Charles-Bassey-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "deanthony-melton",
+      "name": "De’Anthony Melton",
+      "team": "Golden State Warriors",
+      "profile": "https://www.2kratings.com/deanthony-melton",
+      "image": "players/deanthony-melton.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/DeAnthony-Melton-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "draymond-green",
+      "name": "Draymond Green",
+      "team": "Golden State Warriors",
+      "profile": "https://www.2kratings.com/draymond-green",
+      "image": "players/draymond-green.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Draymond-Green-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "gary-payton-ii",
+      "name": "Gary Payton II",
+      "team": "Golden State Warriors",
+      "profile": "https://www.2kratings.com/gary-payton-ii",
+      "image": "players/gary-payton-ii.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Gary-Payton-II-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "georges-niang",
+      "name": "Georges Niang",
+      "team": "Golden State Warriors",
+      "profile": "https://www.2kratings.com/georges-niang",
+      "image": "players/georges-niang.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Georges-Niang-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "graham-ike",
+      "name": "Graham Ike",
+      "team": "Golden State Warriors",
+      "profile": "https://www.2kratings.com/graham-ike",
+      "image": "players/graham-ike.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Graham-Ike-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "gui-santos",
+      "name": "Gui Santos",
+      "team": "Golden State Warriors",
+      "profile": "https://www.2kratings.com/gui-santos",
+      "image": "players/gui-santos.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Gui-Santos-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "jimmy-butler",
+      "name": "Jimmy Butler",
+      "team": "Golden State Warriors",
+      "profile": "https://www.2kratings.com/jimmy-butler",
+      "image": "players/jimmy-butler.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Jimmy-Butler-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "kristaps-porzingis",
+      "name": "Kristaps Porzingis",
+      "team": "Golden State Warriors",
+      "profile": "https://www.2kratings.com/kristaps-porzingis",
+      "image": "players/kristaps-porzingis.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Kristaps-Porzingis-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "lj-cryer",
+      "name": "L.J. Cryer",
+      "team": "Golden State Warriors",
+      "profile": "https://www.2kratings.com/lj-cryer",
+      "image": "players/lj-cryer.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/LJ-Cryer-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "malevy-leons",
+      "name": "Malevy Leons",
+      "team": "Golden State Warriors",
+      "profile": "https://www.2kratings.com/malevy-leons",
+      "image": "players/malevy-leons.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Malevy-Leons-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "moses-moody",
+      "name": "Moses Moody",
+      "team": "Golden State Warriors",
+      "profile": "https://www.2kratings.com/moses-moody",
+      "image": "players/moses-moody.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Moses-Moody-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "stephen-curry",
+      "name": "Stephen Curry",
+      "team": "Golden State Warriors",
+      "profile": "https://www.2kratings.com/stephen-curry",
+      "image": "players/stephen-curry.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Stephen-Curry-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "will-richard",
+      "name": "Will Richard",
+      "team": "Golden State Warriors",
+      "profile": "https://www.2kratings.com/will-richard",
+      "image": "players/will-richard.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Will-Richard-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "alperen-sengun",
+      "name": "Alperen Sengun",
+      "team": "Houston Rockets",
+      "profile": "https://www.2kratings.com/alperen-sengun",
+      "image": "players/alperen-sengun.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Alperen-Sengun-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "amen-thompson",
+      "name": "Amen Thompson",
+      "team": "Houston Rockets",
+      "profile": "https://www.2kratings.com/amen-thompson",
+      "image": "players/amen-thompson.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Amen-Thompson-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "bogdan-bogdanovic",
+      "name": "Bogdan Bogdanovic",
+      "team": "Houston Rockets",
+      "profile": "https://www.2kratings.com/bogdan-bogdanovic",
+      "image": "players/bogdan-bogdanovic.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Bogdan-Bogdanovic-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "bruce-thornton",
+      "name": "Bruce Thornton",
+      "team": "Houston Rockets",
+      "profile": "https://www.2kratings.com/bruce-thornton",
+      "image": "players/bruce-thornton.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Bruce-Thornton-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "clint-capela",
+      "name": "Clint Capela",
+      "team": "Houston Rockets",
+      "profile": "https://www.2kratings.com/clint-capela",
+      "image": "players/clint-capela.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Clint-Capela-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "fred-vanvleet",
+      "name": "Fred VanVleet",
+      "team": "Houston Rockets",
+      "profile": "https://www.2kratings.com/fred-vanvleet",
+      "image": "players/fred-vanvleet.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Fred-VanVleet-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "isaiah-crawford",
+      "name": "Isaiah Crawford",
+      "team": "Houston Rockets",
+      "profile": "https://www.2kratings.com/isaiah-crawford",
+      "image": "players/isaiah-crawford.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Isaiah-Crawford-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "jabari-smith",
+      "name": "Jabari Smith Jr.",
+      "team": "Houston Rockets",
+      "profile": "https://www.2kratings.com/jabari-smith",
+      "image": "players/jabari-smith.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Jabari-Smith-Jr-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "jaesean-tate",
+      "name": "Jae’Sean Tate",
+      "team": "Houston Rockets",
+      "profile": "https://www.2kratings.com/jaesean-tate",
+      "image": "players/jaesean-tate.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/JaeSean-Tate-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "julian-phillips",
+      "name": "Julian Phillips",
+      "team": "Houston Rockets",
+      "profile": "https://www.2kratings.com/julian-phillips",
+      "image": "players/julian-phillips.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Julian-Phillips-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "kevin-durant",
+      "name": "Kevin Durant",
+      "team": "Houston Rockets",
+      "profile": "https://www.2kratings.com/kevin-durant",
+      "image": "players/kevin-durant.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Kevin-Durant-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "marcus-smart",
+      "name": "Marcus Smart",
+      "team": "Houston Rockets",
+      "profile": "https://www.2kratings.com/marcus-smart",
+      "image": "players/marcus-smart.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Marcus-Smart-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "oscar-tshiebwe",
+      "name": "Oscar Tshiebwe",
+      "team": "Houston Rockets",
+      "profile": "https://www.2kratings.com/oscar-tshiebwe",
+      "image": "players/oscar-tshiebwe.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Oscar-Tshiebwe-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "quadir-copeland",
+      "name": "Quadir Copeland",
+      "team": "Houston Rockets",
+      "profile": "https://www.2kratings.com/quadir-copeland",
+      "image": "players/quadir-copeland.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Quadir-Copeland-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "reed-sheppard",
+      "name": "Reed Sheppard",
+      "team": "Houston Rockets",
+      "profile": "https://www.2kratings.com/reed-sheppard",
+      "image": "players/reed-sheppard.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Reed-Sheppard-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "steven-adams",
+      "name": "Steven Adams",
+      "team": "Houston Rockets",
+      "profile": "https://www.2kratings.com/steven-adams",
+      "image": "players/steven-adams.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Steven-Adams-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "tari-eason",
+      "name": "Tari Eason",
+      "team": "Houston Rockets",
+      "profile": "https://www.2kratings.com/tari-eason",
+      "image": "players/tari-eason.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Tari-Eason-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "aaron-nesmith",
+      "name": "Aaron Nesmith",
+      "team": "Indiana Pacers",
+      "profile": "https://www.2kratings.com/aaron-nesmith",
+      "image": "players/aaron-nesmith.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Aaron-Nesmith-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "andrew-nembhard",
+      "name": "Andrew Nembhard",
+      "team": "Indiana Pacers",
+      "profile": "https://www.2kratings.com/andrew-nembhard",
+      "image": "players/andrew-nembhard.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Andrew-Nembhard-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "ben-sheppard",
+      "name": "Ben Sheppard",
+      "team": "Indiana Pacers",
+      "profile": "https://www.2kratings.com/ben-sheppard",
+      "image": "players/ben-sheppard.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Ben-Sheppard-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "braden-smith",
+      "name": "Braden Smith",
+      "team": "Indiana Pacers",
+      "profile": "https://www.2kratings.com/braden-smith",
+      "image": "players/braden-smith.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Braden-Smith-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "ivica-zubac",
+      "name": "Ivica Zubac",
+      "team": "Indiana Pacers",
+      "profile": "https://www.2kratings.com/ivica-zubac",
+      "image": "players/ivica-zubac.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Ivica-Zubac-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "jalen-slawson",
+      "name": "Jalen Slawson",
+      "team": "Indiana Pacers",
+      "profile": "https://www.2kratings.com/jalen-slawson",
+      "image": "players/jalen-slawson.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Jalen-Slawson-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "jarace-walker",
+      "name": "Jarace Walker",
+      "team": "Indiana Pacers",
+      "profile": "https://www.2kratings.com/jarace-walker",
+      "image": "players/jarace-walker.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Jarace-Walker-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "jay-huff",
+      "name": "Jay Huff",
+      "team": "Indiana Pacers",
+      "profile": "https://www.2kratings.com/jay-huff",
+      "image": "players/jay-huff.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Jay-Huff-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "johnny-furphy",
+      "name": "Johnny Furphy",
+      "team": "Indiana Pacers",
+      "profile": "https://www.2kratings.com/johnny-furphy",
+      "image": "players/johnny-furphy.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Johnny-Furphy-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "kelly-oubre-jr",
+      "name": "Kelly Oubre Jr.",
+      "team": "Indiana Pacers",
+      "profile": "https://www.2kratings.com/kelly-oubre-jr",
+      "image": "players/kelly-oubre-jr.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Kelly-Oubre-Jr-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "kobe-brown",
+      "name": "Kobe Brown",
+      "team": "Indiana Pacers",
+      "profile": "https://www.2kratings.com/kobe-brown",
+      "image": "players/kobe-brown.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Kobe-Brown-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "larry-nance-jr",
+      "name": "Larry Nance Jr.",
+      "team": "Indiana Pacers",
+      "profile": "https://www.2kratings.com/larry-nance-jr",
+      "image": "players/larry-nance-jr.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Larry-Nance-Jr-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "obi-toppin",
+      "name": "Obi Toppin",
+      "team": "Indiana Pacers",
+      "profile": "https://www.2kratings.com/obi-toppin",
+      "image": "players/obi-toppin.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Obi-Toppin-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "pascal-siakam",
+      "name": "Pascal Siakam",
+      "team": "Indiana Pacers",
+      "profile": "https://www.2kratings.com/pascal-siakam",
+      "image": "players/pascal-siakam.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Pascal-Siakam-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "quenton-jackson",
+      "name": "Quenton Jackson",
+      "team": "Indiana Pacers",
+      "profile": "https://www.2kratings.com/quenton-jackson",
+      "image": "players/quenton-jackson.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Quenton-Jackson-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "tj-mcconnell",
+      "name": "T.J. McConnell",
+      "team": "Indiana Pacers",
+      "profile": "https://www.2kratings.com/tj-mcconnell",
+      "image": "players/tj-mcconnell.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/TJ-McConnell-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "tyrese-haliburton",
+      "name": "Tyrese Haliburton",
+      "team": "Indiana Pacers",
+      "profile": "https://www.2kratings.com/tyrese-haliburton",
+      "image": "players/tyrese-haliburton.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Tyrese-Haliburton-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "baba-miller",
+      "name": "Baba Miller",
+      "team": "Los Angeles Clippers",
+      "profile": "https://www.2kratings.com/baba-miller",
+      "image": "players/baba-miller.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Baba-Miller-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "blake-wesley",
+      "name": "Blake Wesley",
+      "team": "Los Angeles Clippers",
+      "profile": "https://www.2kratings.com/blake-wesley",
+      "image": "players/blake-wesley.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Blake-Wesley-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "bradley-beal",
+      "name": "Bradley Beal",
+      "team": "Los Angeles Clippers",
+      "profile": "https://www.2kratings.com/bradley-beal",
+      "image": "players/bradley-beal.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Bradley-Beal-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "brandon-ingram",
+      "name": "Brandon Ingram",
+      "team": "Los Angeles Clippers",
+      "profile": "https://www.2kratings.com/brandon-ingram",
+      "image": "players/brandon-ingram.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Brandon-Ingram-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "brook-lopez",
+      "name": "Brook Lopez",
+      "team": "Los Angeles Clippers",
+      "profile": "https://www.2kratings.com/brook-lopez",
+      "image": "players/brook-lopez.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Brook-Lopez-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "cam-christie",
+      "name": "Cam Christie",
+      "team": "Los Angeles Clippers",
+      "profile": "https://www.2kratings.com/cam-christie",
+      "image": "players/cam-christie.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Cam-Christie-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "darius-garland",
+      "name": "Darius Garland",
+      "team": "Los Angeles Clippers",
+      "profile": "https://www.2kratings.com/darius-garland",
+      "image": "players/darius-garland.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Darius-Garland-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "derrick-jones-jr",
+      "name": "Derrick Jones Jr.",
+      "team": "Los Angeles Clippers",
+      "profile": "https://www.2kratings.com/derrick-jones-jr",
+      "image": "players/derrick-jones-jr.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Derrick-Jones-Jr-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "gradey-dick",
+      "name": "Gradey Dick",
+      "team": "Los Angeles Clippers",
+      "profile": "https://www.2kratings.com/gradey-dick",
+      "image": "players/gradey-dick.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Gradey-Dick-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "isaiah-jackson",
+      "name": "Isaiah Jackson",
+      "team": "Los Angeles Clippers",
+      "profile": "https://www.2kratings.com/isaiah-jackson",
+      "image": "players/isaiah-jackson.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Isaiah-Jackson-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "jalen-pickett",
+      "name": "Jalen Pickett",
+      "team": "Los Angeles Clippers",
+      "profile": "https://www.2kratings.com/jalen-pickett",
+      "image": "players/jalen-pickett.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Jalen-Pickett-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "jordan-miller",
+      "name": "Jordan Miller",
+      "team": "Los Angeles Clippers",
+      "profile": "https://www.2kratings.com/jordan-miller",
+      "image": "players/jordan-miller.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Jordan-Miller-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "keaton-wagler",
+      "name": "Keaton Wagler",
+      "team": "Los Angeles Clippers",
+      "profile": "https://www.2kratings.com/keaton-wagler",
+      "image": "players/keaton-wagler.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Keaton-Wagler-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "kobe-sanders",
+      "name": "Kobe Sanders",
+      "team": "Los Angeles Clippers",
+      "profile": "https://www.2kratings.com/kobe-sanders",
+      "image": "players/kobe-sanders.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Kobe-Sanders-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "kris-dunn",
+      "name": "Kris Dunn",
+      "team": "Los Angeles Clippers",
+      "profile": "https://www.2kratings.com/kris-dunn",
+      "image": "players/kris-dunn.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Kris-Dunn-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "max-strus",
+      "name": "Max Strus",
+      "team": "Los Angeles Clippers",
+      "profile": "https://www.2kratings.com/max-strus",
+      "image": "players/max-strus.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Max-Strus-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "nick-martinelli",
+      "name": "Nick Martinelli",
+      "team": "Los Angeles Clippers",
+      "profile": "https://www.2kratings.com/nick-martinelli",
+      "image": "players/nick-martinelli.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Nick-Martinelli-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "rui-hachimura",
+      "name": "Rui Hachimura",
+      "team": "Los Angeles Clippers",
+      "profile": "https://www.2kratings.com/rui-hachimura",
+      "image": "players/rui-hachimura.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Rui-Hachimura-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "yanic-konan-niederhauser",
+      "name": "Yanic Konan Niederhauser",
+      "team": "Los Angeles Clippers",
+      "profile": "https://www.2kratings.com/yanic-konan-niederhauser",
+      "image": "players/yanic-konan-niederhauser.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Yanic-Konan-Niederhauser-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "adou-thiero",
+      "name": "Adou Thiero",
+      "team": "Los Angeles Lakers",
+      "profile": "https://www.2kratings.com/adou-thiero",
+      "image": "players/adou-thiero.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Adou-Thiero-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "arthur-kaluma",
+      "name": "Arthur Kaluma",
+      "team": "Los Angeles Lakers",
+      "profile": "https://www.2kratings.com/arthur-kaluma",
+      "image": "players/arthur-kaluma.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Arthur-Kaluma-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "austin-reaves",
+      "name": "Austin Reaves",
+      "team": "Los Angeles Lakers",
+      "profile": "https://www.2kratings.com/austin-reaves",
+      "image": "players/austin-reaves.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Austin-Reaves-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "bronny-james",
+      "name": "Bronny James Jr.",
+      "team": "Los Angeles Lakers",
+      "profile": "https://www.2kratings.com/bronny-james",
+      "image": "players/bronny-james.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Bronny-James-Jr-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "cameron-carr",
+      "name": "Cameron Carr",
+      "team": "Los Angeles Lakers",
+      "profile": "https://www.2kratings.com/cameron-carr",
+      "image": "players/cameron-carr.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Cameron-Carr-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "chris-manon",
+      "name": "Chris Manon",
+      "team": "Los Angeles Lakers",
+      "profile": "https://www.2kratings.com/chris-manon",
+      "image": "players/chris-manon.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Chris-Manon-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "collin-sexton",
+      "name": "Collin Sexton",
+      "team": "Los Angeles Lakers",
+      "profile": "https://www.2kratings.com/collin-sexton",
+      "image": "players/collin-sexton.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Collin-Sexton-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "jaden-hardy",
+      "name": "Jaden Hardy",
+      "team": "Los Angeles Lakers",
+      "profile": "https://www.2kratings.com/jaden-hardy",
+      "image": "players/jaden-hardy.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Jaden-Hardy-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "jake-laravia",
+      "name": "Jake LaRavia",
+      "team": "Los Angeles Lakers",
+      "profile": "https://www.2kratings.com/jake-laravia",
+      "image": "players/jake-laravia.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Jake-LaRavia-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "jarred-vanderbilt",
+      "name": "Jarred Vanderbilt",
+      "team": "Los Angeles Lakers",
+      "profile": "https://www.2kratings.com/jarred-vanderbilt",
+      "image": "players/jarred-vanderbilt.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Jarred-Vanderbilt-2K-Rating-1.png",
+      "status": "ok"
+    },
+    {
+      "id": "kevon-looney",
+      "name": "Kevon Looney",
+      "team": "Los Angeles Lakers",
+      "profile": "https://www.2kratings.com/kevon-looney",
+      "image": "players/kevon-looney.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Kevon-Looney-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "lawson-lovering",
+      "name": "Lawson Lovering",
+      "team": "Los Angeles Lakers",
+      "profile": "https://www.2kratings.com/lawson-lovering",
+      "image": "players/lawson-lovering.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Lawson-Lovering-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "luka-doncic",
+      "name": "Luka Doncic",
+      "team": "Los Angeles Lakers",
+      "profile": "https://www.2kratings.com/luka-doncic",
+      "image": "players/luka-doncic.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Luka-Doncic-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "matisse-thybulle",
+      "name": "Matisse Thybulle",
+      "team": "Los Angeles Lakers",
+      "profile": "https://www.2kratings.com/matisse-thybulle",
+      "image": "players/matisse-thybulle.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Matisse-Thybulle-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "quentin-grimes",
+      "name": "Quentin Grimes",
+      "team": "Los Angeles Lakers",
+      "profile": "https://www.2kratings.com/quentin-grimes",
+      "image": "players/quentin-grimes.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Quentin-Grimes-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "sandro-mamukelashvili",
+      "name": "Sandro Mamukelashvili",
+      "team": "Los Angeles Lakers",
+      "profile": "https://www.2kratings.com/sandro-mamukelashvili",
+      "image": "players/sandro-mamukelashvili.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Sandro-Mamukelashvili-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "walker-kessler",
+      "name": "Walker Kessler",
+      "team": "Los Angeles Lakers",
+      "profile": "https://www.2kratings.com/walker-kessler",
+      "image": "players/walker-kessler.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Walker-Kessler-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "ziaire-williams",
+      "name": "Ziaire Williams",
+      "team": "Los Angeles Lakers",
+      "profile": "https://www.2kratings.com/ziaire-williams",
+      "image": "players/ziaire-williams.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Ziaire-Williams-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "cam-spencer",
+      "name": "Cam Spencer",
+      "team": "Memphis Grizzlies",
+      "profile": "https://www.2kratings.com/cam-spencer",
+      "image": "players/cam-spencer.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Cam-Spencer-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "cameron-boozer",
+      "name": "Cameron Boozer",
+      "team": "Memphis Grizzlies",
+      "profile": "https://www.2kratings.com/cameron-boozer",
+      "image": "players/cameron-boozer.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Cameron-Boozer-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "carson-cooper",
+      "name": "Carson Cooper",
+      "team": "Memphis Grizzlies",
+      "profile": "https://www.2kratings.com/carson-cooper",
+      "image": "players/carson-cooper.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Carson-Cooper-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "cedric-coward",
+      "name": "Cedric Coward",
+      "team": "Memphis Grizzlies",
+      "profile": "https://www.2kratings.com/cedric-coward",
+      "image": "players/cedric-coward.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Cedric-Coward-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "gregory-jackson-ii",
+      "name": "G.G. Jackson",
+      "team": "Memphis Grizzlies",
+      "profile": "https://www.2kratings.com/gregory-jackson-ii",
+      "image": "players/gregory-jackson-ii.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/GG-Jackson-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "isaiah-stewart",
+      "name": "Isaiah Stewart",
+      "team": "Memphis Grizzlies",
+      "profile": "https://www.2kratings.com/isaiah-stewart",
+      "image": "players/isaiah-stewart.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Isaiah-Stewart-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "jahmai-mashack",
+      "name": "Jahmai Mashack",
+      "team": "Memphis Grizzlies",
+      "profile": "https://www.2kratings.com/jahmai-mashack",
+      "image": "players/jahmai-mashack.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Jahmai-Mashack-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "javon-small",
+      "name": "Javon Small",
+      "team": "Memphis Grizzlies",
+      "profile": "https://www.2kratings.com/javon-small",
+      "image": "players/javon-small.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Javon-Small-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "jaylen-wells",
+      "name": "Jaylen Wells",
+      "team": "Memphis Grizzlies",
+      "profile": "https://www.2kratings.com/jaylen-wells",
+      "image": "players/jaylen-wells.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Jaylen-Wells-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "jerami-grant",
+      "name": "Jerami Grant",
+      "team": "Memphis Grizzlies",
+      "profile": "https://www.2kratings.com/jerami-grant",
+      "image": "players/jerami-grant.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Jerami-Grant-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "karim-lopez",
+      "name": "Karim Lopez",
+      "team": "Memphis Grizzlies",
+      "profile": "https://www.2kratings.com/karim-lopez",
+      "image": "players/karim-lopez.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Karim-Lopez-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "kris-murray",
+      "name": "Kris Murray",
+      "team": "Memphis Grizzlies",
+      "profile": "https://www.2kratings.com/kris-murray",
+      "image": "players/kris-murray.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Kris-Murray-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "olivier-maxence-prosper",
+      "name": "Olivier-Maxence Prosper",
+      "team": "Memphis Grizzlies",
+      "profile": "https://www.2kratings.com/olivier-maxence-prosper",
+      "image": "players/olivier-maxence-prosper.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Olivier-Maxence-Prosper-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "quinten-post",
+      "name": "Quinten Post",
+      "team": "Memphis Grizzlies",
+      "profile": "https://www.2kratings.com/quinten-post",
+      "image": "players/quinten-post.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Quinten-Post-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "scotty-pippen-jr",
+      "name": "Scotty Pippen Jr.",
+      "team": "Memphis Grizzlies",
+      "profile": "https://www.2kratings.com/scotty-pippen-jr",
+      "image": "players/scotty-pippen-jr.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Scotty-Pippen-Jr-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "taylor-hendricks",
+      "name": "Taylor Hendricks",
+      "team": "Memphis Grizzlies",
+      "profile": "https://www.2kratings.com/taylor-hendricks",
+      "image": "players/taylor-hendricks.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Taylor-Hendricks-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "ty-jerome",
+      "name": "Ty Jerome",
+      "team": "Memphis Grizzlies",
+      "profile": "https://www.2kratings.com/ty-jerome",
+      "image": "players/ty-jerome.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Ty-Jerome-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "zach-edey",
+      "name": "Zach Edey",
+      "team": "Memphis Grizzlies",
+      "profile": "https://www.2kratings.com/zach-edey",
+      "image": "players/zach-edey.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Zach-Edey-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "andrew-wiggins",
+      "name": "Andrew Wiggins",
+      "team": "Miami Heat",
+      "profile": "https://www.2kratings.com/andrew-wiggins",
+      "image": "players/andrew-wiggins.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Andrew-Wiggins-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "bam-adebayo",
+      "name": "Bam Adebayo",
+      "team": "Miami Heat",
+      "profile": "https://www.2kratings.com/bam-adebayo",
+      "image": "players/bam-adebayo.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Bam-Adebayo-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "bobby-portis",
+      "name": "Bobby Portis Jr.",
+      "team": "Miami Heat",
+      "profile": "https://www.2kratings.com/bobby-portis",
+      "image": "players/bobby-portis.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Bobby-Portis-Jr-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "davion-mitchell",
+      "name": "Davion Mitchell",
+      "team": "Miami Heat",
+      "profile": "https://www.2kratings.com/davion-mitchell",
+      "image": "players/davion-mitchell.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Davion-Mitchell-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "dru-smith",
+      "name": "Dru Smith",
+      "team": "Miami Heat",
+      "profile": "https://www.2kratings.com/dru-smith",
+      "image": "players/dru-smith.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Dru-Smith-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "giannis-antetokounmpo",
+      "name": "Giannis Antetokounmpo",
+      "team": "Miami Heat",
+      "profile": "https://www.2kratings.com/giannis-antetokounmpo",
+      "image": "players/giannis-antetokounmpo.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Giannis-Antetokounmpo-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "keshad-johnson",
+      "name": "Keshad Johnson",
+      "team": "Miami Heat",
+      "profile": "https://www.2kratings.com/keshad-johnson",
+      "image": "players/keshad-johnson.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Keshad-Johnson-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "klay-thompson",
+      "name": "Klay Thompson",
+      "team": "Miami Heat",
+      "profile": "https://www.2kratings.com/klay-thompson",
+      "image": "players/klay-thompson.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Klay-Thompson-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "myron-gardner",
+      "name": "Myron Gardner",
+      "team": "Miami Heat",
+      "profile": "https://www.2kratings.com/myron-gardner",
+      "image": "players/myron-gardner.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Myron-Gardner-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "nick-richards",
+      "name": "Nick Richards",
+      "team": "Miami Heat",
+      "profile": "https://www.2kratings.com/nick-richards",
+      "image": "players/nick-richards.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Nick-Richards-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "nikola-jovic",
+      "name": "Nikola Jovic",
+      "team": "Miami Heat",
+      "profile": "https://www.2kratings.com/nikola-jovic",
+      "image": "players/nikola-jovic.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Nikola-Jovic-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "pelle-larsson",
+      "name": "Pelle Larsson",
+      "team": "Miami Heat",
+      "profile": "https://www.2kratings.com/pelle-larsson",
+      "image": "players/pelle-larsson.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Pelle-Larsson-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "ryan-conwell",
+      "name": "Ryan Conwell",
+      "team": "Miami Heat",
+      "profile": "https://www.2kratings.com/ryan-conwell",
+      "image": "players/ryan-conwell.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Ryan-Conwell-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "simone-fontecchio",
+      "name": "Simone Fontecchio",
+      "team": "Miami Heat",
+      "profile": "https://www.2kratings.com/simone-fontecchio",
+      "image": "players/simone-fontecchio.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Simone-Fontecchio-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "tim-hardaway-jr",
+      "name": "Tim Hardaway Jr.",
+      "team": "Miami Heat",
+      "profile": "https://www.2kratings.com/tim-hardaway-jr",
+      "image": "players/tim-hardaway-jr.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Tim-Hardaway-Jr-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "tre-donaldson",
+      "name": "Tre Donaldson",
+      "team": "Miami Heat",
+      "profile": "https://www.2kratings.com/tre-donaldson",
+      "image": "players/tre-donaldson.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Tre-Donaldson-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "vladislav-goldin",
+      "name": "Vladislav Goldin",
+      "team": "Miami Heat",
+      "profile": "https://www.2kratings.com/vladislav-goldin",
+      "image": "players/vladislav-goldin.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Vladislav-Goldin-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "aj-green",
+      "name": "A.J. Green",
+      "team": "Milwaukee Bucks",
+      "profile": "https://www.2kratings.com/aj-green",
+      "image": "players/aj-green.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/AJ-Green-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "bogoljub-markovic",
+      "name": "Bogoljub Markovic",
+      "team": "Milwaukee Bucks",
+      "profile": "https://www.2kratings.com/bogoljub-markovic",
+      "image": "players/bogoljub-markovic.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Bogoljub-Markovic-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "brayden-burries",
+      "name": "Brayden Burries",
+      "team": "Milwaukee Bucks",
+      "profile": "https://www.2kratings.com/brayden-burries",
+      "image": "players/brayden-burries.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Brayden-Burries-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "caris-levert",
+      "name": "Caris LeVert",
+      "team": "Milwaukee Bucks",
+      "profile": "https://www.2kratings.com/caris-levert",
+      "image": "players/caris-levert.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Caris-LeVert-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "cormac-ryan",
+      "name": "Cormac Ryan",
+      "team": "Milwaukee Bucks",
+      "profile": "https://www.2kratings.com/cormac-ryan",
+      "image": "players/cormac-ryan.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Cormac-Ryan-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "gary-trent-jr",
+      "name": "Gary Trent Jr.",
+      "team": "Milwaukee Bucks",
+      "profile": "https://www.2kratings.com/gary-trent-jr",
+      "image": "players/gary-trent-jr.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Gary-Trent-Jr-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "jaime-jaquez-jr",
+      "name": "Jaime Jaquez Jr.",
+      "team": "Milwaukee Bucks",
+      "profile": "https://www.2kratings.com/jaime-jaquez-jr",
+      "image": "players/jaime-jaquez-jr.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Jaime-Jaquez-Jr-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "jericho-sims",
+      "name": "Jericho Sims",
+      "team": "Milwaukee Bucks",
+      "profile": "https://www.2kratings.com/jericho-sims",
+      "image": "players/jericho-sims.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Jericho-Sims-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "kam-jones",
+      "name": "Kam Jones",
+      "team": "Milwaukee Bucks",
+      "profile": "https://www.2kratings.com/kam-jones",
+      "image": "players/kam-jones.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Kam-Jones-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "kasparas-jakucionis",
+      "name": "Kasparas Jakucionis",
+      "team": "Milwaukee Bucks",
+      "profile": "https://www.2kratings.com/kasparas-jakucionis",
+      "image": "players/kasparas-jakucionis.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Kasparas-Jakucionis-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "kelel-ware",
+      "name": "Kel’el Ware",
+      "team": "Milwaukee Bucks",
+      "profile": "https://www.2kratings.com/kelel-ware",
+      "image": "players/kelel-ware.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Kelel-Ware-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "kyle-kuzma",
+      "name": "Kyle Kuzma",
+      "team": "Milwaukee Bucks",
+      "profile": "https://www.2kratings.com/kyle-kuzma",
+      "image": "players/kyle-kuzma.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Kyle-Kuzma-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "myles-turner",
+      "name": "Myles Turner",
+      "team": "Milwaukee Bucks",
+      "profile": "https://www.2kratings.com/myles-turner",
+      "image": "players/myles-turner.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Myles-Turner-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "nate-ament",
+      "name": "Nate Ament",
+      "team": "Milwaukee Bucks",
+      "profile": "https://www.2kratings.com/nate-ament",
+      "image": "players/nate-ament.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Nate-Ament-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "ousmane-dieng",
+      "name": "Ousmane Dieng",
+      "team": "Milwaukee Bucks",
+      "profile": "https://www.2kratings.com/ousmane-dieng",
+      "image": "players/ousmane-dieng.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Ousmane-Dieng-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "pete-nance",
+      "name": "Pete Nance",
+      "team": "Milwaukee Bucks",
+      "profile": "https://www.2kratings.com/pete-nance",
+      "image": "players/pete-nance.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Pete-Nance-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "ryan-rollins",
+      "name": "Ryan Rollins",
+      "team": "Milwaukee Bucks",
+      "profile": "https://www.2kratings.com/ryan-rollins",
+      "image": "players/ryan-rollins.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Ryan-Rollins-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "tyler-herro",
+      "name": "Tyler Herro",
+      "team": "Milwaukee Bucks",
+      "profile": "https://www.2kratings.com/tyler-herro",
+      "image": "players/tyler-herro.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Tyler-Herro-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "anthony-edwards",
+      "name": "Anthony Edwards",
+      "team": "Minnesota Timberwolves",
+      "profile": "https://www.2kratings.com/anthony-edwards",
+      "image": "players/anthony-edwards.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Anthony-Edwards-2K-Rating-1.png",
+      "status": "ok"
+    },
+    {
+      "id": "ayo-dosunmu",
+      "name": "Ayo Dosunmu",
+      "team": "Minnesota Timberwolves",
+      "profile": "https://www.2kratings.com/ayo-dosunmu",
+      "image": "players/ayo-dosunmu.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Ayo-Dosunmu-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "bones-hyland",
+      "name": "Bones Hyland",
+      "team": "Minnesota Timberwolves",
+      "profile": "https://www.2kratings.com/bones-hyland",
+      "image": "players/bones-hyland.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Bones-Hyland-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "cody-williams",
+      "name": "Cody Williams",
+      "team": "Minnesota Timberwolves",
+      "profile": "https://www.2kratings.com/cody-williams",
+      "image": "players/cody-williams.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Cody-Williams-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "donte-divincenzo",
+      "name": "Donte DiVincenzo",
+      "team": "Minnesota Timberwolves",
+      "profile": "https://www.2kratings.com/donte-divincenzo",
+      "image": "players/donte-divincenzo.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Donte-DiVincenzo-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "isaiah-evans",
+      "name": "Isaiah Evans",
+      "team": "Minnesota Timberwolves",
+      "profile": "https://www.2kratings.com/isaiah-evans",
+      "image": "players/isaiah-evans.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Isaiah-Evans-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "jaden-mcdaniels",
+      "name": "Jaden McDaniels",
+      "team": "Minnesota Timberwolves",
+      "profile": "https://www.2kratings.com/jaden-mcdaniels",
+      "image": "players/jaden-mcdaniels.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Jaden-McDaniels-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "jaylen-clark",
+      "name": "Jaylen Clark",
+      "team": "Minnesota Timberwolves",
+      "profile": "https://www.2kratings.com/jaylen-clark",
+      "image": "players/jaylen-clark.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Jaylen-Clark-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "joan-beringer",
+      "name": "Joan Beringer",
+      "team": "Minnesota Timberwolves",
+      "profile": "https://www.2kratings.com/joan-beringer",
+      "image": "players/joan-beringer.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Joan-Beringer-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "jonathan-kuminga",
+      "name": "Jonathan Kuminga",
+      "team": "Minnesota Timberwolves",
+      "profile": "https://www.2kratings.com/jonathan-kuminga",
+      "image": "players/jonathan-kuminga.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Jonathan-Kuminga-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "lamelo-ball",
+      "name": "LaMelo Ball",
+      "team": "Minnesota Timberwolves",
+      "profile": "https://www.2kratings.com/lamelo-ball",
+      "image": "players/lamelo-ball.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/LaMelo-Ball-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "rocco-zikarsky",
+      "name": "Rocco Zikarsky",
+      "team": "Minnesota Timberwolves",
+      "profile": "https://www.2kratings.com/rocco-zikarsky",
+      "image": "players/rocco-zikarsky.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Rocco-Zikarsky-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "rudy-gobert",
+      "name": "Rudy Gobert",
+      "team": "Minnesota Timberwolves",
+      "profile": "https://www.2kratings.com/rudy-gobert",
+      "image": "players/rudy-gobert.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Rudy-Gobert-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "terrence-shannon",
+      "name": "Terrence Shannon Jr.",
+      "team": "Minnesota Timberwolves",
+      "profile": "https://www.2kratings.com/terrence-shannon",
+      "image": "players/terrence-shannon.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Terrence-Shannon-Jr-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "trey-lyles",
+      "name": "Trey Lyles",
+      "team": "Minnesota Timberwolves",
+      "profile": "https://www.2kratings.com/trey-lyles",
+      "image": "players/trey-lyles.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Trey-Lyles-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "zyon-pullin",
+      "name": "Zyon Pullin",
+      "team": "Minnesota Timberwolves",
+      "profile": "https://www.2kratings.com/zyon-pullin",
+      "image": "players/zyon-pullin.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Zyon-Pullin-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "aj-johnson",
+      "name": "A.J. Johnson",
+      "team": "New Orleans Pelicans",
+      "profile": "https://www.2kratings.com/aj-johnson",
+      "image": "players/aj-johnson.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/AJ-Johnson-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "bennedict-mathurin",
+      "name": "Bennedict Mathurin",
+      "team": "New Orleans Pelicans",
+      "profile": "https://www.2kratings.com/bennedict-mathurin",
+      "image": "players/bennedict-mathurin.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Bennedict-Mathurin-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "bryce-mcgowens",
+      "name": "Bryce McGowens",
+      "team": "New Orleans Pelicans",
+      "profile": "https://www.2kratings.com/bryce-mcgowens",
+      "image": "players/bryce-mcgowens.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Bryce-McGowens-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "deandre-jordan",
+      "name": "DeAndre Jordan",
+      "team": "New Orleans Pelicans",
+      "profile": "https://www.2kratings.com/deandre-jordan",
+      "image": "players/deandre-jordan.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/DeAndre-Jordan-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "dejounte-murray",
+      "name": "Dejounte Murray",
+      "team": "New Orleans Pelicans",
+      "profile": "https://www.2kratings.com/dejounte-murray",
+      "image": "players/dejounte-murray.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Dejounte-Murray-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "derik-queen",
+      "name": "Derik Queen",
+      "team": "New Orleans Pelicans",
+      "profile": "https://www.2kratings.com/derik-queen",
+      "image": "players/derik-queen.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Derik-Queen-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "herbert-jones",
+      "name": "Herbert Jones",
+      "team": "New Orleans Pelicans",
+      "profile": "https://www.2kratings.com/herbert-jones",
+      "image": "players/herbert-jones.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Herbert-Jones-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "jaron-pierre-jr",
+      "name": "Jaron Pierre Jr.",
+      "team": "New Orleans Pelicans",
+      "profile": "https://www.2kratings.com/jaron-pierre-jr",
+      "image": "players/jaron-pierre-jr.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Jaron-Pierre-Jr-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "jeremiah-fears",
+      "name": "Jeremiah Fears",
+      "team": "New Orleans Pelicans",
+      "profile": "https://www.2kratings.com/jeremiah-fears",
+      "image": "players/jeremiah-fears.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Jeremiah-Fears-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "jordan-poole",
+      "name": "Jordan Poole",
+      "team": "New Orleans Pelicans",
+      "profile": "https://www.2kratings.com/jordan-poole",
+      "image": "players/jordan-poole.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Jordan-Poole-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "julian-reese",
+      "name": "Julian Reese",
+      "team": "New Orleans Pelicans",
+      "profile": "https://www.2kratings.com/julian-reese",
+      "image": "players/julian-reese.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Julian-Reese-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "karlo-matkovic",
+      "name": "Karlo Matkovic",
+      "team": "New Orleans Pelicans",
+      "profile": "https://www.2kratings.com/karlo-matkovic",
+      "image": "players/karlo-matkovic.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Karlo-Matkovic-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "malik-dia",
+      "name": "Malik Dia",
+      "team": "New Orleans Pelicans",
+      "profile": "https://www.2kratings.com/malik-dia",
+      "image": "players/malik-dia.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Malik-Dia-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "saddiq-bey",
+      "name": "Saddiq Bey",
+      "team": "New Orleans Pelicans",
+      "profile": "https://www.2kratings.com/saddiq-bey",
+      "image": "players/saddiq-bey.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Saddiq-Bey-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "trendon-watford",
+      "name": "Trendon Watford",
+      "team": "New Orleans Pelicans",
+      "profile": "https://www.2kratings.com/trendon-watford",
+      "image": "players/trendon-watford.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Trendon-Watford-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "trey-murphy",
+      "name": "Trey Murphy III",
+      "team": "New Orleans Pelicans",
+      "profile": "https://www.2kratings.com/trey-murphy",
+      "image": "players/trey-murphy.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Trey-Murphy-III-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "yves-missi",
+      "name": "Yves Missi",
+      "team": "New Orleans Pelicans",
+      "profile": "https://www.2kratings.com/yves-missi",
+      "image": "players/yves-missi.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Yves-Missi-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "zion-williamson",
+      "name": "Zion Williamson",
+      "team": "New Orleans Pelicans",
+      "profile": "https://www.2kratings.com/zion-williamson",
+      "image": "players/zion-williamson.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Zion-Williamson-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "andre-drummond",
+      "name": "Andre Drummond",
+      "team": "New York Knicks",
+      "profile": "https://www.2kratings.com/andre-drummond",
+      "image": "players/andre-drummond.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Andre-Drummond-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "dalton-knecht",
+      "name": "Dalton Knecht",
+      "team": "New York Knicks",
+      "profile": "https://www.2kratings.com/dalton-knecht",
+      "image": "players/dalton-knecht.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Dalton-Knecht-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "jaden-akins",
+      "name": "Jaden Akins",
+      "team": "New York Knicks",
+      "profile": "https://www.2kratings.com/jaden-akins",
+      "image": "players/jaden-akins.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Jaden-Akins-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "jalen-brunson",
+      "name": "Jalen Brunson",
+      "team": "New York Knicks",
+      "profile": "https://www.2kratings.com/jalen-brunson",
+      "image": "players/jalen-brunson.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Jalen-Brunson-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "james-wiseman",
+      "name": "James Wiseman",
+      "team": "New York Knicks",
+      "profile": "https://www.2kratings.com/james-wiseman",
+      "image": "players/james-wiseman.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/James-Wiseman-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "jordan-clarkson",
+      "name": "Jordan Clarkson",
+      "team": "New York Knicks",
+      "profile": "https://www.2kratings.com/jordan-clarkson",
+      "image": "players/jordan-clarkson.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Jordan-Clarkson-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "jose-alvarado",
+      "name": "Jose Alvarado",
+      "team": "New York Knicks",
+      "profile": "https://www.2kratings.com/jose-alvarado",
+      "image": "players/jose-alvarado.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Jose-Alvarado-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "josh-hart",
+      "name": "Josh Hart",
+      "team": "New York Knicks",
+      "profile": "https://www.2kratings.com/josh-hart",
+      "image": "players/josh-hart.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Josh-Hart-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "karl-anthony-towns",
+      "name": "Karl-Anthony Towns",
+      "team": "New York Knicks",
+      "profile": "https://www.2kratings.com/karl-anthony-towns",
+      "image": "players/karl-anthony-towns.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Karl-Anthony-Towns-2K-Rating-1.png",
+      "status": "ok"
+    },
+    {
+      "id": "landry-shamet",
+      "name": "Landry Shamet",
+      "team": "New York Knicks",
+      "profile": "https://www.2kratings.com/landry-shamet",
+      "image": "players/landry-shamet.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Landry-Shamet-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "mikal-bridges",
+      "name": "Mikal Bridges",
+      "team": "New York Knicks",
+      "profile": "https://www.2kratings.com/mikal-bridges",
+      "image": "players/mikal-bridges.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Mikal-Bridges-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "miles-mcbride",
+      "name": "Miles McBride",
+      "team": "New York Knicks",
+      "profile": "https://www.2kratings.com/miles-mcbride",
+      "image": "players/miles-mcbride.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Miles-McBride-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "mohamed-diawara",
+      "name": "Mohamed Diawara",
+      "team": "New York Knicks",
+      "profile": "https://www.2kratings.com/mohamed-diawara",
+      "image": "players/mohamed-diawara.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Mohamed-Diawara-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "og-anunoby",
+      "name": "OG Anunoby",
+      "team": "New York Knicks",
+      "profile": "https://www.2kratings.com/og-anunoby",
+      "image": "players/og-anunoby.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/OG-Anunoby-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "pacome-dadiet",
+      "name": "Pacome Dadiet",
+      "team": "New York Knicks",
+      "profile": "https://www.2kratings.com/pacome-dadiet",
+      "image": "players/pacome-dadiet.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Pacome-Dadiet-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "tyler-kolek",
+      "name": "Tyler Kolek",
+      "team": "New York Knicks",
+      "profile": "https://www.2kratings.com/tyler-kolek",
+      "image": "players/tyler-kolek.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Tyler-Kolek-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "tyler-nickel",
+      "name": "Tyler Nickel",
+      "team": "New York Knicks",
+      "profile": "https://www.2kratings.com/tyler-nickel",
+      "image": "players/tyler-nickel.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Tyler-Nickel-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "aday-mara",
+      "name": "Aday Mara",
+      "team": "Oklahoma City Thunder",
+      "profile": "https://www.2kratings.com/aday-mara",
+      "image": "players/aday-mara.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Aday-Mara-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "ajay-mitchell",
+      "name": "Ajay Mitchell",
+      "team": "Oklahoma City Thunder",
+      "profile": "https://www.2kratings.com/ajay-mitchell",
+      "image": "players/ajay-mitchell.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Ajay-Mitchell-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "alex-caruso",
+      "name": "Alex Caruso",
+      "team": "Oklahoma City Thunder",
+      "profile": "https://www.2kratings.com/alex-caruso",
+      "image": "players/alex-caruso.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Alex-Caruso-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "bennett-stirtz",
+      "name": "Bennett Stirtz",
+      "team": "Oklahoma City Thunder",
+      "profile": "https://www.2kratings.com/bennett-stirtz",
+      "image": "players/bennett-stirtz.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Bennett-Stirtz-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "brooks-barnhizer",
+      "name": "Brooks Barnhizer",
+      "team": "Oklahoma City Thunder",
+      "profile": "https://www.2kratings.com/brooks-barnhizer",
+      "image": "players/brooks-barnhizer.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Brooks-Barnhizer-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "cason-wallace",
+      "name": "Cason Wallace",
+      "team": "Oklahoma City Thunder",
+      "profile": "https://www.2kratings.com/cason-wallace",
+      "image": "players/cason-wallace.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Cason-Wallace-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "chet-holmgren",
+      "name": "Chet Holmgren",
+      "team": "Oklahoma City Thunder",
+      "profile": "https://www.2kratings.com/chet-holmgren",
+      "image": "players/chet-holmgren.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Chet-Holmgren-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "dalen-terry",
+      "name": "Dalen Terry",
+      "team": "Oklahoma City Thunder",
+      "profile": "https://www.2kratings.com/dalen-terry",
+      "image": "players/dalen-terry.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Dalen-Terry-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "isaiah-hartenstein",
+      "name": "Isaiah Hartenstein",
+      "team": "Oklahoma City Thunder",
+      "profile": "https://www.2kratings.com/isaiah-hartenstein",
+      "image": "players/isaiah-hartenstein.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Isaiah-Hartenstein-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "jalen-williams",
+      "name": "Jalen Williams",
+      "team": "Oklahoma City Thunder",
+      "profile": "https://www.2kratings.com/jalen-williams",
+      "image": "players/jalen-williams.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Jalen-Williams-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "jared-mccain",
+      "name": "Jared McCain",
+      "team": "Oklahoma City Thunder",
+      "profile": "https://www.2kratings.com/jared-mccain",
+      "image": "players/jared-mccain.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Jared-McCain-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "jaylin-williams",
+      "name": "Jaylin Williams",
+      "team": "Oklahoma City Thunder",
+      "profile": "https://www.2kratings.com/jaylin-williams",
+      "image": "players/jaylin-williams.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Jaylin-Williams-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "josh-dix",
+      "name": "Josh Dix",
+      "team": "Oklahoma City Thunder",
+      "profile": "https://www.2kratings.com/josh-dix",
+      "image": "players/josh-dix.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Josh-Dix-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "kenrich-williams",
+      "name": "Kenrich Williams",
+      "team": "Oklahoma City Thunder",
+      "profile": "https://www.2kratings.com/kenrich-williams",
+      "image": "players/kenrich-williams.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Kenrich-Williams-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "micah-peavy",
+      "name": "Micah Peavy",
+      "team": "Oklahoma City Thunder",
+      "profile": "https://www.2kratings.com/micah-peavy",
+      "image": "players/micah-peavy.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Micah-Peavy-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "nikola-topic",
+      "name": "Nikola Topic",
+      "team": "Oklahoma City Thunder",
+      "profile": "https://www.2kratings.com/nikola-topic",
+      "image": "players/nikola-topic.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Nikola-Topic-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "shai-gilgeous-alexander",
+      "name": "Shai Gilgeous-Alexander",
+      "team": "Oklahoma City Thunder",
+      "profile": "https://www.2kratings.com/shai-gilgeous-alexander",
+      "image": "players/shai-gilgeous-alexander.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Shai-Gilgeous-Alexander-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "thomas-sorber",
+      "name": "Thomas Sorber",
+      "team": "Oklahoma City Thunder",
+      "profile": "https://www.2kratings.com/thomas-sorber",
+      "image": "players/thomas-sorber.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Thomas-Sorber-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "alex-morales",
+      "name": "Alex Morales",
+      "team": "Orlando Magic",
+      "profile": "https://www.2kratings.com/alex-morales",
+      "image": "players/alex-morales.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Alex-Morales-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "anthony-black",
+      "name": "Anthony Black",
+      "team": "Orlando Magic",
+      "profile": "https://www.2kratings.com/anthony-black",
+      "image": "players/anthony-black.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Anthony-Black-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "colin-castleton",
+      "name": "Colin Castleton",
+      "team": "Orlando Magic",
+      "profile": "https://www.2kratings.com/colin-castleton",
+      "image": "players/colin-castleton.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Colin-Castleton-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "desmond-bane",
+      "name": "Desmond Bane",
+      "team": "Orlando Magic",
+      "profile": "https://www.2kratings.com/desmond-bane",
+      "image": "players/desmond-bane.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Desmond-Bane-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "franz-wagner",
+      "name": "Franz Wagner",
+      "team": "Orlando Magic",
+      "profile": "https://www.2kratings.com/franz-wagner",
+      "image": "players/franz-wagner.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Franz-Wagner-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "goga-bitadze",
+      "name": "Goga Bitadze",
+      "team": "Orlando Magic",
+      "profile": "https://www.2kratings.com/goga-bitadze",
+      "image": "players/goga-bitadze.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Goga-Bitadze-2K-Rating-1.png",
+      "status": "ok"
+    },
+    {
+      "id": "izaiyah-nelson",
+      "name": "Izaiyah Nelson",
+      "team": "Orlando Magic",
+      "profile": "https://www.2kratings.com/izaiyah-nelson",
+      "image": "players/izaiyah-nelson.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Izaiyah-Nelson-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "jalen-suggs",
+      "name": "Jalen Suggs",
+      "team": "Orlando Magic",
+      "profile": "https://www.2kratings.com/jalen-suggs",
+      "image": "players/jalen-suggs.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Jalen-Suggs-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "jamal-cain",
+      "name": "Jamal Cain",
+      "team": "Orlando Magic",
+      "profile": "https://www.2kratings.com/jamal-cain",
+      "image": "players/jamal-cain.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Jamal-Cain-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "jase-richardson",
+      "name": "Jase Richardson",
+      "team": "Orlando Magic",
+      "profile": "https://www.2kratings.com/jase-richardson",
+      "image": "players/jase-richardson.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Jase-Richardson-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "jevon-carter",
+      "name": "Jevon Carter",
+      "team": "Orlando Magic",
+      "profile": "https://www.2kratings.com/jevon-carter",
+      "image": "players/jevon-carter.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Jevon-Carter-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "jonathan-isaac",
+      "name": "Jonathan Isaac",
+      "team": "Orlando Magic",
+      "profile": "https://www.2kratings.com/jonathan-isaac",
+      "image": "players/jonathan-isaac.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Jonathan-Isaac-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "nikola-vucevic",
+      "name": "Nikola Vucevic",
+      "team": "Orlando Magic",
+      "profile": "https://www.2kratings.com/nikola-vucevic",
+      "image": "players/nikola-vucevic.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Nikola-Vucevic-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "noah-penda",
+      "name": "Noah Penda",
+      "team": "Orlando Magic",
+      "profile": "https://www.2kratings.com/noah-penda",
+      "image": "players/noah-penda.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Noah-Penda-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "paolo-banchero",
+      "name": "Paolo Banchero",
+      "team": "Orlando Magic",
+      "profile": "https://www.2kratings.com/paolo-banchero",
+      "image": "players/paolo-banchero.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Paolo-Banchero-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "tristan-da-silva",
+      "name": "Tristan da Silva",
+      "team": "Orlando Magic",
+      "profile": "https://www.2kratings.com/tristan-da-silva",
+      "image": "players/tristan-da-silva.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Tristan-da-Silva-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "wendell-carter-jr",
+      "name": "Wendell Carter Jr.",
+      "team": "Orlando Magic",
+      "profile": "https://www.2kratings.com/wendell-carter-jr",
+      "image": "players/wendell-carter-jr.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Wendell-Carter-Jr-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "adem-bona",
+      "name": "Adem Bona",
+      "team": "Philadelphia 76ers",
+      "profile": "https://www.2kratings.com/adem-bona",
+      "image": "players/adem-bona.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Adem-Bona-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "anfernee-simons",
+      "name": "Anfernee Simons",
+      "team": "Philadelphia 76ers",
+      "profile": "https://www.2kratings.com/anfernee-simons",
+      "image": "players/anfernee-simons.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Anfernee-Simons-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "ariel-hukporti",
+      "name": "Ariel Hukporti",
+      "team": "Philadelphia 76ers",
+      "profile": "https://www.2kratings.com/ariel-hukporti",
+      "image": "players/ariel-hukporti.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Ariel-Hukporti-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "caleb-love",
+      "name": "Caleb Love",
+      "team": "Philadelphia 76ers",
+      "profile": "https://www.2kratings.com/caleb-love",
+      "image": "players/caleb-love.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Caleb-Love-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "dean-wade",
+      "name": "Dean Wade",
+      "team": "Philadelphia 76ers",
+      "profile": "https://www.2kratings.com/dean-wade",
+      "image": "players/dean-wade.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Dean-Wade-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "dominick-barlow",
+      "name": "Dominick Barlow",
+      "team": "Philadelphia 76ers",
+      "profile": "https://www.2kratings.com/dominick-barlow",
+      "image": "players/dominick-barlow.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Dominick-Barlow-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "jabari-walker",
+      "name": "Jabari Walker",
+      "team": "Philadelphia 76ers",
+      "profile": "https://www.2kratings.com/jabari-walker",
+      "image": "players/jabari-walker.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Jabari-Walker-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "jaylen-brown",
+      "name": "Jaylen Brown",
+      "team": "Philadelphia 76ers",
+      "profile": "https://www.2kratings.com/jaylen-brown",
+      "image": "players/jaylen-brown.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Jaylen-Brown-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "joel-embiid",
+      "name": "Joel Embiid",
+      "team": "Philadelphia 76ers",
+      "profile": "https://www.2kratings.com/joel-embiid",
+      "image": "players/joel-embiid.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Joel-Embiid-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "justin-edwards",
+      "name": "Justin Edwards",
+      "team": "Philadelphia 76ers",
+      "profile": "https://www.2kratings.com/justin-edwards",
+      "image": "players/justin-edwards.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Justin-Edwards-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "kentavious-caldwell-pope",
+      "name": "Kentavious Caldwell-Pope",
+      "team": "Philadelphia 76ers",
+      "profile": "https://www.2kratings.com/kentavious-caldwell-pope",
+      "image": "players/kentavious-caldwell-pope.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Kentavious-Caldwell-Pope-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "labaron-philon-jr",
+      "name": "Labaron Philon Jr.",
+      "team": "Philadelphia 76ers",
+      "profile": "https://www.2kratings.com/labaron-philon-jr",
+      "image": "players/labaron-philon-jr.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Labaron-Philon-Jr-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "lebron-james",
+      "name": "LeBron James",
+      "team": "Philadelphia 76ers",
+      "profile": "https://www.2kratings.com/lebron-james",
+      "image": "players/lebron-james.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/LeBron-James-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "rayan-rupert",
+      "name": "Rayan Rupert",
+      "team": "Philadelphia 76ers",
+      "profile": "https://www.2kratings.com/rayan-rupert",
+      "image": "players/rayan-rupert.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Rayan-Rupert-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "tacko-fall",
+      "name": "Tacko Fall",
+      "team": "Philadelphia 76ers",
+      "profile": "https://www.2kratings.com/tacko-fall",
+      "image": "players/tacko-fall.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Tacko-Fall-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "tyrese-maxey",
+      "name": "Tyrese Maxey",
+      "team": "Philadelphia 76ers",
+      "profile": "https://www.2kratings.com/tyrese-maxey",
+      "image": "players/tyrese-maxey.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Tyrese-Maxey-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "vj-edgecombe",
+      "name": "V.J. Edgecombe",
+      "team": "Philadelphia 76ers",
+      "profile": "https://www.2kratings.com/vj-edgecombe",
+      "image": "players/vj-edgecombe.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/VJ-Edgecombe-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "collin-gillespie",
+      "name": "Collin Gillespie",
+      "team": "Phoenix Suns",
+      "profile": "https://www.2kratings.com/collin-gillespie",
+      "image": "players/collin-gillespie.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Collin-Gillespie-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "devin-booker",
+      "name": "Devin Booker",
+      "team": "Phoenix Suns",
+      "profile": "https://www.2kratings.com/devin-booker",
+      "image": "players/devin-booker.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Devin-Booker-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "dillon-brooks",
+      "name": "Dillon Brooks",
+      "team": "Phoenix Suns",
+      "profile": "https://www.2kratings.com/dillon-brooks",
+      "image": "players/dillon-brooks.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Dillon-Brooks-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "drew-timme",
+      "name": "Drew Timme",
+      "team": "Phoenix Suns",
+      "profile": "https://www.2kratings.com/drew-timme",
+      "image": "players/drew-timme.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Drew-Timme-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "duop-reath",
+      "name": "Duop Reath",
+      "team": "Phoenix Suns",
+      "profile": "https://www.2kratings.com/duop-reath",
+      "image": "players/duop-reath.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Duop-Reath-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "jalen-green",
+      "name": "Jalen Green",
+      "team": "Phoenix Suns",
+      "profile": "https://www.2kratings.com/jalen-green",
+      "image": "players/jalen-green.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Jalen-Green-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "jamaree-bouyea",
+      "name": "Jamaree Bouyea",
+      "team": "Phoenix Suns",
+      "profile": "https://www.2kratings.com/jamaree-bouyea",
+      "image": "players/jamaree-bouyea.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Jamaree-Bouyea-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "jordan-goodwin",
+      "name": "Jordan Goodwin",
+      "team": "Phoenix Suns",
+      "profile": "https://www.2kratings.com/jordan-goodwin",
+      "image": "players/jordan-goodwin.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Jordan-Goodwin-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "khaman-maluach",
+      "name": "Khaman Maluach",
+      "team": "Phoenix Suns",
+      "profile": "https://www.2kratings.com/khaman-maluach",
+      "image": "players/khaman-maluach.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Khaman-Maluach-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "koa-peat",
+      "name": "Koa Peat",
+      "team": "Phoenix Suns",
+      "profile": "https://www.2kratings.com/koa-peat",
+      "image": "players/koa-peat.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Koa-Peat-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "luke-kennard",
+      "name": "Luke Kennard",
+      "team": "Phoenix Suns",
+      "profile": "https://www.2kratings.com/luke-kennard",
+      "image": "players/luke-kennard.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Luke-Kennard-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "mark-williams",
+      "name": "Mark Williams",
+      "team": "Phoenix Suns",
+      "profile": "https://www.2kratings.com/mark-williams",
+      "image": "players/mark-williams.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Mark-Williams-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "miles-bridges",
+      "name": "Miles Bridges",
+      "team": "Phoenix Suns",
+      "profile": "https://www.2kratings.com/miles-bridges",
+      "image": "players/miles-bridges.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Miles-Bridges-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "oso-ighodaro",
+      "name": "Oso Ighodaro",
+      "team": "Phoenix Suns",
+      "profile": "https://www.2kratings.com/oso-ighodaro",
+      "image": "players/oso-ighodaro.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Oso-Ighodaro-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "pat-spencer",
+      "name": "Pat Spencer",
+      "team": "Phoenix Suns",
+      "profile": "https://www.2kratings.com/pat-spencer",
+      "image": "players/pat-spencer.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Pat-Spencer-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "rasheer-fleming",
+      "name": "Rasheer Fleming",
+      "team": "Phoenix Suns",
+      "profile": "https://www.2kratings.com/rasheer-fleming",
+      "image": "players/rasheer-fleming.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Rasheer-Fleming-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "ryan-dunn",
+      "name": "Ryan Dunn",
+      "team": "Phoenix Suns",
+      "profile": "https://www.2kratings.com/ryan-dunn",
+      "image": "players/ryan-dunn.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Ryan-Dunn-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "branden-carlson",
+      "name": "Branden Carlson",
+      "team": "Portland Trail Blazers",
+      "profile": "https://www.2kratings.com/branden-carlson",
+      "image": "players/branden-carlson.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Branden-Carlson-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "chris-youngblood",
+      "name": "Chris Youngblood",
+      "team": "Portland Trail Blazers",
+      "profile": "https://www.2kratings.com/chris-youngblood",
+      "image": "players/chris-youngblood.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Chris-Youngblood-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "damian-lillard",
+      "name": "Damian Lillard",
+      "team": "Portland Trail Blazers",
+      "profile": "https://www.2kratings.com/damian-lillard",
+      "image": "players/damian-lillard.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Damian-Lillard-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "deni-avdija",
+      "name": "Deni Avdija",
+      "team": "Portland Trail Blazers",
+      "profile": "https://www.2kratings.com/deni-avdija",
+      "image": "players/deni-avdija.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Deni-Avdija-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "donovan-clingan",
+      "name": "Donovan Clingan",
+      "team": "Portland Trail Blazers",
+      "profile": "https://www.2kratings.com/donovan-clingan",
+      "image": "players/donovan-clingan.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Donovan-Clingan-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "ja-morant",
+      "name": "Ja Morant",
+      "team": "Portland Trail Blazers",
+      "profile": "https://www.2kratings.com/ja-morant",
+      "image": "players/ja-morant.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Ja-Morant-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "jayson-kent",
+      "name": "Jayson Kent",
+      "team": "Portland Trail Blazers",
+      "profile": "https://www.2kratings.com/jayson-kent",
+      "image": "players/jayson-kent.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Jayson-Kent-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "john-tonje",
+      "name": "John Tonje",
+      "team": "Portland Trail Blazers",
+      "profile": "https://www.2kratings.com/john-tonje",
+      "image": "players/john-tonje.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/John-Tonje-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "jrue-holiday",
+      "name": "Jrue Holiday",
+      "team": "Portland Trail Blazers",
+      "profile": "https://www.2kratings.com/jrue-holiday",
+      "image": "players/jrue-holiday.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Jrue-Holiday-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "micah-potter",
+      "name": "Micah Potter",
+      "team": "Portland Trail Blazers",
+      "profile": "https://www.2kratings.com/micah-potter",
+      "image": "players/micah-potter.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Micah-Potter-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "robert-williams-iii",
+      "name": "Robert Williams III",
+      "team": "Portland Trail Blazers",
+      "profile": "https://www.2kratings.com/robert-williams-iii",
+      "image": "players/robert-williams-iii.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Robert-Williams-III-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "scoot-henderson",
+      "name": "Scoot Henderson",
+      "team": "Portland Trail Blazers",
+      "profile": "https://www.2kratings.com/scoot-henderson",
+      "image": "players/scoot-henderson.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Scoot-Henderson-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "shaedon-sharpe",
+      "name": "Shaedon Sharpe",
+      "team": "Portland Trail Blazers",
+      "profile": "https://www.2kratings.com/shaedon-sharpe",
+      "image": "players/shaedon-sharpe.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Shaedon-Sharpe-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "sidy-cissoko",
+      "name": "Sidy Cissoko",
+      "team": "Portland Trail Blazers",
+      "profile": "https://www.2kratings.com/sidy-cissoko",
+      "image": "players/sidy-cissoko.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Sidy-Cissoko-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "toumani-camara",
+      "name": "Toumani Camara",
+      "team": "Portland Trail Blazers",
+      "profile": "https://www.2kratings.com/toumani-camara",
+      "image": "players/toumani-camara.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Toumani-Camara-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "vit-krejci",
+      "name": "Vit Krejci",
+      "team": "Portland Trail Blazers",
+      "profile": "https://www.2kratings.com/vit-krejci",
+      "image": "players/vit-krejci.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Vit-Krejci-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "yang-hansen",
+      "name": "Yang Hansen",
+      "team": "Portland Trail Blazers",
+      "profile": "https://www.2kratings.com/yang-hansen",
+      "image": "players/yang-hansen.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Yang-Hansen-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "alex-karaban",
+      "name": "Alex Karaban",
+      "team": "Sacramento Kings",
+      "profile": "https://www.2kratings.com/alex-karaban",
+      "image": "players/alex-karaban.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Alex-Karaban-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "ben-simmons",
+      "name": "Ben Simmons",
+      "team": "Sacramento Kings",
+      "profile": "https://www.2kratings.com/ben-simmons",
+      "image": "players/ben-simmons.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Ben-Simmons-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "daeqwon-plowden",
+      "name": "Daeqwon Plowden",
+      "team": "Sacramento Kings",
+      "profile": "https://www.2kratings.com/daeqwon-plowden",
+      "image": "players/daeqwon-plowden.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Daeqwon-Plowden-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "darius-acuff-jr",
+      "name": "Darius Acuff Jr.",
+      "team": "Sacramento Kings",
+      "profile": "https://www.2kratings.com/darius-acuff-jr",
+      "image": "players/darius-acuff-jr.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Darius-Acuff-Jr-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "deandre-hunter",
+      "name": "De’Andre Hunter",
+      "team": "Sacramento Kings",
+      "profile": "https://www.2kratings.com/deandre-hunter",
+      "image": "players/deandre-hunter.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/DeAndre-Hunter-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "domantas-sabonis",
+      "name": "Domantas Sabonis",
+      "team": "Sacramento Kings",
+      "profile": "https://www.2kratings.com/domantas-sabonis",
+      "image": "players/domantas-sabonis.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Domantas-Sabonis-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "dylan-cardwell",
+      "name": "Dylan Cardwell",
+      "team": "Sacramento Kings",
+      "profile": "https://www.2kratings.com/dylan-cardwell",
+      "image": "players/dylan-cardwell.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Dylan-Cardwell-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "emanuel-sharp",
+      "name": "Emanuel Sharp",
+      "team": "Sacramento Kings",
+      "profile": "https://www.2kratings.com/emanuel-sharp",
+      "image": "players/emanuel-sharp.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Emanuel-Sharp-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "jonathan-mogbo",
+      "name": "Jonathan Mogbo",
+      "team": "Sacramento Kings",
+      "profile": "https://www.2kratings.com/jonathan-mogbo",
+      "image": "players/jonathan-mogbo.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Jonathan-Mogbo-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "keegan-murray",
+      "name": "Keegan Murray",
+      "team": "Sacramento Kings",
+      "profile": "https://www.2kratings.com/keegan-murray",
+      "image": "players/keegan-murray.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Keegan-Murray-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "leaky-black",
+      "name": "Leaky Black",
+      "team": "Sacramento Kings",
+      "profile": "https://www.2kratings.com/leaky-black",
+      "image": "players/leaky-black.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Leaky-Black-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "malik-monk",
+      "name": "Malik Monk",
+      "team": "Sacramento Kings",
+      "profile": "https://www.2kratings.com/malik-monk",
+      "image": "players/malik-monk.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Malik-Monk-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "maxime-raynaud",
+      "name": "Maxime Raynaud",
+      "team": "Sacramento Kings",
+      "profile": "https://www.2kratings.com/maxime-raynaud",
+      "image": "players/maxime-raynaud.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Maxime-Raynaud-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "nique-clifford",
+      "name": "Nique Clifford",
+      "team": "Sacramento Kings",
+      "profile": "https://www.2kratings.com/nique-clifford",
+      "image": "players/nique-clifford.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Nique-Clifford-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "precious-achiuwa",
+      "name": "Precious Achiuwa",
+      "team": "Sacramento Kings",
+      "profile": "https://www.2kratings.com/precious-achiuwa",
+      "image": "players/precious-achiuwa.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Precious-Achiuwa-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "sean-pedulla",
+      "name": "Sean Pedulla",
+      "team": "Sacramento Kings",
+      "profile": "https://www.2kratings.com/sean-pedulla",
+      "image": "players/sean-pedulla.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Sean-Pedulla-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "zach-lavine",
+      "name": "Zach LaVine",
+      "team": "Sacramento Kings",
+      "profile": "https://www.2kratings.com/zach-lavine",
+      "image": "players/zach-lavine.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Zach-LaVine-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "carter-bryant",
+      "name": "Carter Bryant",
+      "team": "San Antonio Spurs",
+      "profile": "https://www.2kratings.com/carter-bryant",
+      "image": "players/carter-bryant.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Carter-Bryant-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "david-jones-garcia",
+      "name": "David Jones-Garcia",
+      "team": "San Antonio Spurs",
+      "profile": "https://www.2kratings.com/david-jones-garcia",
+      "image": "players/david-jones-garcia.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/David-Jones-Garcia-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "devin-vassell",
+      "name": "Devin Vassell",
+      "team": "San Antonio Spurs",
+      "profile": "https://www.2kratings.com/devin-vassell",
+      "image": "players/devin-vassell.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Devin-Vassell-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "deaaron-fox",
+      "name": "De’Aaron Fox",
+      "team": "San Antonio Spurs",
+      "profile": "https://www.2kratings.com/deaaron-fox",
+      "image": "players/deaaron-fox.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/DeAaron-Fox-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "dylan-harper",
+      "name": "Dylan Harper",
+      "team": "San Antonio Spurs",
+      "profile": "https://www.2kratings.com/dylan-harper",
+      "image": "players/dylan-harper.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Dylan-Harper-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "harrison-barnes",
+      "name": "Harrison Barnes",
+      "team": "San Antonio Spurs",
+      "profile": "https://www.2kratings.com/harrison-barnes",
+      "image": "players/harrison-barnes.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Harrison-Barnes-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "jayden-quaintance",
+      "name": "Jayden Quaintance",
+      "team": "San Antonio Spurs",
+      "profile": "https://www.2kratings.com/jayden-quaintance",
+      "image": "players/jayden-quaintance.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Jayden-Quaintance-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "jakobi-gillespie",
+      "name": "Ja’Kobi Gillespie",
+      "team": "San Antonio Spurs",
+      "profile": "https://www.2kratings.com/jakobi-gillespie",
+      "image": "players/jakobi-gillespie.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/JaKobi-Gillespie-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "jordan-mclaughlin",
+      "name": "Jordan McLaughlin",
+      "team": "San Antonio Spurs",
+      "profile": "https://www.2kratings.com/jordan-mclaughlin",
+      "image": "players/jordan-mclaughlin.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Jordan-McLaughlin-2K-Rating-1.png",
+      "status": "ok"
+    },
+    {
+      "id": "julian-champagnie",
+      "name": "Julian Champagnie",
+      "team": "San Antonio Spurs",
+      "profile": "https://www.2kratings.com/julian-champagnie",
+      "image": "players/julian-champagnie.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Julian-Champagnie-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "keldon-johnson",
+      "name": "Keldon Johnson",
+      "team": "San Antonio Spurs",
+      "profile": "https://www.2kratings.com/keldon-johnson",
+      "image": "players/keldon-johnson.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Keldon-Johnson-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "luke-kornet",
+      "name": "Luke Kornet",
+      "team": "San Antonio Spurs",
+      "profile": "https://www.2kratings.com/luke-kornet",
+      "image": "players/luke-kornet.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Luke-Kornet-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "maliq-brown",
+      "name": "Maliq Brown",
+      "team": "San Antonio Spurs",
+      "profile": "https://www.2kratings.com/maliq-brown",
+      "image": "players/maliq-brown.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Maliq-Brown-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "stephon-castle",
+      "name": "Stephon Castle",
+      "team": "San Antonio Spurs",
+      "profile": "https://www.2kratings.com/stephon-castle",
+      "image": "players/stephon-castle.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Stephon-Castle-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "tarris-reed-jr",
+      "name": "Tarris Reed Jr.",
+      "team": "San Antonio Spurs",
+      "profile": "https://www.2kratings.com/tarris-reed-jr",
+      "image": "players/tarris-reed-jr.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Tarris-Reed-Jr-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "tobias-harris",
+      "name": "Tobias Harris",
+      "team": "San Antonio Spurs",
+      "profile": "https://www.2kratings.com/tobias-harris",
+      "image": "players/tobias-harris.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Tobias-Harris-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "victor-wembanyama",
+      "name": "Victor Wembanyama",
+      "team": "San Antonio Spurs",
+      "profile": "https://www.2kratings.com/victor-wembanyama",
+      "image": "players/victor-wembanyama.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Victor-Wembanyama-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "alijah-martin",
+      "name": "Alijah Martin",
+      "team": "Toronto Raptors",
+      "profile": "https://www.2kratings.com/alijah-martin",
+      "image": "players/alijah-martin.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Alijah-Martin-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "allen-graves",
+      "name": "Allen Graves",
+      "team": "Toronto Raptors",
+      "profile": "https://www.2kratings.com/allen-graves",
+      "image": "players/allen-graves.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Allen-Graves-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "collin-murray-boyles",
+      "name": "Collin Murray-Boyles",
+      "team": "Toronto Raptors",
+      "profile": "https://www.2kratings.com/collin-murray-boyles",
+      "image": "players/collin-murray-boyles.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Collin-Murray-Boyles-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "immanuel-quickley",
+      "name": "Immanuel Quickley",
+      "team": "Toronto Raptors",
+      "profile": "https://www.2kratings.com/immanuel-quickley",
+      "image": "players/immanuel-quickley.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Immanuel-Quickley-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "jaden-bradley",
+      "name": "Jaden Bradley",
+      "team": "Toronto Raptors",
+      "profile": "https://www.2kratings.com/jaden-bradley",
+      "image": "players/jaden-bradley.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Jaden-Bradley-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "jakob-poeltl",
+      "name": "Jakob Poeltl",
+      "team": "Toronto Raptors",
+      "profile": "https://www.2kratings.com/jakob-poeltl",
+      "image": "players/jakob-poeltl.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Jakob-Poeltl-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "jamal-shead",
+      "name": "Jamal Shead",
+      "team": "Toronto Raptors",
+      "profile": "https://www.2kratings.com/jamal-shead",
+      "image": "players/jamal-shead.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Jamal-Shead-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "jamison-battle",
+      "name": "Jamison Battle",
+      "team": "Toronto Raptors",
+      "profile": "https://www.2kratings.com/jamison-battle",
+      "image": "players/jamison-battle.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Jamison-Battle-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "jakobe-walter",
+      "name": "Ja’Kobe Walter",
+      "team": "Toronto Raptors",
+      "profile": "https://www.2kratings.com/jakobe-walter",
+      "image": "players/jakobe-walter.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/JaKobe-Walter-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "kawhi-leonard",
+      "name": "Kawhi Leonard",
+      "team": "Toronto Raptors",
+      "profile": "https://www.2kratings.com/kawhi-leonard",
+      "image": "players/kawhi-leonard.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Kawhi-Leonard-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "kevin-mccullar",
+      "name": "Kevin McCullar Jr.",
+      "team": "Toronto Raptors",
+      "profile": "https://www.2kratings.com/kevin-mccullar",
+      "image": "players/kevin-mccullar.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Kevin-McCullar-Jr-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "kyle-anderson",
+      "name": "Kyle Anderson",
+      "team": "Toronto Raptors",
+      "profile": "https://www.2kratings.com/kyle-anderson",
+      "image": "players/kyle-anderson.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Kyle-Anderson-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "malachi-smith",
+      "name": "Malachi Smith",
+      "team": "Toronto Raptors",
+      "profile": "https://www.2kratings.com/malachi-smith",
+      "image": "players/malachi-smith.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Malachi-Smith-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "nate-bittle",
+      "name": "Nate Bittle",
+      "team": "Toronto Raptors",
+      "profile": "https://www.2kratings.com/nate-bittle",
+      "image": "players/nate-bittle.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Nate-Bittle-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "rj-barrett",
+      "name": "R.J. Barrett",
+      "team": "Toronto Raptors",
+      "profile": "https://www.2kratings.com/rj-barrett",
+      "image": "players/rj-barrett.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/RJ-Barrett-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "scottie-barnes",
+      "name": "Scottie Barnes",
+      "team": "Toronto Raptors",
+      "profile": "https://www.2kratings.com/scottie-barnes",
+      "image": "players/scottie-barnes.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Scottie-Barnes-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "trayce-jackson-davis",
+      "name": "Trayce Jackson-Davis",
+      "team": "Toronto Raptors",
+      "profile": "https://www.2kratings.com/trayce-jackson-davis",
+      "image": "players/trayce-jackson-davis.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Trayce-Jackson-Davis-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "ace-bailey",
+      "name": "Ace Bailey",
+      "team": "Utah Jazz",
+      "profile": "https://www.2kratings.com/ace-bailey",
+      "image": "players/ace-bailey.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Ace-Bailey-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "brice-sensabaugh",
+      "name": "Brice Sensabaugh",
+      "team": "Utah Jazz",
+      "profile": "https://www.2kratings.com/brice-sensabaugh",
+      "image": "players/brice-sensabaugh.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Brice-Sensabaugh-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "darryn-peterson",
+      "name": "Darryn Peterson",
+      "team": "Utah Jazz",
+      "profile": "https://www.2kratings.com/darryn-peterson",
+      "image": "players/darryn-peterson.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Darryn-Peterson-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "harrison-ingram",
+      "name": "Harrison Ingram",
+      "team": "Utah Jazz",
+      "profile": "https://www.2kratings.com/harrison-ingram",
+      "image": "players/harrison-ingram.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Harrison-Ingram-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "isaiah-collier",
+      "name": "Isaiah Collier",
+      "team": "Utah Jazz",
+      "profile": "https://www.2kratings.com/isaiah-collier",
+      "image": "players/isaiah-collier.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Isaiah-Collier-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "jaren-jackson-jr",
+      "name": "Jaren Jackson Jr.",
+      "team": "Utah Jazz",
+      "profile": "https://www.2kratings.com/jaren-jackson-jr",
+      "image": "players/jaren-jackson-jr.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Jaren-Jackson-Jr-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "jaxson-hayes",
+      "name": "Jaxson Hayes",
+      "team": "Utah Jazz",
+      "profile": "https://www.2kratings.com/jaxson-hayes",
+      "image": "players/jaxson-hayes.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Jaxson-Hayes-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "josh-green",
+      "name": "Josh Green",
+      "team": "Utah Jazz",
+      "profile": "https://www.2kratings.com/josh-green",
+      "image": "players/josh-green.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Josh-Green-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "josh-okogie",
+      "name": "Josh Okogie",
+      "team": "Utah Jazz",
+      "profile": "https://www.2kratings.com/josh-okogie",
+      "image": "players/josh-okogie.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Josh-Okogie-2K-Rating-1.png",
+      "status": "ok"
+    },
+    {
+      "id": "jusuf-nurkic",
+      "name": "Jusuf Nurkic",
+      "team": "Utah Jazz",
+      "profile": "https://www.2kratings.com/jusuf-nurkic",
+      "image": "players/jusuf-nurkic.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Jusuf-Nurkic-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "keyonte-george",
+      "name": "Keyonte George",
+      "team": "Utah Jazz",
+      "profile": "https://www.2kratings.com/keyonte-george",
+      "image": "players/keyonte-george.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Keyonte-George-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "kobe-bufkin",
+      "name": "Kobe Bufkin",
+      "team": "Utah Jazz",
+      "profile": "https://www.2kratings.com/kobe-bufkin",
+      "image": "players/kobe-bufkin.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Kobe-Bufkin-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "kyle-filipowski",
+      "name": "Kyle Filipowski",
+      "team": "Utah Jazz",
+      "profile": "https://www.2kratings.com/kyle-filipowski",
+      "image": "players/kyle-filipowski.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Kyle-Filipowski-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "lauri-markkanen",
+      "name": "Lauri Markkanen",
+      "team": "Utah Jazz",
+      "profile": "https://www.2kratings.com/lauri-markkanen",
+      "image": "players/lauri-markkanen.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Lauri-Markkanen-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "mohamed-bamba",
+      "name": "Mohamed Bamba",
+      "team": "Utah Jazz",
+      "profile": "https://www.2kratings.com/mohamed-bamba",
+      "image": "players/mohamed-bamba.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Mohamed-Bamba-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "sviatoslav-mykhailiuk",
+      "name": "Sviatoslav Mykhailiuk",
+      "team": "Utah Jazz",
+      "profile": "https://www.2kratings.com/sviatoslav-mykhailiuk",
+      "image": "players/sviatoslav-mykhailiuk.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Sviatoslav-Mykhailiuk-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "tony-bradley-jr",
+      "name": "Tony Bradley",
+      "team": "Utah Jazz",
+      "profile": "https://www.2kratings.com/tony-bradley-jr",
+      "image": "players/tony-bradley-jr.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Tony-Bradley-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "trey-alexander",
+      "name": "Trey Alexander",
+      "team": "Utah Jazz",
+      "profile": "https://www.2kratings.com/trey-alexander",
+      "image": "players/trey-alexander.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Trey-Alexander-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "aj-dybantsa",
+      "name": "AJ Dybantsa",
+      "team": "Washington Wizards",
+      "profile": "https://www.2kratings.com/aj-dybantsa",
+      "image": "players/aj-dybantsa.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/AJ-Dybantsa-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "alexandre-sarr",
+      "name": "Alexandre Sarr",
+      "team": "Washington Wizards",
+      "profile": "https://www.2kratings.com/alexandre-sarr",
+      "image": "players/alexandre-sarr.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Alexandre-Sarr-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "anthony-davis",
+      "name": "Anthony Davis",
+      "team": "Washington Wizards",
+      "profile": "https://www.2kratings.com/anthony-davis",
+      "image": "players/anthony-davis.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Anthony-Davis-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "anthony-gill",
+      "name": "Anthony Gill",
+      "team": "Washington Wizards",
+      "profile": "https://www.2kratings.com/anthony-gill",
+      "image": "players/anthony-gill.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Anthony-Gill-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "bilal-coulibaly",
+      "name": "Bilal Coulibaly",
+      "team": "Washington Wizards",
+      "profile": "https://www.2kratings.com/bilal-coulibaly",
+      "image": "players/bilal-coulibaly.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Bilal-Coulibaly-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "bub-carrington",
+      "name": "Carlton Carrington",
+      "team": "Washington Wizards",
+      "profile": "https://www.2kratings.com/bub-carrington",
+      "image": "players/bub-carrington.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Carlton-Carrington-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "deandre-ayton",
+      "name": "Deandre Ayton",
+      "team": "Washington Wizards",
+      "profile": "https://www.2kratings.com/deandre-ayton",
+      "image": "players/deandre-ayton.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Deandre-Ayton-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "felix-okpara",
+      "name": "Felix Okpara",
+      "team": "Washington Wizards",
+      "profile": "https://www.2kratings.com/felix-okpara",
+      "image": "players/felix-okpara.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Felix-Okpara-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "jamir-watkins",
+      "name": "Jamir Watkins",
+      "team": "Washington Wizards",
+      "profile": "https://www.2kratings.com/jamir-watkins",
+      "image": "players/jamir-watkins.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Jamir-Watkins-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "justin-champagnie",
+      "name": "Justin Champagnie",
+      "team": "Washington Wizards",
+      "profile": "https://www.2kratings.com/justin-champagnie",
+      "image": "players/justin-champagnie.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Justin-Champagnie-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "khris-middleton",
+      "name": "Khris Middleton",
+      "team": "Washington Wizards",
+      "profile": "https://www.2kratings.com/khris-middleton",
+      "image": "players/khris-middleton.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Khris-Middleton-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "kyshawn-george",
+      "name": "Kyshawn George",
+      "team": "Washington Wizards",
+      "profile": "https://www.2kratings.com/kyshawn-george",
+      "image": "players/kyshawn-george.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Kyshawn-George-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "reece-beekman",
+      "name": "Reece Beekman",
+      "team": "Washington Wizards",
+      "profile": "https://www.2kratings.com/reece-beekman",
+      "image": "players/reece-beekman.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Reece-Beekman-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "trae-young",
+      "name": "Trae Young",
+      "team": "Washington Wizards",
+      "profile": "https://www.2kratings.com/trae-young",
+      "image": "players/trae-young.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Trae-Young-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "tre-johnson",
+      "name": "Tre Johnson",
+      "team": "Washington Wizards",
+      "profile": "https://www.2kratings.com/tre-johnson",
+      "image": "players/tre-johnson.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Tre-Johnson-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "tre-mann",
+      "name": "Tre Mann",
+      "team": "Washington Wizards",
+      "profile": "https://www.2kratings.com/tre-mann",
+      "image": "players/tre-mann.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Tre-Mann-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "tristan-vukcevic",
+      "name": "Tristan Vukcevic",
+      "team": "Washington Wizards",
+      "profile": "https://www.2kratings.com/tristan-vukcevic",
+      "image": "players/tristan-vukcevic.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Tristan-Vukcevic-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "will-riley",
+      "name": "Will Riley",
+      "team": "Washington Wizards",
+      "profile": "https://www.2kratings.com/will-riley",
+      "image": "players/will-riley.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Will-Riley-2K-Rating.png",
+      "status": "ok"
+    },
+    {
+      "id": "yaxel-lendeborg",
+      "name": "Yaxel Lendeborg",
+      "team": "Washington Wizards",
+      "profile": "https://www.2kratings.com/yaxel-lendeborg",
+      "image": "players/yaxel-lendeborg.png",
+      "image_url": "https://www.2kratings.com/wp-content/uploads/Yaxel-Lendeborg-2K-Rating.png",
+      "status": "ok"
+    }
+  ]
+}
